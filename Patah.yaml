@@ -17,6 +17,8 @@
 # To test if your yaml is valid or not, you can use this website:
 # http://www.yamllint.com/
 
+# Det luktar lite ost
+
 description: Patah - Main # Used to describe your yaml. Useful if you have multiple files
 name: Patah # Your name in-game. Spaces and underscores will be replaced with dashes
 ### Logic Section ###
