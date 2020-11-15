@@ -1,0 +1,359 @@
+description: Lajjo
+name: Lajjo
+glitches_required:
+  none: 0
+  minor_glitches: 1
+  overworld_glitches: 1
+  no_logic: 0
+dark_room_logic:
+  lamp: 1
+  torches: 0
+  none: 0
+restrict_dungeon_item_on_boss:
+  on: 0
+  off: 1
+meta_ignore:
+  mode:
+    - inverted
+  retro:
+    - on
+  weapons:
+    - swordless
+map_shuffle:
+  on: 1
+  off: 1
+compass_shuffle:
+  on: 1
+  off: 1
+smallkey_shuffle:
+  on: 1
+  universal: 1
+  off: 1
+bigkey_shuffle:
+  on: 1
+  off: 1
+local_keys:
+  on: 0
+  off: 1
+dungeon_items:
+  mc: 0
+  none: 50
+  mcsb: 0
+  lmcsb: 0
+  ub: 0
+dungeon_counters:
+  on: 0
+  pickup: 1
+  default: 0
+  off: 0
+accessibility:
+  items: 1
+  locations: 1
+  none: 1
+progressive:
+  on: 1
+  off: 1
+  random: 1
+entrance_shuffle:
+  none: 50
+  dungeonssimple: 32
+  dungeonsfull: 16
+  simple: 16
+  restricted: 8
+  full: 4
+  crossed: 2
+  insanity: 1
+goals:
+  ganon: 25
+  fast_ganon: 25
+  dungeons: 8
+  pedestal: 4
+  ganon_pedestal: 2
+  triforce_hunt: 2
+  local_triforce_hunt: 0
+  ganon_triforce_hunt: 1
+  local_ganon_triforce_hunt: 0
+triforce_pieces_mode:
+  extra: 0
+  percentage: 1
+  available: 0
+triforce_pieces_extra:
+  0: 0
+  5: 0
+  10: 0
+  15: 0
+  20: 0
+triforce_pieces_percentage:
+  100: 1
+  112: 1
+  125: 1
+triforce_pieces_available:
+  25: 0
+  30: 0
+  40: 0
+  50: 0
+triforce_pieces_required:
+  15: 0
+  25: 0
+  50: 1
+  75: 1
+  100: 1
+tower_open:
+  0: 0
+  1: 0
+  2: 0
+  3: 0
+  4: 0
+  5: 0
+  6: 0
+  7: 0
+  random: 1
+ganon_open:
+  0: 0
+  1: 0
+  2: 0
+  3: 0
+  4: 0
+  5: 0
+  6: 0
+  7: 0
+  random: 1
+mode:
+  standard: 8
+  open: 24
+  inverted: 1
+retro:
+  on: 0
+  off: 1
+hints:
+  on: 1
+  off: 0
+weapons:
+  randomized: 16
+  assured: 8
+  vanilla: 4
+  swordless: 1
+item_pool:
+  easy: 0
+  normal: 1
+  hard: 0
+  expert: 0
+  crowd_control: 0
+item_functionality:
+  easy: 0
+  normal: 1
+  hard: 0
+  expert: 0
+progression_balancing:
+  on: 0
+  off: 1
+boss_shuffle:
+  none: 16
+  simple: 8
+  full: 4
+  random: 2
+  singularity: 1
+enemy_shuffle:
+  on: 1
+  off: 14
+killable_thieves:
+  on: 0
+  off: 1
+tile_shuffle:
+  on: 1
+  off: 0
+bush_shuffle:
+  on: 0
+  off: 1
+enemy_damage:
+  default: 16
+  shuffled: 2
+  random: 1
+enemy_health:
+  default: 16
+  easy: 0
+  hard: 2
+  expert: 1
+pot_shuffle:
+  on: 0
+  off: 1
+beemizer:
+  0: 1
+  1: 0
+  2: 0
+  3: 0
+  4: 0
+shop_shuffle:
+  none: 1
+  i: 1
+  p: 1
+  u: 1
+  ip: 1
+  uip: 1
+shuffle_prizes:
+  none: 0
+  g: 1
+  b: 0
+  bg: 0
+timer:
+  none: 1
+  timed: 0
+  timed_ohko: 0
+  ohko: 0
+  timed_countdown: 0
+  display: 0
+countdown_start_time:
+  0: 1
+  10: 0
+  20: 0
+  30: 0
+  60: 0
+red_clock_time:
+  1: 1
+  '-2': 0
+blue_clock_time:
+  1: 1
+  2: 0
+green_clock_time:
+  4: 1
+  10: 0
+  15: 0
+glitch_boots:
+  on: 1
+  off: 0
+linked_options:
+  - name: crosskeys
+    options:
+      entrance_shuffle: crossed
+      bigkey_shuffle: true
+      compass_shuffle: true
+      map_shuffle: true
+      smallkey_shuffle: true
+    percentage: 0
+  - name: localcrosskeys
+    options:
+      entrance_shuffle: crossed
+      bigkey_shuffle: true
+      compass_shuffle: true
+      map_shuffle: true
+      smallkey_shuffle: true
+      local_items:
+        - Small Keys
+        - Big Keys
+    percentage: 0
+  - name: enemizer
+    options:
+      boss_shuffle:
+        simple: 1
+        full: 1
+        random: 1
+        singularity: 1
+      enemy_damage:
+        shuffled: 1
+        random: 1
+      enemy_health:
+        easy: 1
+        hard: 1
+        expert: 1
+    percentage: 0
+door_shuffle:
+  vanilla: 4
+  basic: 2
+  crossed: 1
+intensity:
+  1: 0
+  2: 0
+  3: 0
+  random: 1
+experimental:
+  on: 0
+  off: 1
+debug:
+  on: 0
+  off: 1
+rom:
+  sprite:
+    random: 0
+    randomonhit: 1
+    Astronaut: 1
+    Ark: 1
+    Frog Link: 1
+    Pete (Harvest Moon): 1
+    Penguin Link: 1
+    Shy Guy: 1
+    Will: 1
+  disablemusic:
+    on: 0
+    off: 1
+  quickswap:
+    on: 1
+    off: 0
+  menuspeed:
+    normal: 1
+    instant: 0
+    double: 0
+    triple: 0
+    quadruple: 0
+    half: 0
+  heartcolor:
+    red: 0
+    blue: 0
+    green: 0
+    yellow: 0
+    random: 1
+  heartbeep:
+    double: 0
+    normal: 0
+    half: 0
+    quarter: 0
+    off: 1
+  ow_palettes: # Change the colors of the overworld
+    default: 0 # No changes
+    random: 1 # Shuffle the colors, with harmony in mind
+    blackout: 0 # everything black / blind mode
+    grayscale: 1
+    negative: 1
+    classic: 1
+    dizzy: 1
+    sick: 1
+    puke: 1
+  uw_palettes: # Change the colors of caves and dungeons
+    default: 0 # No changes
+    random: 1 # Shuffle the colors, with harmony in mind
+    blackout: 0 # everything black / blind mode
+    grayscale: 1
+    negative: 1
+    classic: 1
+    dizzy: 1
+    sick: 1
+    puke: 1
+  hud_palettes: # Change the colors of the hud
+    default: 0 # No changes
+    random: 1 # Shuffle the colors, with harmony in mind
+    blackout: 0 # everything black / blind mode
+    grayscale: 1
+    negative: 1
+    classic: 1
+    dizzy: 1
+    sick: 1
+    puke: 1
+  sword_palettes: # Change the colors of swords
+    default: 0 # No changes
+    random: 1 # Shuffle the colors, with harmony in mind
+    blackout: 1 # everything black / blind mode
+    grayscale: 1
+    negative: 1
+    classic: 1
+    dizzy: 1
+    sick: 1
+    puke: 1
+  shield_palettes: # Change the colors of shields
+    default: 0 # No changes
+    random: 1 # Shuffle the colors, with harmony in mind
+    blackout: 1 # everything black / blind mode
+    grayscale: 1
+    negative: 1
+    classic: 1
+    dizzy: 1
+    sick: 1
+    puke: 1
