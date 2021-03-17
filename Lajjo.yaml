@@ -1,9 +1,9 @@
 description: Lajjo
 name: Lajjo
 glitches_required:
-  none: 0
-  minor_glitches: 1
-  overworld_glitches: 1
+  none: 1
+  minor_glitches: 0
+  overworld_glitches: 0
   no_logic: 0
 dark_room_logic:
   lamp: 1
@@ -27,7 +27,7 @@ compass_shuffle:
   off: 1
 smallkey_shuffle:
   on: 1
-  universal: 1
+  universal: 0
   off: 1
 bigkey_shuffle:
   on: 1
@@ -51,53 +51,59 @@ accessibility:
   locations: 1
   none: 1
 progressive:
-  on: 1
-  off: 1
+  on: 0
+  off: 0
   random: 1
 entrance_shuffle:
-  none: 50
-  dungeonssimple: 32
-  dungeonsfull: 16
+  none: 55
+  dungeonssimple: 16
+  dungeonsfull: 8
   simple: 16
   restricted: 8
   full: 4
   crossed: 2
   insanity: 1
 goals:
-  ganon: 25
-  fast_ganon: 25
-  dungeons: 8
-  pedestal: 4
-  ganon_pedestal: 2
+  ganon: 10
+  fast_ganon: 10
+  dungeons: 0
+  pedestal: 0
+  ganon_pedestal: 0
   triforce_hunt: 2
   local_triforce_hunt: 0
-  ganon_triforce_hunt: 1
+  ganon_triforce_hunt: 2
   local_ganon_triforce_hunt: 0
+  ice_rod_hunt: 1
+pyramid_open:
+  goal: 1
+  auto: 0
+  yes: 0
+  no: 0
 triforce_pieces_mode:
   extra: 0
   percentage: 1
   available: 0
 triforce_pieces_extra:
   0: 0
-  5: 0
-  10: 0
+  5: 50
+  10: 50
   15: 0
   20: 0
 triforce_pieces_percentage:
-  100: 1
-  112: 1
-  125: 1
+  100: 5
+  150: 4
+  200: 1
 triforce_pieces_available:
   25: 0
-  30: 0
+  30: 50
   40: 0
   50: 0
 triforce_pieces_required:
-  15: 0
-  25: 0
+  15: 1
+  20: 2
+  30: 4
+  40: 2
   50: 1
-  75: 1
-  100: 1
 tower_open:
   0: 0
   1: 0
@@ -119,8 +125,8 @@ ganon_open:
   7: 0
   random: 1
 mode:
-  standard: 8
-  open: 24
+  standard: 1
+  open: 1
   inverted: 1
 retro:
   on: 0
@@ -129,24 +135,36 @@ hints:
   on: 1
   off: 0
 weapons:
-  randomized: 16
-  assured: 8
-  vanilla: 4
+  randomized: 8
+  assured: 4
+  vanilla: 2
   swordless: 1
 item_pool:
   easy: 0
   normal: 1
   hard: 0
   expert: 0
-  crowd_control: 0
 item_functionality:
   easy: 0
   normal: 1
   hard: 0
   expert: 0
 progression_balancing:
-  on: 0
-  off: 1
+  on: 1
+  off: 0
+tile_shuffle:
+  on: 1
+  off: 0
+misery_mire_medallion:
+  random: 1
+  ether: 0
+  bombos: 0
+  quake: 0
+turtle_rock_medallion:
+  random: 1
+  ether: 0
+  bombos: 0
+  quake: 0
 boss_shuffle:
   none: 16
   simple: 8
@@ -155,25 +173,22 @@ boss_shuffle:
   singularity: 1
 enemy_shuffle:
   on: 1
-  off: 14
+  off: 9
 killable_thieves:
   on: 0
   off: 1
-tile_shuffle:
-  on: 1
-  off: 0
 bush_shuffle:
   on: 0
   off: 1
 enemy_damage:
-  default: 16
-  shuffled: 2
-  random: 1
+  default: 1
+  shuffled: 0
+  random: 0
 enemy_health:
-  default: 16
+  default: 1
   easy: 0
-  hard: 2
-  expert: 1
+  hard: 0
+  expert: 0
 pot_shuffle:
   on: 0
   off: 1
@@ -183,13 +198,23 @@ beemizer:
   2: 0
   3: 0
   4: 0
+shop_shuffle_slots:
+  0: 6
+  10: 3
+  20: 2
+  30: 1
 shop_shuffle:
-  none: 1
-  i: 1
-  p: 1
-  u: 1
-  ip: 1
-  uip: 1
+  none: 0
+  g: 0
+  f: 0
+  p: 0
+  u: 0
+  w: 0
+  gp: 0
+  fp: 0
+  ufp: 0
+  wfp: 0
+  ufpw: 1
 shuffle_prizes:
   none: 0
   g: 1
@@ -203,17 +228,17 @@ timer:
   timed_countdown: 0
   display: 0
 countdown_start_time:
-  0: 1
-  10: 0
+  0: 0
+  10: 1
   20: 0
   30: 0
   60: 0
 red_clock_time:
-  1: 1
-  '-2': 0
+  1: 0
+  '-2': 1
 blue_clock_time:
-  1: 1
-  2: 0
+  1: 0
+  2: 1
 green_clock_time:
   4: 1
   10: 0
@@ -257,7 +282,7 @@ linked_options:
         expert: 1
     percentage: 0
 door_shuffle:
-  vanilla: 4
+  vanilla: 3
   basic: 2
   crossed: 1
 intensity:
@@ -265,27 +290,36 @@ intensity:
   2: 0
   3: 0
   random: 1
+key_drop_shuffle:
+  on: 0
+  off: 1
 experimental:
   on: 0
-  off: 1
+  off: 50
 debug:
   on: 0
-  off: 1
+  off: 50
 rom:
   sprite:
     random: 0
-    randomonhit: 1
-    Astronaut: 1
-    Ark: 1
-    Frog Link: 1
-    Pete (Harvest Moon): 1
-    Penguin Link: 1
-    Shy Guy: 1
-    Will: 1
+    froglink: 10
+    hollow-knight-winter: 1
+    astronaut: 1
+    will: 1
+    penguinlink: 1
+    medli: 1
   disablemusic:
     on: 0
     off: 1
   quickswap:
+    on: 1
+    off: 0
+  triforcehud:
+    normal: 1
+    hide_goal: 0
+    hide_required: 0
+    hide_both: 0
+  reduceflashing:
     on: 1
     off: 0
   menuspeed:
@@ -307,53 +341,53 @@ rom:
     half: 0
     quarter: 0
     off: 1
-  ow_palettes: # Change the colors of the overworld
-    default: 0 # No changes
-    random: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 1
-    negative: 1
-    classic: 1
-    dizzy: 1
-    sick: 1
+  ow_palettes:
+    default: 5
+    random: 5
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 4
+    dizzy: 3
+    sick: 2
     puke: 1
-  uw_palettes: # Change the colors of caves and dungeons
-    default: 0 # No changes
-    random: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 1
-    negative: 1
-    classic: 1
-    dizzy: 1
-    sick: 1
+  uw_palettes:
+    default: 5
+    random: 5
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 4
+    dizzy: 3
+    sick: 2
     puke: 1
-  hud_palettes: # Change the colors of the hud
-    default: 0 # No changes
-    random: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 1
-    negative: 1
-    classic: 1
-    dizzy: 1
-    sick: 1
+  hud_palettes:
+    default: 5
+    random: 5
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 4
+    dizzy: 3
+    sick: 2
     puke: 1
-  sword_palettes: # Change the colors of swords
-    default: 0 # No changes
-    random: 1 # Shuffle the colors, with harmony in mind
-    blackout: 1 # everything black / blind mode
-    grayscale: 1
-    negative: 1
-    classic: 1
-    dizzy: 1
-    sick: 1
+  sword_palettes:
+    default: 5
+    random: 5
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 4
+    dizzy: 3
+    sick: 2
     puke: 1
-  shield_palettes: # Change the colors of shields
-    default: 0 # No changes
-    random: 1 # Shuffle the colors, with harmony in mind
-    blackout: 1 # everything black / blind mode
-    grayscale: 1
-    negative: 1
-    classic: 1
-    dizzy: 1
-    sick: 1
+  shield_palettes:
+    default: 5
+    random: 5
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 4
+    dizzy: 3
+    sick: 2
     puke: 1
