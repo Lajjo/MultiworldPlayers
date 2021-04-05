@@ -1,0 +1,423 @@
+description: Patah bonkers settings
+name: Patah
+glitches_required:
+  none: 50
+  minor_glitches: 0
+  overworld_glitches: 0
+  no_logic: 0
+dark_room_logic:
+  lamp: 50
+  torches: 0
+  none: 0
+restrict_dungeon_item_on_boss:
+  on: 1
+  off: 1
+meta_ignore:
+  mode:
+    - inverted
+  retro:
+    - on
+  weapons:
+    - swordless
+map_shuffle:
+  on: 1
+  off: 1
+compass_shuffle:
+  on: 1
+  off: 1
+smallkey_shuffle:
+  on: 1
+  universal: 0
+  off: 1
+bigkey_shuffle:
+  on: 1
+  off: 1
+local_keys:
+  on: 0
+  off: 1
+dungeon_items:
+  mc: 0
+  none: 50
+  mcsb: 0
+  lmcsb: 0
+  ub: 0
+dungeon_counters:
+  on: 0
+  pickup: 1
+  default: 0
+  off: 0
+accessibility:
+  items: 1
+  locations: 1
+  none: 1
+progressive:
+  on: 0
+  off: 0
+  random: 1
+entrance_shuffle:
+  none: 0
+  dungeonssimple: 0
+  dungeonsfull: 0
+  simple: 0
+  restricted: 0
+  full: 1
+  crossed: 1
+  insanity: 1
+goals:
+  ganon: 1
+  fast_ganon: 1
+  dungeons: 1
+  pedestal: 0
+  ganon_pedestal: 0
+  triforce_hunt: 0
+  local_triforce_hunt: 0
+  ganon_triforce_hunt: 0
+  local_ganon_triforce_hunt: 0
+  ice_rod_hunt: 0
+pyramid_open:
+  goal: 0
+  auto: 0
+  yes: 1
+  no: 0
+triforce_pieces_mode:
+  extra: 0
+  percentage: 0
+  available: 50
+triforce_pieces_extra:
+  0: 0
+  5: 50
+  10: 50
+  15: 0
+  20: 0
+triforce_pieces_percentage:
+  100: 0
+  150: 50
+  200: 0
+triforce_pieces_available:
+  25: 0
+  30: 50
+  40: 0
+  50: 0
+triforce_pieces_required:
+  15: 0
+  20: 50
+  30: 0
+  40: 0
+  50: 0
+tower_open:
+  0: 0
+  1: 0
+  2: 0
+  3: 0
+  4: 0
+  5: 0
+  6: 0
+  7: 0
+  random: 1
+ganon_open:
+  0: 0
+  1: 0
+  2: 0
+  3: 0
+  4: 0
+  5: 0
+  6: 0
+  7: 0
+  random: 1
+mode:
+  standard: 1
+  open: 1
+  inverted: 1
+retro:
+  on: 0
+  off: 1
+hints:
+  on: 50
+  off: 0
+weapons:
+  randomized: 1
+  assured: 0
+  vanilla: 0
+  swordless: 0
+item_pool:
+  easy: 0
+  normal: 1
+  hard: 0
+  expert: 0
+item_functionality:
+  easy: 0
+  normal: 1
+  hard: 0
+  expert: 0
+progression_balancing:
+  on: 0
+  off: 1
+tile_shuffle:
+  on: 1
+  off: 0
+misery_mire_medallion:
+  random: 1
+  ether: 0
+  bombos: 0
+  quake: 0
+turtle_rock_medallion:
+  random: 1
+  ether: 0
+  bombos: 0
+  quake: 0
+boss_shuffle:
+  none: 1
+  simple: 1
+  full: 1
+  random: 1
+  singularity: 0
+enemy_shuffle:
+  on: 1
+  off: 1
+killable_thieves:
+  on: 0
+  off: 1
+bush_shuffle:
+  on: 0
+  off: 1
+enemy_damage:
+  default: 1
+  shuffled: 0
+  random: 0
+enemy_health:
+  default: 1
+  easy: 0
+  hard: 0
+  expert: 0
+pot_shuffle:
+  on: 0
+  off: 1
+beemizer:
+  0: 1
+  1: 0
+  2: 0
+  3: 0
+  4: 0
+shop_shuffle_slots:
+  0: 1
+  1: 1
+  2: 1
+  3: 1
+  4: 1
+  5: 1
+  6: 1
+  7: 1
+  8: 1
+  9: 1
+  10: 1
+  11: 1
+  12: 1
+  13: 1
+  14: 1
+  15: 1
+  16: 1
+  17: 1
+  18: 1
+  19: 1
+  20: 1
+  21: 1
+  22: 1
+  23: 1
+  24: 1
+  25: 1
+  26: 1
+  27: 1
+  28: 1
+  29: 1
+  30: 1
+shop_shuffle:
+  none: 0
+  g: 0
+  f: 0
+  p: 0
+  u: 0
+  w: 0
+  gp: 0
+  fp: 0
+  ufp: 0
+  wfp: 0
+  ufpw: 1
+shuffle_prizes:
+  none: 0
+  g: 1
+  b: 0
+  bg: 0
+timer:
+  none: 1
+  timed: 0
+  timed_ohko: 0
+  ohko: 0
+  timed_countdown: 0
+  display: 0
+countdown_start_time:
+  0: 0
+  10: 1
+  20: 0
+  30: 0
+  60: 0
+red_clock_time:
+  1: 0
+  '-2': 1
+blue_clock_time:
+  1: 0
+  2: 1
+green_clock_time:
+  4: 1
+  10: 0
+  15: 0
+glitch_boots:
+  on: 1
+  off: 0
+linked_options:
+  - name: crosskeys
+    options:
+      entrance_shuffle: crossed
+      bigkey_shuffle: true
+      compass_shuffle: true
+      map_shuffle: true
+      smallkey_shuffle: true
+    percentage: 0
+  - name: localcrosskeys
+    options:
+      entrance_shuffle: crossed
+      bigkey_shuffle: true
+      compass_shuffle: true
+      map_shuffle: true
+      smallkey_shuffle: true
+      local_items:
+        - Small Keys
+        - Big Keys
+    percentage: 0
+  - name: enemizer
+    options:
+      boss_shuffle:
+        simple: 1
+        full: 1
+        random: 1
+        singularity: 1
+      enemy_damage:
+        shuffled: 1
+        random: 1
+      enemy_health:
+        easy: 1
+        hard: 1
+        expert: 1
+    percentage: 0
+door_shuffle:
+  vanilla: 1
+  basic: 1
+  crossed: 1
+intensity:
+  1: 0
+  2: 0
+  3: 0
+  random: 1
+key_drop_shuffle:
+  on: 0
+  off: 1
+experimental:
+  on: 0
+  off: 50
+debug:
+  on: 0
+  off: 50
+rom:
+  sprite:
+    random: 0
+    froglink: 1
+    hollow-knight-winter: 1
+    ark-dorana: 1
+    astronaut: 1
+    birb: 1
+    minishcaplink: 1
+    moosh: 1
+    will: 1
+    zerosuitsamus: 1
+  disablemusic:
+    on: 0
+    off: 1
+  quickswap:
+    on: 1
+    off: 0
+  triforcehud:
+    normal: 1
+    hide_goal: 0
+    hide_required: 0
+    hide_both: 0
+  reduceflashing:
+    on: 1
+    off: 0
+  menuspeed:
+    normal: 1
+    instant: 0
+    double: 0
+    triple: 0
+    quadruple: 0
+    half: 0
+  heartcolor:
+    red: 0
+    blue: 0
+    green: 0
+    yellow: 0
+    random: 1
+  heartbeep:
+    double: 0
+    normal: 0
+    half: 0
+    quarter: 0
+    off: 1
+  ow_palettes:
+    default: 1
+    random: 1
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 1
+    dizzy: 0
+    sick: 0
+    puke: 0
+  uw_palettes:
+    default: 1
+    random: 1
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 1
+    dizzy: 0
+    sick: 0
+    puke: 0
+  hud_palettes:
+    default: 1
+    random: 1
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 1
+    dizzy: 0
+    sick: 0
+    puke: 0
+  sword_palettes:
+    default: 1
+    random: 1
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 1
+    dizzy: 0
+    sick: 0
+    puke: 0
+  shield_palettes:
+    default: 1
+    random: 1
+    blackout: 0
+    grayscale: 0
+    negative: 0
+    classic: 1
+    dizzy: 0
+    sick: 0
+    puke: 0
