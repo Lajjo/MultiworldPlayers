@@ -73,7 +73,7 @@ goals:
   local_triforce_hunt: 0
   ganon_triforce_hunt: 2
   local_ganon_triforce_hunt: 0
-  ice_rod_hunt: 1
+  ice_rod_hunt: 0
 pyramid_open:
   goal: 1
   auto: 0
@@ -99,11 +99,11 @@ triforce_pieces_available:
   40: 0
   50: 0
 triforce_pieces_required:
-  15: 1
-  20: 2
-  30: 4
-  40: 2
   50: 1
+  60: 1
+  70: 1
+  80: 1
+  90: 1
 tower_open:
   0: 0
   1: 0
