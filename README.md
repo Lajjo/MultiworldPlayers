@@ -1,1 +1,1 @@
-Multiworld player settings for multimystery.
+Multiworld player settings.
