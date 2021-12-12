@@ -27,9 +27,9 @@ name: Lajjo{NUMBER}
 game:
   A Link to the Past: 1
   Minecraft: 0
-  Super Metroid: 1
+  Super Metroid: 0
 requires:
-  version: 0.2.0 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.2.1 # Version of Archipelago required for this yaml to work as expected.
 # Shared Options supported by all games:
 accessibility:
   items: 1 # Guarantees you will be able to acquire all items, but you may not be able to access all locations
