@@ -361,8 +361,9 @@ Super Metroid:
     red_brinstar_elevator: 0
     golden_four: 0
   death_link: # When you die, everyone dies. Of course the reverse is true too.
-    false: 0
-    true: 1
+    disable: 0
+    enable: 1
+    enable_survive: 0
   max_difficulty:
     easy: 0
     medium: 1
@@ -374,9 +375,6 @@ Super Metroid:
   morph_placement:
     early: 0
     normal: 1
-  suits_restriction:
-    false: 0
-    true: 1
   strict_minors:
     false: 1
     true: 0
