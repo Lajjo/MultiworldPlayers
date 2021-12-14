@@ -56,19 +56,19 @@ Super Metroid:
     varia_custom: 0
   start_location:
     ceres: 0
-    landing_site: 50
-    gauntlet_top: 0
-    green_brinstar_elevator: 0
-    big_pink: 0
-    etecoons_supers: 0
-    wrecked_ship_main: 0
-    firefleas_top: 0
-    business_center: 0
-    bubble_mountain: 0
-    mama_turtle: 0
+    landing_site: 15
+    gauntlet_top: 1
+    green_brinstar_elevator: 1
+    big_pink: 1
+    etecoons_supers: 1
+    wrecked_ship_main: 1
+    firefleas_top: 1
+    business_center: 1
+    bubble_mountain: 1
+    mama_turtle: 1
     watering_hole: 0
-    aqueduct: 0
-    red_brinstar_elevator: 0
+    aqueduct: 1
+    red_brinstar_elevator: 1
     golden_four: 0
   death_link: # When you die, everyone dies. Of course the reverse is true too.
     false: 0
@@ -83,11 +83,8 @@ Super Metroid:
     mania: 0
     infinity: 0
   morph_placement:
-    early: 1
+    early: 0
     normal: 1
-  suits_restriction:
-    false: 0
-    true: 50
   strict_minors:
     false: 50
     true: 0
@@ -131,8 +128,8 @@ Super Metroid:
     light: 3
     on: 1
   area_layout:
-    false: 50
-    true: 0
+    false: 3
+    true: 1
   doors_colors_rando:
     false: 3
     true: 1
@@ -143,27 +140,27 @@ Super Metroid:
     false: 5
     true: 1
   fun_combat:
-    false: 10
+    false: 5
     true: 1
   fun_movement:
-    false: 10
+    false: 5
     true: 1
   fun_suits:
     false: 5
     true: 1
   layout_patches:
-    false: 0
-    true: 50
+    false: 3
+    true: 1
   varia_tweaks:
-    false: 50
-    true: 0
+    false: 5
+    true: 1
   nerfed_charge:
     false: 50
     true: 0
   gravity_behaviour:
-    vanilla: 0
-    balanced: 50
-    progressive: 0
+    vanilla: 1
+    balanced: 1
+    progressive: 1
   elevators_doors_speed:
     false: 0
     true: 50
@@ -177,11 +174,11 @@ Super Metroid:
     false: 50
     true: 0
   hud:
-    false: 50
-    true: 0
+    false: 1
+    true: 1
   animals:
-    false: 50
-    true: 0
+    false: 1
+    true: 1
   no_music:
     false: 50
     true: 0
