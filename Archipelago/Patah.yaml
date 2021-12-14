@@ -73,6 +73,7 @@ Super Metroid:
   death_link: # When you die, everyone dies. Of course the reverse is true too.
     false: 0
     true: 1
+    enable_survive: 0
   max_difficulty:
     easy: 0
     medium: 0
@@ -221,54 +222,54 @@ A Link to the Past:
   crystals_needed_for_gt:
     # you can add additional values between minimum and maximum
     0: 0 # minimum value
-    7: 50 # maximum value
-    random: 0
+    7: 0 # maximum value
+    random: 1
     random-low: 0
     random-high: 0
   crystals_needed_for_ganon:
     # you can add additional values between minimum and maximum
     0: 0 # minimum value
-    7: 50 # maximum value
-    random: 0
+    7: 0 # maximum value
+    random: 1
     random-low: 0
     random-high: 0
   bigkey_shuffle: # Big Key Placement
-    original_dungeon: 50
-    own_dungeons: 0
+    original_dungeon: 1
+    own_dungeons: 1
     own_world: 0
-    any_world: 0
+    any_world: 3
     different_world: 0
   smallkey_shuffle: # Small Key Placement
-    original_dungeon: 50
-    own_dungeons: 0
+    original_dungeon: 5
+    own_dungeons: 1
     own_world: 0
-    any_world: 0
+    any_world: 3
     different_world: 0
-    universal: 0
+    universal: 1
   compass_shuffle: # Compass Placement
-    original_dungeon: 50
+    original_dungeon: 0
     own_dungeons: 0
     own_world: 0
-    any_world: 0
+    any_world: 1
     different_world: 0
   map_shuffle: # Map Placement
-    original_dungeon: 50
+    original_dungeon: 0
     own_dungeons: 0
     own_world: 0
-    any_world: 0
+    any_world: 1
     different_world: 0
   progressive:
-    off: 0
-    grouped_random: 0
-    on: 50
+    off: 1
+    grouped_random: 1
+    on: 2
   swordless: # No swords. Curtains in Skull Woods and Agahnim's
     #    Tower are removed, Agahnim's Tower barrier can be
     #    destroyed with hammer. Misery Mire and Turtle Rock
     #    can be opened without a sword. Hammer damages Ganon.
     #    Ether and Bombos Tablet can be activated with Hammer
     #    (and Book).
-    false: 50
-    true: 0
+    false: 25
+    true: 1
   retro: # Zelda-1 like mode. You have to purchase a quiver to shoot arrows using rupees
     #    and there are randomly placed take-any caves that contain one Sword and choices of Heart Container/Blue Potion.
     false: 50
@@ -287,8 +288,8 @@ A Link to the Past:
     true: 0
   enemy_shuffle: # Randomize every enemy spawn.
     #    If mode is Standard, Hyrule Castle is left out (may result in visually wrong enemy sprites in that area.)
-    false: 50
-    true: 0
+    false: 25
+    true: 1
   killable_thieves: # Makes Thieves killable.
     false: 50
     true: 0
@@ -297,17 +298,17 @@ A Link to the Past:
     true: 0
   shop_item_slots:
     # you can add additional values between minimum and maximum
-    0: 50 # minimum value
+    0: 1 # minimum value
     30: 0 # maximum value
-    random: 0
+    random: 2
     random-low: 0
     random-high: 0
   tile_shuffle: # Randomize flying tiles floor patterns.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
   ow_palettes:
-    default: 50
-    good: 0
+    default: 0
+    good: 1
     blackout: 0
     puke: 0
     classic: 0
@@ -316,8 +317,8 @@ A Link to the Past:
     dizzy: 0
     sick: 0
   uw_palettes:
-    default: 50
-    good: 0
+    default: 0
+    good: 1
     blackout: 0
     puke: 0
     classic: 0
@@ -326,8 +327,8 @@ A Link to the Past:
     dizzy: 0
     sick: 0
   hud_palettes:
-    default: 50
-    good: 0
+    default: 0
+    good: 1
     blackout: 0
     puke: 0
     classic: 0
@@ -336,8 +337,8 @@ A Link to the Past:
     dizzy: 0
     sick: 0
   sword_palettes:
-    default: 50
-    good: 0
+    default: 0
+    good: 1
     blackout: 0
     puke: 0
     classic: 0
@@ -346,8 +347,8 @@ A Link to the Past:
     dizzy: 0
     sick: 0
   shield_palettes:
-    default: 50
-    good: 0
+    default: 0
+    good: 1
     blackout: 0
     puke: 0
     classic: 0
@@ -356,8 +357,8 @@ A Link to the Past:
     dizzy: 0
     sick: 0
   link_palettes:
-    default: 50
-    good: 0
+    default: 0
+    good: 1
     blackout: 0
     puke: 0
     classic: 0
@@ -372,19 +373,19 @@ A Link to the Past:
     quarter: 0
     off: 0
   heartcolor:
-    red: 50
-    blue: 0
-    green: 0
-    yellow: 0
+    red: 1
+    blue: 1
+    green: 1
+    yellow: 1
   quickswap:
     false: 0
     true: 50
   menuspeed:
-    normal: 50
+    normal: 0
     instant: 0
     double: 0
     triple: 0
-    quadruple: 0
+    quadruple: 1
     half: 0
   music:
     false: 0
@@ -393,8 +394,8 @@ A Link to the Past:
     false: 0
     true: 50
   triforcehud:
-    normal: 50
-    hide_goal: 0
+    normal: 0
+    hide_goal: 1
     hide_required: 0
     hide_both: 0
   glitch_boots:
@@ -403,11 +404,11 @@ A Link to the Past:
   beemizer_total_chance: # Percentage chance for each junk-fill item (rupees, bombs, arrows) to be
     #    replaced with either a bee swarm trap or a single bottle-filling bee.
     # you can add additional values between minimum and maximum
-    0: 50 # minimum value
+    0: 45 # minimum value
     100: 0 # maximum value
     random: 0
-    random-low: 0
-    random-high: 0
+    random-low: 4
+    random-high: 1
   beemizer_trap_chance: # Percentage chance for each replaced junk-fill item to be a bee swarm
     #    trap; all other replaced items are single bottle-filling bees.
     # you can add additional values between minimum and maximum
@@ -416,7 +417,7 @@ A Link to the Past:
     random: 0
     random-low: 0
     random-high: 0
-    60: 50
+    80: 50
   death_link: # When you die, everyone dies. Of course the reverse is true too.
     false: 0
     true: 1
@@ -432,10 +433,9 @@ A Link to the Past:
   start_hints: # Start with these item's locations prefilled into the !hint command.
     []
 
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+  start_location_hints:
     []
 
-  exclude_locations: # Prevent these locations from having an important item
+  exclude_locations:
     []
-
   
