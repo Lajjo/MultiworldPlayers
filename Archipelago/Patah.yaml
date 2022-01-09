@@ -28,7 +28,7 @@ game:
   Super Metroid: 1
   A Link to the Past: 1
 requires:
-  version: 0.2.1 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.2.3 # Version of Archipelago required for this yaml to work as expected.
 # Shared Options supported by all games:
 accessibility:
   items: 0 # Guarantees you will be able to acquire all items, but you may not be able to access all locations
@@ -56,19 +56,19 @@ Super Metroid:
     varia_custom: 0
   start_location:
     ceres: 0
-    landing_site: 50
-    gauntlet_top: 0
-    green_brinstar_elevator: 0
-    big_pink: 0
-    etecoons_supers: 0
-    wrecked_ship_main: 0
-    firefleas_top: 0
-    business_center: 0
-    bubble_mountain: 0
-    mama_turtle: 0
+    landing_site: 15
+    gauntlet_top: 1
+    green_brinstar_elevator: 1
+    big_pink: 1
+    etecoons_supers: 1
+    wrecked_ship_main: 1
+    firefleas_top: 1
+    business_center: 1
+    bubble_mountain: 1
+    mama_turtle: 1
     watering_hole: 0
-    aqueduct: 0
-    red_brinstar_elevator: 0
+    aqueduct: 1
+    red_brinstar_elevator: 1
     golden_four: 0
   death_link: # When you die, everyone dies. Of course the reverse is true too.
     false: 0
@@ -83,11 +83,8 @@ Super Metroid:
     mania: 0
     infinity: 0
   morph_placement:
-    early: 1
+    early: 0
     normal: 1
-  suits_restriction:
-    false: 0
-    true: 50
   strict_minors:
     false: 50
     true: 0
@@ -131,8 +128,8 @@ Super Metroid:
     light: 3
     on: 1
   area_layout:
-    false: 50
-    true: 0
+    false: 3
+    true: 1
   doors_colors_rando:
     false: 3
     true: 1
@@ -143,27 +140,27 @@ Super Metroid:
     false: 5
     true: 1
   fun_combat:
-    false: 10
+    false: 5
     true: 1
   fun_movement:
-    false: 10
+    false: 5
     true: 1
   fun_suits:
     false: 5
     true: 1
   layout_patches:
-    false: 0
-    true: 50
+    false: 3
+    true: 1
   varia_tweaks:
-    false: 50
-    true: 0
+    false: 5
+    true: 1
   nerfed_charge:
     false: 50
     true: 0
   gravity_behaviour:
-    vanilla: 0
-    balanced: 50
-    progressive: 0
+    vanilla: 1
+    balanced: 1
+    progressive: 1
   elevators_doors_speed:
     false: 0
     true: 50
@@ -177,11 +174,11 @@ Super Metroid:
     false: 50
     true: 0
   hud:
-    false: 50
-    true: 0
+    false: 1
+    true: 1
   animals:
-    false: 50
-    true: 0
+    false: 1
+    true: 1
   no_music:
     false: 50
     true: 0
@@ -303,6 +300,14 @@ A Link to the Past:
     random: 2
     random-low: 0
     random-high: 0
+  shop_price_modifier: # Percentage modifier for shuffled item prices in shops
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    400: 0 # maximum value
+    random: 1
+    random-low: 0
+    random-high: 0
+    100: 0
   tile_shuffle: # Randomize flying tiles floor patterns.
     false: 0
     true: 1
@@ -367,10 +372,10 @@ A Link to the Past:
     dizzy: 0
     sick: 0
   heartbeep:
-    normal: 50
+    normal: 0
     double: 0
     half: 0
-    quarter: 0
+    quarter: 1
     off: 0
   heartcolor:
     red: 1
@@ -421,6 +426,16 @@ A Link to the Past:
   death_link: # When you die, everyone dies. Of course the reverse is true too.
     false: 0
     true: 1
+  progression_balancing: # A system that moves progression earlier, to try and prevent the player from getting stuck and bored early.
+    false: 0
+    true: 50
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
   local_items: # Forces these items to be in their native world.
     []
 
