@@ -28,7 +28,7 @@ game:
   A Link to the Past: 0
   Super Metroid: 1
 requires:
-  version: 0.2.1 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.2.3 # Version of Archipelago required for this yaml to work as expected.
 A Link to the Past:
   crystals_needed_for_gt:
     # you can add additional values between minimum and maximum
