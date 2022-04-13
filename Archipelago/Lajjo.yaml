@@ -449,3 +449,159 @@ Super Metroid:
     on: 1 # A system to reduce BK, as in times during which you can't do anything by moving your items into an earlier access sphere to make it likely you have stuff to do
     off: 1 # Turn this off if you don't mind a longer multiworld, or can glitch/sequence break around missing items.
 
+ChecksFinder:
+  progression_balancing:
+    'true': 1
+  accessibility:
+    items: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+
+Hollow Knight:
+  RandomizeDreamers:
+    random: 1
+  RandomizeSkills:
+    random: 1
+  RandomizeFocus:
+    'false': 1
+  RandomizeSwim:
+    'false': 1
+  RandomizeCharms:
+    random: 1
+  RandomizeKeys:
+    random: 1
+  RandomizeMaskShards:
+    random: 1
+  RandomizeVesselFragments:
+    random: 1
+  RandomizeCharmNotches:
+    random: 1
+  RandomizePaleOre:
+    random: 1
+  RandomizeGeoChests:
+    'false': 1
+  RandomizeJunkPitChests:
+    'false': 1
+  RandomizeRancidEggs:
+    'false': 1
+  RandomizeRelics:
+    'true': 1
+  RandomizeWhisperingRoots:
+    'false': 1
+  RandomizeBossEssence:
+    'false': 1
+  RandomizeGrubs:
+    'false': 1
+  RandomizeMimics:
+    'false': 1
+  RandomizeMaps:
+    'false': 1
+  RandomizeStags:
+    'false': 1
+  RandomizeLifebloodCocoons:
+    'false': 1
+  RandomizeGrimmkinFlames:
+    'false': 1
+  RandomizeJournalEntries:
+    'false': 1
+  RandomizeNail:
+    'false': 1
+  RandomizeGeoRocks:
+    'false': 1
+  RandomizeBossGeo:
+    'false': 1
+  RandomizeSoulTotems:
+    'false': 1
+  RandomizeLoreTablets:
+    'false': 1
+  PreciseMovement:
+    'false': 1
+  ProficientCombat:
+    'false': 1
+  BackgroundObjectPogos:
+    'false': 1
+  EnemyPogos:
+    'false': 1
+  ObscureSkips:
+    'false': 1
+  ShadeSkips:
+    'false': 1
+  InfectionSkips:
+    'false': 1
+  FireballSkips:
+    'false': 1
+  SpikeTunnels:
+    'false': 1
+  AcidSkips:
+    'false': 1
+  DamageBoosts:
+    'false': 1
+  DangerousSkips:
+    'false': 1
+  DarkRooms:
+    'false': 1
+  ComplexSkips:
+    'false': 1
+  DifficultSkips:
+    'false': 1
+  RemoveSpellUpgrades:
+    'false': 1
+  StartLocation:
+    random: 1
+  MinimumGrubPrice:
+    1: 1
+  MaximumGrubPrice:
+    23: 1
+  MinimumEssencePrice:
+    1: 1
+  MaximumEssencePrice:
+    1400: 1
+  MinimumEggPrice:
+    1: 1
+  MaximumEggPrice:
+    10: 1
+  MinimumCharmPrice:
+    1: 1
+  MaximumCharmPrice:
+    20: 1
+  RandomCharmCosts:
+    '-1': 1
+  EggShopSlots:
+    0: 1
+  progression_balancing:
+    'true': 1
+  accessibility:
+    items: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+
+SMZ3:
+  sm_logic:
+    normal: 1
+  sword_location:
+    randomized: 1
+  morph_location:
+    randomized: 1
+  key_shuffle:
+    random: 1
+  progression_balancing:
+    'true': 1
+  accessibility:
+    items: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
