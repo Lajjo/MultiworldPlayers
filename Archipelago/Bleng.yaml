@@ -1,0 +1,148 @@
+description: Blengs fat file for archipelago randomizer
+name: Bleng{NUMBER}
+requires:
+  version: 0.3.1 # Version of Archipelago required for this yaml to work as expected.
+game:
+  Slay the Spire: 1
+  Hollow Knight: 1
+  ChecksFinder: 1
+
+Slay the Spire:
+  character:
+    ironclad: 30
+    silent: 20
+    defect: 20
+    watcher: 10
+  ascension: 
+    0: 50
+    1: 0
+    random: 0
+    random-low: 0
+    random-high: 0
+  heart_run:
+    false: 50
+    true: 0
+  progression_balancing:
+    false: 0
+    true: 50
+  accessibility:
+    locations: 0 
+    items: 0
+    random: 50
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+ChecksFinder:
+  progression_balancing: # A system that moves progression earlier, to try and prevent the player from getting stuck and bored early.
+    false: 0
+    true: 50
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+Hollow Knight:
+  RandomizeDreamers: 'true'
+  RandomizeSkills: 'true'
+  RandomizeFocus: 'false'
+  RandomizeSwim: 'false'
+  RandomizeCharms: 'true'
+  RandomizeKeys: 'true'
+  RandomizeMaskShards: 'true'
+  RandomizeVesselFragments: 'true'
+  RandomizeCharmNotches: 'true'
+  RandomizePaleOre: 'true'
+  RandomizeGeoChests: 'true'
+  RandomizeJunkPitChests: 'true'
+  RandomizeRancidEggs: 'true'
+  RandomizeRelics: 'true'
+  RandomizeWhisperingRoots: 'true'
+  RandomizeBossEssence: 'true'
+  RandomizeGrubs: 'true'
+  RandomizeMimics: 'false'
+  RandomizeMaps: 'true'
+  RandomizeStags: 'true'
+  RandomizeLifebloodCocoons: 'true'
+  RandomizeGrimmkinFlames: 'true'
+  RandomizeJournalEntries: 'true'
+  RandomizeNail: 'false'
+  RandomizeGeoRocks: 'false'
+  RandomizeBossGeo: 'true'
+  RandomizeSoulTotems: 'true'
+  RandomizeLoreTablets: 'true'
+  PreciseMovement: 'false'
+  ProficientCombat: 'false'
+  BackgroundObjectPogos: 'false'
+  EnemyPogos: 'false'
+  ObscureSkips: 'false'
+  ShadeSkips: 'false'
+  InfectionSkips: 'false'
+  FireballSkips: 'false'
+  SpikeTunnels: 'false'
+  AcidSkips: 'false'
+  DamageBoosts: 'false'
+  DangerousSkips: 'false'
+  DarkRooms: 'false'
+  ComplexSkips: 'false'
+  DifficultSkips: 'false'
+  RemoveSpellUpgrades: 'false'
+  StartLocation: king's_pass
+  MinimumGrubPrice: 1
+  MaximumGrubPrice: 23
+  MinimumEssencePrice: 1
+  MaximumEssencePrice: 1400
+  MinimumEggPrice: 1
+  MaximumEggPrice: 10
+  MinimumCharmPrice: 1
+  MaximumCharmPrice: 20
+  RandomCharmCosts: -1
+  EggShopSlots: 16
+  progression_balancing: 'true'
+  accessibility: locations
