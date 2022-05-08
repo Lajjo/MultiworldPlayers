@@ -25,8 +25,12 @@ name: Lajjo{NUMBER}
 #{number} will be replaced with the counter value of the name.
 #{NUMBER} will be replaced with the counter value of the name if the counter value is greater than 1.
 game:
-  A Link to the Past: 0
+  A Link to the Past: 1
   Super Metroid: 1
+  Hollow Knight: 1
+  SMZ3: 1
+  ChecksFinder: 1
+
 requires:
   version: 0.2.3 # Version of Archipelago required for this yaml to work as expected.
 A Link to the Past:
