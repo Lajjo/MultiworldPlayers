@@ -17,7 +17,7 @@
 # To test if your yaml is valid or not, you can use this website:
 # http://www.yamllint.com/
 
-description: Default A Link to the Past Template # Used to describe your yaml. Useful if you have multiple files
+description: Default Lajjo # Used to describe your yaml. Useful if you have multiple files
 # Your name in-game. Spaces will be replaced with underscores and there is a 16 character limit
 name: Lajjo{NUMBER}
 #{player} will be replaced with the player's slot number.
@@ -26,438 +26,136 @@ name: Lajjo{NUMBER}
 #{NUMBER} will be replaced with the counter value of the name if the counter value is greater than 1.
 game:
   A Link to the Past: 1
+  ArchipIDLE: 0
+  ChecksFinder: 0
+  Hollow Knight: 0
   Super Metroid: 1
-  Hollow Knight: 1
   SMZ3: 1
-  ChecksFinder: 1
+  Slay the Spire: 0
+  VVVVVV: 0
 
-requires:
-  version: 0.2.3 # Version of Archipelago required for this yaml to work as expected.
 A Link to the Past:
   crystals_needed_for_gt:
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    7: 0 # maximum value
     random: 1
-    random-low: 0
-    random-high: 0
   crystals_needed_for_ganon:
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    7: 0 # maximum value
     random: 1
-    random-low: 0
-    random-high: 0
-  bigkey_shuffle: # Big Key Placement
-    original_dungeon: 1
-    own_dungeons: 0
-    own_world: 0
-    any_world: 1
-    different_world: 0
-  smallkey_shuffle: # Small Key Placement
-    original_dungeon: 1
-    own_dungeons: 0
-    own_world: 0
-    any_world: 1
-    different_world: 0
-    universal: 0
-  compass_shuffle: # Compass Placement
-    original_dungeon: 1
-    own_dungeons: 0
-    own_world: 0
-    any_world: 1
-    different_world: 0
-  map_shuffle: # Map Placement
-    original_dungeon: 1
-    own_dungeons: 0
-    own_world: 0
-    any_world: 1
-    different_world: 0
+  bigkey_shuffle:
+    random: 1
+  smallkey_shuffle:
+    random: 1
+  compass_shuffle:
+    random: 1
+  map_shuffle:
+    random: 1
   progressive:
-    off: 1
-    grouped_random: 1
+    random: 1
+  swordless:
+    "false": 4
+    "true": 1
+  retro:
+    "false": 1
+  hints:
     on: 1
-  swordless: # No swords. Curtains in Skull Woods and Agahnim's
-    #    Tower are removed, Agahnim's Tower barrier can be
-    #    destroyed with hammer. Misery Mire and Turtle Rock
-    #    can be opened without a sword. Hammer damages Ganon.
-    #    Ether and Bombos Tablet can be activated with Hammer
-    #    (and Book).
-    false: 3
-    true: 1
-  retro: # Zelda-1 like mode. You have to purchase a quiver to shoot arrows using rupees
-    #    and there are randomly placed take-any caves that contain one Sword and choices of Heart Container/Blue Potion.
-    false: 50
-    true: 0
-  hints: # Put item and entrance placement hints on telepathic tiles and some NPCs.
-    #    Additionally King Zora and Bottle Merchant say what they're selling.
-    false: 0
-    true: 50
-  restrict_dungeon_item_on_boss: # Don't place dungeon-native items on the dungeon's boss.
-    false: 50
-    true: 0
-  pot_shuffle: # Shuffle contents of pots within "supertiles" (item will still be nearby original placement).
-    false: 50
-    true: 0
-  enemy_shuffle: # Randomize every enemy spawn.
-    #    If mode is Standard, Hyrule Castle is left out (may result in visually wrong enemy sprites in that area.)
-    false: 9
-    true: 1
-  killable_thieves: # Makes Thieves killable.
-    false: 50
-    true: 0
-  bush_shuffle: # Randomize chance that a bush contains an enemy as well as which enemy may spawn.
-    false: 11
-    true: 1
+  restrict_dungeon_item_on_boss:
+    "false": 1
+  pot_shuffle:
+    "false": 4
+    "true": 1
+  enemy_shuffle:
+    "false": 9
+    "true": 1
+  killable_thieves:
+    "false": 1
+  bush_shuffle:
+    "false": 9
+    "true": 1
   shop_item_slots:
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    30: 0 # maximum value
     random: 1
-    random-low: 0
-    random-high: 0
-  shop_price_modifier: # Percentage modifier for shuffled item prices in shops
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    400: 0 # maximum value
+  shop_price_modifier:
     random: 1
-    random-low: 0
-    random-high: 0
-    100: 0
-  tile_shuffle: # Randomize flying tiles floor patterns.
-    false: 0
-    true: 1
+  tile_shuffle:
+    "true": 1
   ow_palettes:
-    default: 0
     good: 1
-    blackout: 0
-    puke: 0
-    classic: 0
-    grayscale: 0
-    negative: 0
-    dizzy: 0
-    sick: 0
+    classic: 1
+    random: 1
   uw_palettes:
-    default: 0
     good: 1
-    blackout: 0
-    puke: 0
-    classic: 0
-    grayscale: 0
-    negative: 0
-    dizzy: 0
-    sick: 0
+    classic: 1
+    random: 1
   hud_palettes:
-    default: 0
     good: 1
-    blackout: 0
-    puke: 0
-    classic: 0
-    grayscale: 0
-    negative: 0
-    dizzy: 0
-    sick: 0
+    classic: 1
+    random: 1
   sword_palettes:
-    default: 0
     good: 1
-    blackout: 0
-    puke: 0
-    classic: 0
-    grayscale: 0
-    negative: 0
-    dizzy: 0
-    sick: 0
+    classic: 1
+    random: 1
   shield_palettes:
-    default: 0
     good: 1
-    blackout: 0
-    puke: 0
-    classic: 0
-    grayscale: 0
-    negative: 0
-    dizzy: 0
-    sick: 0
+    classic: 1
+    random: 1
   link_palettes:
-    default: 0
     good: 1
-    blackout: 0
-    puke: 0
-    classic: 0
-    grayscale: 0
-    negative: 0
-    dizzy: 0
-    sick: 0
+    classic: 1
+    random: 1
   heartbeep:
-    normal: 0
-    double: 0
-    half: 0
-    quarter: 0
     off: 1
   heartcolor:
-    red: 1
-    blue: 1
-    green: 1
-    yellow: 1
+    random: 1
   quickswap:
-    false: 0
-    true: 1
+    "true": 1
   menuspeed:
     normal: 1
-    instant: 0
-    double: 0
-    triple: 0
-    quadruple: 0
-    half: 0
   music:
-    false: 0
-    true: 1
+    "true": 1
   reduceflashing:
-    false: 0
-    true: 1
+    "true": 1
   triforcehud:
     normal: 1
-    hide_goal: 0
-    hide_required: 0
-    hide_both: 0
   glitch_boots:
-    false: 0
-    true: 1
-  beemizer_total_chance: # Percentage chance for each junk-fill item (rupees, bombs, arrows) to be
-    #    replaced with either a bee swarm trap or a single bottle-filling bee.
-    # you can add additional values between minimum and maximum
-    0: 50 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-  beemizer_trap_chance: # Percentage chance for each replaced junk-fill item to be a bee swarm
-    #    trap; all other replaced items are single bottle-filling bees.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    60: 50
-  death_link: # When you die, everyone dies. Of course the reverse is true too.
-    false: 0
-    true: 1
-  local_items: # Forces these items to be in their native world.
-    []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints:
-    []
-
-  exclude_locations:
-    []
-  accessibility:
-    items: 1 # Guarantees you will be able to acquire all items, but you may not be able to access all locations
-    locations: 1 # Guarantees you will be able to access all locations, and therefore all items
-    none: 0 # Guarantees only that the game is beatable. You may not be able to access all locations or acquire all items
+    "true": 1
+  beemizer_total_chance:
+    0: 1
+  beemizer_trap_chance:
+    60: 1
+  death_link:
+    "true": 1
+  allow_collect:
+    "false": 1
   progression_balancing:
-    on: 1 # A system to reduce BK, as in times during which you can't do anything by moving your items into an earlier access sphere to make it likely you have stuff to do
-    off: 1 # Turn this off if you don't mind a longer multiworld, or can glitch/sequence break around missing items.
-
-Super Metroid:
-  start_inventory_removes_from_pool:
-    false: 50
-    true: 0
-  preset: # choose one of the preset or specify "varia_custom" to use varia_custom_preset option or specify "custom" to use custom_preset option
-    newbie: 0
-    casual: 0
-    regular: 50
-    veteran: 0
-    expert: 0
-    master: 0
-    samus: 0
-    season_races: 0
-    smrat2021: 0
-    solution: 0
-    custom: 0
-    varia_custom: 0
-  start_location:
-    ceres: 1
-    landing_site: 14
-    gauntlet_top: 1
-    green_brinstar_elevator: 1
-    big_pink: 1
-    etecoons_supers: 1
-    wrecked_ship_main: 1
-    firefleas_top: 1
-    business_center: 1
-    bubble_mountain: 1
-    mama_turtle: 1
-    watering_hole: 1
-    aqueduct: 1
-    red_brinstar_elevator: 1
-    golden_four: 1
-  death_link: # When you die, everyone dies. Of course the reverse is true too.
-    disable: 0
-    enable: 1
-    enable_survive: 0
-  max_difficulty:
-    easy: 0
-    medium: 1
-    hard: 1
-    harder: 0
-    hardcore: 0
-    mania: 0
-    infinity: 0
-  morph_placement:
-    early: 0
-    normal: 1
-  strict_minors:
-    false: 1
-    true: 0
-  missile_qty:
-    # you can add additional values between minimum and maximum
-    10: 0 # minimum value
-    90: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    30: 50
-  super_qty:
-    # you can add additional values between minimum and maximum
-    10: 0 # minimum value
-    90: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    20: 50
-  power_bomb_qty:
-    # you can add additional values between minimum and maximum
-    10: 50 # minimum value
-    90: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-  minor_qty:
-    # you can add additional values between minimum and maximum
-    7: 0 # minimum value
-    100: 50 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-  energy_qty:
-    ultra_sparse: 0
-    sparse: 0
-    medium: 0
-    vanilla: 50
-  area_randomization:
-    off: 0
-    light: 1
-    on: 1
-  area_layout:
-    false: 1
-    true: 1
-  doors_colors_rando:
-    false: 1
-    true: 1
-  allow_grey_doors:
-    false: 1
-    true: 1
-  boss_randomization:
-    false: 9
-    true: 1
-  fun_combat:
-    false: 1
-    true: 1
-  fun_movement:
-    false: 1
-    true: 1
-  fun_suits:
-    false: 1
-    true: 1
-  layout_patches:
-    false: 0
-    true: 50
-  varia_tweaks:
-    false: 50
-    true: 0
-  nerfed_charge:
-    false: 50
-    true: 0
-  gravity_behaviour:
-    vanilla: 0
-    balanced: 50
-    progressive: 0
-  elevators_doors_speed:
-    false: 0
-    true: 50
-  spin_jump_restart:
-    false: 50
-    true: 0
-  infinite_space_jump:
-    false: 50
-    true: 0
-  refill_before_save:
-    false: 50
-    true: 0
-  hud:
-    false: 50
-    true: 0
-  animals:
-    false: 1
-    true: 1
-  no_music:
-    false: 50
-    true: 0
-  random_music:
-    false: 50
-    true: 0
-  custom_preset: # 
-    #    see https://randommetroidsolver.pythonanywhere.com/presets for detailed info on each preset settings
-    #    knows: each skill (know) has a pair [can use, perceived difficulty using one of 1, 5, 10, 25, 50 or 100 each one matching a max_difficulty]
-    #    settings: hard rooms, hellruns and bosses settings
-    #    controller: predefined controller mapping and moon walk setting
-    #    
-    controller: {}
-    knows: {}
-    settings: {}
-
-  varia_custom_preset: # use an entry from the preset list on https://randommetroidsolver.pythonanywhere.com/presets
-    {}
-
-  local_items: # Forces these items to be in their native world.
-    []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints:
-    []
-
-  exclude_locations:
-    []
+    random: 1
   accessibility:
-    items: 1 # Guarantees you will be able to acquire all items, but you may not be able to access all locations
-    locations: 1 # Guarantees you will be able to access all locations, and therefore all items
-    none: 0 # Guarantees only that the game is beatable. You may not be able to access all locations or acquire all items
+    items: 1
+    minimal: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+
+ArchipIDLE:
   progression_balancing:
-    on: 1 # A system to reduce BK, as in times during which you can't do anything by moving your items into an earlier access sphere to make it likely you have stuff to do
-    off: 1 # Turn this off if you don't mind a longer multiworld, or can glitch/sequence break around missing items.
+    random: 1
+  accessibility:
+    items: 1
+    minimal: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
 
 ChecksFinder:
   progression_balancing:
-    'true': 1
+    random: 1
   accessibility:
     items: 1
+    minimal: 1
   priority_locations: []
   start_inventory: {}
   exclude_locations: []
@@ -468,94 +166,95 @@ ChecksFinder:
 
 Hollow Knight:
   RandomizeDreamers:
-    random: 1
+    "true": 1
   RandomizeSkills:
-    random: 1
+    "true": 1
   RandomizeFocus:
-    'false': 1
+    "false": 1
   RandomizeSwim:
-    'false': 1
+    "false": 1
   RandomizeCharms:
-    random: 1
+    "true": 1
   RandomizeKeys:
-    random: 1
+    "true": 1
   RandomizeMaskShards:
-    random: 1
+    "true": 1
   RandomizeVesselFragments:
-    random: 1
+    "true": 1
   RandomizeCharmNotches:
-    random: 1
+    "false": 1
   RandomizePaleOre:
-    random: 1
+    "true": 1
   RandomizeGeoChests:
-    'false': 1
+    "false": 1
   RandomizeJunkPitChests:
-    'false': 1
+    "false": 1
   RandomizeRancidEggs:
-    'false': 1
+    "false": 1
   RandomizeRelics:
-    'true': 1
+    "true": 1
   RandomizeWhisperingRoots:
-    'false': 1
+    "false": 1
   RandomizeBossEssence:
-    'false': 1
+    "false": 1
   RandomizeGrubs:
-    'false': 1
+    "false": 1
   RandomizeMimics:
-    'false': 1
+    "false": 1
   RandomizeMaps:
-    'false': 1
+    "false": 1
   RandomizeStags:
-    'false': 1
+    "false": 1
   RandomizeLifebloodCocoons:
-    'false': 1
+    "false": 1
   RandomizeGrimmkinFlames:
-    'false': 1
+    "false": 1
   RandomizeJournalEntries:
-    'false': 1
+    "false": 1
   RandomizeNail:
-    'false': 1
+    "false": 1
   RandomizeGeoRocks:
-    'false': 1
+    "false": 1
   RandomizeBossGeo:
-    'false': 1
+    "false": 1
   RandomizeSoulTotems:
-    'false': 1
+    "false": 1
   RandomizeLoreTablets:
-    'false': 1
+    "false": 1
   PreciseMovement:
-    'false': 1
+    "false": 1
   ProficientCombat:
-    'false': 1
+    "false": 1
   BackgroundObjectPogos:
-    'false': 1
+    "false": 1
   EnemyPogos:
-    'false': 1
+    "false": 1
   ObscureSkips:
-    'false': 1
+    "false": 1
   ShadeSkips:
-    'false': 1
+    "false": 1
   InfectionSkips:
-    'false': 1
+    "false": 1
   FireballSkips:
-    'false': 1
+    "false": 1
   SpikeTunnels:
-    'false': 1
+    "false": 1
   AcidSkips:
-    'false': 1
+    "false": 1
   DamageBoosts:
-    'false': 1
+    "false": 1
   DangerousSkips:
-    'false': 1
+    "false": 1
   DarkRooms:
-    'false': 1
+    "false": 1
   ComplexSkips:
-    'false': 1
+    "false": 1
   DifficultSkips:
-    'false': 1
+    "false": 1
   RemoveSpellUpgrades:
-    'false': 1
+    "false": 1
   StartLocation:
+    king's_pass: 4
     random: 1
   MinimumGrubPrice:
     1: 1
@@ -574,11 +273,94 @@ Hollow Knight:
   MaximumCharmPrice:
     20: 1
   RandomCharmCosts:
-    '-1': 1
+    "-1": 1
   EggShopSlots:
     0: 1
   progression_balancing:
-    'true': 1
+    "true": 1
+  accessibility:
+    items: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+
+Super Metroid:
+  start_inventory_removes_from_pool:
+    "false": 1
+  preset:
+    regular: 1
+    veteran: 1
+  start_location:
+    random: 1
+  remote_items:
+    "false": 1
+  death_link:
+    enable: 1
+  max_difficulty:
+    hardcore: 1
+  morph_placement:
+    random: 1
+  strict_minors:
+    "false": 1
+  missile_qty:
+    30: 1
+  super_qty:
+    20: 1
+  power_bomb_qty:
+    10: 1
+  minor_qty:
+    100: 1
+  energy_qty:
+    vanilla: 1
+  area_randomization:
+    random: 1
+  area_layout:
+    random: 1
+  doors_colors_rando:
+    "false": 2
+    random: 1
+  allow_grey_doors:
+    "false": 1
+    random: 1
+  boss_randomization:
+    random: 1
+  fun_combat:
+    "false": 1
+  fun_movement:
+    "false": 1
+  fun_suits:
+    "false": 1
+  layout_patches:
+    "true": 1
+  varia_tweaks:
+    "false": 1
+  nerfed_charge:
+    "false": 1
+  gravity_behaviour:
+    balanced: 1
+  elevators_doors_speed:
+    "true": 1
+  spin_jump_restart:
+    "false": 1
+  infinite_space_jump:
+    "false": 1
+  refill_before_save:
+    "false": 1
+  hud:
+    "false": 2
+    "true": 1
+  animals:
+    "false": 1
+  no_music:
+    "false": 1
+  random_music:
+    "false": 1
+  progression_balancing:
+    "true": 1
   accessibility:
     items: 1
   priority_locations: []
@@ -597,9 +379,54 @@ SMZ3:
   morph_location:
     randomized: 1
   key_shuffle:
+    none: 4
     random: 1
   progression_balancing:
-    'true': 1
+    "true": 1
+  accessibility:
+    items: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+
+Slay the Spire:
+  character:
+    random: 1
+  ascension:
+    0: 1
+  heart_run:
+    "false": 1
+  progression_balancing:
+    "true": 1
+  accessibility:
+    items: 1
+  priority_locations: []
+  start_inventory: {}
+  exclude_locations: []
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+
+VVVVVV:
+  MusicRandomizer:
+    "false": 1
+  AreaRandomizer:
+    "false": 1
+  DoorCost:
+    3: 1
+  AreaCostRandomizer:
+    "false": 1
+  DeathLink:
+    "false": 1
+  DeathLinkAmnesty:
+    15: 1
+  progression_balancing:
+    "true": 1
   accessibility:
     items: 1
   priority_locations: []
