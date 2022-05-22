@@ -9,10 +9,10 @@ game:
 
 Slay the Spire:
   character:
-    ironclad: 30
-    silent: 20
+    ironclad: 20
+    silent: 0
     defect: 20
-    watcher: 10
+    watcher: 0
   ascension: 
     0: 50
     1: 0
