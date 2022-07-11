@@ -33,8 +33,9 @@ game:
   ArchipIDLE: 0
   Slay the Spire: 0
   Rogue Legacy: 0
+  The Witness: 0
 requires:
-  version: 0.3.1 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.3.3 # Version of Archipelago required for this yaml to work as expected.
 # Shared Options supported by all games:
 accessibility:
   items: 0 # Guarantees you will be able to acquire all items, but you may not be able to access all locations
@@ -1155,3 +1156,17 @@ Rogue Legacy:
 
   item_links: # Share part of your item pool with other players.
     []
+The Witness:
+  disable_non_randomized_puzzles: 'true'
+  shuffle_discarded_panels: 'false'
+  shuffle_vault_boxes: 'true'
+  shuffle_uncommon: 'false'
+  shuffle_hard: 'false'
+  victory_condition: elevator
+  trap_percentage: 0
+  early_secret_area: 'false'
+  mountain_lasers: 7
+  challenge_lasers: 11
+  puzzle_skip_amount: 0
+  progression_balancing: 50
+  accessibility: locations
