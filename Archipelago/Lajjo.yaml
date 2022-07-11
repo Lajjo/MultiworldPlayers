@@ -29,9 +29,12 @@ game:
   ArchipIDLE: 0
   ChecksFinder: 0
   Hollow Knight: 0
+  Risk of Rain 2: 1
   Super Metroid: 1
   SMZ3: 1
-  Slay the Spire: 0
+  Slay the Spire: 1
+  Timespinner: 1
+  The Witness: 1
   VVVVVV: 0
 
 A Link to the Past:
@@ -52,10 +55,14 @@ A Link to the Past:
   swordless:
     "false": 4
     "true": 1
-  retro:
+  retro_bow:
+    "false": 1
+  retro_caves:
     "false": 1
   hints:
     on: 1
+  scams:
+    off: 1
   restrict_dungeon_item_on_boss:
     "false": 1
   pot_shuffle:
@@ -288,12 +295,196 @@ Hollow Knight:
   start_hints: []
   start_location_hints: []
 
+Risk of Rain 2:
+  total_locations: # Number of location checks which are added to the Risk of Rain playthrough.
+    # you can add additional values between minimum and maximum
+    10: 0 # minimum value
+    500: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    20: 50
+  total_revivals: # Total Percentage of `Dio's Best Friend` item put in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    10: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    4: 50
+  start_with_revive: # Start the game with a `Dio's Best Friend` item.
+    false: 0
+    true: 50
+  item_pickup_step: # Number of items to pick up before an AP Check is completed.
+    #    Setting to 1 means every other pickup.
+    #    Setting to 2 means every third pickup. So on...
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    5: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    2: 50
+  enable_lunar: # Allows Lunar items in the item pool.
+    false: 0
+    true: 50
+  item_weights: # Preset choices for determining the weights of the item pool.<br>
+    #    New is a test for a potential adjustment to the default weights.<br>
+    #    Uncommon puts a large number of uncommon items in the pool.<br>
+    #    Legendary puts a large number of legendary items in the pool.<br>
+    #    Lunartic makes everything a lunar item.<br>
+    #    Chaos generates the pool completely at random with rarer items having a slight cap to prevent this option being too easy.<br>
+    #    No Scraps removes all scrap items from the item pool.<br>
+    #    Even generates the item pool with every item having an even weight.<br>
+    #    Scraps Only will be only scrap items in the item pool.
+    default: 50
+    new: 0
+    uncommon: 0
+    legendary: 0
+    lunartic: 0
+    chaos: 0
+    no_scraps: 0
+    even: 0
+    scraps_only: 0
+  item_pool_presets: # Will use the item weight presets when set to true, otherwise will use the custom set item pool weights.
+    false: 0
+    true: 50
+  green_scrap: # Weight of Green Scraps in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    16: 50
+  red_scrap: # Weight of Red Scraps in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    4: 50
+  yellow_scrap: # Weight of yellow scraps in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    1: 50
+  white_scrap: # Weight of white scraps in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    32: 50
+  common_item: # Weight of common items in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    64: 50
+  uncommon_item: # Weight of uncommon items in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    32: 50
+  legendary_item: # Weight of legendary items in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    8: 50
+  boss_item: # Weight of boss items in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    4: 50
+  lunar_item: # Weight of lunar items in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    16: 50
+  equipment: # Weight of equipment items in the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    32: 50
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
 Super Metroid:
   start_inventory_removes_from_pool:
     "false": 1
   preset:
+    newbie: 0
+    casual: 0
     regular: 1
     veteran: 1
+    expert: 0
+    master: 0
+    samus: 0
+    season_races: 0
+    smrat2021: 0
+    solution: 0
+    custom: 0
+    varia_custom: 0
   start_location:
     random: 1
   remote_items:
@@ -411,6 +602,305 @@ Slay the Spire:
   non_local_items: []
   start_hints: []
   start_location_hints: []
+
+Timespinner:
+  StartWithJewelryBox: # Start with Jewelry Box unlocked
+    false: 50
+    true: 0
+  DownloadableItems: # With the tablet you will be able to download items at terminals
+    false: 0
+    true: 50
+  FacebookMode: # Requires Oculus Rift(ng) to spot the weakspots in walls and floors
+    false: 50
+    true: 0
+  StartWithMeyef: # Start with Meyef, ideal for when you want to play multiplayer.
+    false: 50
+    true: 0
+  QuickSeed: # Start with Talaria Attachment, Nyoom!
+    false: 50
+    true: 0
+  SpecificKeycards: # Keycards can only open corresponding doors
+    false: 50
+    true: 0
+  Inverted: # Start in the past
+    false: 50
+    true: 0
+  GyreArchives: # Gyre locations are in logic. New warps are gated by Merchant Crow and Kobo
+    false: 50
+    true: 0
+  Cantoran: # Cantoran's fight and check are available upon revisiting his room
+    false: 50
+    true: 0
+  LoreChecks: # Memories and journal entries contain items.
+    false: 50
+    true: 0
+  BossRando: # Shuffles the positions of all bosses.
+    false: 50
+    true: 0
+  BossScaling: # When Boss Rando is enabled, scales the bosses' HP, XP, and ATK to the stats of the location they replace (Reccomended)
+    false: 0
+    true: 50
+  DamageRando: # Randomly nerfs and buffs some orbs and their associated spells as well as some associated rings.
+    off: 50
+    allnerfs: 0
+    mostlynerfs: 0
+    balanced: 0
+    mostlybuffs: 0
+    allbuffs: 0
+    manual: 0
+  DamageRandoOverrides: # Manual +/-/normal odds for an orb. Put 0 if you don't want a certain nerf or buff to be a possibility. Orbs that you don't specify will roll with 1/1/1 as odds
+    Blade:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Blood:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Blue:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Empire:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Eye:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Fire:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    ForbiddenTome:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Gun:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Ice:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Iron:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Nether:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Plasma:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Radiant:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Shattered:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Umbra:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Wind:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+
+  HpCap: # Sets the number that Lunais's HP maxes out at.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    999: 50 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  BossHealing: # Enables/disables healing after boss fights. NOTE: Currently only applicable when Boss Rando is enabled.
+    false: 0
+    true: 50
+  ShopFill: # Sets the items for sale in Merchant Crow's shops.
+    #    Default: No sunglasses or trendy jacket, but sand vials for sale.
+    #    Randomized: Up to 4 random items in each shop.
+    #    Vanilla: Keep shops the same as the base game.
+    #    Empty: Sell no items at the shop.
+    default: 50
+    randomized: 0
+    vanilla: 0
+    empty: 0
+  ShopWarpShards: # Shops always sell warp shards (when keys possessed), ignoring inventory setting.
+    false: 0
+    true: 50
+  ShopMultiplier: # Multiplier for the cost of items in the shop. Set to 0 for free shops.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    10: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    1: 50
+  LootPool: # Sets the items that drop from enemies (does not apply to boss reward checks)
+    #    Vanilla: Drops are the same as the base game
+    #    Randomized: Each slot of every enemy's drop table is given a random use item or piece of equipment.
+    #    Empty: Enemies drop nothing.
+    vanilla: 50
+    randomized: 0
+    empty: 0
+  ShowBestiary: # All entries in the bestiary are visible, without needing to kill one of a given enemy first
+    false: 50
+    true: 0
+  ShowDrops: # All item drops in the bestiary are visible, without needing an enemy to drop one of a given item first
+    false: 50
+    true: 0
+  DeathLink: # When you die, everyone dies. Of course the reverse is true too.
+    false: 50
+    true: 0
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+The Witness:
+  disable_non_randomized_puzzles: # Disable puzzles that cannot be randomized.
+    #    Non randomized puzzles are Shadows, Monastery, and Greenhouse.
+    #    The lasers for those areas will be activated as you solve optional puzzles throughout the island.
+    false: 0
+    true: 1
+  shuffle_discarded_panels: # Discarded Panels will have items on them.
+    #    Solving certain Discarded Panels may still be necessary even if off!
+    false: 1
+    true: 0
+  shuffle_vault_boxes: # Vault Boxes will have items on them.
+    false: 1
+    true: 0
+  shuffle_uncommon: # Adds some optional puzzles that are somewhat difficult or out of the way.
+    #    Examples: Mountaintop River Shape, Tutorial Patio Floor, Theater Videos
+    false: 1
+    true: 0
+  shuffle_hard: # Adds some harder locations into the game, e.g. Mountain Secret Area panels
+    false: 1
+    true: 0
+  victory_condition: # Change the victory condition from the original game's ending (elevator) to beating the Challenge
+    #    or solving the mountaintop box, either using the short solution
+    #    (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
+    elevator: 1
+    challenge: 0
+    mountain_box_short: 0
+    mountain_box_long: 0
+  trap_percentage: # Replaces junk items with traps, at the specified rate.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    20: 50
+  early_secret_area: # The Mountainside shortcut to the Mountain Secret Area is open from the start.
+    #    (Otherwise known as "UTM", "Caves" or the "Challenge Area")
+    false: 1
+    true: 0
+  mountain_lasers: # Sets the amount of beams required to enter the final area.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    7: 0 # maximum value
+    random: 1
+    random-low: 0
+    random-high: 0
+  challenge_lasers: # Sets the amount of beams required to enter the secret area through the Mountain Bottom Layer Discard.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    11: 0 # maximum value
+    random: 1
+    random-low: 0
+    random-high: 0
+  puzzle_skip_amount: # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
+    #    Works on most panels in the game - The only big exception is The Challenge.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    20: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    5: 1
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 1
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 1
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
 
 VVVVVV:
   MusicRandomizer:
