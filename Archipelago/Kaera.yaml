@@ -3,6 +3,8 @@ name: Kaera
 game:
   A Link to the Past: 5
   SMZ3: 20
+  ArchipIDLE: 0
+  ChecksFinder: 0
 A Link to the Past:
   crystals_needed_for_gt:
     random: 7
@@ -111,3 +113,7 @@ SMZ3:
   non_local_items: []
   start_hints: []
   start_location_hints: []
+ArchipIDLE:
+  SomeSetting: 'ostkaka'
+ChecksFinder:
+  SomeSetting: 'ostkaka'
