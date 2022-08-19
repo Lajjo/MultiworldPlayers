@@ -49,56 +49,6 @@ ArchipIDLE:
 ChecksFinder:
   SomeSetting: 'ostkaka'
 SMZ3:
-  sm_logic:
-    normal: 2
-    hard: 1
-  sword_location:
-    randomized: 50
-    early: 0
-    uncle: 0
-  morph_location:
-    randomized: 50
-    early: 0
-    original: 0
-  key_shuffle:
-    none: 1
-    keysanity: 1
-    
-  progression_balancing: # A system that moves progression earlier, to try and prevent the player from getting stuck and bored early.
-    false: 0
-    true: 50
-
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 1
-    items: 1
-    minimal: 1
-    
-  local_items: # Forces these items to be in their native world.
-    []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations: # Prevent these locations from having an important item
-    []
-
-  priority_locations: # Prevent these locations from having an unimportant item
-    []
-
-  item_links: # Share part of your item pool with other players.
-    []
 Hollow Knight:
   RandomizeDreamers: 'true'
   RandomizeSkills: 'true'
@@ -110,24 +60,24 @@ Hollow Knight:
   RandomizeVesselFragments: 'true'
   RandomizeCharmNotches: 'true'
   RandomizePaleOre: 'true'
-  RandomizeGeoChests: 'true'
+  RandomizeGeoChests: random
   RandomizeJunkPitChests: 'true'
-  RandomizeRancidEggs: 'true'
+  RandomizeRancidEggs: random
   RandomizeRelics: 'true'
-  RandomizeWhisperingRoots: 'true'
+  RandomizeWhisperingRoots: random
   RandomizeBossEssence: 'true'
   RandomizeGrubs: 'true'
   RandomizeMimics: 'false'
-  RandomizeMaps: 'true'
-  RandomizeStags: 'true'
-  RandomizeLifebloodCocoons: 'true'
-  RandomizeGrimmkinFlames: 'true'
-  RandomizeJournalEntries: 'true'
+  RandomizeMaps: random
+  RandomizeStags: random
+  RandomizeLifebloodCocoons: random
+  RandomizeGrimmkinFlames: random
+  RandomizeJournalEntries: random
   RandomizeNail: 'false'
-  RandomizeGeoRocks: 'true'
-  RandomizeBossGeo: 'true'
-  RandomizeSoulTotems: 'true'
-  RandomizeLoreTablets: 'true'
+  RandomizeGeoRocks: random
+  RandomizeBossGeo: random
+  RandomizeSoulTotems: random
+  RandomizeLoreTablets: random
   PreciseMovement: 'false'
   ProficientCombat: 'false'
   BackgroundObjectPogos: 'false'
@@ -149,48 +99,19 @@ Hollow Knight:
   MaximumGrubPrice: 23
   MinimumEssencePrice: 1
   MaximumEssencePrice: 1400
-  MinimumEggPrice: 1
-  MaximumEggPrice: 10
   MinimumCharmPrice: 1
   MaximumCharmPrice: 20
-  RandomCharmCosts: -1
-  EggShopSlots: 16
-
-  progression_balancing: # A system that moves progression earlier, to try and prevent the player from getting stuck and bored early.
-    false: 0
-    true: 50
-
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 1
-    items: 1
-    minimal: 1
-    
-  local_items: # Forces these items to be in their native world.
-    []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations: # Prevent these locations from having an important item
-    []
-
-  priority_locations: # Prevent these locations from having an unimportant item
-    []
-
-  item_links: # Share part of your item pool with other players.
-    []
+  RandomCharmCosts: -2
+  MinimumEggPrice: 1
+  MaximumEggPrice: 10
+  EggShopSlots: 0
+  Goal: random
+  WhitePalace: nopathofpain
+  StartingGeo: 0
+  progression_balancing: 50
+  accessibility: items
+  RandomizeElevatorPass: random
+  DeathLink: shadeless
 Super Metroid:
   start_inventory_removes_from_pool:
     false: 50
@@ -320,6 +241,9 @@ Super Metroid:
     true: 50
   spin_jump_restart:
     false: 0
+    true: 1
+  rando_speed: 
+    false: 1
     true: 1
   infinite_space_jump:
     false: 50
