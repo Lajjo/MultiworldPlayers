@@ -28,14 +28,17 @@ game:
   A Link to the Past: 1
   ArchipIDLE: 0
   ChecksFinder: 0
-  Hollow Knight: 0
-  Risk of Rain 2: 1
+  Donkey Kong Country 3: 1
+  Dark Souls III: 0
+  Hollow Knight: 1
+  Minecraft: 1
+  Risk of Rain 2: 0
   Super Metroid: 1
   SMZ3: 1
-  Slay the Spire: 1
-  Timespinner: 1
+  Slay the Spire: 0
+  Timespinner: 0
   The Witness: 1
-  VVVVVV: 0
+  VVVVVV: 1
 
 A Link to the Past:
   crystals_needed_for_gt:
@@ -170,6 +173,183 @@ ChecksFinder:
   non_local_items: []
   start_hints: []
   start_location_hints: []
+  
+Dark Souls III:
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+  non_local_items: # Forces these items to be outside their native world.
+    []
+  start_inventory: # Start with these items.
+    {}
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+  exclude_locations: # Prevent these locations from having an important item
+    []
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+  item_links: # Share part of your item pool with other players.
+    []
+
+Donkey Kong Country 3:
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+  non_local_items: # Forces these items to be outside their native world.
+    []
+  start_inventory: # Start with these items.
+    {}
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+  exclude_locations: # Prevent these locations from having an important item
+    []
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+  item_links: # Share part of your item pool with other players.
+    []
+  goal: # 
+    #    Determines the goal of the seed
+    #    Knautilus: Reach the Knautilus and defeat Baron K. Roolenstein
+    #    Banana Bird Hunt: Find a certain number of Banana Birds and rescue their mother
+    #    
+    knautilus: 50
+    banana_bird_hunt: 0
+  dk_coins_for_gyrocopter: # 
+    #    How many DK Coins are needed to unlock the Gyrocopter
+    #    Note: Achieving this number before unlocking the Turbo Ski will cause the game to grant you a
+    #    one-time upgrade to the next non-unlocked boat, until you return to Funky. Logic does not assume
+    #    that you will use this.
+    #    
+    # you can add additional values between minimum and maximum
+    10: 0 # minimum value
+    41: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    30: 50
+  krematoa_bonus_coin_cost: # 
+    #    How many Bonus Coins are needed to unlock each level in Krematoa
+    #    
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    17: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    15: 50
+  percentage_of_extra_bonus_coins: # 
+    #    What Percentage of unneeded Bonus Coins are included in the item pool
+    #    
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 50 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  number_of_banana_birds: # 
+    #    How many Banana Birds are put into the item pool
+    #    
+    # you can add additional values between minimum and maximum
+    5: 0 # minimum value
+    15: 50 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  percentage_of_banana_birds: # 
+    #    What Percentage of Banana Birds in the item pool are required for Banana Bird Hunt
+    #    
+    # you can add additional values between minimum and maximum
+    20: 0 # minimum value
+    100: 50 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  level_shuffle: # 
+    #    Whether levels are shuffled
+    #    
+    false: 50
+    true: 0
+  music_shuffle: # 
+    #    Whether music is shuffled
+    #    
+    false: 50
+    true: 0
+  kong_palette_swap: # 
+    #    Which Palette to use for the Kongs
+    #    
+    default: 50
+    purple: 0
+    spooky: 0
+    dark: 0
+    chocolate: 0
+    shadow: 0
+    red_gold: 0
+    gbc: 0
+    halloween: 0
+  starting_life_count: # 
+    #    How many extra lives to start the game with
+    #    
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    99: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    5: 50
+
+  auto_equip: # Automatically equips any received armor or left/right weapons.
+    false: 50
+    true: 0
+  lock_equip: # Lock the equipment slots so you cannot change your armor or your left/right weapons. Works great with the
+    #    Auto-equip option.
+    false: 50
+    true: 0
+  no_weapon_requirements: # Disable the weapon requirements by removing any movement or damage penalties.
+    #    Permitting you to use any weapon early
+    false: 50
+    true: 0
+  randomize_weapons_level: # Enable this option to upgrade 33% ( based on the probability chance ) of the pool of weapons to a random value
+    #    between +1 and +5/+10
+    false: 50
+    true: 0
+  late_basin_of_vows: # Force the Basin of Vows to be located as a reward of defeating Pontiff Sulyvahn. It permits to ease the
+    #    progression by preventing having to kill the Dancer of the Boreal Valley as the first boss
+    false: 50
+    true: 0
 
 Hollow Knight:
   RandomizeDreamers:
@@ -294,6 +474,109 @@ Hollow Knight:
   non_local_items: []
   start_hints: []
   start_location_hints: []
+  
+Minecraft:
+  advancement_goal: # Number of advancements required to spawn bosses.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    95: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    40: 50
+  egg_shards_required: # Number of dragon egg shards to collect to spawn bosses.
+    # you can add additional values between minimum and maximum
+    0: 50 # minimum value
+    40: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  egg_shards_available: # Number of dragon egg shards available to collect.
+    # you can add additional values between minimum and maximum
+    0: 50 # minimum value
+    40: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  required_bosses: # Bosses which must be defeated to finish the game.
+    none: 0
+    ender_dragon: 50
+    wither: 0
+    both: 0
+  shuffle_structures: # Enables shuffling of villages, outposts, fortresses, bastions, and end cities.
+    false: 0
+    true: 50
+  structure_compasses: # Adds structure compasses to the item pool, which point to the nearest indicated structure.
+    false: 0
+    true: 50
+  bee_traps: # Replaces a percentage of junk items with bee traps, which spawn multiple angered bees around every player when received.
+    # you can add additional values between minimum and maximum
+    0: 50 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  combat_difficulty: # Modifies the level of items logically required for exploring dangerous areas and fighting bosses.
+    easy: 0
+    normal: 50
+    hard: 0
+  include_hard_advancements: # Enables certain RNG-reliant or tedious advancements.
+    false: 50
+    true: 0
+  include_unreasonable_advancements: # Enables the extremely difficult advancements "How Did We Get Here?" and "Adventuring Time."
+    false: 50
+    true: 0
+  include_postgame_advancements: # Enables advancements that require spawning and defeating the required bosses.
+    false: 50
+    true: 0
+  send_defeated_mobs: # Send killed mobs to other Minecraft worlds which have this option enabled.
+    false: 50
+    true: 0
+  starting_items: # Start with these items. Each entry should be of this format: {item: "item_name", amount: #, nbt: "nbt_string"}
+    []
+
+  death_link: # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
 
 Risk of Rain 2:
   total_locations: # Number of location checks which are added to the Risk of Rain playthrough.
