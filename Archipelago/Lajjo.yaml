@@ -25,20 +25,20 @@ name: Lajjo{NUMBER}
 #{number} will be replaced with the counter value of the name.
 #{NUMBER} will be replaced with the counter value of the name if the counter value is greater than 1.
 game:
-  A Link to the Past: 1
-  ArchipIDLE: 0
-  ChecksFinder: 0
-  Donkey Kong Country 3: 1
-  Dark Souls III: 0
-  Hollow Knight: 1
-  Minecraft: 1
-  Risk of Rain 2: 0
-  Super Metroid: 1
-  SMZ3: 1
-  Slay the Spire: 0
-  Timespinner: 0
-  The Witness: 1
-  VVVVVV: 1
+  A Link to the Past: 1 #Main game
+  ArchipIDLE: 0 #Idle game
+  ChecksFinder: 0 #Idle game
+  Donkey Kong Country 3: 1 #Main game
+  Dark Souls III: 1 #Main game
+  Hollow Knight: 0 #Main game
+  Minecraft: 0 #Main game
+  Risk of Rain 2: 0 #Main game
+  Super Metroid: 1 #Main game
+  SMZ3: 1 #Main game
+  Slay the Spire: 0 #Main/idle game
+  Timespinner: 0 #Main game
+  The Witness: 1 #Main game
+  VVVVVV: 1 #Main game
 
 A Link to the Past:
   crystals_needed_for_gt:
@@ -207,6 +207,25 @@ Dark Souls III:
     []
   item_links: # Share part of your item pool with other players.
     []
+  auto_equip: # Automatically equips any received armor or left/right weapons.
+    false: 0
+    true: 1
+  lock_equip: # Lock the equipment slots so you cannot change your armor or your left/right weapons. Works great with the
+    #    Auto-equip option.
+    false: 0
+    true: 1
+  no_weapon_requirements: # Disable the weapon requirements by removing any movement or damage penalties.
+    #    Permitting you to use any weapon early
+    false: 1
+    true: 1
+  randomize_weapons_level: # Enable this option to upgrade 33% ( based on the probability chance ) of the pool of weapons to a random value
+    #    between +1 and +5/+10
+    false: 1
+    true: 1
+  late_basin_of_vows: # Force the Basin of Vows to be located as a reward of defeating Pontiff Sulyvahn. It permits to ease the
+    #    progression by preventing having to kill the Dancer of the Boreal Valley as the first boss
+    false: 0
+    true: 1
 
 Donkey Kong Country 3:
   progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
