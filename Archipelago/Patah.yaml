@@ -25,17 +25,19 @@ name: Patah{NUMBER}
 #{number} will be replaced with the counter value of the name.
 #{NUMBER} will be replaced with the counter value of the name if the counter value is greater than 1.
 game:
-  Super Metroid: 0
-  A Link to the Past: 0
-  Hollow Knight: 1
-  SMZ3: 0
   ChecksFinder: 0
   ArchipIDLE: 0
-  Slay the Spire: 0
+  A Link to the Past: 0
+  Super Metroid: 0
+  SMZ3: 0
+  Hollow Knight: 0
   Rogue Legacy: 0
   The Witness: 0
+  Dark Souls III: 0
+  Slay the Spire: 0
+  Ocarina of Time: 0
 requires:
-  version: 0.3.3 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.3.4 # Version of Archipelago required for this yaml to work as expected.
 # Shared Options supported by all games:
 accessibility:
   items: 0 # Guarantees you will be able to acquire all items, but you may not be able to access all locations
@@ -45,73 +47,543 @@ progression_balancing:
   on: 50 # A system to reduce BK, as in times during which you can't do anything by moving your items into an earlier access sphere to make it likely you have stuff to do
   off: 0 # Turn this off if you don't mind a longer multiworld, or can glitch/sequence break around missing items.
 ArchipIDLE:
-  SomeSetting: 'ostkaka'
 ChecksFinder:
-  SomeSetting: 'ostkaka'
 SMZ3:
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+  sm_logic: # This option selects what kind of logic to use for item placement inside
+    #    Super Metroid.
+    #
+    #    Normal - Normal logic includes only what Super Metroid teaches players
+    #    itself. Anything that's not demonstrated in-game or by the intro cutscenes
+    #    will not be required here.
+    #
+    #    Hard - Hard logic is based upon the "no major glitches" ruleset and
+    #    includes most tricks that are considered minor glitches, with some 
+    #    restrictions. You'll want to be somewhat of a Super Metroid veteran for
+    #    this logic.
+    #    
+    #    See https://samus.link/information for required moves.
+    normal: 3
+    hard: 1
+  sword_location: # This option decides where the first sword will be placed.
+    #    Randomized - The sword can be placed anywhere.
+    #    Early - The sword will be placed in a location accessible from the start of
+    #    the game.
+    #    Unce assured - The sword will always be placed on Link's Uncle.
+    randomized: 1
+    early: 0
+    uncle: 0
+  morph_location: # This option decides where the morph ball will be placed.
+    #    Randomized - The morph ball can be placed anywhere.
+    #    Early - The morph ball will be placed in a location accessible from the 
+    #    start of the game.
+    #    Original location - The morph ball will always be placed at its original 
+    #    location.
+    randomized: 1
+    early: 0
+    original: 0
+  key_shuffle: # This option decides how dungeon items such as keys are shuffled.
+    #    None - A Link to the Past dungeon items can only be placed inside the 
+    #    dungeon they belong to, and there are no changes to Super Metroid.
+    #    Keysanity - See https://samus.link/information
+    none: 1
+    keysanity: 1
 Hollow Knight:
-  RandomizeDreamers: 'true'
-  RandomizeSkills: 'true'
-  RandomizeFocus: 'false'
-  RandomizeSwim: 'false'
-  RandomizeCharms: 'true'
-  RandomizeKeys: 'true'
-  RandomizeMaskShards: 'true'
-  RandomizeVesselFragments: 'true'
-  RandomizeCharmNotches: 'true'
-  RandomizePaleOre: 'true'
-  RandomizeGeoChests: random
-  RandomizeJunkPitChests: 'true'
-  RandomizeRancidEggs: random
-  RandomizeRelics: 'true'
-  RandomizeWhisperingRoots: random
-  RandomizeBossEssence: 'true'
-  RandomizeGrubs: 'true'
-  RandomizeMimics: 'false'
-  RandomizeMaps: random
-  RandomizeStags: random
-  RandomizeLifebloodCocoons: random
-  RandomizeGrimmkinFlames: random
-  RandomizeJournalEntries: random
-  RandomizeNail: 'false'
-  RandomizeGeoRocks: random
-  RandomizeBossGeo: random
-  RandomizeSoulTotems: random
-  RandomizeLoreTablets: random
-  PreciseMovement: 'false'
-  ProficientCombat: 'false'
-  BackgroundObjectPogos: 'false'
-  EnemyPogos: 'false'
-  ObscureSkips: 'false'
-  ShadeSkips: 'false'
-  InfectionSkips: 'false'
-  FireballSkips: 'false'
-  SpikeTunnels: 'false'
-  AcidSkips: 'false'
-  DamageBoosts: 'false'
-  DangerousSkips: 'false'
-  DarkRooms: 'false'
-  ComplexSkips: 'false'
-  DifficultSkips: 'false'
-  RemoveSpellUpgrades: 'false'
-  StartLocation: random
-  MinimumGrubPrice: 1
-  MaximumGrubPrice: 23
-  MinimumEssencePrice: 1
-  MaximumEssencePrice: 1400
-  MinimumCharmPrice: 1
-  MaximumCharmPrice: 20
-  RandomCharmCosts: -2
-  MinimumEggPrice: 1
-  MaximumEggPrice: 10
-  EggShopSlots: 0
-  Goal: random
-  WhitePalace: nopathofpain
-  StartingGeo: 0
-  progression_balancing: 50
-  accessibility: items
-  RandomizeElevatorPass: random
-  DeathLink: shadeless
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+  RandomizeDreamers: # Allow for Dreamers to be randomized into the item pool and opens their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeSkills: # Allow for Skills, such as Mantis Claw or Shade Soul, to be randomized into the item pool. Also opens their locations for receiving randomized items.
+    false: 0
+    true: 1
+  RandomizeFocus: # Removes the ability to focus and randomizes it into the item pool.
+    false: 4
+    true: 1
+  RandomizeSwim: # Removes the ability to swim in water and randomizes it into the item pool.
+    false: 4
+    true: 1
+  RandomizeCharms: # Allow for Charms to be randomized into the item pool and open their locations for randomization. Includes Charms sold in shops.
+    false: 0
+    true: 1
+  RandomizeKeys: # Allow for Keys to be randomized into the item pool. Includes those sold in shops.
+    false: 0
+    true: 1
+  RandomizeMaskShards: # Allow for Mask Shard to be randomized into the item pool and open their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeVesselFragments: # Allow for Vessel Fragments to be randomized into the item pool and open their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeCharmNotches: # Allow for Charm Notches to be randomized into the item pool. Includes those sold by Salubra.
+    false: 0
+    true: 1
+  RandomizePaleOre: # Randomize Pale Ores into the item pool and open their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeGeoChests: # Allow for Geo Chests to contain randomized items, as well as their Geo reward being randomized into the item pool.
+    false: 1
+    true: 1
+  RandomizeJunkPitChests: # Randomize the contents of junk pit chests into the item pool and open their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeRancidEggs: # Randomize Rancid Eggs into the item pool and open their locations for randomization
+    false: 0
+    true: 1
+  RandomizeRelics: # Randomize Relics (King's Idol, et al.) into the item pool and open their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeWhisperingRoots: # Randomize the essence rewards from Whispering Roots into the item pool. Whispering Roots will now grant a randomized item when completed. This can be previewed by standing on the root.
+    false: 1
+    true: 1
+  RandomizeBossEssence: # Randomize boss essence drops, such as those for defeating Warrior Dreams, into the item pool and open their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeGrubs: # Randomize Grubs into the item pool and open their locations for randomization.
+    false: 0
+    true: 1
+  RandomizeMimics: # Randomize Mimic Grubs into the item pool and open their locations for randomization.Mimic Grubs are always placed in your own game.
+    false: 0
+    true: 1
+  RandomizeMaps: # Randomize Maps into the item pool. This causes Cornifer to give you a message allowing you to see and buy an item that is randomized into that location as well.
+    false: 0
+    true: 1
+  RandomizeStags: # Randomize Stag Stations unlocks into the item pool as well as placing randomized items on the stag station bell/toll.
+    false: 1
+    true: 1
+  RandomizeLifebloodCocoons: # Randomize Lifeblood Cocoon grants into the item pool and open their locations for randomization.
+    false: 4
+    true: 1
+  RandomizeGrimmkinFlames: # Randomize Grimmkin Flames into the item pool and open their locations for randomization.
+    false: 1
+    true: 1
+  RandomizeJournalEntries: # Randomize the Hunter's Journal as well as the findable journal entries into the item pool, and open their locations for randomization. Does not include journal entries gained by killing enemies.
+    false: 4
+    true: 1
+  RandomizeNail: # Removes the ability to swing the nail left, right and up, and shuffles these into the item pool.
+    false: 4
+    true: 1
+  RandomizeGeoRocks: # Randomize Geo Rock rewards into the item pool and open their locations for randomization.
+    false: 4
+    true: 1
+  RandomizeBossGeo: # Randomize boss Geo drops into the item pool and open those locations for randomization.
+    false: 0
+    true: 1
+  RandomizeSoulTotems: # Randomize Soul Refill items into the item pool and open the Soul Totem locations for randomization.
+    false: 4
+    true: 1
+  RandomizeLoreTablets: # Randomize Lore items into the itempool, one per Lore Tablet, and place randomized item grants on the tablets themselves. You must still read the tablet to get the item.
+    false: 4
+    true: 1
+  RandomizeElevatorPass: # Adds an Elevator Pass item to the item pool, which is then required to use the large elevators connecting
+    #    City of Tears to the Forgotten Crossroads and Resting Grounds.
+    false: 1
+    true: 1
+  PreciseMovement: # Places skips into logic which require extremely precise player movement, possibly without movement skills such as dash or hook.
+    false: 50
+    true: 0
+  ProficientCombat: # Places skips into logic which require proficient combat, possibly with limited items.
+    false: 50
+    true: 0
+  BackgroundObjectPogos: # Places skips into logic for locations which are reachable via pogoing off of background objects.
+    false: 50
+    true: 0
+  EnemyPogos: # Places skips into logic for locations which are reachable via pogos off of enemies.
+    false: 50
+    true: 0
+  ObscureSkips: # Places skips into logic which are considered obscure enough that a beginner is not expected to know them.
+    false: 50
+    true: 0
+  ShadeSkips: # Places shade skips into logic which utilize the player's shade for pogoing or damage boosting.
+    false: 50
+    true: 0
+  InfectionSkips: # Places skips into logic which are only possible after the crossroads become infected.
+    false: 50
+    true: 0
+  FireballSkips: # Places skips into logic which require the use of spells to reset fall speed while in mid-air.
+    false: 50
+    true: 0
+  SpikeTunnels: # Places skips into logic which require the navigation of narrow tunnels filled with spikes.
+    false: 50
+    true: 0
+  AcidSkips: # Places skips into logic which require crossing a pool of acid without Isma's Tear, or water if swim is disabled.
+    false: 50
+    true: 0
+  DamageBoosts: # Places skips into logic which require you to take damage from an enemy or hazard to progress.
+    false: 50
+    true: 0
+  DangerousSkips: # Places skips into logic which contain a high risk of taking damage.
+    false: 50
+    true: 0
+  DarkRooms: # Places skips into logic which require navigating dark rooms without the use of the Lumafly Lantern.
+    false: 50
+    true: 0
+  ComplexSkips: # Places skips into logic which require intense setup or are obscure even beyond advanced skip standards.
+    false: 50
+    true: 0
+  DifficultSkips: # Places skips into logic which are considered more difficult than typical.
+    false: 50
+    true: 0
+  RemoveSpellUpgrades: # Removes the second level of all spells from the item pool.
+    false: 50
+    true: 0
+  StartLocation: # Choose your start location. This is currently only locked to King's Pass.
+    king's_pass: 1
+  Goal: # The goal required of you in order to complete your run in Archipelago.
+    any: 0
+    hollowknight: 2
+    siblings: 1
+    radiance: 1
+  WhitePalace: # 
+    #    Whether or not to include White Palace or not.  Note: Even if excluded, the King Fragment check may still be
+    #    required if charms are vanilla.
+    #    
+    exclude: 0
+    kingfragment: 0
+    nopathofpain: 1
+    include: 0
+  StartingGeo: # The amount of starting geo you have.
+    # you can add additional values between minimum and maximum
+    0: 4 # minimum value
+    1000: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  DeathLink: # 
+    #    When you die, everyone dies. Of course the reverse is true too.
+    #    When enabled, choose how incoming deathlinks are handled:
+    #    vanilla: DeathLink kills you and is just like any other death.  RIP your previous shade and geo.
+    #    shadeless: DeathLink kills you, but no shade spawns and no geo is lost.  Your previous shade, if any, is untouched.
+    #    shade: DeathLink functions like a normal death if you do not already have a shade, shadeless otherwise.
+    #    
+    off: 0
+    shadeless: 4
+    vanilla: 0
+    shade: 1
+  MinimumGeoPrice: # The minimum geo price for items in geo shops.
+    # you can add additional values between minimum and maximum
+    1: 50 # minimum value
+    200: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  MaximumGeoPrice: # The maximum geo price for items in geo shops.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    2000: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    400: 50
+  MinimumGrubPrice: # The minimum grub price in the range of prices that an item should cost from Grubfather.
+    # you can add additional values between minimum and maximum
+    1: 50 # minimum value
+    46: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  MaximumGrubPrice: # The maximum grub price in the range of prices that an item should cost from Grubfather.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    46: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    23: 50
+  MinimumEssencePrice: # The minimum essence price in the range of prices that an item should cost from Seer.
+    # you can add additional values between minimum and maximum
+    1: 50 # minimum value
+    2800: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  MaximumEssencePrice: # The maximum essence price in the range of prices that an item should cost from Seer.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    2800: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    1400: 50
+  MinimumCharmPrice: # The minimum charm price in the range of prices that an item should cost for Salubra's shop item which also
+    #    carry a charm cost.
+    # you can add additional values between minimum and maximum
+    1: 50 # minimum value
+    40: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  MaximumCharmPrice: # The maximum charm price in the range of prices that an item should cost for Salubra's shop item which also
+    #    carry a charm cost.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    40: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    20: 50
+  RandomCharmCosts: # Total Notch Cost of all Charms together. Vanilla sums to 90.
+    #    This value is distributed among all charms in a random fashion.
+    #    Special Cases:
+    #    Set to -1 or vanilla for vanilla costs.
+    #    Set to -2 or shuffle to shuffle around the vanilla costs to different charms.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value without special meaning
+    240: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0
+    shuffle: 1
+  PlandoCharmCosts: # Allows setting a Charm's Notch costs directly, mapping {name: cost}.
+    #    This is set after any random Charm Notch costs, if applicable.
+    {}
+
+  MinimumEggPrice: # The minimum rancid egg price in the range of prices that an item should cost from Jiji.
+    #    Only takes effect if the EggSlotShops option is greater than 0.
+    # you can add additional values between minimum and maximum
+    1: 50 # minimum value
+    21: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  MaximumEggPrice: # The maximum rancid egg price in the range of prices that an item should cost from Jiji.
+    #    Only takes effect if the EggSlotShops option is greater than 0.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    21: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    10: 50
+  EggShopSlots: # For each slot, add a location to the Egg Shop and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 1 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  SlyShopSlots: # For each extra slot, add a location to the Sly Shop and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    8: 50
+  SlyKeyShopSlots: # For each extra slot, add a location to the Sly Shop (requiring Shopkeeper's Key) and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    6: 50
+  IseldaShopSlots: # For each extra slot, add a location to the Iselda Shop and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    2: 50
+  SalubraShopSlots: # For each extra slot, add a location to the Salubra Shop, and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    5: 50
+  SalubraCharmShopSlots: # For each extra slot, add a location to the Salubra Shop (requiring Charms), and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    5: 50
+  LegEaterShopSlots: # For each extra slot, add a location to the Leg Eater Shop and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    3: 50
+  GrubfatherRewardSlots: # For each extra slot, add a location to the Grubfather and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    7: 50
+  SeerRewardSlots: # For each extra slot, add a location to the Seer and a filler item to the item pool.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    16: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    8: 50
+  ExtraShopSlots: # For each extra slot, add a location to a randomly chosen shop a filler item to the item pool.
+    #
+    #    The Egg Shop will be excluded from this list unless it has at least one item.
+    #
+    #    Shops are capped at 16 items each.
+    #    
+    # you can add additional values between minimum and maximum
+    0: 50 # minimum value
+    144: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  SplitCrystalHeart: # Splits the Crystal Heart into left- and right-only versions of the item.
+    false: 4
+    true: 1
+  SplitMothwingCloak: # Splits the Mothwing Cloak into left- and right-only versions of the item. Randomly adds a second left or
+    #    right Mothwing cloak item which functions as the upgrade to Shade Cloak.
+    false: 6
+    true: 1
+  SplitMantisClaw: # Splits the Mantis Claw into left- and right-only versions of the item.
+    false: 6
+    true: 1
+  CostSanity: # If enabled, most locations with costs (like stag stations) will have randomly determined costs.
+    #    If set to shopsonly, CostSanity will only apply to shops (including Grubfather, Seer and Egg Shop).
+    #    If set to notshops, CostSanity will only apply to non-shops (e.g. Stag stations and Cornifer locations)
+    #
+    #    These costs can be in Geo (except Grubfather, Seer and Eggshop), Grubs, Charms, Essence and/or Rancid Eggs
+    #    
+    off: 12
+    on: 1
+    shopsonly: 1
+    notshops: 1
+  CostSanityHybridChance: # The chance that a CostSanity cost will include two components instead of one, e.g. Grubs + Essence
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 3
+    random-high: 1
+    10: 0
+  CostSanityEggWeight: # The likelihood of Costsanity choosing a Egg cost. Chosen as a sum of all weights from other types.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    1000: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    1: 50
+  CostSanityGrubWeight: # The likelihood of Costsanity choosing a Grub cost. Chosen as a sum of all weights from other types.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    1000: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    1: 50
+  CostSanityEssenceWeight: # The likelihood of Costsanity choosing a Essence cost. Chosen as a sum of all weights from other types.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    1000: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    1: 50
+  CostSanityCharmWeight: # The likelihood of Costsanity choosing a Charm cost. Chosen as a sum of all weights from other types.
+    # you can add additional values between minimum and maximum
+    0: 1 # minimum value
+    1000: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    1: 1
+  CostSanityGeoWeight: # The likelihood of Costsanity choosing a Geo cost. Chosen as a sum of all weights from other types.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    1000: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+    8: 50
 Super Metroid:
   start_inventory_removes_from_pool:
     false: 50
@@ -1081,16 +1553,1432 @@ Rogue Legacy:
   item_links: # Share part of your item pool with other players.
     []
 The Witness:
-  disable_non_randomized_puzzles: 'true'
-  shuffle_discarded_panels: 'false'
-  shuffle_vault_boxes: 'true'
-  shuffle_uncommon: 'false'
-  shuffle_hard: 'false'
-  victory_condition: elevator
-  trap_percentage: 0
-  early_secret_area: 'false'
-  mountain_lasers: 7
-  challenge_lasers: 11
-  puzzle_skip_amount: 0
-  progression_balancing: 50
-  accessibility: locations
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+  shuffle_symbols: # You will need to unlock puzzle symbols as items to be able to solve the panels that contain those symbols.
+    #    If you turn this off, there will be no progression items in the game unless you turn on door shuffle.
+    false: 0
+    true: 50
+  shuffle_doors: # If on, opening doors will require their respective "keys".
+    #    If set to "panels", those keys will unlock the panels on doors.
+    #    In "doors_simple" and "doors_complex", the doors will magically open by themselves upon receiving the key.
+    #    The last option, "max", is a combination of "doors_complex" and "panels".
+    none: 1
+    panels: 1
+    doors_simple: 0
+    doors_complex: 0
+    max: 1
+  shuffle_lasers: # If on, the 11 lasers are turned into items and will activate on their own upon receiving them.
+    #    Note: There is a visual bug that can occur with the Desert Laser. It does not affect gameplay - The Laser can still
+    #    be redirected as normal, for both applications of redirection.
+    false: 1
+    true: 1
+  disable_non_randomized_puzzles: # Disables puzzles that cannot be randomized.
+    #    This includes many puzzles that heavily involve the environment, such as Shadows, Monastery or Orchard.
+    #    The lasers for those areas will be activated as you solve optional puzzles throughout the island.
+    false: 0
+    true: 50
+  shuffle_discarded_panels: # Add Discarded Panels into the location pool.
+    #    Solving certain Discarded Panels may still be necessary to beat the game, even if this is off.
+    false: 50
+    true: 0
+  shuffle_vault_boxes: # Vault Boxes will have items on them.
+    false: 0
+    true: 1
+  shuffle_uncommon: # Adds some optional puzzles that are somewhat difficult or out of the way.
+    #    Examples: Mountaintop River Shape, Tutorial Patio Floor, Theater Videos
+    false: 50
+    true: 0
+  shuffle_postgame: # Adds locations into the pool that are guaranteed to be locked behind your goal. Use this if you don't play with
+    #    forfeit on victory.
+    false: 50
+    true: 0
+  victory_condition: # Change the victory condition from the original game's ending (elevator) to beating the Challenge
+    #    or solving the mountaintop box, either using the short solution
+    #    (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
+    elevator: 50
+    challenge: 0
+    mountain_box_short: 0
+    mountain_box_long: 0
+  mountain_lasers: # Sets the amount of beams required to enter the final area.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    7: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  challenge_lasers: # Sets the amount of beams required to enter the secret area through the Mountain Bottom Layer Discard.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    11: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 1
+  early_secret_area: # Opens the Mountainside shortcut to the Mountain Secret Area from the start.
+    #    (Otherwise known as "UTM", "Caves" or the "Challenge Area")
+    false: 50
+    true: 0
+  trap_percentage: # Replaces junk items with traps, at the specified rate.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+    20: 0
+  puzzle_skip_amount: # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
+    #    Works on most panels in the game - The only big exception is The Challenge.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    20: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+    5: 0
+Dark Souls III:
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+  auto_equip: # Automatically equips any received armor or left/right weapons.
+    false: 0
+    true: 1
+  lock_equip: # Lock the equipment slots so you cannot change your armor or your left/right weapons. Works great with the
+    #    Auto-equip option.
+    false: 0
+    true: 1
+  no_weapon_requirements: # Disable the weapon requirements by removing any movement or damage penalties.
+    #    Permitting you to use any weapon early
+    false: 0
+    true: 1
+  randomize_weapons_level: # Enable this option to upgrade 33% ( based on the probability chance ) of the pool of weapons to a random value
+    #    between +1 and +5/+10
+    false: 0
+    true: 1
+  late_basin_of_vows: # Force the Basin of Vows to be located as a reward of defeating Pontiff Sulyvahn. It permits to ease the
+    #    progression by preventing having to kill the Dancer of the Boreal Valley as the first boss
+    false: 0
+    true: 1
+Ocarina of Time:
+  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
+    # you can add additional values between minimum and maximum
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0
+    normal: 50
+    extreme: 0
+  accessibility: # Set rules for reachability of your items/locations.
+    #    Locations: ensure everything can be reached and acquired.
+    #    Items: ensure all logically relevant items can be acquired.
+    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+  local_items: # Forces these items to be in their native world.
+    []
+
+  non_local_items: # Forces these items to be outside their native world.
+    []
+
+  start_inventory: # Start with these items.
+    {}
+
+  start_hints: # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations: # Prevent these locations from having an important item
+    []
+
+  priority_locations: # Prevent these locations from having an unimportant item
+    []
+
+  item_links: # Share part of your item pool with other players.
+    []
+
+  logic_rules: # Set the logic used for the generator.
+    glitchless: 50
+    glitched: 0
+    no_logic: 0
+  logic_no_night_tokens_without_suns_song: # Nighttime skulltulas will logically require Sun's Song.
+    false: 0
+    true: 1
+  open_forest: # Set the state of Kokiri Forest and the path to Deku Tree.
+    open: 1
+    closed_deku: 1
+    closed: 0
+  open_kakariko: # Set the state of the Kakariko Village gate.
+    open: 1
+    zelda: 1
+    closed: 0
+  open_door_of_time: # Open the Door of Time by default, without the Song of Time.
+    false: 0
+    true: 1
+  zora_fountain: # Set the state of King Zora, blocking the way to Zora's Fountain.
+    open: 1
+    adult: 1
+    closed: 1
+  gerudo_fortress: # Set the requirements for access to Gerudo Fortress.
+    normal: 0
+    fast: 1
+    open: 1
+  bridge: # Set the requirements for the Rainbow Bridge.
+    open: 1
+    vanilla: 0
+    stones: 1
+    medallions: 1
+    dungeons: 1
+    tokens: 1
+  trials: # Set the number of required trials in Ganon's Castle.
+    # you can add additional values between minimum and maximum
+    0: 50 # minimum value
+    6: 0 # maximum value
+    random: 1
+    random-low: 0
+    random-high: 0
+  starting_age: # Choose which age Link will start as.
+    child: 1
+    adult: 1
+  shuffle_interior_entrances: # Shuffles interior entrances. "Simple" shuffles houses and Great Fairies; "All" includes Windmill, Link's House, Temple of Time, and Kak potion shop.
+    off: 8
+    simple: 1
+    all: 1
+  shuffle_grotto_entrances: # Shuffles grotto and grave entrances.
+    false: 4
+    true: 1
+  shuffle_dungeon_entrances: # Shuffles dungeon entrances, excluding Ganon's Castle. Opens Deku, Fire and BotW to both ages.
+    false: 0
+    true: 1
+  shuffle_overworld_entrances: # Shuffles overworld loading zones.
+    false: 4
+    true: 1
+  owl_drops: # Randomizes owl drops from Lake Hylia or Death Mountain Trail as child.
+    false: 50
+    true: 0
+  warp_songs: # Randomizes warp song destinations.
+    false: 4
+    true: 1
+  spawn_positions: # Randomizes the starting position on loading a save. Consistent between savewarps.
+    false: 50
+    true: 0
+  triforce_hunt: # Gather pieces of the Triforce scattered around the world to complete the game.
+    false: 6
+    true: 1
+  triforce_goal: # Number of Triforce pieces required to complete the game.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+    20: 0
+  extra_triforce_percentage: # Percentage of additional Triforce pieces in the pool, separate from the item pool setting.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 1
+    50: 0
+  bombchus_in_logic: # Bombchus are properly considered in logic. The first found pack will have 20 chus; Kokiri Shop and Bazaar sell refills; bombchus open Bombchu Bowling.
+    false: 50
+    true: 0
+  mq_dungeons: # Number of MQ dungeons. The dungeons to replace are randomly selected.
+    # you can add additional values between minimum and maximum
+    0: 50 # minimum value
+    12: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 0
+  bridge_stones: # Set the number of Spiritual Stones required for the rainbow bridge.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    3: 0 # maximum value
+    random: 0
+    random-low: 0
+    random-high: 1
+  bridge_medallions: # Set the number of medallions required for the rainbow bridge.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    6: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  bridge_rewards: # Set the number of dungeon rewards required for the rainbow bridge.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    9: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  bridge_tokens: # Set the number of Gold Skulltula Tokens required for the rainbow bridge.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+    40: 0
+  shuffle_mapcompass: # Control where to shuffle dungeon maps and compasses.
+    remove: 0
+    startwith: 50
+    vanilla: 0
+    dungeon: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 0
+  shuffle_smallkeys: # Control where to shuffle dungeon small keys.
+    remove: 0
+    vanilla: 0
+    dungeon: 8
+    overworld: 1
+    any_dungeon: 0
+    keysanity: 1
+  shuffle_fortresskeys: # Control where to shuffle the Thieves' Hideout small keys.
+    vanilla: 1
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 0
+  shuffle_bosskeys: # Control where to shuffle boss keys, except the Ganon's Castle Boss Key.
+    remove: 0
+    vanilla: 0
+    dungeon: 8
+    overworld: 1
+    any_dungeon: 0
+    keysanity: 1
+  shuffle_ganon_bosskey: # Control where to shuffle the Ganon's Castle Boss Key.
+    remove: 4
+    vanilla: 0
+    dungeon: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 1
+    on_lacs: 0
+  enhance_map_compass: # Map tells if a dungeon is vanilla or MQ. Compass tells what the dungeon reward is.
+    false: 50
+    true: 0
+  lacs_condition: # Set the requirements for the Light Arrow Cutscene in the Temple of Time.
+    vanilla: 0
+    stones: 1
+    medallions: 1
+    dungeons: 1
+    tokens: 1
+  lacs_stones: # Set the number of Spiritual Stones required for LACS.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    3: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  lacs_medallions: # Set the number of medallions required for LACS.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    6: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  lacs_rewards: # Set the number of dungeon rewards required for LACS.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    9: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  lacs_tokens: # Set the number of Gold Skulltula Tokens required for LACS.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    100: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+    40: 0
+  shuffle_song_items: # Set where songs can appear.
+    song: 1
+    dungeon: 0
+    any: 1
+  shopsanity: # Randomizes shop contents. "fixed_number" randomizes a specific number of items per shop; 
+    #    "random_number" randomizes the value for each shop. 
+    off: 0
+    fixed_number: 1
+    random_number: 0
+  shop_slots: # Number of items per shop to be randomized into the main itempool. 
+    #    Only active if Shopsanity is set to "fixed_number." 
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    4: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  tokensanity: # Token rewards from Gold Skulltulas are shuffled into the pool.
+    off: 1
+    dungeons: 1
+    overworld: 1
+    all: 1
+  shuffle_scrubs: # Shuffle the items sold by Business Scrubs, and set the prices.
+    off: 0
+    low: 1
+    regular: 0
+    random_prices: 0
+  shuffle_cows: # Cows give items when Epona's Song is played.
+    false: 0
+    true: 1
+  shuffle_kokiri_sword: # Shuffle Kokiri Sword into the item pool.
+    false: 0
+    true: 1
+  shuffle_ocarinas: # Shuffle the Fairy Ocarina and Ocarina of Time into the item pool.
+    false: 0
+    true: 1
+  shuffle_weird_egg: # Shuffle the Weird Egg from Malon at Hyrule Castle.
+    false: 0
+    true: 1
+  shuffle_gerudo_card: # Shuffle the Gerudo Membership Card into the item pool.
+    false: 0
+    true: 1
+  shuffle_beans: # Adds a pack of 10 beans to the item pool and changes the bean salesman to sell one item for 60 rupees.
+    false: 0
+    true: 1
+  shuffle_medigoron_carpet_salesman: # Shuffle the items sold by Medigoron and the Haunted Wasteland Carpet Salesman.
+    false: 0
+    true: 1
+  skip_child_zelda: # Game starts with Zelda's Letter, the item at Zelda's Lullaby, and the relevant events already completed.
+    false: 1
+    true: 0
+  no_escape_sequence: # Skips the tower collapse sequence between the Ganondorf and Ganon fights.
+    false: 0
+    true: 1
+  no_guard_stealth: # The crawlspace into Hyrule Castle skips straight to Zelda.
+    false: 0
+    true: 1
+  no_epona_race: # Epona can always be summoned with Epona's Song.
+    false: 0
+    true: 1
+  skip_some_minigame_phases: # Dampe Race and Horseback Archery give both rewards if the second condition is met on the first attempt.
+    false: 0
+    true: 50
+  complete_mask_quest: # All masks are immediately available to borrow from the Happy Mask Shop.
+    false: 50
+    true: 0
+  useful_cutscenes: # Reenables the Poe cutscene in Forest Temple, Darunia in Fire Temple, and Twinrova introduction. Mostly useful for glitched.
+    false: 50
+    true: 0
+  fast_chests: # All chest animations are fast. If disabled, major items have a slow animation.
+    false: 0
+    true: 50
+  free_scarecrow: # Pulling out the ocarina near a scarecrow spot spawns Pierre without needing the song.
+    false: 0
+    true: 1
+  fast_bunny_hood: # Bunny Hood lets you move 1.5x faster like in Majora's Mask.
+    false: 0
+    true: 1
+  chicken_count: # Controls the number of Cuccos for Anju to give an item as child.
+    # you can add additional values between minimum and maximum
+    0: 0 # minimum value
+    7: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  big_poe_count: # Number of Big Poes required for the Poe Collector's item.
+    # you can add additional values between minimum and maximum
+    1: 0 # minimum value
+    10: 0 # maximum value
+    random: 0
+    random-low: 1
+    random-high: 0
+  correct_chest_sizes: # Changes chests containing progression into large chests, and nonprogression into small chests.
+    false: 50
+    true: 0
+  hints: # Gossip Stones can give hints about item locations.
+    none: 0
+    mask: 0
+    agony: 0
+    always: 50
+  misc_hints: # Controls whether the Temple of Time altar gives dungeon prize info and whether Ganondorf hints the Light Arrows.
+    false: 0
+    true: 50
+  hint_dist: # Choose the hint distribution to use. Affects the frequency of strong hints, which items are always hinted, etc.
+    balanced: 50
+    ddr: 0
+    league: 0
+    mw2: 0
+    scrubs: 0
+    strong: 0
+    tournament: 0
+    useless: 0
+    very_strong: 0
+    async: 0
+  text_shuffle: # Randomizes text in the game for comedic effect.
+    none: 50
+    except_hints: 0
+    complete: 0
+  damage_multiplier: # Controls the amount of damage Link takes.
+    half: 0
+    normal: 50
+    double: 0
+    quadruple: 0
+    ohko: 0
+  no_collectible_hearts: # Hearts will not drop from enemies or objects.
+    false: 50
+    true: 0
+  starting_tod: # Change the starting time of day.
+    default: 50
+    sunrise: 0
+    morning: 0
+    noon: 0
+    afternoon: 0
+    sunset: 0
+    evening: 0
+    midnight: 0
+    witching_hour: 0
+  start_with_consumables: # Start the game with full Deku Sticks and Deku Nuts.
+    false: 0
+    true: 1
+  start_with_rupees: # Start with a full wallet. Wallet upgrades will also fill your wallet.
+    false: 0
+    true: 1
+  item_pool_value: # Changes the number of items available in the game.
+    plentiful: 0
+    balanced: 50
+    scarce: 0
+    minimal: 0
+  junk_ice_traps: # Adds ice traps to the item pool.
+    off: 0
+    normal: 50
+    on: 0
+    mayhem: 0
+    onslaught: 0
+  ice_trap_appearance: # Changes the appearance of ice traps as freestanding items.
+    major_only: 0
+    junk_only: 0
+    anything: 1
+  logic_earliest_adult_trade: # Earliest item that can appear in the adult trade sequence.
+    pocket_egg: 0
+    pocket_cucco: 0
+    cojiro: 0
+    odd_mushroom: 0
+    poachers_saw: 0
+    broken_sword: 0
+    prescription: 50
+    eyeball_frog: 0
+    eyedrops: 0
+    claim_check: 0
+  logic_latest_adult_trade: # Latest item that can appear in the adult trade sequence.
+    pocket_egg: 0
+    pocket_cucco: 0
+    cojiro: 0
+    odd_mushroom: 0
+    poachers_saw: 0
+    broken_sword: 0
+    prescription: 0
+    eyeball_frog: 0
+    eyedrops: 0
+    claim_check: 50
+  default_targeting: # Default targeting option.
+    hold: 50
+    switch: 0
+  display_dpad: # Show dpad icon on HUD for quick actions (ocarina, hover boots, iron boots).
+    false: 0
+    true: 50
+  correct_model_colors: # Makes in-game models match their HUD element colors.
+    false: 0
+    true: 50
+  background_music: # Randomize or disable background music.
+    normal: 0
+    off: 0
+    randomized: 1
+  fanfares: # Randomize or disable item fanfares.
+    normal: 0
+    off: 0
+    randomized: 1
+  ocarina_fanfares: # Enable ocarina songs as fanfares. These are longer than usual fanfares. Does nothing without fanfares randomized.
+    false: 50
+    true: 0
+  kokiri_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    kokiri_green: 0
+    goron_red: 0
+    zora_blue: 0
+    black: 0
+    white: 0
+    azure_blue: 0
+    vivid_cyan: 0
+    light_red: 0
+    fuchsia: 0
+    purple: 0
+    majora_purple: 0
+    twitch_purple: 0
+    purple_heart: 0
+    persian_rose: 0
+    dirty_yellow: 0
+    blush_pink: 0
+    hot_pink: 0
+    rose_pink: 0
+    orange: 0
+    gray: 0
+    gold: 0
+    silver: 0
+    beige: 0
+    teal: 0
+    blood_red: 0
+    blood_orange: 0
+    royal_blue: 0
+    sonic_blue: 0
+    nes_green: 0
+    dark_green: 0
+    lumen: 0
+  goron_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    kokiri_green: 0
+    goron_red: 0
+    zora_blue: 0
+    black: 0
+    white: 0
+    azure_blue: 0
+    vivid_cyan: 0
+    light_red: 0
+    fuchsia: 0
+    purple: 0
+    majora_purple: 0
+    twitch_purple: 0
+    purple_heart: 0
+    persian_rose: 0
+    dirty_yellow: 0
+    blush_pink: 0
+    hot_pink: 0
+    rose_pink: 0
+    orange: 0
+    gray: 0
+    gold: 0
+    silver: 0
+    beige: 0
+    teal: 0
+    blood_red: 0
+    blood_orange: 0
+    royal_blue: 0
+    sonic_blue: 0
+    nes_green: 0
+    dark_green: 0
+    lumen: 0
+  zora_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    kokiri_green: 0
+    goron_red: 0
+    zora_blue: 0
+    black: 0
+    white: 0
+    azure_blue: 0
+    vivid_cyan: 0
+    light_red: 0
+    fuchsia: 0
+    purple: 0
+    majora_purple: 0
+    twitch_purple: 0
+    purple_heart: 0
+    persian_rose: 0
+    dirty_yellow: 0
+    blush_pink: 0
+    hot_pink: 0
+    rose_pink: 0
+    orange: 0
+    gray: 0
+    gold: 0
+    silver: 0
+    beige: 0
+    teal: 0
+    blood_red: 0
+    blood_orange: 0
+    royal_blue: 0
+    sonic_blue: 0
+    nes_green: 0
+    dark_green: 0
+    lumen: 0
+  silver_gauntlets_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    silver: 0
+    gold: 0
+    black: 0
+    green: 0
+    blue: 0
+    bronze: 0
+    red: 0
+    sky_blue: 0
+    pink: 0
+    magenta: 0
+    orange: 0
+    lime: 0
+    purple: 0
+  golden_gauntlets_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    silver: 0
+    gold: 0
+    black: 0
+    green: 0
+    blue: 0
+    bronze: 0
+    red: 0
+    sky_blue: 0
+    pink: 0
+    magenta: 0
+    orange: 0
+    lime: 0
+    purple: 0
+  mirror_shield_frame_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    red: 0
+    green: 0
+    blue: 0
+    yellow: 0
+    cyan: 0
+    magenta: 0
+    orange: 0
+    gold: 0
+    purple: 0
+    pink: 0
+  navi_color_default_inner: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+  navi_color_default_outer: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code. "match_inner" copies the inner color for this option.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+    match_inner: 0
+  navi_color_enemy_inner: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+  navi_color_enemy_outer: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code. "match_inner" copies the inner color for this option.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+    match_inner: 0
+  navi_color_npc_inner: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+  navi_color_npc_outer: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code. "match_inner" copies the inner color for this option.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+    match_inner: 0
+  navi_color_prop_inner: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+  navi_color_prop_outer: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code. "match_inner" copies the inner color for this option.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    gold: 0
+    white: 0
+    green: 0
+    light_blue: 0
+    yellow: 0
+    red: 0
+    magenta: 0
+    black: 0
+    tatl: 0
+    tael: 0
+    fi: 0
+    ciela: 0
+    epona: 0
+    ezlo: 0
+    king_of_red_lions: 0
+    linebeck: 0
+    loftwing: 0
+    midna: 0
+    phantom_zelda: 0
+    match_inner: 0
+  sword_trail_duration: # Set the duration for sword trails.
+    # you can add additional values between minimum and maximum
+    4: 0 # minimum value
+    20: 0 # maximum value
+    random: 1
+    random-low: 0
+    random-high: 0
+  sword_trail_color_inner: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    white: 0
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    magenta: 0
+    orange: 0
+    gold: 0
+    purple: 0
+    pink: 0
+  sword_trail_color_outer: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code. "match_inner" copies the inner color for this option.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    white: 0
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    magenta: 0
+    orange: 0
+    gold: 0
+    purple: 0
+    pink: 0
+    match_inner: 0
+  bombchu_trail_color_inner: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    magenta: 0
+    orange: 0
+    gold: 0
+    purple: 0
+    pink: 0
+  bombchu_trail_color_outer: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code. "match_inner" copies the inner color for this option.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    magenta: 0
+    orange: 0
+    gold: 0
+    purple: 0
+    pink: 0
+    match_inner: 0
+  boomerang_trail_color_inner: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    yellow: 0
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    magenta: 0
+    orange: 0
+    gold: 0
+    purple: 0
+    pink: 0
+  boomerang_trail_color_outer: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code. "match_inner" copies the inner color for this option.
+    random_choice: 1
+    completely_random: 0
+    rainbow: 0
+    yellow: 0
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    magenta: 0
+    orange: 0
+    gold: 0
+    purple: 0
+    pink: 0
+    match_inner: 0
+  heart_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    red: 0
+    green: 0
+    blue: 0
+    yellow: 0
+  magic_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    green: 0
+    red: 0
+    blue: 0
+    purple: 0
+    pink: 0
+    yellow: 0
+    white: 0
+  a_button_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    n64_blue: 0
+    n64_green: 0
+    n64_red: 0
+    gamecube_green: 0
+    gamecube_red: 0
+    gamecube_grey: 0
+    yellow: 0
+    black: 0
+    white: 0
+    magenta: 0
+    ruby: 0
+    sapphire: 0
+    lime: 0
+    cyan: 0
+    purple: 0
+    orange: 0
+  b_button_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    n64_blue: 0
+    n64_green: 0
+    n64_red: 0
+    gamecube_green: 0
+    gamecube_red: 0
+    gamecube_grey: 0
+    yellow: 0
+    black: 0
+    white: 0
+    magenta: 0
+    ruby: 0
+    sapphire: 0
+    lime: 0
+    cyan: 0
+    purple: 0
+    orange: 0
+  c_button_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    n64_blue: 0
+    n64_green: 0
+    n64_red: 0
+    gamecube_green: 0
+    gamecube_red: 0
+    gamecube_grey: 0
+    yellow: 0
+    black: 0
+    white: 0
+    magenta: 0
+    ruby: 0
+    sapphire: 0
+    lime: 0
+    cyan: 0
+    purple: 0
+    orange: 0
+  start_button_color: # Choose a color. "random_choice" selects a random option. "completely_random" generates a random hex code.
+    random_choice: 1
+    completely_random: 0
+    n64_blue: 0
+    n64_green: 0
+    n64_red: 0
+    gamecube_green: 0
+    gamecube_red: 0
+    gamecube_grey: 0
+    yellow: 0
+    black: 0
+    white: 0
+    magenta: 0
+    ruby: 0
+    sapphire: 0
+    lime: 0
+    cyan: 0
+    purple: 0
+    orange: 0
+  sfx_navi_overworld: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    bark: 0
+    business_scrub: 0
+    carrot_refill: 0
+    cluck: 0
+    cockadoodledoo: 0
+    dusk_howl: 0
+    exploding_crate: 0
+    explosion: 0
+    great_fairy: 0
+    guay: 0
+    low_health: 0
+    recover_health: 0
+    horse_neigh: 0
+    shattering_ice: 0
+    moo: 0
+    mweep: 0
+    navi_hello: 0
+    notification: 0
+    poe: 0
+    shattering_pot: 0
+    redead_scream: 0
+    ribbit: 0
+    ruto_giggle: 0
+    skulltula: 0
+    soft_beep: 0
+    tambourine: 0
+    timer: 0
+    adult_zelda_gasp: 0
+  sfx_navi_enemy: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    bark: 0
+    business_scrub: 0
+    carrot_refill: 0
+    cluck: 0
+    cockadoodledoo: 0
+    dusk_howl: 0
+    exploding_crate: 0
+    explosion: 0
+    great_fairy: 0
+    guay: 0
+    low_health: 0
+    recover_health: 0
+    horse_neigh: 0
+    shattering_ice: 0
+    moo: 0
+    mweep: 0
+    navi_hello: 0
+    notification: 0
+    poe: 0
+    shattering_pot: 0
+    redead_scream: 0
+    ribbit: 0
+    ruto_giggle: 0
+    skulltula: 0
+    soft_beep: 0
+    tambourine: 0
+    timer: 0
+    adult_zelda_gasp: 0
+  sfx_low_hp: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    bark: 0
+    bomb_bounce: 0
+    bongo_bongo_low: 0
+    bow_twang: 0
+    business_scrub: 0
+    carrot_refill: 0
+    cluck: 0
+    drawbridge_set: 0
+    guay: 0
+    recover_health: 0
+    horse_trot: 0
+    iron_boots: 0
+    moo: 0
+    mweep: 0
+    navi_hey: 0
+    navi_random: 0
+    notification: 0
+    shattering_pot: 0
+    ribbit: 0
+    silver_rupee: 0
+    soft_beep: 0
+    switch: 0
+    sword_bonk: 0
+    tambourine: 0
+    timer: 0
+    adult_zelda_gasp: 0
+  sfx_menu_cursor: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    bark: 0
+    bomb_bounce: 0
+    bongo_bongo_high: 0
+    bongo_bongo_low: 0
+    bottle_cork: 0
+    bow_twang: 0
+    bubble_laugh: 0
+    carrot_refill: 0
+    change_item: 0
+    child_pant: 0
+    cluck: 0
+    deku_baba: 0
+    drawbridge_set: 0
+    dusk_howl: 0
+    fanfare_light: 0
+    fanfare_medium: 0
+    field_shrub: 0
+    flare_dancer_startled: 0
+    ganondorf_teh: 0
+    gohma_larva_croak: 0
+    gold_skull_token: 0
+    goron_wake: 0
+    guay: 0
+    gunshot: 0
+    low_health: 0
+    recover_health: 0
+    hammer_bonk: 0
+    horse_trot: 0
+    iron_boots: 0
+    iron_knuckle: 0
+    moo: 0
+    mweep: 0
+    notification: 0
+    phantom_ganon_laugh: 0
+    plant_explode: 0
+    shattering_pot: 0
+    redead_moan: 0
+    ribbit: 0
+    rupee: 0
+    silver_rupee: 0
+    ruto_crash: 0
+    ruto_lift: 0
+    ruto_thrown: 0
+    scrub_emerge: 0
+    shabom_bounce: 0
+    shabom_pop: 0
+    shellblade: 0
+    skulltula: 0
+    soft_beep: 0
+    spit_nut: 0
+    switch: 0
+    sword_bonk: 0
+    talon_hmm: 0
+    talon_snore: 0
+    talon_wtf: 0
+    tambourine: 0
+    target_enemy: 0
+    target_neutral: 0
+    thunder: 0
+    timer: 0
+    adult_zelda_gasp: 0
+  sfx_menu_select: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    bark: 0
+    bomb_bounce: 0
+    bongo_bongo_high: 0
+    bongo_bongo_low: 0
+    bottle_cork: 0
+    bow_twang: 0
+    bubble_laugh: 0
+    carrot_refill: 0
+    change_item: 0
+    child_cringe: 0
+    child_pant: 0
+    child_scream: 0
+    cluck: 0
+    deku_baba: 0
+    drawbridge_set: 0
+    dusk_howl: 0
+    fanfare_light: 0
+    fanfare_medium: 0
+    field_shrub: 0
+    flare_dancer_startled: 0
+    ganondorf_teh: 0
+    gohma_larva_croak: 0
+    gold_skull_token: 0
+    goron_wake: 0
+    guay: 0
+    gunshot: 0
+    low_health: 0
+    recover_health: 0
+    hammer_bonk: 0
+    horse_trot: 0
+    iron_boots: 0
+    iron_knuckle: 0
+    moo: 0
+    mweep: 0
+    notification: 0
+    phantom_ganon_laugh: 0
+    plant_explode: 0
+    shattering_pot: 0
+    redead_moan: 0
+    ribbit: 0
+    rupee: 0
+    silver_rupee: 0
+    ruto_crash: 0
+    ruto_lift: 0
+    ruto_thrown: 0
+    scrub_emerge: 0
+    shabom_bounce: 0
+    shabom_pop: 0
+    shellblade: 0
+    skulltula: 0
+    soft_beep: 0
+    spit_nut: 0
+    switch: 0
+    sword_bonk: 0
+    talon_hmm: 0
+    talon_snore: 0
+    talon_wtf: 0
+    tambourine: 0
+    target_enemy: 0
+    target_neutral: 0
+    thunder: 0
+    timer: 0
+    adult_zelda_gasp: 0
+  sfx_nightfall: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    cockadoodledoo: 0
+    gold_skull_token: 0
+    great_fairy: 0
+    moo: 0
+    mweep: 0
+    redead_moan: 0
+    talon_snore: 0
+    thunder: 0
+  sfx_horse_neigh: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    armos: 0
+    child_scream: 0
+    great_fairy: 0
+    moo: 0
+    mweep: 0
+    redead_scream: 0
+    ruto_wiggle: 0
+    stalchild_attack: 0
+  sfx_hover_boots: # Choose a sound effect. "random_choice" selects a random option. "random_ear_safe" selects a random safe option. "completely_random" selects any random sound.
+    default: 0
+    completely_random: 0
+    random_ear_safe: 1
+    random_choice: 0
+    none: 0
+    bark: 0
+    cartoon_fall: 0
+    flare_dancer_laugh: 0
+    mweep: 0
+    shabom_pop: 0
+    tambourine: 0
+  sfx_ocarina: # Change the sound of the ocarina.
+    ocarina: 1
+    malon: 1
+    whistle: 1
+    harp: 1
+    grind_organ: 1
+    flute: 1
+  logic_tricks: # Set various tricks for logic in Ocarina of Time. 
+    #Format as a comma-separated list of "nice" names: ["Fewer Tunic Requirements", "Hidden Grottos without Stone of Agony"].
+    #A full list of supported tricks can be found at https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/oot/LogicTricks.py
+    []
+
+  death_link: # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+    
