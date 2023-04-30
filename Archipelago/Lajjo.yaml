@@ -32,6 +32,7 @@ game:
   Dark Souls III: 1 #Main game
   Hollow Knight: 0 #Main game
   Minecraft: 0 #Main game
+  Pokemon Red and Blue: 0 #Experimental
   Risk of Rain 2: 0 #Main game
   Super Metroid: 1 #Main game
   SMZ3: 1 #Main game
@@ -41,7 +42,7 @@ game:
   VVVVVV: 1 #Main game
 
 A Link to the Past:
-  crystals_needed_for_gt:
+  crystals_needed_for_gt:å
     random: 1
   crystals_needed_for_ganon:
     random: 1
@@ -51,12 +52,7 @@ A Link to the Past:
     random: 1
   compass_shuffle:
     random: 1
-  map_shuffle:
-    random: 1
-  progressive:
-    random: 1
-  swordless:
-    "false": 4
+  Risk of Rain 2: 0 #M
     "true": 1
   retro_bow:
     "false": 1
@@ -627,10 +623,7 @@ Risk of Rain 2:
     random-low: 0
     random-high: 0
     2: 50
-  enable_lunar: # Allows Lunar items in the item pool.
-    false: 0
-    true: 50
-  item_weights: # Preset choices for determining the weights of the item pool.<br>
+  enable_lunar: # Allows Lunar items in the itOptionsng the weights of the item pool.<br>
     #    New is a test for a potential adjustment to the default weights.<br>
     #    Uncommon puts a large number of uncommon items in the pool.<br>
     #    Legendary puts a large number of legendary items in the pool.<br>
@@ -923,32 +916,7 @@ Timespinner:
     true: 0
   SpecificKeycards: # Keycards can only open corresponding doors
     false: 50
-    true: 0
-  Inverted: # Start in the past
-    false: 50
-    true: 0
-  GyreArchives: # Gyre locations are in logic. New warps are gated by Merchant Crow and Kobo
-    false: 50
-    true: 0
-  Cantoran: # Cantoran's fight and check are available upon revisiting his room
-    false: 50
-    true: 0
-  LoreChecks: # Memories and journal entries contain items.
-    false: 50
-    true: 0
-  BossRando: # Shuffles the positions of all bosses.
-    false: 50
-    true: 0
-  BossScaling: # When Boss Rando is enabled, scales the bosses' HP, XP, and ATK to the stats of the location they replace (Reccomended)
-    false: 0
-    true: 50
-  DamageRando: # Randomly nerfs and buffs some orbs and their associated spells as well as some associated rings.
-    off: 50
-    allnerfs: 0
-    mostlynerfs: 0
-    balanced: 0
-    mostlybuffs: 0
-    allbuffs: 0
+  Risk of Rain 2: 0 #M
     manual: 0
   DamageRandoOverrides: # Manual +/-/normal odds for an orb. Put 0 if you don't want a certain nerf or buff to be a possibility. Orbs that you don't specify will roll with 1/1/1 as odds
     Blade:
@@ -1228,3 +1196,709 @@ VVVVVV:
   non_local_items: []
   start_hints: []
   start_location_hints: []
+
+Pokemon Red and Blue:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 1 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  game_version:
+    # Select Red or Blue version.
+    red: 0
+    blue: 0
+    random: 50
+
+  trainer_name:
+    # Your trainer name. If not set to choose_in_game, must be a name not exceeding 7 characters, and the prompt to
+    # name your character in-game will be skipped. See the setup guide on archipelago.gg for a list of allowed characters.
+    choose_in_game: 50
+
+  rival_name:
+    # Your rival's name. If not set to choose_in_game, must be a name not exceeding 7 characters, and the prompt to
+    # name your rival in-game will be skipped. See the setup guide on archipelago.gg for a list of allowed characters.
+    choose_in_game: 50
+
+  elite_four_condition:
+    # Number of badges required to challenge the Elite Four once the Indigo Plateau has been reached.
+    # Your rival will reveal the amount needed on the first Route 22 battle (after turning in Oak's Parcel).
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
+    8: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  victory_road_condition:
+    # Number of badges required to reach Victory Road.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
+    8: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  viridian_gym_condition:
+    # Number of badges required to enter Viridian Gym.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  cerulean_cave_condition:
+    # Number of badges, HMs, and key items (not counting items you can lose) required to access Cerulean Cave.
+    # If extra_key_items is turned on, the number chosen will be increased by 4.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 26
+    20: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  second_fossil_check_condition:
+    # After choosing one of the fossil location items, you can obtain the remaining item from the Cinnabar Lab
+    # Scientist after reviving this number of fossils.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    3: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  badgesanity:
+    # Shuffle gym badges into the general item pool. If turned off, badges will be shuffled across the 8 gyms.
+    false: 0
+    true: 1
+
+  old_man:
+    # With Open Viridian City, the Old Man will let you through without needing to turn in Oak's Parcel.
+    # Early Parcel will ensure Oak's Parcel is available at the beginning of your game.
+    vanilla: 0
+    early_parcel: 0
+    open_viridian_city: 1
+
+  randomize_pokedex:
+    # Randomize the location of the Pokedex, or start with it. It is required to receive items from Oak's Aides.
+    vanilla: 0
+    randomize: 1
+    start_with: 0
+
+  tea:
+    # Adds a Tea item to the item pool which the Saffron guards require instead of the vending machine drinks.
+    # Adds a location check to the Celadon Mansion 1F, where Tea is acquired in FireRed and LeafGreen.
+    false: 0
+    true: 1
+
+  extra_key_items:
+    # Adds key items that are required to access the Rocket Hideout, Cinnabar Mansion, Safari Zone, and Power Plant.
+    # Adds four item pickups to Rock Tunnel B1F.
+    false: 0
+    true: 1
+
+  extra_strength_boulders:
+    # Adds Strength Boulders blocking the Route 11 gate, and in Route 13 (can be bypassed with Surf).
+    # This potentially increases the usefulness of Strength as well as the Bicycle.
+    false: 50
+    true: 0
+
+  require_item_finder:
+    # Require Item Finder to pick up hidden items.
+    false: 50
+    true: 0
+
+  randomize_hidden_items:
+    # Randomize hidden items. If you choose exclude, they will be randomized but will be guaranteed junk items.
+    on: 1
+    off: 0
+    exclude: 0
+
+  prizesanity:
+    # Shuffles the TM prizes at the Celadon Prize Corner into the item pool.
+    false: 0
+    true: 1
+
+  trainersanity:
+    # Add a location check to every trainer in the game, which can be obtained by talking to a trainer after defeating
+    # them. Does not affect gym leaders and some scripted event battles (including all Rival, Giovanni, and
+    # Cinnabar Gym battles).
+    false: 0
+    true: 1
+
+  require_pokedex:
+    # Require the Pokedex to obtain items from Oak's Aides or from Dexsanity checks.
+    false: 0
+    true: 50
+
+  all_pokemon_seen:
+    # Start with all Pokemon "seen" in your Pokedex. This allows you to see where Pokemon can be encountered in the
+    # wild. Pokemon found by fishing or in the Cerulean Cave are not displayed.
+    false: 50
+    true: 0
+
+  dexsanity:
+    # Adds a location check for each Pokemon flagged "Owned" on your Pokedex. If accessibility is set to `locations`
+    # and randomize_wild_pokemon is off, catch_em_all is not `all_pokemon` or randomize_legendary_pokemon is not `any`,
+    # accessibility will be forced to `items` instead, as not all Dexsanity locations can be guaranteed to be considered
+    # reachable in logic.
+    # If Pokedex is required, the items for Pokemon acquired before acquiring the Pokedex can be found by talking to
+    # Professor Oak or evaluating the Pokedex via Oak's PC.
+    false: 50
+    true: 0
+
+  oaks_aide_rt_2:
+    # Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 2.
+    # Vanilla is 10.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 80
+    10: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  oaks_aide_rt_11:
+    # Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 11.
+    # Vanilla is 30.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 80
+    20: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  oaks_aide_rt_15:
+    # Number of Pokemon registered in the Pokedex required to receive the item from Oak's Aide on Route 15.
+    # Vanilla is 50.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 80
+    30: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  badges_needed_for_hm_moves:
+    # Off will remove the requirement for badges to use HM moves. Extra will give the Marsh, Volcano, and Earth Badges
+    # a random HM move to enable. Extra Plus will additionally pick two random badges to enable a second HM move.
+    # You will only need one of the required badges to use the HM move.
+    on: 1
+    off: 0
+    extra: 0
+    extra_plus: 0
+
+  free_fly_location:
+    # One random fly destination will be unlocked by default.
+    false: 1
+    true: 0
+
+  randomize_rock_tunnel:
+    # Randomize the layout of Rock Tunnel. This is highly experimental, if you encounter any issues (items or trainers
+    #  unreachable, trainers walking over walls, inability to reach end of tunnel, anything looking strange) to
+    #  Alchav#8826 in the Archipelago Discord (directly or in #pkmn-red-blue) along with the seed number found on the
+    #  signs outside the tunnel.
+    false: 50
+    true: 0
+
+  blind_trainers:
+    # Chance each frame that you are standing on a tile in a trainer's line of sight that they will fail to initiate a
+    # battle. If you move into and out of their line of sight without stopping, this chance will only trigger once.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  minimum_steps_between_encounters:
+    # Minimum number of steps between wild Pokemon encounters.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 255
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  exp_modifier:
+    # Modifier for EXP gained. When specifying a number, exp is multiplied by this amount and divided by 16.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 255
+    random: 0
+    random-low: 0
+    random-high: 0
+    half: 0 # equivalent to 8.0
+    normal: 50 # equivalent to 16
+    double: 0 # equivalent to 32
+    triple: 0 # equivalent to 48
+    quadruple: 0 # equivalent to 64
+    quintuple: 0 # equivalent to 80
+    sextuple: 0 # equivalent to 96
+    septuple: 0 # equivalent to 112
+    octuple: 0 # equivalent to 128
+
+  randomize_wild_pokemon:
+    # Randomize all wild Pokemon and game corner prize Pokemon. match_types will select a Pokemon with at least one
+    # type matching the original type of the original Pokemon. match_base_stats will prefer Pokemon with closer base stat
+    # totals. match_types_and_base_stats will match types and will weight towards similar base stats, but there may not be
+    # many to choose from.
+    vanilla: 0
+    match_types: 0
+    match_base_stats: 0
+    match_types_and_base_stats: 0
+    completely_random: 1
+
+  area_1_to_1_mapping:
+    # When randomizing wild Pokemon, for each zone, all instances of a particular Pokemon will be replaced with the
+    # same Pokemon, resulting in fewer Pokemon in each area.
+    false: 1
+    true: 0
+
+  randomize_starter_pokemon:
+    # Randomize the starter Pokemon choices.
+    vanilla: 0
+    match_types: 0
+    match_base_stats: 0
+    match_types_and_base_stats: 0
+    completely_random: 1
+
+  randomize_static_pokemon:
+    # Randomize one-time gift and encountered Pokemon. These will always be first evolution stage Pokemon.
+    vanilla: 0
+    match_types: 0
+    match_base_stats: 0
+    match_types_and_base_stats: 0
+    completely_random: 1
+
+  randomize_legendary_pokemon:
+    # Randomize Legendaries. Mew has been added as an encounter at the Vermilion dock truck.
+    # Shuffle will shuffle the legendaries with each other. Static will shuffle them into other static Pokemon locations.
+    # 'Any' will allow legendaries to appear anywhere based on wild and static randomization options, and their locations
+    # will be randomized according to static Pokemon randomization options.
+    vanilla: 0
+    shuffle: 0
+    static: 0
+    any: 1
+
+  catch_em_all:
+    # Guarantee all first evolution stage Pokemon are available, or all Pokemon of all stages.
+    # Currently only has an effect if wild Pokemon are randomized.
+    off: 0
+    first_stage: 1
+    all_pokemon: 0
+
+  randomize_pokemon_stats:
+    # Randomize base stats for each Pokemon. Shuffle will shuffle the 5 base stat values amongst each other. Randomize
+    # will completely randomize each stat, but will still add up to the same base stat total.
+    vanilla: 0
+    shuffle: 0
+    randomize: 1
+
+  randomize_pokemon_catch_rates:
+    # Randomize the catch rate for each Pokemon.
+    false: 0
+    true: 1
+
+  minimum_catch_rate:
+    # Minimum catch rate for each Pokemon. If randomize_catch_rates is on, this will be the minimum value that can be
+    # chosen. Otherwise, it will raise any Pokemon's catch rate up to this value if its normal catch rate is lower.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 255
+    127: 0
+    255: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  randomize_trainer_parties:
+    # Randomize enemy Pokemon encountered in trainer battles.
+    vanilla: 0
+    match_types: 0
+    match_base_stats: 0
+    match_types_and_base_stats: 0
+    completely_random: 1
+
+  trainer_legendaries:
+    # Allow legendary Pokemon in randomized trainer parties.
+    false: 0
+    true: 1
+
+  move_balancing:
+    # All one-hit-KO moves and fixed-damage moves become normal damaging moves.
+    # Blizzard, and moves that cause sleep have their accuracy reduced.
+    false: 50
+    true: 0
+
+  randomize_pokemon_movesets:
+    # Randomize the moves learned by Pokemon. prefer_types will prefer moves that match the type of the Pokemon.
+    vanilla: 0
+    prefer_types: 0
+    completely_random: 1
+
+  confine_transform_to_ditto:
+    # Regardless of moveset randomization, will keep Ditto's first move as Transform no others will learn it.
+    # If an enemy Pokemon uses transform before you catch it, it will permanently change to Ditto after capture.
+    false: 1
+    true: 0
+
+  start_with_four_moves:
+    # If movesets are randomized, this will give all Pokemon 4 starting moves.
+    false: 0
+    true: 1
+
+  same_type_attack_bonus:
+    # Here you can disable Same Type Attack Bonus, so that a move matching a Pokemon's type has no benefit.
+    # If disabled, all moves will gain 25% extra damage, instead of same type moves gaining 50% extra damage.
+    false: 0
+    true: 50
+
+  randomize_tm_moves:
+    # Randomize the moves taught by TMs.
+    # All TM items will be flagged as 'filler' items regardless of how good the move they teach are.
+    false: 0
+    true: 1
+
+  tm_same_type_compatibility:
+    # Chance of each TM being usable on each Pokemon whose type matches the move.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 100
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0 # equivalent to -1
+    none: 0 # equivalent to 0
+    full: 1 # equivalent to 100
+
+  tm_normal_type_compatibility:
+    # Chance of each TM being usable on each Pokemon if the move is Normal type and the Pokemon is not.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 100
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0 # equivalent to -1
+    none: 0 # equivalent to 0
+    full: 1 # equivalent to 100
+
+  tm_other_type_compatibility:
+    # Chance of each TM being usable on each Pokemon if the move a type other than Normal or one of the Pokemon's types.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 100
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0 # equivalent to -1
+    none: 0 # equivalent to 0
+    full: 1 # equivalent to 100
+
+  hm_same_type_compatibility:
+    # Chance of each HM being usable on each Pokemon whose type matches the move.
+    # At least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 100
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0 # equivalent to -1
+    none: 0 # equivalent to 0
+    full: 1 # equivalent to 100
+
+  hm_normal_type_compatibility:
+    # Chance of each HM being usable on each Pokemon if the move is Normal type and the Pokemon is not.
+    # At least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 100
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0 # equivalent to -1
+    none: 0 # equivalent to 0
+    full: 1 # equivalent to 100
+
+  hm_other_type_compatibility:
+    # Chance of each HM being usable on each Pokemon if the move a type other than Normal or one of the Pokemon's types.
+    # At least one Pokemon will always be able to learn the moves needed to meet your accessibility requirements.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 100
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0 # equivalent to -1
+    none: 0 # equivalent to 0
+    full: 1 # equivalent to 100
+
+  inherit_tm_hm_compatibility:
+    # If on, evolved Pokemon will inherit their pre-evolved form's TM and HM compatibilities.
+    # They will then roll the above set chances again at a 50% lower rate for all TMs and HMs their predecessor could not
+    # learn, unless the evolved form has additional or different types, then moves of those new types will be rolled
+    # at the full set chance.
+    false: 0
+    true: 1
+
+  randomize_pokemon_types:
+    # Randomize the types of each Pokemon. Follow Evolutions will ensure Pokemon's types remain the same when evolving
+    # (except possibly gaining a type).
+    vanilla: 50
+    follow_evolutions: 0
+    randomize: 0
+
+  secondary_type_chance:
+    # If randomize_pokemon_types is on, this is the chance each Pokemon will have a secondary type. If follow_evolutions
+    # is selected, it is the chance a second type will be added at each evolution stage. vanilla will give secondary types
+    # to Pokemon that normally have a secondary type.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 100
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 50 # equivalent to -1
+
+  randomize_type_chart:
+    # Randomize the type chart. If 'randomize' is chosen, the matchup weight options will determine the weights.
+    # If the numbers chosen across the 4 settings add up to exactly 225, they will be the exact numbers of those matchups.
+    # Otherwise, the normal super effective, and not very effective matchup settings will be used as weights.
+    # The immunities option will always be the exact amount of immunity matchups.
+    # If 'chaos' is chosen, the matchup settings will be ignored and every type matchup will be given a random damage
+    # modifier anywhere between 0 to 200% damage, in 10% increments.
+    vanilla: 50
+    randomize: 0
+    chaos: 0
+
+  normal_matchups:
+    # If 'randomize' is chosen for randomize_type_chart, this will be the weight for neutral matchups.
+    # No effect if 'chaos' is chosen
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 225
+    143: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  super_effective_matchups:
+    # If 'randomize' is chosen for randomize_type_chart, this will be the weight for super effective matchups.
+    # No effect if 'chaos' is chosen
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 225
+    38: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  not_very_effective_matchups:
+    # If 'randomize' is chosen for randomize_type_chart, this will be the weight for not very effective matchups.
+    # No effect if 'chaos' is chosen
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 225
+    38: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  immunity_matchups:
+    # If 'randomize' is chosen for randomize_type_chart, this will be the exact number of immunities.
+    # No effect if 'chaos' is chosen
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    6: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  safari_zone_normal_battles:
+    # Change the Safari Zone to have standard wild pokemon battles.
+    false: 50
+    true: 0
+
+  normalize_encounter_chances:
+    # Each wild encounter table has 10 slots for Pokemon. Normally the chance for each being chosen ranges from
+    # 19.9% to 1.2%. Turn this on to normalize them all to 10% each.
+    false: 50
+    true: 0
+
+  reusable_tms:
+    # Makes TMs reusable, so they will not be consumed upon use.
+    false: 0
+    true: 1
+
+  better_shops:
+    # Change every town's Pokemart to contain all normal Pokemart items. Additionally, you can add the Master Ball
+    # to these shops.
+    off: 0
+    on: 0
+    add_master_ball: 1
+
+  master_ball_price:
+    # Price for Master Balls. Can only be bought if better_shops is set to add_master_ball, but this will affect the
+    # sell price regardless. Vanilla is 0
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999999
+    5000: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  starting_money:
+    # The amount of money you start with.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999999
+    3000: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  lose_money_on_blackout:
+    # Lose half your money when blacking out, as in vanilla.
+    false: 0
+    true: 50
+
+  trap_percentage:
+    # Chance for each filler item to be replaced with trap items. Keep in mind that trainersanity vastly increases the
+    # number of filler items. The trap weight options will determine which traps can be chosen from and at what likelihood.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  poison_trap_weight:
+    # Weights for Poison Traps. These apply the Poison status to all your party members.
+    low: 0
+    medium: 50
+    high: 0
+    disabled: 0
+
+  fire_trap_weight:
+    # Weights for Fire Traps. These apply the Burn status to all your party members.
+    low: 0
+    medium: 50
+    high: 0
+    disabled: 0
+
+  paralyze_trap_weight:
+    # Weights for Paralyze Traps. These apply the Paralyze status to all your party members.
+    low: 0
+    medium: 50
+    high: 0
+    disabled: 0
+
+  ice_trap_weight:
+    # Weights for Ice Traps. These apply the Ice status to all your party members. Don't forget to buy Ice Heals!
+    low: 0
+    medium: 0
+    high: 0
+    disabled: 50
+
+  randomize_pokemon_palettes:
+    # Modify palettes of Pokemon. Primary Type will set Pokemons' palettes based on their primary type, Follow
+    # Evolutions will randomize palettes but palettes will remain the same through evolutions (except Eeveelutions),
+    # Completely Random will randomize all Pokemons' palettes individually
+    vanilla: 0
+    primary_type: 1
+    follow_evolutions: 1
+    completely_random: 1
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
