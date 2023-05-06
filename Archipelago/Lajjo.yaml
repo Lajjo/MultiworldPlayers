@@ -27,9 +27,11 @@ name: Lajjo{NUMBER}
 game:
   A Link to the Past: 1 #Main game
   ArchipIDLE: 0 #Idle game
+  Blasphemous: 0 #Main game
   ChecksFinder: 0 #Idle game
+  Clique: 0 #Idle game
   Donkey Kong Country 3: 1 #Main game
-  Dark Souls III: 1 #Main game
+  Dark Souls III: 0 #Main game
   Hollow Knight: 0 #Main game
   Minecraft: 0 #Main game
   Pokemon Red and Blue: 0 #Experimental
@@ -40,107 +42,383 @@ game:
   Timespinner: 0 #Main game
   The Witness: 1 #Main game
   VVVVVV: 1 #Main game
+  Wargroove: 0 #Main game
 
 A Link to the Past:
-  crystals_needed_for_gt:å
-    random: 1
-  crystals_needed_for_ganon:
-    random: 1
-  bigkey_shuffle:
-    random: 1
-  smallkey_shuffle:
-    random: 1
-  compass_shuffle:
-    random: 1
-  Risk of Rain 2: 0 #M
-    "true": 1
-  retro_bow:
-    "false": 1
-  retro_caves:
-    "false": 1
-  hints:
-    on: 1
-  scams:
-    off: 1
-  restrict_dungeon_item_on_boss:
-    "false": 1
-  pot_shuffle:
-    "false": 4
-    "true": 1
-  enemy_shuffle:
-    "false": 9
-    "true": 1
-  killable_thieves:
-    "false": 1
-  bush_shuffle:
-    "false": 9
-    "true": 1
-  shop_item_slots:
-    random: 1
-  shop_price_modifier:
-    random: 1
-  tile_shuffle:
-    "true": 1
-  ow_palettes:
-    good: 1
-    classic: 1
-    random: 1
-  uw_palettes:
-    good: 1
-    classic: 1
-    random: 1
-  hud_palettes:
-    good: 1
-    classic: 1
-    random: 1
-  sword_palettes:
-    good: 1
-    classic: 1
-    random: 1
-  shield_palettes:
-    good: 1
-    classic: 1
-    random: 1
-  link_palettes:
-    good: 1
-    classic: 1
-    random: 1
-  heartbeep:
-    off: 1
-  heartcolor:
-    random: 1
-  quickswap:
-    "true": 1
-  menuspeed:
-    normal: 1
-  music:
-    "true": 1
-  reduceflashing:
-    "true": 1
-  triforcehud:
-    normal: 1
-  glitch_boots:
-    "true": 1
-  beemizer_total_chance:
-    0: 1
-  beemizer_trap_chance:
-    60: 1
-  death_link:
-    "true": 1
-  allow_collect:
-    "false": 1
   progression_balancing:
-    random: 1
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
   accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
     items: 1
     minimal: 1
-  priority_locations: []
-  start_inventory: {}
-  exclude_locations: []
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  crystals_needed_for_gt:
+    # Number of crystals needed to open Ganon's Tower
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  crystals_needed_for_ganon:
+    # Number of crystals needed to damage Ganon
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  open_pyramid:
+    # Determines whether the hole at the top of pyramid is open.
+    # Goal will open the pyramid if the goal requires you to kill Ganon, without needing to kill Agahnim 2.
+    # Auto is the same as goal except if Ganon's dropdown is in another location, the hole will be closed.
+    closed: 0
+    open: 0
+    goal: 1
+    auto: 0
+
+  bigkey_shuffle:
+    # Big Key Placement
+    original_dungeon: 1
+    own_dungeons: 0
+    own_world: 0
+    any_world: 1
+    different_world: 0
+    start_with: 0
+
+  smallkey_shuffle:
+    # Small Key Placement
+    original_dungeon: 1
+    own_dungeons: 0
+    own_world: 0
+    any_world: 1
+    different_world: 0
+    start_with: 0
+    universal: 0
+
+  compass_shuffle:
+    # Compass Placement
+    original_dungeon: 1
+    own_dungeons: 0
+    own_world: 0
+    any_world: 1
+    different_world: 0
+    start_with: 0
+
+  map_shuffle:
+    # Map Placement
+    original_dungeon: 1
+    own_dungeons: 0
+    own_world: 0
+    any_world: 1
+    different_world: 0
+    start_with: 0
+
+  progressive:
+    # How item types that have multiple tiers (armor, bows, gloves, shields, and swords) should be rewarded
+    off: 1
+    grouped_random: 1
+    on: 1
+
+  swordless:
+    # No swords. Curtains in Skull Woods and Agahnim's
+    # Tower are removed, Agahnim's Tower barrier can be
+    # destroyed with hammer. Misery Mire and Turtle Rock
+    # can be opened without a sword. Hammer damages Ganon.
+    # Ether and Bombos Tablet can be activated with Hammer
+    # (and Book).
+    false: 4
+    true: 1
+
+  retro_bow:
+    # Zelda-1 like mode. You have to purchase a quiver to shoot arrows using rupees.
+    false: 1
+    true: 0
+
+  retro_caves:
+    # Zelda-1 like mode. There are randomly placed take-any caves that contain one Sword and
+    # choices of Heart Container/Blue Potion.
+    false: 1
+    true: 0
+
+  hints:
+    # On/Full: Put item and entrance placement hints on telepathic tiles and some NPCs, Full removes joke hints.
+    off: 0
+    on: 1
+    full: 0
+
+  scams:
+    # If on, these Merchants will no longer tell you what they're selling.
+    off: 1
+    king_zora: 0
+    bottle_merchant: 0
+    all: 0
+
+  restrict_dungeon_item_on_boss:
+    # Don't place dungeon-native items on the dungeon's boss.
+    false: 1
+    true: 0
+
+  boss_shuffle:
+    # Shuffles bosses around to different locations.
+    # Basic will shuffle all bosses except Ganon and Agahnim anywhere they can be placed.
+    # Full chooses 3 bosses at random to be placed twice instead of Lanmolas, Moldorm, and Helmasaur.
+    # Chaos allows any boss to appear any number of times.
+    # Singularity places a single boss in as many places as possible, and a second boss in any remaining locations.
+    # Supports plando placement.
+    none: 5
+    basic: 2
+    full: 2
+    chaos: 1
+    singularity: 1
+
+  pot_shuffle:
+    # Shuffle contents of pots within "supertiles" (item will still be nearby original placement).
+    false: 9
+    true: 1
+
+  enemy_shuffle:
+    # Randomize every enemy spawn.
+    # If mode is Standard, Hyrule Castle is left out (may result in visually wrong enemy sprites in that area.)
+    false: 9
+    true: 1
+
+  killable_thieves:
+    # Makes Thieves killable.
+    false: 1
+    true: 0
+
+  bush_shuffle:
+    # Randomize chance that a bush contains an enemy as well as which enemy may spawn.
+    false: 1
+    true: 0
+
+  shop_item_slots:
+    # Number of slots in all shops available to have items from the multiworld
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 30
+    0: 9
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  shop_price_modifier:
+    # Percentage modifier for shuffled item prices in shops
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 400
+    100: 9
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  tile_shuffle:
+    # Randomize flying tiles floor patterns.
+    false: 0
+    true: 1
+
+  ow_palettes:
+    # The type of palette shuffle to use for the overworld
+    default: 0
+    good: 1
+    blackout: 0
+    puke: 0
+    classic: 0
+    grayscale: 0
+    negative: 0
+    dizzy: 0
+    sick: 0
+
+  uw_palettes:
+    # The type of palette shuffle to use for the underworld (caves, dungeons, etc.)
+    default: 0
+    good: 1
+    blackout: 0
+    puke: 0
+    classic: 0
+    grayscale: 0
+    negative: 0
+    dizzy: 0
+    sick: 0
+
+  hud_palettes:
+    # The type of palette shuffle to use for the HUD
+    default: 0
+    good: 1
+    blackout: 0
+    puke: 0
+    classic: 0
+    grayscale: 0
+    negative: 0
+    dizzy: 0
+    sick: 0
+
+  sword_palettes:
+    # The type of palette shuffle to use for the sword
+    default: 0
+    good: 1
+    blackout: 0
+    puke: 0
+    classic: 0
+    grayscale: 0
+    negative: 0
+    dizzy: 0
+    sick: 0
+
+  shield_palettes:
+    # The type of palette shuffle to use for the shield
+    default: 0
+    good: 1
+    blackout: 0
+    puke: 0
+    classic: 0
+    grayscale: 0
+    negative: 0
+    dizzy: 0
+    sick: 0
+
+  heartbeep:
+    # How quickly the heart beep sound effect will play
+    normal: 0
+    double: 0
+    half: 0
+    quarter: 0
+    off: 1
+
+  heartcolor:
+    # The color of hearts in the HUD
+    red: 1
+    blue: 1
+    green: 1
+    yellow: 1
+
+  quickswap:
+    # Allows you to quickly swap items while playing with L/R
+    false: 0
+    true: 1
+
+  menuspeed:
+    # How quickly the menu appears/disappears
+    normal: 1
+    instant: 0
+    double: 0
+    triple: 0
+    quadruple: 0
+    half: 0
+
+  music:
+    # Whether background music will play in game
+    false: 0
+    true: 1
+
+  reduceflashing:
+    # Reduces flashing for certain scenes such as the Misery Mire and Ganon's Tower opening cutscenes
+    false: 0
+    true: 1
+
+  triforcehud:
+    # When and how the triforce hunt HUD should display
+    normal: 1
+    hide_goal: 0
+    hide_required: 0
+    hide_both: 0
+
+  glitch_boots:
+    # If this is enabled, the player will start with Pegasus Boots when playing with overworld glitches or harder logic.
+    false: 0
+    true: 1
+
+  beemizer_total_chance:
+    # Percentage chance for each junk-fill item (rupees, bombs, arrows) to be
+    # replaced with either a bee swarm trap or a single bottle-filling bee.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 1
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  beemizer_trap_chance:
+    # Percentage chance for each replaced junk-fill item to be a bee swarm
+    # trap; all other replaced items are single bottle-filling bees.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    60: 1
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+
+  allow_collect:
+    # Allows for !collect / co-op to auto-open chests containing items for other players.
+    # Off by default, because it currently crashes on real hardware.
+    false: 0
+    true: 1
 
 ArchipIDLE:
   progression_balancing:
@@ -156,6 +434,267 @@ ArchipIDLE:
   start_hints: []
   start_location_hints: []
 
+Blasphemous:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  prie_dieu_warp:
+    # Automatically unlocks the ability to warp between Prie Dieu shrines.
+    false: 0
+    true: 50
+
+  skip_cutscenes:
+    # Automatically skips most cutscenes.
+    false: 0
+    true: 50
+
+  corpse_hints:
+    # Changes the 34 corpses in game to give various hints about item locations.
+    false: 0
+    true: 50
+
+  difficulty:
+    # Adjusts the logic required to defeat bosses.
+    # Impossible: Removes all logic requirements for bosses. Good luck.
+    easy: 0
+    normal: 50
+    hard: 0
+    impossible: 0
+
+  penitence:
+    # Allows one of the three Penitences to be chosen at the beginning of the game.
+    false: 50
+    true: 0
+
+  expert_logic:
+    # Expands the logic used by the randomizer to allow for some difficult and/or lesser known tricks.
+    false: 50
+    true: 0
+
+  ending:
+    # Choose which ending is required to complete the game.
+    # Ending A: Collect all thorn upgrades.
+    # Ending C: Collect all thorn upgrades and the Holy Wound of Abnegation.
+    any_ending: 50
+    ending_a: 0
+    ending_c: 0
+
+  thorn_shuffle:
+    # Shuffles the Thorn given by Deogracias and all Thorn upgrades into the item pool.
+    anywhere: 50
+    local_only: 0
+    vanilla: 0
+
+  reliquary_shuffle:
+    # Adds the True Torment exclusive Reliquary rosary beads into the item pool.
+    false: 0
+    true: 50
+
+  cherub_shuffle:
+    # Shuffles Children of Moonlight into the item pool.
+    false: 0
+    true: 50
+
+  life_shuffle:
+    # Shuffles life upgrades from the Lady of the Six Sorrows into the item pool.
+    false: 0
+    true: 50
+
+  fervour_shuffle:
+    # Shuffles fervour upgrades from the Oil of the Pilgrims into the item pool.
+    false: 0
+    true: 50
+
+  sword_shuffle:
+    # Shuffles Mea Culpa upgrades from the Mea Culpa Altars into the item pool.
+    false: 0
+    true: 50
+
+  blessing_shuffle:
+    # Shuffles blessings from the Lake of Silent Pilgrims into the item pool.
+    false: 0
+    true: 50
+
+  dungeon_shuffle:
+    # Shuffles rewards from completing Confessor Dungeons into the item pool.
+    false: 0
+    true: 50
+
+  tirso_shuffle:
+    # Shuffles rewards from delivering herbs to Tirso into the item pool.
+    false: 0
+    true: 50
+
+  miriam_shuffle:
+    # Shuffles the prayer given by Miriam into the item pool.
+    false: 0
+    true: 50
+
+  redento_shuffle:
+    # Shuffles rewards from assisting Redento into the item pool.
+    false: 0
+    true: 50
+
+  jocinero_shuffle:
+    # Shuffles rewards from rescuing 20 and 38 Children of Moonlight into the item pool.
+    false: 0
+    true: 50
+
+  altasgracias_shuffle:
+    # Shuffles the reward given by Altasgracias and the item left behind by them into the item pool.
+    false: 0
+    true: 50
+
+  tentudia_shuffle:
+    # Shuffles the rewards from delivering Tentudia's remains to Lvdovico into the item pool.
+    false: 0
+    true: 50
+
+  gemino_shuffle:
+    # Shuffles the rewards from Gemino's quest and the hidden tomb into the item pool.
+    false: 0
+    true: 50
+
+  guilt_shuffle:
+    # Shuffles the Weight of True Guilt into the item pool.
+    false: 0
+    true: 50
+
+  ossuary_shuffle:
+    # Shuffles the rewards from delivering bones to the Ossuary into the item pool.
+    false: 0
+    true: 50
+
+  boss_shuffle:
+    # Shuffles the Tears of Atonement from defeating bosses into the item pool.
+    false: 0
+    true: 50
+
+  wound_shuffle:
+    # Shuffles the Holy Wounds required to pass the Bridge of the Three Cavalries into the item pool.
+    false: 0
+    true: 50
+
+  mask_shuffle:
+    # Shuffles the masks required to use the elevator in Archcathedral Rooftops into the item pool.
+    false: 0
+    true: 50
+
+  eye_shuffle:
+    # Shuffles the Eyes of the Traitor from defeating Isidora and Sierpes into the item pool.
+    false: 0
+    true: 50
+
+  herb_shuffle:
+    # Shuffles the herbs required for Tirso's quest into the item pool.
+    false: 0
+    true: 50
+
+  church_shuffle:
+    # Shuffles the rewards from donating 5,000 and 50,000 Tears of Atonement to the Church in Albero into the item pool.
+    false: 0
+    true: 50
+
+  shop_shuffle:
+    # Shuffles the items sold in Candelaria's shops into the item pool.
+    false: 0
+    true: 50
+
+  candle_shuffle:
+    # Shuffles the Beads of Wax and their upgrades into the item pool.
+    false: 0
+    true: 50
+
+  start_wheel:
+    # Changes the beginning gift to The Young Mason's Wheel.
+    false: 50
+    true: 0
+
+  skill_randomizer:
+    # Randomizes the abilities from the skill tree into the item pool.
+    false: 50
+    true: 0
+
+  enemy_randomizer:
+    # Randomizes the enemies that appear in each room.
+    # Shuffled: Enemies will be shuffled amongst each other, but can only appear as many times as they do in a standard game.
+    # Randomized: Every enemy is completely random, and can appear any number of times.
+    # Some enemies will never be randomized.
+    disabled: 0
+    shuffled: 0
+    randomized: 1
+
+  enemy_groups:
+    # Randomized enemies will chosen from sets of specific groups.
+    # (Weak, normal, large, flying)
+    # Has no effect if Enemy Randomizer is disabled.
+    false: 0
+    true: 1
+
+  enemy_scaling:
+    # Randomized enemies will have their stats increased or decreased depending on the area they appear in.
+    # Has no effect if Enemy Randomizer is disabled.
+    false: 0
+    true: 1
+
+  death_link:
+    # When you die, everyone dies. The reverse is also true.
+    # Note that Guilt Fragments will not appear when killed by Death Link.
+    false: 0
+    true: 1
+
 ChecksFinder:
   progression_balancing:
     random: 1
@@ -169,163 +708,395 @@ ChecksFinder:
   non_local_items: []
   start_hints: []
   start_location_hints: []
-  
-Dark Souls III:
-  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
-    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
-    # you can add additional values between minimum and maximum
+
+Clique:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     random: 0
     random-low: 0
     random-high: 0
-    disabled: 0
-    normal: 50
-    extreme: 0
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    disabled: 0 # equivalent to 0
+    normal: 1 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
     locations: 0
-    items: 50
+    items: 1
     minimal: 0
-  local_items: # Forces these items to be in their native world.
+
+  local_items:
+    # Forces these items to be in their native world.
     []
-  non_local_items: # Forces these items to be outside their native world.
+
+  non_local_items:
+    # Forces these items to be outside their native world.
     []
-  start_inventory: # Start with these items.
+
+  start_inventory:
+    # Start with these items.
     {}
-  start_hints: # Start with these item's locations prefilled into the !hint command.
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
     []
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
     []
-  exclude_locations: # Prevent these locations from having an important item
+
+  exclude_locations:
+    # Prevent these locations from having an important item
     []
-  priority_locations: # Prevent these locations from having an unimportant item
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
     []
-  item_links: # Share part of your item pool with other players.
+
+  item_links:
+    # Share part of your item pool with other players.
     []
-  auto_equip: # Automatically equips any received armor or left/right weapons.
-    false: 0
-    true: 1
-  lock_equip: # Lock the equipment slots so you cannot change your armor or your left/right weapons. Works great with the
-    #    Auto-equip option.
-    false: 0
-    true: 1
-  no_weapon_requirements: # Disable the weapon requirements by removing any movement or damage penalties.
-    #    Permitting you to use any weapon early
+
+  hard_mode:
+    # Only for masochists: requires 2 presses!
     false: 1
-    true: 1
-  randomize_weapons_level: # Enable this option to upgrade 33% ( based on the probability chance ) of the pool of weapons to a random value
-    #    between +1 and +5/+10
-    false: 1
-    true: 1
-  late_basin_of_vows: # Force the Basin of Vows to be located as a reward of defeating Pontiff Sulyvahn. It permits to ease the
-    #    progression by preventing having to kill the Dancer of the Boreal Valley as the first boss
-    false: 0
     true: 1
 
-Donkey Kong Country 3:
-  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
-    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
-    # you can add additional values between minimum and maximum
+Dark Souls III:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     random: 0
     random-low: 0
     random-high: 0
-    disabled: 0
-    normal: 50
-    extreme: 0
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
     locations: 0
     items: 50
     minimal: 0
-  local_items: # Forces these items to be in their native world.
+
+  local_items:
+    # Forces these items to be in their native world.
     []
-  non_local_items: # Forces these items to be outside their native world.
+
+  non_local_items:
+    # Forces these items to be outside their native world.
     []
-  start_inventory: # Start with these items.
+
+  start_inventory:
+    # Start with these items.
     {}
-  start_hints: # Start with these item's locations prefilled into the !hint command.
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
     []
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
     []
-  exclude_locations: # Prevent these locations from having an important item
+
+  exclude_locations:
+    # Prevent these locations from having an important item
     []
-  priority_locations: # Prevent these locations from having an unimportant item
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
     []
-  item_links: # Share part of your item pool with other players.
+
+  item_links:
+    # Share part of your item pool with other players.
     []
-  goal: # 
-    #    Determines the goal of the seed
-    #    Knautilus: Reach the Knautilus and defeat Baron K. Roolenstein
-    #    Banana Bird Hunt: Find a certain number of Banana Birds and rescue their mother
-    #    
+
+  auto_equip:
+    # Automatically equips any received armor or left/right weapons.
+    false: 50
+    true: 0
+
+  lock_equip:
+    # Lock the equipment slots so you cannot change your armor or your left/right weapons. Works great with the
+    # Auto-equip option.
+    false: 50
+    true: 0
+
+  no_weapon_requirements:
+    # Disable the weapon requirements by removing any movement or damage penalties.
+    # Permitting you to use any weapon early
+    false: 50
+    true: 0
+
+  randomize_weapons_level:
+    # Enable this option to upgrade a percentage of the pool of weapons to a random value between the minimum and
+    # maximum levels defined.
+    # all: All weapons are eligible, both basic and epic
+    # basic: Only weapons that can be upgraded to +10
+    # epic: Only weapons that can be upgraded to +5
+    none: 50
+    all: 0
+    basic: 0
+    epic: 0
+
+  randomize_weapons_percentage:
+    # The percentage of weapons in the pool to be upgraded if randomize weapons level is toggled
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    33: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  min_levels_in_5:
+    # The minimum upgraded value of a weapon in the pool of weapons that can only reach +5
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  max_levels_in_5:
+    # The maximum upgraded value of a weapon in the pool of weapons that can only reach +5
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  min_levels_in_10:
+    # The minimum upgraded value of a weapon in the pool of weapons that can reach +10
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  max_levels_in_10:
+    # The maximum upgraded value of a weapon in the pool of weapons that can reach +10
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  late_basin_of_vows:
+    # Force the Basin of Vows to be located as a reward of defeating Pontiff Sulyvahn. It permits to ease the
+    # progression by preventing having to kill the Dancer of the Boreal Valley as the first boss
+    false: 50
+    true: 0
+
+  no_spell_requirements:
+    # Disable the spell requirements permitting you to use any spell
+    false: 50
+    true: 0
+
+  no_equip_load:
+    # Disable the equip load constraint from the game
+    false: 50
+    true: 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 50
+    true: 0
+
+  enable_progressive_locations:
+    # Randomize upgrade materials such as the titanite shards, the estus shards and the consumables
+    false: 50
+    true: 0
+
+  enable_dlc:
+    # To use this option, you must own both the ASHES OF ARIANDEL and the RINGED CITY DLC
+    false: 50
+    true: 0
+
+Donkey Kong Country 3:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  goal:
+    # Determines the goal of the seed
+    # Knautilus: Scuttle the Knautilus in Krematoa and defeat Baron K. Roolenstein
+    # Banana Bird Hunt: Find a certain number of Banana Birds and rescue their mother
     knautilus: 50
     banana_bird_hunt: 0
-  dk_coins_for_gyrocopter: # 
-    #    How many DK Coins are needed to unlock the Gyrocopter
-    #    Note: Achieving this number before unlocking the Turbo Ski will cause the game to grant you a
-    #    one-time upgrade to the next non-unlocked boat, until you return to Funky. Logic does not assume
-    #    that you will use this.
-    #    
-    # you can add additional values between minimum and maximum
-    10: 0 # minimum value
-    41: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
+
+  dk_coins_for_gyrocopter:
+    # How many DK Coins are needed to unlock the Gyrocopter
+    # Note: Achieving this number before unlocking the Turbo Ski will cause the game to grant you a
+    # one-time upgrade to the next non-unlocked boat, until you return to Funky. Logic does not assume
+    # that you will use this.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 41
     30: 50
-  krematoa_bonus_coin_cost: # 
-    #    How many Bonus Coins are needed to unlock each level in Krematoa
-    #    
-    # you can add additional values between minimum and maximum
-    1: 0 # minimum value
-    17: 0 # maximum value
     random: 0
     random-low: 0
     random-high: 0
+
+  krematoa_bonus_coin_cost:
+    # How many Bonus Coins are needed to unlock each level in Krematoa
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 17
     15: 50
-  percentage_of_extra_bonus_coins: # 
-    #    What Percentage of unneeded Bonus Coins are included in the item pool
-    #    
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 50 # maximum value
     random: 0
     random-low: 0
     random-high: 0
-  number_of_banana_birds: # 
-    #    How many Banana Birds are put into the item pool
-    #    
-    # you can add additional values between minimum and maximum
-    5: 0 # minimum value
-    15: 50 # maximum value
+
+  percentage_of_extra_bonus_coins:
+    # What Percentage of unneeded Bonus Coins are included in the item pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    100: 50
     random: 0
     random-low: 0
     random-high: 0
-  percentage_of_banana_birds: # 
-    #    What Percentage of Banana Birds in the item pool are required for Banana Bird Hunt
-    #    
-    # you can add additional values between minimum and maximum
-    20: 0 # minimum value
-    100: 50 # maximum value
+
+  number_of_banana_birds:
+    # How many Banana Birds are put into the item pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 15
+    15: 50
     random: 0
     random-low: 0
     random-high: 0
-  level_shuffle: # 
-    #    Whether levels are shuffled
-    #    
+
+  percentage_of_banana_birds:
+    # What Percentage of Banana Birds in the item pool are required for Banana Bird Hunt
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 20
+    # Maximum value is 100
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kongsanity:
+    # Whether collecting all four KONG letters in each level grants a check
     false: 50
     true: 0
-  music_shuffle: # 
-    #    Whether music is shuffled
-    #    
+
+  level_shuffle:
+    # Whether levels are shuffled
     false: 50
     true: 0
-  kong_palette_swap: # 
-    #    Which Palette to use for the Kongs
-    #    
+
+  difficulty:
+    # Which Difficulty Level to use
+    # NORML: The Normal Difficulty
+    # HARDR: Many DK Barrels are removed
+    # TUFST: Most DK Barrels and all Midway Barrels are removed
+    norml: 50
+    hardr: 0
+    tufst: 0
+
+  autosave:
+    # Whether the game should autosave after each level
+    false: 0
+    true: 50
+
+  merry:
+    # Whether the Bonus Barrels will be Christmas-themed
+    false: 50
+    true: 0
+
+  music_shuffle:
+    # Whether music is shuffled
+    false: 50
+    true: 0
+
+  kong_palette_swap:
+    # Which Palette to use for the Kongs
     default: 50
     purple: 0
     spooky: 0
@@ -335,867 +1106,846 @@ Donkey Kong Country 3:
     red_gold: 0
     gbc: 0
     halloween: 0
-  starting_life_count: # 
-    #    How many extra lives to start the game with
-    #    
-    # you can add additional values between minimum and maximum
-    1: 0 # minimum value
-    99: 0 # maximum value
+
+  starting_life_count:
+    # How many extra lives to start the game with
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 99
+    5: 50
     random: 0
     random-low: 0
     random-high: 0
-    5: 50
-
-  auto_equip: # Automatically equips any received armor or left/right weapons.
-    false: 50
-    true: 0
-  lock_equip: # Lock the equipment slots so you cannot change your armor or your left/right weapons. Works great with the
-    #    Auto-equip option.
-    false: 50
-    true: 0
-  no_weapon_requirements: # Disable the weapon requirements by removing any movement or damage penalties.
-    #    Permitting you to use any weapon early
-    false: 50
-    true: 0
-  randomize_weapons_level: # Enable this option to upgrade 33% ( based on the probability chance ) of the pool of weapons to a random value
-    #    between +1 and +5/+10
-    false: 50
-    true: 0
-  late_basin_of_vows: # Force the Basin of Vows to be located as a reward of defeating Pontiff Sulyvahn. It permits to ease the
-    #    progression by preventing having to kill the Dancer of the Boreal Valley as the first boss
-    false: 50
-    true: 0
 
 Hollow Knight:
-  RandomizeDreamers:
-    "true": 1
-  RandomizeSkills:
-    "true": 1
-  RandomizeFocus:
-    "false": 1
-  RandomizeSwim:
-    "false": 1
-  RandomizeCharms:
-    "true": 1
-  RandomizeKeys:
-    "true": 1
-  RandomizeMaskShards:
-    "true": 1
-  RandomizeVesselFragments:
-    "true": 1
-  RandomizeCharmNotches:
-    "false": 1
-  RandomizePaleOre:
-    "true": 1
-  RandomizeGeoChests:
-    "false": 1
-  RandomizeJunkPitChests:
-    "false": 1
-  RandomizeRancidEggs:
-    "false": 1
-  RandomizeRelics:
-    "true": 1
-  RandomizeWhisperingRoots:
-    "false": 1
-  RandomizeBossEssence:
-    "false": 1
-  RandomizeGrubs:
-    "false": 1
-  RandomizeMimics:
-    "false": 1
-  RandomizeMaps:
-    "false": 1
-  RandomizeStags:
-    "false": 1
-  RandomizeLifebloodCocoons:
-    "false": 1
-  RandomizeGrimmkinFlames:
-    "false": 1
-  RandomizeJournalEntries:
-    "false": 1
-  RandomizeNail:
-    "false": 1
-  RandomizeGeoRocks:
-    "false": 1
-  RandomizeBossGeo:
-    "false": 1
-  RandomizeSoulTotems:
-    "false": 1
-  RandomizeLoreTablets:
-    "false": 1
-  PreciseMovement:
-    "false": 1
-  ProficientCombat:
-    "false": 1
-  BackgroundObjectPogos:
-    "false": 1
-  EnemyPogos:
-    "false": 1
-  ObscureSkips:
-    "false": 1
-  ShadeSkips:
-    "false": 1
-  InfectionSkips:
-    "false": 1
-  FireballSkips:
-    "false": 1
-  SpikeTunnels:
-    "false": 1
-  AcidSkips:
-    "false": 1
-  DamageBoosts:
-    "false": 1
-  DangerousSkips:
-    "false": 1
-  DarkRooms:
-    "false": 1
-  ComplexSkips:
-    "false": 1
-  DifficultSkips:
-    "false": 1
-  RemoveSpellUpgrades:
-    "false": 1
-  StartLocation:
-    king's_pass: 4
-    random: 1
-  MinimumGrubPrice:
-    1: 1
-  MaximumGrubPrice:
-    23: 1
-  MinimumEssencePrice:
-    1: 1
-  MaximumEssencePrice:
-    1400: 1
-  MinimumEggPrice:
-    1: 1
-  MaximumEggPrice:
-    10: 1
-  MinimumCharmPrice:
-    1: 1
-  MaximumCharmPrice:
-    20: 1
-  RandomCharmCosts:
-    "-1": 1
-  EggShopSlots:
-    0: 1
   progression_balancing:
-    "true": 1
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
   accessibility:
-    items: 1
-  priority_locations: []
-  start_inventory: {}
-  exclude_locations: []
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
-  
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  RandomizeDreamers:
+    # Allow for Dreamers to be randomized into the item pool and opens their locations for randomization.
+    false: 0
+    true: 50
+
+  RandomizeSkills:
+    # Allow for Skills, such as Mantis Claw or Shade Soul, to be randomized into the item pool. Also opens their locations
+    # for receiving randomized items.
+    false: 0
+    true: 50
+
+  RandomizeFocus:
+    # Removes the ability to focus and randomizes it into the item pool.
+    false: 0
+    true: 1
+
+  RandomizeSwim:
+    # Removes the ability to swim in water and randomizes it into the item pool.
+    false: 0
+    true: 1
+
+  RandomizeCharms:
+    # Allow for Charms to be randomized into the item pool and open their locations for randomization. Includes Charms
+    # sold in shops.
+    false: 0
+    true: 50
+
+  RandomizeKeys:
+    # Allow for Keys to be randomized into the item pool. Includes those sold in shops.
+    false: 0
+    true: 50
+
+  RandomizeMaskShards:
+    # Allow for Mask Shard to be randomized into the item pool and open their locations for randomization.
+    false: 0
+    true: 50
+
+  RandomizeVesselFragments:
+    # Allow for Vessel Fragments to be randomized into the item pool and open their locations for randomization.
+    false: 0
+    true: 50
+
+  RandomizeCharmNotches:
+    # Allow for Charm Notches to be randomized into the item pool. Includes those sold by Salubra.
+    false: 0
+    true: 1
+
+  RandomizePaleOre:
+    # Randomize Pale Ores into the item pool and open their locations for randomization.
+    false: 0
+    true: 50
+
+  RandomizeGeoChests:
+    # Allow for Geo Chests to contain randomized items, as well as their Geo reward being randomized into the item pool.
+    false: 50
+    true: 0
+
+  RandomizeJunkPitChests:
+    # Randomize the contents of junk pit chests into the item pool and open their locations for randomization.
+    false: 50
+    true: 0
+
+  RandomizeRancidEggs:
+    # Randomize Rancid Eggs into the item pool and open their locations for randomization
+    false: 50
+    true: 0
+
+  RandomizeRelics:
+    # Randomize Relics (King's Idol, et al.) into the item pool and open their locations for randomization.
+    false: 0
+    true: 50
+
+  RandomizeWhisperingRoots:
+    # Randomize the essence rewards from Whispering Roots into the item pool. Whispering Roots will now grant a randomized
+    # item when completed. This can be previewed by standing on the root.
+    false: 50
+    true: 0
+
+  RandomizeBossEssence:
+    # Randomize boss essence drops, such as those for defeating Warrior Dreams, into the item pool and open their locations
+    # for randomization.
+    false: 50
+    true: 0
+
+  RandomizeGrubs:
+    # Randomize Grubs into the item pool and open their locations for randomization.
+    false: 50
+    true: 0
+
+  RandomizeMimics:
+    # Randomize Mimic Grubs into the item pool and open their locations for randomization.Mimic Grubs are always placed
+    # in your own game.
+    false: 50
+    true: 0
+
+  RandomizeMaps:
+    # Randomize Maps into the item pool. This causes Cornifer to give you a message allowing you to see and buy an item
+    # that is randomized into that location as well.
+    false: 50
+    true: 0
+
+  RandomizeStags:
+    # Randomize Stag Stations unlocks into the item pool as well as placing randomized items on the stag station bell/toll.
+    false: 50
+    true: 0
+
+  RandomizeLifebloodCocoons:
+    # Randomize Lifeblood Cocoon grants into the item pool and open their locations for randomization.
+    false: 50
+    true: 0
+
+  RandomizeGrimmkinFlames:
+    # Randomize Grimmkin Flames into the item pool and open their locations for randomization.
+    false: 50
+    true: 0
+
+  RandomizeJournalEntries:
+    # Randomize the Hunter's Journal as well as the findable journal entries into the item pool, and open their locations
+    # for randomization. Does not include journal entries gained by killing enemies.
+    false: 50
+    true: 0
+
+  RandomizeNail:
+    # Removes the ability to swing the nail left, right and up, and shuffles these into the item pool.
+    false: 50
+    true: 0
+
+  RandomizeGeoRocks:
+    # Randomize Geo Rock rewards into the item pool and open their locations for randomization.
+    false: 50
+    true: 0
+
+  RandomizeBossGeo:
+    # Randomize boss Geo drops into the item pool and open those locations for randomization.
+    false: 50
+    true: 0
+
+  RandomizeSoulTotems:
+    # Randomize Soul Refill items into the item pool and open the Soul Totem locations for randomization.
+    false: 50
+    true: 0
+
+  RandomizeLoreTablets:
+    # Randomize Lore items into the itempool, one per Lore Tablet, and place randomized item grants on the tablets themselves.
+    # You must still read the tablet to get the item.
+    false: 50
+    true: 0
+
+  RandomizeElevatorPass:
+    # Adds an Elevator Pass item to the item pool, which is then required to use the large elevators connecting
+    # City of Tears to the Forgotten Crossroads and Resting Grounds.
+    false: 50
+    true: 0
+
+  PreciseMovement:
+    # Places skips into logic which require extremely precise player movement, possibly without movement skills such as
+    # dash or hook.
+    false: 50
+    true: 0
+
+  ProficientCombat:
+    # Places skips into logic which require proficient combat, possibly with limited items.
+    false: 50
+    true: 0
+
+  BackgroundObjectPogos:
+    # Places skips into logic for locations which are reachable via pogoing off of background objects.
+    false: 50
+    true: 0
+
+  EnemyPogos:
+    # Places skips into logic for locations which are reachable via pogos off of enemies.
+    false: 50
+    true: 0
+
+  ObscureSkips:
+    # Places skips into logic which are considered obscure enough that a beginner is not expected to know them.
+    false: 50
+    true: 0
+
+  ShadeSkips:
+    # Places shade skips into logic which utilize the player's shade for pogoing or damage boosting.
+    false: 50
+    true: 0
+
+  InfectionSkips:
+    # Places skips into logic which are only possible after the crossroads become infected.
+    false: 50
+    true: 0
+
+  FireballSkips:
+    # Places skips into logic which require the use of spells to reset fall speed while in mid-air.
+    false: 50
+    true: 0
+
+  SpikeTunnels:
+    # Places skips into logic which require the navigation of narrow tunnels filled with spikes.
+    false: 50
+    true: 0
+
+  AcidSkips:
+    # Places skips into logic which require crossing a pool of acid without Isma's Tear, or water if swim is disabled.
+    false: 50
+    true: 0
+
+  DamageBoosts:
+    # Places skips into logic which require you to take damage from an enemy or hazard to progress.
+    false: 50
+    true: 0
+
+  DangerousSkips:
+    # Places skips into logic which contain a high risk of taking damage.
+    false: 50
+    true: 0
+
+  DarkRooms:
+    # Places skips into logic which require navigating dark rooms without the use of the Lumafly Lantern.
+    false: 50
+    true: 0
+
+  ComplexSkips:
+    # Places skips into logic which require intense setup or are obscure even beyond advanced skip standards.
+    false: 50
+    true: 0
+
+  DifficultSkips:
+    # Places skips into logic which are considered more difficult than typical.
+    false: 50
+    true: 0
+
+  RemoveSpellUpgrades:
+    # Removes the second level of all spells from the item pool.
+    false: 50
+    true: 0
+
+  StartLocation:
+    # Choose your start location. This is currently only locked to King's Pass.
+    king's_pass: 50
+
+  Goal:
+    # The goal required of you in order to complete your run in Archipelago.
+    any: 50
+    hollowknight: 0
+    siblings: 0
+    radiance: 0
+
+  WhitePalace:
+    # Whether or not to include White Palace or not.  Note: Even if excluded, the King Fragment check may still be
+    # required if charms are vanilla.
+    exclude: 50
+    kingfragment: 0
+    nopathofpain: 0
+    include: 0
+
+  StartingGeo:
+    # The amount of starting geo you have.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  DeathLink:
+    # When you die, everyone dies. Of course the reverse is true too.
+    # When enabled, choose how incoming deathlinks are handled:
+    # vanilla: DeathLink kills you and is just like any other death.  RIP your previous shade and geo.
+    # shadeless: DeathLink kills you, but no shade spawns and no geo is lost.  Your previous shade, if any, is untouched.
+    # shade: DeathLink functions like a normal death if you do not already have a shade, shadeless otherwise.
+    off: 0
+    shadeless: 0
+    vanilla: 0
+    shade: 1
+
+  MinimumGeoPrice:
+    # The minimum geo price for items in geo shops.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 200
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MaximumGeoPrice:
+    # The maximum geo price for items in geo shops.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 2000
+    400: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MinimumGrubPrice:
+    # The minimum grub price in the range of prices that an item should cost from Grubfather.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 46
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MaximumGrubPrice:
+    # The maximum grub price in the range of prices that an item should cost from Grubfather.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 46
+    23: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MinimumEssencePrice:
+    # The minimum essence price in the range of prices that an item should cost from Seer.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 2800
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MaximumEssencePrice:
+    # The maximum essence price in the range of prices that an item should cost from Seer.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 2800
+    1400: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MinimumCharmPrice:
+    # The minimum charm price in the range of prices that an item should cost for Salubra's shop item which also
+    # carry a charm cost.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 40
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MaximumCharmPrice:
+    # The maximum charm price in the range of prices that an item should cost for Salubra's shop item which also
+    # carry a charm cost.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 40
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  RandomCharmCosts:
+    # Total Notch Cost of all Charms together. Vanilla sums to 90.
+    # This value is distributed among all charms in a random fashion.
+    # Special Cases:
+    # Set to -1 or vanilla for vanilla costs.
+    # Set to -2 or shuffle to shuffle around the vanilla costs to different charms.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -2
+    # Maximum value is 240
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 50 # equivalent to -1
+    shuffle: 0 # equivalent to -2
+
+  PlandoCharmCosts:
+    # Allows setting a Charm's Notch costs directly, mapping {name: cost}.
+    # This is set after any random Charm Notch costs, if applicable.
+    {}
+
+  MinimumEggPrice:
+    # The minimum rancid egg price in the range of prices that an item should cost from Jiji.
+    # Only takes effect if the EggSlotShops option is greater than 0.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 21
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MaximumEggPrice:
+    # The maximum rancid egg price in the range of prices that an item should cost from Jiji.
+    # Only takes effect if the EggSlotShops option is greater than 0.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 21
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  EggShopSlots:
+    # For each slot, add a location to the Egg Shop and a filler item to the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  SlyShopSlots:
+    # For each extra slot, add a location to the Sly Shop and a filler item to the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  SlyKeyShopSlots:
+    # For each extra slot, add a location to the Sly Shop (requiring Shopkeeper's Key) and a filler item to the item
+    # pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    6: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  IseldaShopSlots:
+    # For each extra slot, add a location to the Iselda Shop and a filler item to the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  SalubraShopSlots:
+    # For each extra slot, add a location to the Salubra Shop, and a filler item to the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  SalubraCharmShopSlots:
+    # For each extra slot, add a location to the Salubra Shop (requiring Charms), and a filler item to the item
+    # pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  LegEaterShopSlots:
+    # For each extra slot, add a location to the Leg Eater Shop and a filler item to the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  GrubfatherRewardSlots:
+    # For each extra slot, add a location to the Grubfather and a filler item to the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    7: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  SeerRewardSlots:
+    # For each extra slot, add a location to the Seer and a filler item to the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ExtraShopSlots:
+    # For each extra slot, add a location to a randomly chosen shop a filler item to the item pool.
+    #
+    # The Egg Shop will be excluded from this list unless it has at least one item.
+    #
+    # Shops are capped at 16 items each.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 144
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  SplitCrystalHeart:
+    # Splits the Crystal Heart into left- and right-only versions of the item.
+    false: 50
+    true: 0
+
+  SplitMothwingCloak:
+    # Splits the Mothwing Cloak into left- and right-only versions of the item. Randomly adds a second left or
+    # right Mothwing cloak item which functions as the upgrade to Shade Cloak.
+    false: 50
+    true: 0
+
+  SplitMantisClaw:
+    # Splits the Mantis Claw into left- and right-only versions of the item.
+    false: 50
+    true: 0
+
+  CostSanity:
+    # If enabled, most locations with costs (like stag stations) will have randomly determined costs.
+    # If set to shopsonly, CostSanity will only apply to shops (including Grubfather, Seer and Egg Shop).
+    # If set to notshops, CostSanity will only apply to non-shops (e.g. Stag stations and Cornifer locations)
+    #
+    # These costs can be in Geo (except Grubfather, Seer and Eggshop), Grubs, Charms, Essence and/or Rancid Eggs
+    off: 50
+    on: 0
+    shopsonly: 0
+    notshops: 0
+
+  CostSanityHybridChance:
+    # The chance that a CostSanity cost will include two components instead of one, e.g. Grubs + Essence
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  CostSanityEggWeight:
+    # The likelihood of Costsanity choosing a Egg cost. Chosen as a sum of all weights from other types.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  CostSanityGrubWeight:
+    # The likelihood of Costsanity choosing a Grub cost. Chosen as a sum of all weights from other types.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  CostSanityEssenceWeight:
+    # The likelihood of Costsanity choosing a Essence cost. Chosen as a sum of all weights from other types.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  CostSanityCharmWeight:
+    # The likelihood of Costsanity choosing a Charm cost. Chosen as a sum of all weights from other types.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  CostSanityGeoWeight:
+    # The likelihood of Costsanity choosing a Geo cost. Chosen as a sum of all weights from other types.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1000
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
 Minecraft:
-  advancement_goal: # Number of advancements required to spawn bosses.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    95: 0 # maximum value
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     random: 0
     random-low: 0
     random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  advancement_goal:
+    # Number of advancements required to spawn bosses.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 114
     40: 50
-  egg_shards_required: # Number of dragon egg shards to collect to spawn bosses.
-    # you can add additional values between minimum and maximum
-    0: 50 # minimum value
-    40: 0 # maximum value
     random: 0
     random-low: 0
     random-high: 0
-  egg_shards_available: # Number of dragon egg shards available to collect.
-    # you can add additional values between minimum and maximum
-    0: 50 # minimum value
-    40: 0 # maximum value
+
+  egg_shards_required:
+    # Number of dragon egg shards to collect to spawn bosses.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 74
+    0: 50
     random: 0
     random-low: 0
     random-high: 0
-  required_bosses: # Bosses which must be defeated to finish the game.
+
+  egg_shards_available:
+    # Number of dragon egg shards available to collect.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 74
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  required_bosses:
+    # Bosses which must be defeated to finish the game.
     none: 0
     ender_dragon: 50
     wither: 0
     both: 0
-  shuffle_structures: # Enables shuffling of villages, outposts, fortresses, bastions, and end cities.
+
+  shuffle_structures:
+    # Enables shuffling of villages, outposts, fortresses, bastions, and end cities.
     false: 0
     true: 50
-  structure_compasses: # Adds structure compasses to the item pool, which point to the nearest indicated structure.
+
+  structure_compasses:
+    # Adds structure compasses to the item pool, which point to the nearest indicated structure.
     false: 0
     true: 50
-  bee_traps: # Replaces a percentage of junk items with bee traps, which spawn multiple angered bees around every player when received.
-    # you can add additional values between minimum and maximum
-    0: 50 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-  combat_difficulty: # Modifies the level of items logically required for exploring dangerous areas and fighting bosses.
+
+  combat_difficulty:
+    # Modifies the level of items logically required for exploring dangerous areas and fighting bosses.
     easy: 0
     normal: 50
     hard: 0
-  include_hard_advancements: # Enables certain RNG-reliant or tedious advancements.
-    false: 50
-    true: 0
-  include_unreasonable_advancements: # Enables the extremely difficult advancements "How Did We Get Here?" and "Adventuring Time."
-    false: 50
-    true: 0
-  include_postgame_advancements: # Enables advancements that require spawning and defeating the required bosses.
-    false: 50
-    true: 0
-  send_defeated_mobs: # Send killed mobs to other Minecraft worlds which have this option enabled.
-    false: 50
-    true: 0
-  starting_items: # Start with these items. Each entry should be of this format: {item: "item_name", amount: #, nbt: "nbt_string"}
-    []
 
-  death_link: # When you die, everyone dies. Of course the reverse is true too.
+  include_hard_advancements:
+    # Enables certain RNG-reliant or tedious advancements.
+    false: 50
+    true: 0
+
+  include_unreasonable_advancements:
+    # Enables the extremely difficult advancements "How Did We Get Here?" and "Adventuring Time."
+    false: 50
+    true: 0
+
+  include_postgame_advancements:
+    # Enables advancements that require spawning and defeating the required bosses.
+    false: 50
+    true: 0
+
+  bee_traps:
+    # Replaces a percentage of junk items with bee traps, which spawn multiple angered bees around every player when
+    # received.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  send_defeated_mobs:
+    # Send killed mobs to other Minecraft worlds which have this option enabled.
     false: 0
     true: 1
-  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
-    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
-    # you can add additional values between minimum and maximum
-    random: 0
-    random-low: 0
-    random-high: 0
-    disabled: 0
-    normal: 50
-    extreme: 0
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 0
-    items: 50
-    minimal: 0
-  local_items: # Forces these items to be in their native world.
-    []
 
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations: # Prevent these locations from having an important item
-    []
-
-  priority_locations: # Prevent these locations from having an unimportant item
-    []
-
-  item_links: # Share part of your item pool with other players.
-    []
-
-Risk of Rain 2:
-  total_locations: # Number of location checks which are added to the Risk of Rain playthrough.
-    # you can add additional values between minimum and maximum
-    10: 0 # minimum value
-    500: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    20: 50
-  total_revivals: # Total Percentage of `Dio's Best Friend` item put in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    10: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    4: 50
-  start_with_revive: # Start the game with a `Dio's Best Friend` item.
-    false: 0
-    true: 50
-  item_pickup_step: # Number of items to pick up before an AP Check is completed.
-    #    Setting to 1 means every other pickup.
-    #    Setting to 2 means every third pickup. So on...
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    5: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    2: 50
-  enable_lunar: # Allows Lunar items in the itOptionsng the weights of the item pool.<br>
-    #    New is a test for a potential adjustment to the default weights.<br>
-    #    Uncommon puts a large number of uncommon items in the pool.<br>
-    #    Legendary puts a large number of legendary items in the pool.<br>
-    #    Lunartic makes everything a lunar item.<br>
-    #    Chaos generates the pool completely at random with rarer items having a slight cap to prevent this option being too easy.<br>
-    #    No Scraps removes all scrap items from the item pool.<br>
-    #    Even generates the item pool with every item having an even weight.<br>
-    #    Scraps Only will be only scrap items in the item pool.
-    default: 50
-    new: 0
-    uncommon: 0
-    legendary: 0
-    lunartic: 0
-    chaos: 0
-    no_scraps: 0
-    even: 0
-    scraps_only: 0
-  item_pool_presets: # Will use the item weight presets when set to true, otherwise will use the custom set item pool weights.
-    false: 0
-    true: 50
-  green_scrap: # Weight of Green Scraps in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    16: 50
-  red_scrap: # Weight of Red Scraps in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    4: 50
-  yellow_scrap: # Weight of yellow scraps in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    1: 50
-  white_scrap: # Weight of white scraps in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    32: 50
-  common_item: # Weight of common items in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    64: 50
-  uncommon_item: # Weight of uncommon items in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    32: 50
-  legendary_item: # Weight of legendary items in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    8: 50
-  boss_item: # Weight of boss items in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    4: 50
-  lunar_item: # Weight of lunar items in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    16: 50
-  equipment: # Weight of equipment items in the item pool.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    32: 50
-  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
-    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
-    # you can add additional values between minimum and maximum
-    random: 0
-    random-low: 0
-    random-high: 0
-    disabled: 0
-    normal: 50
-    extreme: 0
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 0
-    items: 50
-    minimal: 0
-  local_items: # Forces these items to be in their native world.
-    []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations: # Prevent these locations from having an important item
-    []
-
-  priority_locations: # Prevent these locations from having an unimportant item
-    []
-
-  item_links: # Share part of your item pool with other players.
-    []
-
-Super Metroid:
-  start_inventory_removes_from_pool:
-    "false": 1
-  preset:
-    newbie: 0
-    casual: 0
-    regular: 1
-    veteran: 1
-    expert: 0
-    master: 0
-    samus: 0
-    season_races: 0
-    smrat2021: 0
-    solution: 0
-    custom: 0
-    varia_custom: 0
-  start_location:
-    random: 1
-  remote_items:
-    "false": 1
   death_link:
-    enable: 1
-  max_difficulty:
-    hardcore: 1
-  morph_placement:
-    random: 1
-  strict_minors:
-    "false": 1
-  missile_qty:
-    30: 1
-  super_qty:
-    20: 1
-  power_bomb_qty:
-    10: 1
-  minor_qty:
-    100: 1
-  energy_qty:
-    vanilla: 1
-  area_randomization:
-    random: 1
-  area_layout:
-    random: 1
-  doors_colors_rando:
-    "false": 2
-    random: 1
-  allow_grey_doors:
-    "false": 1
-    random: 1
-  boss_randomization:
-    random: 1
-  fun_combat:
-    "false": 1
-  fun_movement:
-    "false": 1
-  fun_suits:
-    "false": 1
-  layout_patches:
-    "true": 1
-  varia_tweaks:
-    "false": 1
-  nerfed_charge:
-    "false": 1
-  gravity_behaviour:
-    balanced: 1
-  elevators_doors_speed:
-    "true": 1
-  spin_jump_restart:
-    "false": 1
-  infinite_space_jump:
-    "false": 1
-  refill_before_save:
-    "false": 1
-  hud:
-    "false": 2
-    "true": 1
-  animals:
-    "false": 1
-  no_music:
-    "false": 1
-  random_music:
-    "false": 1
-  progression_balancing:
-    "true": 1
-  accessibility:
-    items: 1
-  priority_locations: []
-  start_inventory: {}
-  exclude_locations: []
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
-
-SMZ3:
-  sm_logic:
-    normal: 1
-  sword_location:
-    randomized: 1
-  morph_location:
-    randomized: 1
-  key_shuffle:
-    none: 4
-    random: 1
-  progression_balancing:
-    "true": 1
-  accessibility:
-    items: 1
-  priority_locations: []
-  start_inventory: {}
-  exclude_locations: []
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
-
-Slay the Spire:
-  character:
-    random: 1
-  ascension:
-    0: 1
-  heart_run:
-    "false": 1
-  progression_balancing:
-    "true": 1
-  accessibility:
-    items: 1
-  priority_locations: []
-  start_inventory: {}
-  exclude_locations: []
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
-
-Timespinner:
-  StartWithJewelryBox: # Start with Jewelry Box unlocked
-    false: 50
-    true: 0
-  DownloadableItems: # With the tablet you will be able to download items at terminals
-    false: 0
-    true: 50
-  FacebookMode: # Requires Oculus Rift(ng) to spot the weakspots in walls and floors
-    false: 50
-    true: 0
-  StartWithMeyef: # Start with Meyef, ideal for when you want to play multiplayer.
-    false: 50
-    true: 0
-  QuickSeed: # Start with Talaria Attachment, Nyoom!
-    false: 50
-    true: 0
-  SpecificKeycards: # Keycards can only open corresponding doors
-    false: 50
-  Risk of Rain 2: 0 #M
-    manual: 0
-  DamageRandoOverrides: # Manual +/-/normal odds for an orb. Put 0 if you don't want a certain nerf or buff to be a possibility. Orbs that you don't specify will roll with 1/1/1 as odds
-    Blade:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Blood:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Blue:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Empire:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Eye:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Fire:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    ForbiddenTome:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Gun:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Ice:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Iron:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Nether:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Plasma:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Radiant:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Shattered:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Umbra:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-    Wind:
-      MinusOdds: 1
-      NormalOdds: 1
-      PlusOdds: 1
-
-  HpCap: # Sets the number that Lunais's HP maxes out at.
-    # you can add additional values between minimum and maximum
-    1: 0 # minimum value
-    999: 50 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-  BossHealing: # Enables/disables healing after boss fights. NOTE: Currently only applicable when Boss Rando is enabled.
-    false: 0
-    true: 50
-  ShopFill: # Sets the items for sale in Merchant Crow's shops.
-    #    Default: No sunglasses or trendy jacket, but sand vials for sale.
-    #    Randomized: Up to 4 random items in each shop.
-    #    Vanilla: Keep shops the same as the base game.
-    #    Empty: Sell no items at the shop.
-    default: 50
-    randomized: 0
-    vanilla: 0
-    empty: 0
-  ShopWarpShards: # Shops always sell warp shards (when keys possessed), ignoring inventory setting.
-    false: 0
-    true: 50
-  ShopMultiplier: # Multiplier for the cost of items in the shop. Set to 0 for free shops.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    10: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    1: 50
-  LootPool: # Sets the items that drop from enemies (does not apply to boss reward checks)
-    #    Vanilla: Drops are the same as the base game
-    #    Randomized: Each slot of every enemy's drop table is given a random use item or piece of equipment.
-    #    Empty: Enemies drop nothing.
-    vanilla: 50
-    randomized: 0
-    empty: 0
-  ShowBestiary: # All entries in the bestiary are visible, without needing to kill one of a given enemy first
-    false: 50
-    true: 0
-  ShowDrops: # All item drops in the bestiary are visible, without needing an enemy to drop one of a given item first
-    false: 50
-    true: 0
-  DeathLink: # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
-  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
-    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
-    # you can add additional values between minimum and maximum
-    random: 0
-    random-low: 0
-    random-high: 0
-    disabled: 0
-    normal: 50
-    extreme: 0
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 0
-    items: 50
-    minimal: 0
-  local_items: # Forces these items to be in their native world.
-    []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations: # Prevent these locations from having an important item
-    []
-
-  priority_locations: # Prevent these locations from having an unimportant item
-    []
-
-  item_links: # Share part of your item pool with other players.
-    []
-
-The Witness:
-  disable_non_randomized_puzzles: # Disable puzzles that cannot be randomized.
-    #    Non randomized puzzles are Shadows, Monastery, and Greenhouse.
-    #    The lasers for those areas will be activated as you solve optional puzzles throughout the island.
+    # When you die, everyone dies. Of course the reverse is true too.
     false: 0
     true: 1
-  shuffle_discarded_panels: # Discarded Panels will have items on them.
-    #    Solving certain Discarded Panels may still be necessary even if off!
-    false: 1
-    true: 0
-  shuffle_vault_boxes: # Vault Boxes will have items on them.
-    false: 1
-    true: 0
-  shuffle_uncommon: # Adds some optional puzzles that are somewhat difficult or out of the way.
-    #    Examples: Mountaintop River Shape, Tutorial Patio Floor, Theater Videos
-    false: 1
-    true: 0
-  shuffle_hard: # Adds some harder locations into the game, e.g. Mountain Secret Area panels
-    false: 1
-    true: 0
-  victory_condition: # Change the victory condition from the original game's ending (elevator) to beating the Challenge
-    #    or solving the mountaintop box, either using the short solution
-    #    (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
-    elevator: 1
-    challenge: 0
-    mountain_box_short: 0
-    mountain_box_long: 0
-  trap_percentage: # Replaces junk items with traps, at the specified rate.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    100: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    20: 50
-  early_secret_area: # The Mountainside shortcut to the Mountain Secret Area is open from the start.
-    #    (Otherwise known as "UTM", "Caves" or the "Challenge Area")
-    false: 1
-    true: 0
-  mountain_lasers: # Sets the amount of beams required to enter the final area.
-    # you can add additional values between minimum and maximum
-    1: 0 # minimum value
-    7: 0 # maximum value
-    random: 1
-    random-low: 0
-    random-high: 0
-  challenge_lasers: # Sets the amount of beams required to enter the secret area through the Mountain Bottom Layer Discard.
-    # you can add additional values between minimum and maximum
-    1: 0 # minimum value
-    11: 0 # maximum value
-    random: 1
-    random-low: 0
-    random-high: 0
-  puzzle_skip_amount: # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
-    #    Works on most panels in the game - The only big exception is The Challenge.
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    20: 0 # maximum value
-    random: 0
-    random-low: 0
-    random-high: 0
-    5: 1
-  progression_balancing: # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
-    #    [0-99, default 50] A lower setting means more getting stuck. A higher setting means less getting stuck.
-    # you can add additional values between minimum and maximum
-    random: 0
-    random-low: 0
-    random-high: 0
-    disabled: 0
-    normal: 1
-    extreme: 0
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 0
-    items: 1
-    minimal: 0
-  local_items: # Forces these items to be in their native world.
+
+  starting_items:
+    # Start with these items. Each entry should be of this format: {item: "item_name", amount: #, nbt: "nbt_string"}
     []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations: # Prevent these locations from having an important item
-    []
-
-  priority_locations: # Prevent these locations from having an unimportant item
-    []
-
-  item_links: # Share part of your item pool with other players.
-    []
-
-VVVVVV:
-  MusicRandomizer:
-    "false": 1
-  AreaRandomizer:
-    "false": 1
-  DoorCost:
-    3: 1
-  AreaCostRandomizer:
-    "false": 1
-  DeathLink:
-    "false": 1
-  DeathLinkAmnesty:
-    15: 1
-  progression_balancing:
-    "true": 1
-  accessibility:
-    items: 1
-  priority_locations: []
-  start_inventory: {}
-  exclude_locations: []
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
 
 Pokemon Red and Blue:
   progression_balancing:
@@ -1902,3 +2652,1753 @@ Pokemon Red and Blue:
     # When you die, everyone dies. Of course the reverse is true too.
     false: 0
     true: 1
+
+Risk of Rain 2:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  goal:
+    # Classic Mode: Every Item pickup increases fills a progress bar which gives location checks.
+    #
+    # Explore Mode: Each environment will have location checks within each environment.
+    # environments will be locked in the item pool until received.
+    classic: 50
+    explore: 0
+
+  total_locations:
+    # Classic Mode: Number of location checks which are added to the Risk of Rain playthrough.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 40
+    # Maximum value is 250
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  chests_per_stage:
+    # Explore Mode: The number of chest locations per environment.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 2
+    # Maximum value is 20
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  shrines_per_stage:
+    # Explore Mode: The number of shrine locations per environment.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 2
+    # Maximum value is 20
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  scavengers_per_stage:
+    # Explore Mode: The number of scavenger locations per environment.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  scanner_per_stage:
+    # Explore Mode: The number of scanners locations per environment.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  altars_per_stage:
+    # Explore Mode: The number of altars locations per environment.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  total_revivals:
+    # Total Percentage of `Dio's Best Friend` item put in the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  start_with_revive:
+    # Start the game with a `Dio's Best Friend` item.
+    false: 0
+    true: 50
+
+  final_stage_death:
+    # Death on the final boss stage counts as a win.
+    false: 50
+    true: 0
+
+  begin_with_loop:
+    # Enable to precollect a full loop of environments.
+    # Only has an effect with Explore Mode.
+    false: 50
+    true: 0
+
+  dlc_sotv:
+    # Enable if you are using SOTV DLC.
+    #  Affects environment availability for Explore Mode.
+    #  Adds Void Items into the item pool
+    false: 50
+    true: 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 50
+    true: 0
+
+  item_pickup_step:
+    # Number of items to pick up before an AP Check is completed.
+    # Setting to 1 means every other pickup.
+    # Setting to 2 means every third pickup. So on...
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  shrine_use_step:
+    # Explore Mode:
+    # Number of shrines to use up before an AP Check is completed.
+    # Setting to 1 means every other pickup.
+    # Setting to 2 means every third pickup. So on...
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  enable_lunar:
+    # Allows Lunar items in the item pool.
+    false: 0
+    true: 50
+
+  item_weights:
+    # Set item_pool_presets to true if you want to use one of these presets.
+    # Preset choices for determining the weights of the item pool.
+    # - New is a test for a potential adjustment to the default weights.
+    # - Uncommon puts a large number of uncommon items in the pool.
+    # - Legendary puts a large number of legendary items in the pool.
+    # - Lunartic makes everything a lunar item.
+    # - Chaos generates the pool completely at random with rarer items having a slight cap to prevent this option being too easy.
+    # - No Scraps removes all scrap items from the item pool.
+    # - Even generates the item pool with every item having an even weight.
+    # - Scraps Only will be only scrap items in the item pool.
+    # - Void makes everything a void item.
+    default: 50
+    new: 0
+    uncommon: 0
+    legendary: 0
+    lunartic: 0
+    chaos: 0
+    no_scraps: 0
+    even: 0
+    scraps_only: 0
+    void: 0
+
+  item_pool_presets:
+    # Will use the item weight presets when set to true, otherwise will use the custom set item pool weights.
+    false: 50
+    true: 0
+
+  green_scrap:
+    # Weight of Green Scraps in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    16: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  red_scrap:
+    # Weight of Red Scraps in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  yellow_scrap:
+    # Weight of yellow scraps in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  white_scrap:
+    # Weight of white scraps in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    32: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  common_item:
+    # Weight of common items in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    64: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  uncommon_item:
+    # Weight of uncommon items in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    32: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  legendary_item:
+    # Weight of legendary items in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  boss_item:
+    # Weight of boss items in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  lunar_item:
+    # Weight of lunar items in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    16: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  void_item:
+    # Weight of void items in the item pool.
+    #
+    # (Ignored unless Item Weight Presets is 'No')
+    #
+    # (Ignored if Enable DLC - SOTV is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    16: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  equipment:
+    # Weight of equipment items in the item pool.
+    #
+    #  (Ignored unless Item Weight Presets is 'No')
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    32: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+Super Metroid:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  start_inventory_removes_from_pool:
+    # Remove items in starting inventory from pool.
+    false: 50
+    true: 0
+
+  preset:
+    # Choose one of the presets or specify "varia_custom" to use varia_custom_preset option or specify "custom" to use
+    # custom_preset option.
+    newbie: 0
+    casual: 0
+    regular: 1
+    veteran: 1
+    expert: 1
+    master: 1
+    samus: 0
+    season_races: 0
+    smrat2021: 0
+    solution: 0
+    custom: 0
+    varia_custom: 0
+
+  start_location:
+    # Choose where you want to start the game.
+    ceres: 0
+    landing_site: 1
+    gauntlet_top: 1
+    green_brinstar_elevator: 1
+    big_pink: 1
+    etecoons_supers: 1
+    wrecked_ship_main: 1
+    firefleas_top: 1
+    business_center: 1
+    bubble_mountain: 1
+    mama_turtle: 1
+    watering_hole: 1
+    aqueduct: 1
+    red_brinstar_elevator: 1
+    golden_four: 1
+
+  remote_items:
+    # Indicates you get items sent from your own world. This allows coop play of a world.
+    false: 50
+    true: 0
+
+  death_link:
+    # When DeathLink is enabled and someone dies, you will die. With survive reserve tanks can save you.
+    disable: 0
+    enable: 1
+    enable_survive: 0
+
+  max_difficulty:
+    # Depending on the perceived difficulties of the techniques, bosses, hell runs etc. from the preset, it will
+    # prevent the Randomizer from placing an item in a location too difficult to reach with the current items.
+    easy: 0
+    medium: 0
+    hard: 0
+    harder: 0
+    hardcore: 50
+    mania: 0
+    infinity: 0
+
+  morph_placement:
+    # Influences where the Morphing Ball with be placed.
+    early: 50
+    normal: 0
+
+  strict_minors:
+    # Instead of using the Minors proportions as probabilities, enforce a strict distribution to match the proportions
+    # as closely as possible.
+    false: 50
+    true: 0
+
+  missile_qty:
+    # The higher the number the higher the probability of choosing missles when placing a minor.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 90
+    30: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  super_qty:
+    # The higher the number the higher the probability of choosing super missles when placing a minor.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 90
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  power_bomb_qty:
+    # The higher the number the higher the probability of choosing power bombs when placing a minor.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 90
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  minor_qty:
+    # From 7%, minimum number of minors required to finish the game, to 100%.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 7
+    # Maximum value is 100
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  energy_qty:
+    # Choose how many Energy/Reserve Tanks will be available, from 0-1 in ultra sparse, 4-6 in sparse, 8-12 in medium
+    # and 18 in vanilla.
+    ultra_sparse: 0
+    sparse: 0
+    medium: 0
+    vanilla: 50
+
+  area_randomization:
+    # Randomize areas together using bidirectional access portals.
+    off: 0
+    light: 0
+    on: 1
+
+  area_layout:
+    # Some layout tweaks to make your life easier in areas randomizer.
+    false: 0
+    true: 1
+
+  doors_colors_rando:
+    # Randomize the color of Red/Green/Yellow doors. Add four new type of doors which require Ice/Wave/Spazer/Plasma
+    # beams to open them.
+    false: 0
+    true: 1
+
+  allow_grey_doors:
+    # When randomizing the color of Red/Green/Yellow doors, some doors can be randomized to Grey. Grey doors will never
+    # open, you will have to go around them.
+    false: 0
+    true: 1
+
+  boss_randomization:
+    # Randomize Golden 4 bosses access doors using bidirectional access portals.
+    false: 0
+    true: 1
+
+  fun_combat:
+    # Forces removal of Plasma Beam and Screw Attack if the preset and settings allow it. In addition, can randomly
+    # remove Spazer and Wave Beam from the Combat set. If used, might force 'minimal' accessibility.
+    false: 50
+    true: 0
+
+  fun_movement:
+    # Forces removal of Space Jump if the preset allows it. In addition, can randomly remove High Jump, Grappling Beam,
+    # Spring Ball, Speed Booster, and Bombs from the Movement set. If used, might force 'minimal' accessibility.
+    false: 50
+    true: 0
+
+  fun_suits:
+    # If the preset and seed layout allow it, will force removal of at least one of Varia Suit and/or Gravity Suit. If
+    # used, might force 'minimal' accessibility.
+    false: 50
+    true: 0
+
+  layout_patches:
+    # Include the anti-softlock layout patches. Disable at your own softlocking risk!
+    false: 0
+    true: 1
+
+  varia_tweaks:
+    # Include minor tweaks for the game to behave 'as it should' in a randomizer context
+    false: 50
+    true: 0
+
+  nerfed_charge:
+    # Samus begins with a starter Charge Beam that does one third of charged shot damage that can damage bosses. Pseudo
+    # Screws also do one third damage. Special Beam Attacks do normal damage but cost 3 Power Bombs instead of 1. Once the
+    # Charge Beam item has been collected, it does full damage and special attacks are back to normal.
+    false: 50
+    true: 0
+
+  gravity_behaviour:
+    # Modify the heat damage and enemy damage reduction qualities of the Gravity and Varia Suits.
+    vanilla: 0
+    balanced: 50
+    progressive: 0
+
+  elevators_doors_speed:
+    # Accelerate doors and elevators transitions.
+    false: 0
+    true: 1
+
+  spin_jump_restart:
+    # Allows Samus to start spinning in mid air after jumping or falling.
+    false: 50
+    true: 0
+
+  rando_speed:
+    # Let Samus keeps her momentum when landing from a fall or from jumping.
+    false: 0
+    true: 1
+
+  infinite_space_jump:
+    # Space jumps can be done quicker and at any time in air, water or lava, even after falling long distances.
+    false: 50
+    true: 0
+
+  refill_before_save:
+    # Refill energy and ammo when saving.
+    false: 50
+    true: 0
+
+  hud:
+    # Displays the current area name and the number of remaining items of selected item split in the HUD for the
+    # current area.
+    false: 50
+    true: 0
+
+  animals:
+    # Replace saving the animals in the escape sequence by a random surprise.
+    false: 50
+    true: 0
+
+  no_music:
+    # Disable the background music.
+    false: 50
+    true: 0
+
+  random_music:
+    # Randomize the background music.
+    false: 0
+    true: 1
+
+  custom_preset:
+    # see https://randommetroidsolver.pythonanywhere.com/presets for detailed info on each preset settings
+    # knows: each skill (know) has a pair [can use, perceived difficulty using one of 1, 5, 10, 25, 50 or 100 each one
+    #        matching a max_difficulty]
+    # settings: hard rooms, hellruns and bosses settings
+    # controller: predefined controller mapping and moon walk setting
+    controller: {}
+    knows: {}
+    settings: {}
+
+  varia_custom_preset:
+    # use an entry from the preset list on https://randommetroidsolver.pythonanywhere.com/presets
+    {}
+
+SMZ3:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  sm_logic:
+    # This option selects what kind of logic to use for item placement inside
+    # Super Metroid.
+    #
+    # Normal - Normal logic includes only what Super Metroid teaches players
+    # itself. Anything that's not demonstrated in-game or by the intro cutscenes
+    # will not be required here.
+    #
+    # Hard - Hard logic is based upon the "no major glitches" ruleset and
+    # includes most tricks that are considered minor glitches, with some
+    # restrictions. You'll want to be somewhat of a Super Metroid veteran for
+    # this logic.
+    #
+    # See https://samus.link/information for required moves.
+    normal: 1
+    hard: 1
+
+  sword_location:
+    # This option decides where the first sword will be placed.
+    # Randomized - The sword can be placed anywhere.
+    # Early - The sword will be placed in a location accessible from the start of
+    # the game.
+    # Unce assured - The sword will always be placed on Link's Uncle.
+    randomized: 1
+    early: 0
+    uncle: 0
+
+  morph_location:
+    # This option decides where the morph ball will be placed.
+    # Randomized - The morph ball can be placed anywhere.
+    # Early - The morph ball will be placed in a location accessible from the
+    # start of the game.
+    # Original location - The morph ball will always be placed at its original
+    # location.
+    randomized: 1
+    early: 0
+    original: 0
+
+  goal:
+    # This option decides what goal is required to finish the randomizer.
+    # Defeat Ganon and Mother Brain - Find the required crystals and boss tokens kill both bosses.
+    # Fast Ganon and Defeat Mother Brain - The hole to ganon is open without having to defeat Agahnim in
+    #                                      Ganon's Tower and Ganon can be defeat as soon you have the required
+    #                                      crystals to make Ganon vulnerable. For keysanity, this mode also removes
+    #                                      the Crateria Boss Key requirement from Tourian to allow faster access.
+    # All Dungeons and Defeat Mother Brain -  Similar to "Defeat Ganon and Mother Brain", but also requires all dungeons
+    #                                         to be beaten including Castle Tower and Agahnim.
+    defeatboth: 50
+    fastganondefeatmotherbrain: 0
+    alldungeonsdefeatmotherbrain: 0
+
+  key_shuffle:
+    # This option decides how dungeon items such as keys are shuffled.
+    # None - A Link to the Past dungeon items can only be placed inside the
+    # dungeon they belong to, and there are no changes to Super Metroid.
+    # Keysanity - See https://samus.link/information
+    none: 1
+    keysanity: 1
+
+  open_tower:
+    # The amount of crystals required to be able to enter Ganon's Tower.
+    # If this is set to Random, the amount can be found in-game on a sign next to Ganon's Tower.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  ganon_vulnerable:
+    # The amount of crystals required to be able to harm Ganon. The amount can be found
+    # in-game on a sign near the top of the Pyramid.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  open_tourian:
+    # The amount of boss tokens required to enter Tourian. The amount can be found in-game
+    # on a sign above the door leading to the Tourian entrance.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    4: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  spin_jumps_animation:
+    # Enable separate space/screw jump animations
+    false: 50
+    true: 0
+
+  heart_beep_speed:
+    # Sets the speed of the heart beep sound in A Link to the Past.
+    off: 1
+    quarter: 0
+    half: 0
+    normal: 0
+    double: 0
+
+  heart_color:
+    # Changes the color of the hearts in the HUD for A Link to the Past.
+    red: 1
+    green: 1
+    blue: 1
+    yellow: 1
+
+  quick_swap:
+    # When enabled, lets you switch items in ALTTP with L/R
+    false: 0
+    true: 1
+
+  energy_beep:
+    # Toggles the low health energy beep in Super Metroid.
+    false: 1
+    true: 0
+
+Slay the Spire:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  character:
+    # Enter the internal ID of the character to use.
+    #
+    #   if you don't know the exact ID to enter with the mod installed go to
+    #  `Mods -> Archipelago Multi-world -> config` to view a list of installed modded character IDs.
+    #
+    #  the downfall characters will only work if you have downfall installed.
+    #
+    #  Spire Take the Wheel will have your client pick a random character from the list of all your installed characters
+    #  including custom ones.
+    #
+    #  if the chosen character mod is not installed it will default back to 'The Ironclad'
+    the_ironclad: 50
+    the_silent: 0
+    the_defect: 0
+    the_watcher: 0
+    the_hermit: 0
+    the_slime_boss: 0
+    the_guardian: 0
+    the_hexaghost: 0
+    the_champ: 0
+    the_gremlins: 0
+    the_automaton: 0
+    the_snecko: 0
+    spire_take_the_wheel: 0
+
+  ascension:
+    # What Ascension do you wish to play with.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 20
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  final_act:
+    # Whether you will need to collect the 3 keys and beat the final act to complete the game.
+    false: 50
+    true: 0
+
+  downfall:
+    # When Downfall is Installed this will switch the played mode to Downfall
+    false: 50
+    true: 0
+
+Timespinner:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  StartWithJewelryBox:
+    # Start with Jewelry Box unlocked
+    false: 50
+    true: 0
+
+  DownloadableItems:
+    # With the tablet you will be able to download items at terminals
+    false: 0
+    true: 50
+
+  EyeSpy:
+    # Requires Oculus Ring in inventory to be able to break hidden walls.
+    false: 50
+    true: 0
+
+  StartWithMeyef:
+    # Start with Meyef, ideal for when you want to play multiplayer.
+    false: 50
+    true: 0
+
+  QuickSeed:
+    # Start with Talaria Attachment, Nyoom!
+    false: 50
+    true: 0
+
+  SpecificKeycards:
+    # Keycards can only open corresponding doors
+    false: 50
+    true: 0
+
+  Inverted:
+    # Start in the past
+    false: 50
+    true: 0
+
+  GyreArchives:
+    # Gyre locations are in logic. New warps are gated by Merchant Crow and Kobo
+    false: 50
+    true: 0
+
+  Cantoran:
+    # Cantoran's fight and check are available upon revisiting his room
+    false: 50
+    true: 0
+
+  LoreChecks:
+    # Memories and journal entries contain items.
+    false: 50
+    true: 0
+
+  BossRando:
+    # Shuffles the positions of all bosses.
+    false: 50
+    true: 0
+
+  BossScaling:
+    # When Boss Rando is enabled, scales the bosses' HP, XP, and ATK to the stats of the location they replace (Reccomended)
+    false: 0
+    true: 50
+
+  DamageRando:
+    # Randomly nerfs and buffs some orbs and their associated spells as well as some associated rings.
+    off: 50
+    allnerfs: 0
+    mostlynerfs: 0
+    balanced: 0
+    mostlybuffs: 0
+    allbuffs: 0
+    manual: 0
+
+  DamageRandoOverrides:
+    # Manual +/-/normal odds for an orb. Put 0 if you don't want a certain nerf or buff to be a possibility. Orbs that
+    # you don't specify will roll with 1/1/1 as odds
+    Blade:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Blood:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Blue:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Empire:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Eye:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Fire:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    ForbiddenTome:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Gun:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Ice:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Iron:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Nether:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Plasma:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Radiant:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Shattered:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Umbra:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+    Wind:
+      MinusOdds: 1
+      NormalOdds: 1
+      PlusOdds: 1
+
+  HpCap:
+    # Sets the number that Lunais's HP maxes out at.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 999
+    999: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  LevelCap:
+    # Sets the max level Lunais can achieve.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 99
+    99: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ExtraEarringsXP:
+    # Adds additional XP granted by Galaxy Earrings.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 24
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  BossHealing:
+    # Enables/disables healing after boss fights. NOTE: Currently only applicable when Boss Rando is enabled.
+    false: 0
+    true: 50
+
+  ShopFill:
+    # Sets the items for sale in Merchant Crow's shops.
+    # Default: No sunglasses or trendy jacket, but sand vials for sale.
+    # Randomized: Up to 4 random items in each shop.
+    # Vanilla: Keep shops the same as the base game.
+    # Empty: Sell no items at the shop.
+    default: 50
+    randomized: 0
+    vanilla: 0
+    empty: 0
+
+  ShopWarpShards:
+    # Shops always sell warp shards (when keys possessed), ignoring inventory setting.
+    false: 0
+    true: 50
+
+  ShopMultiplier:
+    # Multiplier for the cost of items in the shop. Set to 0 for free shops.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  LootPool:
+    # Sets the items that drop from enemies (does not apply to boss reward checks)
+    # Vanilla: Drops are the same as the base game
+    # Randomized: Each slot of every enemy's drop table is given a random use item or piece of equipment.
+    # Empty: Enemies drop nothing.
+    vanilla: 50
+    randomized: 0
+    empty: 0
+
+  DropRateCategory:
+    # Sets the drop rate when 'Loot Pool' is set to 'Random'
+    # Tiered: Based on item rarity/value
+    # Vanilla: Based on bestiary slot the item is placed into
+    # Random: Assigned a random tier/drop rate
+    # Fixed: Set by the 'Fixed Drop Rate' setting
+    tiered: 50
+    vanilla: 0
+    randomized: 0
+    fixed: 0
+
+  FixedDropRate:
+    # Base drop rate percentage when 'Drop Rate Category' is set to 'Fixed'
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  LootTierDistro:
+    # Sets how often items of each rarity tier are placed when 'Loot Pool' is set to 'Random'
+    # Default Weight: Rarer items will be assigned to enemy drop slots less frequently than common items
+    # Full Random: Any item has an equal chance of being placed in an enemy's drop slot
+    # Inverted Weight: Rarest items show up the most frequently, while common items are the rarest
+    default_weight: 50
+    full_random: 0
+    inverted_weight: 0
+
+  ShowBestiary:
+    # All entries in the bestiary are visible, without needing to kill one of a given enemy first
+    false: 50
+    true: 0
+
+  ShowDrops:
+    # All item drops in the bestiary are visible, without needing an enemy to drop one of a given item first
+    false: 50
+    true: 0
+
+  EnterSandman:
+    # The Ancient Pyramid is unlocked by the Twin Pyramid Keys, but the final boss door opens if you have all 5 Timespinner pieces
+    false: 50
+    true: 0
+
+  DadPercent:
+    # The win condition is beating the boss of Emperor's Tower
+    false: 50
+    true: 0
+
+  RisingTides:
+    # Random areas are flooded or drained, can be further specified with RisingTidesOverrides
+    false: 50
+    true: 0
+
+  RisingTidesOverrides:
+    # Odds for specific areas to be flooded or drained, only has effect when RisingTides is on.
+    # Areas that are not specified will roll with the default 33% chance of getting flooded or drained
+    AncientPyramidShaft:
+      Dry: 67
+      Flooded: 33
+    CastleBasement:
+      Dry: 66
+      Flooded: 17
+      FloodedWithSavePointAvailable: 17
+    CastleCourtyard:
+      Dry: 67
+      Flooded: 33
+    CastleMoat:
+      Dry: 67
+      Flooded: 33
+    LakeDesolation:
+      Dry: 67
+      Flooded: 33
+    LakeSerene:
+      Dry: 33
+      Flooded: 67
+    Maw:
+      Dry: 67
+      Flooded: 33
+    Sandman:
+      Dry: 67
+      Flooded: 33
+    Xarion:
+      Dry: 67
+      Flooded: 33
+
+  UnchainedKeys:
+    # Start with Twin Pyramid Key, which does not give free warp;
+    # warp items for Past, Present, (and ??? with Enter Sandman) can be found.
+    false: 50
+    true: 0
+
+  TrapChance:
+    # Chance of traps in the item pool.
+    # Traps will only replace filler items such as potions, vials and antidotes
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  Traps:
+    # List of traps that may be in the item pool to find
+    [
+      "Meteor Sparrow Trap",
+      "Poison Trap",
+      "Chaos Trap",
+      "Neurotoxin Trap",
+      "Bee Trap",
+    ]
+
+  DeathLink:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+
+The Witness:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  puzzle_randomization:
+    # Puzzles in this randomizer are randomly generated. This setting changes the difficulty/types of puzzles.
+    sigma_normal: 50
+    sigma_expert: 0
+    none: 0
+
+  shuffle_symbols:
+    # You will need to unlock puzzle symbols as items to be able to solve the panels that contain those symbols.
+    # If you turn this off, there will be no progression items in the game unless you turn on door shuffle.
+    false: 0
+    true: 50
+
+  shuffle_doors:
+    # If on, opening doors will require their respective "keys".
+    # If set to "panels", those keys will unlock the panels on doors.
+    # In "doors_simple" and "doors_complex", the doors will magically open by themselves upon receiving the key.
+    # The last option, "max", is a combination of "doors_complex" and "panels".
+    none: 50
+    panels: 0
+    doors_simple: 0
+    doors_complex: 0
+    max: 0
+
+  shuffle_lasers:
+    # If on, the 11 lasers are turned into items and will activate on their own upon receiving them.
+    # Note: There is a visual bug that can occur with the Desert Laser. It does not affect gameplay - The Laser can still
+    # be redirected as normal, for both applications of redirection.
+    false: 50
+    true: 0
+
+  disable_non_randomized_puzzles:
+    # Disables puzzles that cannot be randomized.
+    # This includes many puzzles that heavily involve the environment, such as Shadows, Monastery or Orchard.
+    # The lasers for those areas will be activated as you solve optional puzzles throughout the island.
+    false: 50
+    true: 0
+
+  shuffle_discarded_panels:
+    # Add Discarded Panels into the location pool.
+    # Solving certain Discarded Panels may still be necessary to beat the game, even if this is off.
+    false: 50
+    true: 0
+
+  shuffle_vault_boxes:
+    # Vault Boxes will have items on them.
+    false: 50
+    true: 0
+
+  shuffle_EPs:
+    # Add Environmental/Obelisk Puzzles into the location pool.
+    # In "individual", every Environmental Puzzle sends an item.
+    # In "obelisk_sides", completing every puzzle on one side of an Obelisk sends an item.
+    # Note: In Obelisk Sides, any EPs excluded through another setting will be counted as pre-completed on their Obelisk.
+    off: 50
+    individual: 0
+    obelisk_sides: 0
+
+  EP_difficulty:
+    # When "Shuffle Environmental Puzzles" is on, this setting governs which EPs are eligible for the location pool.
+    # On "eclipse", every EP in the game is eligible, including the 1-hour-long "Theater Eclipse EP".
+    # On "tedious", Theater Eclipse EP is excluded from the location pool.
+    # On "normal", several other difficult or long EPs are excluded as well.
+    normal: 50
+    tedious: 0
+    eclipse: 0
+
+  shuffle_postgame:
+    # Adds locations into the pool that are guaranteed to become accessible after or at the same time as your goal.
+    # Use this if you don't play with release on victory. IMPORTANT NOTE: The possibility of your second
+    # "Progressive Dots" showing up in the Caves is ignored, they will still be considered "postgame" in base settings.
+    false: 50
+    true: 0
+
+  victory_condition:
+    # Change the victory condition from the original game's ending (elevator) to beating the Challenge
+    # or solving the mountaintop box, either using the short solution
+    # (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
+    elevator: 50
+    challenge: 0
+    mountain_box_short: 0
+    mountain_box_long: 0
+
+  mountain_lasers:
+    # Sets the amount of beams required to enter the final area.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 7
+    7: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  challenge_lasers:
+    # Sets the amount of beams required to enter the Caves through the Mountain Bottom Floor Discard.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 11
+    11: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  early_secret_area:
+    # Opens the Mountainside shortcut to the Caves from the start.
+    # (Otherwise known as "UTM", "Caves" or the "Challenge Area")
+    false: 50
+    true: 0
+
+  trap_percentage:
+    # Replaces junk items with traps, at the specified rate.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  puzzle_skip_amount:
+    # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
+    # Works on most panels in the game - The only big exception is The Challenge.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 30
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  hint_amount:
+    # Adds hints to Audio Logs. Hints will have the same number of duplicates, as many as will fit. Remaining Audio
+    # Logs will have junk hints.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 49
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  death_link:
+    # If on: Whenever you fail a puzzle (with some exceptions), everyone who is also on Death Link dies.
+    # The effect of a "death" in The Witness is a Power Surge.
+    false: 0
+    true: 1
+
+VVVVVV:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  MusicRandomizer:
+    # Randomize Music
+    false: 0
+    true: 1
+
+  AreaRandomizer:
+    # Randomize Entrances to Areas
+    false: 0
+    true: 1
+
+  DoorCost:
+    # Amount of Trinkets required to enter Areas. Set to 0 to disable artificial locks.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  AreaCostRandomizer:
+    # Randomize which Area requires which set of DoorCost Trinkets
+    false: 50
+    true: 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+
+  DeathLinkAmnesty:
+    # Amount of Deaths to take before sending a DeathLink signal, for balancing difficulty
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 30
+    15: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+Wargroove:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  income_boost:
+    # How much extra income the player gets per turn per boost received.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  commander_defense_boost:
+    # How much extra defense the player's commander gets per boost received.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  commander_choice:
+    # How the player's commander is selected for missions.
+    # Locked Random: The player's commander is randomly predetermined for each level.
+    # Unlockable Factions: The player starts with Mercival and can unlock playable factions.
+    # Random Starting Faction:  The player starts with a random starting faction and can unlock the rest.
+    # When playing with unlockable factions, faction items are added to the pool.
+    # Extra faction items after the first also reward starting Groove charge.
+    locked_random: 50
+    unlockable_factions: 0
+    random_starting_faction: 0
