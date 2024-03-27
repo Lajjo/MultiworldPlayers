@@ -1,7 +1,7 @@
 description: Blengs fat file for archipelago randomizer
 name: Bleng{NUMBER}
 requires:
-  version: 0.3.4 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
 game:
   Slay the Spire: 1
   Hollow Knight: 1
