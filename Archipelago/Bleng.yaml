@@ -247,7 +247,7 @@ game:
   Risk of Rain 2: 1
 
 Risk of Rain 2:
-  total_locations: 20
+  total_locations: 50
   total_revivals: 4
   start_with_revive: 'true'
   item_pickup_step: 4
