@@ -3,9 +3,10 @@ name: Bleng Main
 requires:
   version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
 game:
-  Slay the Spire: 1
-  ChecksFinder: 0
+  Slay the Spire: 0
   Dark Souls III: 0
+  Hollow Knight: 1
+  Risk of Rain 2: 0
 
 Slay the Spire:
   character:
@@ -53,42 +54,6 @@ Slay the Spire:
 
   item_links: # Share part of your item pool with other players.
     []
-
-ChecksFinder:
-  progression_balancing: # A system that moves progression earlier, to try and prevent the player from getting stuck and bored early.
-    false: 0
-    true: 50
-  accessibility: # Set rules for reachability of your items/locations.
-    #    Locations: ensure everything can be reached and acquired.
-    #    Items: ensure all logically relevant items can be acquired.
-    #    Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 0
-    items: 50
-    minimal: 0
-  local_items: # Forces these items to be in their native world.
-    []
-
-  non_local_items: # Forces these items to be outside their native world.
-    []
-
-  start_inventory: # Start with these items.
-    {}
-
-  start_hints: # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints: # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations: # Prevent these locations from having an important item
-    []
-
-  priority_locations: # Prevent these locations from having an unimportant item
-    []
-
-  item_links: # Share part of your item pool with other players.
-    []
-
 
 
 Dark Souls III:
@@ -151,16 +116,11 @@ Dark Souls III:
     #    progression by preventing having to kill the Dancer of the Boreal Valley as the first boss
     false: 0
     true: 1
----
-description: Blengs Secondary Game
-name: Bleng Secondary
-requires:
-  version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
-game:
-  Hollow Knight: 1
 
 Hollow Knight:
-  RandomizeDreamers: 'true'
+  progression_balancing: 50
+  accessibility: items
+  RandomizeDreamers: 'false'
   RandomizeSkills: 'true'
   RandomizeFocus: 'false'
   RandomizeSwim: 'false'
@@ -176,18 +136,19 @@ Hollow Knight:
   RandomizeRelics: 'true'
   RandomizeWhisperingRoots: 'true'
   RandomizeBossEssence: 'true'
-  RandomizeGrubs: 'true'
-  RandomizeMimics: 'false'
+  RandomizeGrubs: random
+  RandomizeMimics: random
   RandomizeMaps: 'true'
-  RandomizeStags: 'true'
-  RandomizeLifebloodCocoons: 'true'
-  RandomizeGrimmkinFlames: 'true'
-  RandomizeJournalEntries: 'true'
+  RandomizeStags: random
+  RandomizeLifebloodCocoons: random
+  RandomizeGrimmkinFlames: random
+  RandomizeJournalEntries: random
   RandomizeNail: 'true'
   RandomizeGeoRocks: 'false'
   RandomizeBossGeo: 'true'
-  RandomizeSoulTotems: 'true'
+  RandomizeSoulTotems: 'false'
   RandomizeLoreTablets: 'true'
+  RandomizeElevatorPass: 'false'
   PreciseMovement: 'false'
   ProficientCombat: 'false'
   BackgroundObjectPogos: 'false'
@@ -205,24 +166,30 @@ Hollow Knight:
   DifficultSkips: 'false'
   RemoveSpellUpgrades: 'false'
   StartLocation: king's_pass
-  MinimumGrubPrice: 1
-  MaximumGrubPrice: 23
-  MinimumEssencePrice: 1
-  MaximumEssencePrice: 1400
-  MinimumEggPrice: 1
-  MaximumEggPrice: 10
-  MinimumCharmPrice: 1
-  MaximumCharmPrice: 20
-  RandomCharmCosts: -1
-  EggShopSlots: 16
-  SlyShopSlots: 8
-  SlyKeyShopSlots: 6
-  IseldaShopSlots: 2
-  SalubraShopSlots: 5
-  SalubraCharmShopSlots: 5
-  LegEaterShopSlots: 3
-  GrubfatherRewardSlots: 7
-  SeerRewardSlots: 8
+  Goal: random
+  WhitePalace: random
+  StartingGeo: 0
+  DeathLink: 'true'
+  MinimumGeoPrice: random
+  MaximumGeoPrice: random
+  MinimumGrubPrice: random
+  MaximumGrubPrice: random
+  MinimumEssencePrice: random
+  MaximumEssencePrice: random
+  MinimumCharmPrice: random
+  MaximumCharmPrice: random
+  RandomCharmCosts: random
+  MinimumEggPrice: random
+  MaximumEggPrice: random
+  EggShopSlots: random
+  SlyShopSlots: random
+  SlyKeyShopSlots: random
+  IseldaShopSlots: random
+  SalubraShopSlots: random
+  SalubraCharmShopSlots: random
+  LegEaterShopSlots: random
+  GrubfatherRewardSlots: random
+  SeerRewardSlots: random
   ExtraShopSlots: 0
   SplitCrystalHeart: 'false'
   SplitMothwingCloak: 'false'
@@ -234,25 +201,16 @@ Hollow Knight:
   CostSanityEssenceWeight: 1
   CostSanityCharmWeight: 1
   CostSanityGeoWeight: 8
-  progression_balancing: 'true'
-  accessibility: locations
-
----
-description: Blengs tertiary gayme
-name: Bleng Tertiary
-requires:
-  version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
-
-game:
-  Risk of Rain 2: 1
+  DeathLinkShade: shade
 
 Risk of Rain 2:
-  total_locations: 50
-  total_revivals: 4
-  start_with_revive: 'true'
-  item_pickup_step: 4
+  total_locations: random
+  total_revivals: 0
+  start_with_revive: 'false'
+  item_pickup_step: 2
+  death_link: 'true'
   enable_lunar: 'true'
-  item_weights: default
+  item_weights: random
   item_pool_presets: 'true'
   green_scrap: 16
   red_scrap: 4
@@ -266,4 +224,23 @@ Risk of Rain 2:
   equipment: 32
   progression_balancing: 50
   accessibility: items
- 
+  victory: random
+  goal: random
+  chests_per_stage: random
+  shrines_per_stage: random
+  dlc_sotv: 'true'  
+---
+description: Blengs Secondary Game
+name: Bleng Secondary
+requires:
+  version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
+game:
+  Checksfinder: 1
+  ArchipIDLE: 0
+ArchipIDLE:
+  progression_balancing: 50
+  accessibility: items
+
+ChecksFinder:
+  progression_balancing: 50
+  accessibility: items
