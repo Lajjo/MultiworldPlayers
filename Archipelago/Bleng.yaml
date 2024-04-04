@@ -235,7 +235,7 @@ name: Bleng Secondary
 requires:
   version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
 game:
-  Checksfinder: 1
+  ChecksFinder: 1
   ArchipIDLE: 0
 ArchipIDLE:
   progression_balancing: 50
