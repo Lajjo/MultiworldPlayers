@@ -16105,7 +16105,7 @@ game:
   Clique: 1
   Lingo: 0
   Sudoku: 1
-  The Witness: 1
+  The Witness: 0
 
 requires:
   version: 0.4.4
