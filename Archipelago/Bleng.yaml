@@ -119,11 +119,13 @@ Dark Souls III:
 
 Hollow Knight:
   progression_balancing: 50
-  accessibility: items
-  RandomizeDreamers: 'false'
+  accessibility: 
+    items: 50
+    locations: 50
+  RandomizeDreamers: random
   RandomizeSkills: 'true'
   RandomizeFocus: 'false'
-  RandomizeSwim: 'false'
+  RandomizeSwim: 'true'
   RandomizeCharms: 'true'
   RandomizeKeys: 'true'
   RandomizeMaskShards: 'true'
@@ -178,7 +180,7 @@ Hollow Knight:
   MaximumEssencePrice: random
   MinimumCharmPrice: random
   MaximumCharmPrice: random
-  RandomCharmCosts: random
+  RandomCharmCosts: random-low
   MinimumEggPrice: random
   MaximumEggPrice: random
   EggShopSlots: random
