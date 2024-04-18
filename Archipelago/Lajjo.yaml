@@ -10,7 +10,7 @@ game: # Pick a game to play
   Celeste 64: 0
   Dark Souls III: 0
   DLCQuest: 0
-  Donkey Kong Country 3: 0
+  Donkey Kong Country 3: 1
   DOOM 1993: 0
   DOOM II: 0
   Factorio: 0
@@ -22,8 +22,8 @@ game: # Pick a game to play
   Kingdom Hearts 2: 0
   Kirby's Dream Land 3: 0
   Landstalker - The Treasures of King Nole: 0
-  Links Awakening DX: 0
-  Lufia II Ancient Cave: 0
+  Links Awakening DX: 1
+  Lufia II Ancient Cave: 1
   MegaMan Battle Network 3: 0
   Meritous: 0
   Minecraft: 0
@@ -50,6 +50,7 @@ game: # Pick a game to play
   Terraria: 0
   The Legend of Zelda: 0
   The Messenger: 0
+  The Witness: 0
   Timespinner: 0
   TUNIC: 0
   Undertale: 0
@@ -60,7 +61,7 @@ game: # Pick a game to play
   Zork Grand Inquisitor: 0
 
 requires:
-  version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.4.5 # Version of Archipelago required for this yaml to work as expected.
 
 A Link to the Past:
   progression_balancing:
@@ -2092,8 +2093,8 @@ Donkey Kong Country 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 10
     # Maximum value is 41
-    30: 50
-    random: 0
+    30: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -2103,8 +2104,8 @@ Donkey Kong Country 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 17
-    15: 50
-    random: 0
+    15: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -2114,8 +2115,8 @@ Donkey Kong Country 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 100
-    100: 50
-    random: 0
+    100: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -2125,8 +2126,8 @@ Donkey Kong Country 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 5
     # Maximum value is 15
-    15: 50
-    random: 0
+    15: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -2136,20 +2137,20 @@ Donkey Kong Country 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 20
     # Maximum value is 100
-    100: 50
-    random: 0
+    100: 0
+    random: 1
     random-low: 0
     random-high: 0
 
   kongsanity:
     # Whether collecting all four KONG letters in each level grants a check
-    false: 50
-    true: 0
+    false: 1
+    true: 1
 
   level_shuffle:
     # Whether levels are shuffled
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   difficulty:
     # Which Difficulty Level to use
@@ -2177,15 +2178,15 @@ Donkey Kong Country 3:
 
   kong_palette_swap:
     # Which Palette to use for the Kongs
-    default: 50
-    purple: 0
-    spooky: 0
-    dark: 0
-    chocolate: 0
-    shadow: 0
-    red_gold: 0
-    gbc: 0
-    halloween: 0
+    default: 1
+    purple: 1
+    spooky: 1
+    dark: 1
+    chocolate: 1
+    shadow: 1
+    red_gold: 1
+    gbc: 1
+    halloween: 1
 
   starting_life_count:
     # How many extra lives to start the game with
@@ -5387,8 +5388,8 @@ Links Awakening DX:
   tradequest:
     # [On] adds the trade items to the pool (the trade locations will always be local items)
     # [Off] (default) doesn't add them
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   rooster:
     # [On] Adds the rooster to the item pool.
@@ -5416,9 +5417,9 @@ Links Awakening DX:
     # [Instruments] The Wind Fish's Egg will only open if you have the required number of Instruments of the Sirens, and play the Ballad of the Wind Fish.
     # [Seashells] The Egg will open when you bring 20 seashells. The Ballad and Ocarina are not needed.
     # [Open] The Egg will start pre-opened.
-    instruments: 50
-    seashells: 0
-    open: 0
+    instruments: 1
+    seashells: 1
+    open: 1
 
   instrument_count:
     # Sets the number of instruments required to open the Egg
@@ -5426,29 +5427,29 @@ Links Awakening DX:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 8
-    8: 50
-    random: 0
+    8: 0
+    random: 1
     random-low: 0
     random-high: 0
 
   link_palette:
     # Sets link's palette
     # A-D are color palettes usually used during the damage animation and can change based on where you are.
-    normal: 50
-    green: 0
-    yellow: 0
-    red: 0
-    blue: 0
-    invert_a: 0
-    invert_b: 0
-    invert_c: 0
-    invert_d: 0
+    normal: 0
+    green: 1
+    yellow: 1
+    red: 1
+    blue: 1
+    invert_a: 1
+    invert_b: 1
+    invert_c: 1
+    invert_d: 1
 
   warp_improvements:
     # [On] Adds remake style warp screen to the game. Choose your warp destination on the map after jumping in a portal and press B to select.
     # [Off] No change
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   additional_warp_points:
     # [On] (requires warp improvements) Adds a warp point at Crazy Tracy's house (the Mambo teleport spot) and Eagle's Tower
@@ -5504,10 +5505,10 @@ Links Awakening DX:
     # [Own World] The item will be somewhere in your world
     # [Any World] The item could be anywhere
     # [Different World] The item will be somewhere in another world
-    original_dungeon: 50
+    original_dungeon: 1
     own_dungeons: 0
     own_world: 0
-    any_world: 0
+    any_world: 1
     different_world: 0
 
   shuffle_small_keys:
@@ -5517,10 +5518,10 @@ Links Awakening DX:
     # [Own World] The item will be somewhere in your world
     # [Any World] The item could be anywhere
     # [Different World] The item will be somewhere in another world
-    original_dungeon: 50
+    original_dungeon: 1
     own_dungeons: 0
     own_world: 0
-    any_world: 0
+    any_world: 1
     different_world: 0
 
   shuffle_maps:
@@ -5530,10 +5531,10 @@ Links Awakening DX:
     # [Own World] The item will be somewhere in your world
     # [Any World] The item could be anywhere
     # [Different World] The item will be somewhere in another world
-    original_dungeon: 50
+    original_dungeon: 1
     own_dungeons: 0
     own_world: 0
-    any_world: 0
+    any_world: 1
     different_world: 0
 
   shuffle_compasses:
@@ -5543,10 +5544,10 @@ Links Awakening DX:
     # [Own World] The item will be somewhere in your world
     # [Any World] The item could be anywhere
     # [Different World] The item will be somewhere in another world
-    original_dungeon: 50
+    original_dungeon: 1
     own_dungeons: 0
     own_world: 0
-    any_world: 0
+    any_world: 1
     different_world: 0
 
   shuffle_stone_beaks:
@@ -5556,10 +5557,10 @@ Links Awakening DX:
     # [Own World] The item will be somewhere in your world
     # [Any World] The item could be anywhere
     # [Different World] The item will be somewhere in another world
-    original_dungeon: 50
+    original_dungeon: 1
     own_dungeons: 0
     own_world: 0
-    any_world: 0
+    any_world: 1
     different_world: 0
 
   music_change_condition:
@@ -5646,8 +5647,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 5
     # Maximum value is 75
-    25: 50
-    random: 0
+    25: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -5664,8 +5665,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 10
     # Maximum value is 100
-    25: 50
-    random: 0
+    25: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -5710,11 +5711,11 @@ Lufia II Ancient Cave:
     erim: 0
     daos: 0
     egg_dragon: 0
-    master: 50
-    random-high: 0
-    random-sinistral: 0
-    random-middle: 0
-    random-low: 0
+    master: 0
+    random-high: 1
+    random-sinistral: 1
+    random-middle: 1
+    random-low: 1
 
   capsule_cravings_jp_style:
     # Make capsule monster cravings behave as in the Japanese version.
@@ -5743,10 +5744,10 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 5
-    random: 0
+    random: 1
     random-low: 0
     random-high: 0
-    default: 50 # equivalent to 1
+    default: 0 # equivalent to 1
     m: 0 # equivalent to 5
 
   capsule_starting_level:
@@ -5776,8 +5777,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 255
-    16: 50
-    random: 0
+    16: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -5794,8 +5795,8 @@ Lufia II Ancient Cave:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   default_capsule:
     # Preselect the active capsule monster.
@@ -5803,13 +5804,13 @@ Lufia II Ancient Cave:
     # (Only has an effect if shuffle_capsule_monsters is set to false.)
     # Supported values: jelze, flash, gusto, zeppy, darbi, sully, blaze
     # Default value: jelze
-    jelze: 50
-    flash: 0
-    gusto: 0
-    zeppy: 0
-    darbi: 0
-    sully: 0
-    blaze: 0
+    jelze: 1
+    flash: 1
+    gusto: 1
+    zeppy: 1
+    darbi: 1
+    sully: 1
+    blaze: 1
 
   default_party:
     # Preselect the party lineup.
@@ -5881,9 +5882,9 @@ Lufia II Ancient Cave:
     # randomize — For each floor, new enemy types are chosen randomly from the set usually possible on floors [-6, +6].
     #     Ninja, e.g., is among the various possible selections for any enemy slot affecting the floors from B38 to B52
     # Default value: vanilla (same as in an unmodified game)
-    vanilla: 50
+    vanilla: 0
     shuffle: 0
-    randomize: 0
+    randomize: 1
 
   enemy_movement_patterns:
     # Change the movement patterns of enemies.
@@ -5936,8 +5937,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 100
     # Maximum value is 500
-    100: 50
-    random: 0
+    100: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -5950,8 +5951,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 2
     # Maximum value is 99
-    99: 50
-    random: 0
+    99: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -5993,8 +5994,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 25
     # Maximum value is 400
-    100: 50
-    random: 0
+    100: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -6008,8 +6009,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 255
-    16: 50
-    random: 0
+    16: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -6040,8 +6041,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 5
     # Maximum value is 255
-    5: 50
-    random: 0
+    5: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -6055,8 +6056,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 9
-    9: 50
-    random: 0
+    9: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -6070,8 +6071,8 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 9980
-    9980: 50
-    random: 0
+    9980: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -14564,6 +14565,283 @@ The Messenger:
     false: 50
     true: 0
 
+The Witness:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  puzzle_randomization:
+    # Puzzles in this randomizer are randomly generated. This setting changes the difficulty/types of puzzles.
+    sigma_normal: 50
+    sigma_expert: 0
+    none: 0
+
+  shuffle_symbols:
+    # You will need to unlock puzzle symbols as items to be able to solve the panels that contain those symbols.
+    # If you turn this off, there will be no progression items in the game unless you turn on door shuffle.
+    false: 0
+    true: 50
+
+  shuffle_doors:
+    # If on, opening doors, moving bridges etc. will require a "key".
+    # If set to "panels", the panel on the door will be locked until receiving its corresponding key.
+    # If set to "doors", the door will open immediately upon receiving its key. Door panels are added as location checks.
+    # "Mixed" includes all doors from "doors", and all control panels (bridges, elevators etc.) from "panels".
+    off: 50
+    panels: 0
+    doors: 0
+    mixed: 0
+
+  door_groupings:
+    # If set to "none", there will be one key for every door, resulting in up to 120 keys being added to the item pool.
+    # If set to "regional", all doors in the same general region will open at once with a single key,
+    # reducing the amount of door items and complexity.
+    off: 50
+    regional: 0
+
+  shuffle_boat:
+    # If set, adds a "Boat" item to the item pool. Before receiving this item, you will not be able to use the boat.
+    false: 0
+    true: 50
+
+  shuffle_lasers:
+    # If on, the 11 lasers are turned into items and will activate on their own upon receiving them.
+    # Note: There is a visual bug that can occur with the Desert Laser. It does not affect gameplay - The Laser can still
+    # be redirected as normal, for both applications of redirection.
+    false: 50
+    true: 0
+
+  disable_non_randomized_puzzles:
+    # Disables puzzles that cannot be randomized.
+    # This includes many puzzles that heavily involve the environment, such as Shadows, Monastery or Orchard.
+    # The lasers for those areas will activate as you solve optional puzzles, such as Discarded Panels.
+    # Additionally, the panels activating Monastery Laser and Jungle Popup Wall will be on from the start.
+    false: 50
+    true: 0
+
+  shuffle_discarded_panels:
+    # Add Discarded Panels into the location pool.
+    # Solving certain Discarded Panels may still be necessary to beat the game, even if this is off - The main example
+    # of this being the alternate activation triggers in disable_non_randomized.
+    false: 50
+    true: 0
+
+  shuffle_vault_boxes:
+    # Add Vault Boxes to the location pool.
+    false: 50
+    true: 0
+
+  obelisk_keys:
+    # Add one Obelisk Key item per Obelisk, locking you out of solving any of the associated Environmental Puzzles.
+    #
+    # Does nothing if "Shuffle Environmental Puzzles" is set to "off".
+    false: 50
+    true: 0
+
+  shuffle_EPs:
+    # Add Environmental/Obelisk Puzzles into the location pool.
+    # In "individual", every Environmental Puzzle sends an item.
+    # In "obelisk_sides", completing every puzzle on one side of an Obelisk sends an item.
+    # Note: In Obelisk Sides, any EPs excluded through another setting will be counted as pre-completed on their Obelisk.
+    off: 50
+    individual: 0
+    obelisk_sides: 0
+
+  EP_difficulty:
+    # When "Shuffle Environmental Puzzles" is on, this setting governs which EPs are eligible for the location pool.
+    # On "eclipse", every EP in the game is eligible, including the 1-hour-long "Theater Eclipse EP".
+    # On "tedious", Theater Eclipse EP is excluded from the location pool.
+    # On "normal", several other difficult or long EPs are excluded as well.
+    normal: 50
+    tedious: 0
+    eclipse: 0
+
+  shuffle_postgame:
+    # Adds locations into the pool that are guaranteed to become accessible after or at the same time as your goal.
+    # Use this if you don't play with release on victory. IMPORTANT NOTE: The possibility of your second
+    # "Progressive Dots" showing up in the Caves is ignored, they will still be considered "postgame" in base settings.
+    false: 50
+    true: 0
+
+  victory_condition:
+    # Change the victory condition from the original game's ending (elevator) to beating the Challenge
+    # or solving the mountaintop box, either using the short solution
+    # (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
+    elevator: 50
+    challenge: 0
+    mountain_box_short: 0
+    mountain_box_long: 0
+
+  mountain_lasers:
+    # Sets the amount of beams required to enter the final area.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  challenge_lasers:
+    # Sets the amount of beams required to enter the Caves through the Mountain Bottom Floor Discard.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 11
+    11: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  early_caves:
+    # Adds an item that opens the Caves Shortcuts to Swamp and Mountain,
+    # allowing early access to the Caves even if you are not playing a remote Door Shuffle mode.
+    # You can either add this item to the pool to be found on one of your randomized checks,
+    # or you can outright start with it and have immediate access to the Caves.
+    # If you choose "add_to_pool" and you are already playing a remote Door Shuffle mode, this setting will do nothing.
+    off: 50
+    add_to_pool: 0
+    starting_inventory: 0
+
+  elevators_come_to_you:
+    # If true, the Quarry Elevator, Bunker Elevator and Swamp Long Bridge will "come to you" if you approach them.
+    # This does actually affect logic as it allows unintended backwards / early access into these areas.
+    false: 50
+    true: 0
+
+  trap_percentage:
+    # Replaces junk items with traps, at the specified rate.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  trap_weights:
+    # Specify the weights determining how many copies of each trap item will be in your itempool.
+    # If you don't want a specific type of trap, you can set the weight for it to 0 (Do not delete the entry outright!).
+    # If you set all trap weights to 0, you will get no traps, bypassing the "Trap Percentage" option.
+    Bonk: 1
+    Power Surge: 2
+    Slowness: 6
+
+  puzzle_skip_amount:
+    # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
+    # Works on most panels in the game - The only big exception is The Challenge.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 30
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  hint_amount:
+    # Adds hints to Audio Logs. If set to a low amount, up to 2 additional duplicates of each hint will be added.
+    # Remaining Audio Logs will have junk hints.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 49
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  area_hint_percentage:
+    # There are two types of hints for The Witness.
+    # "Location hints" hint one location in your world or one location containing an item for your world.
+    # "Area hints" tell you some general info about the items you can find in one of the main geographic areas on the island.
+    # Use this option to specify how many of your hints you want to be area hints. The rest will be location hints.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    33: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  laser_hints:
+    # If on, lasers will tell you where their items are if you walk close to them in-game.
+    # Only applies if Laser Shuffle is enabled.
+    false: 50
+    true: 0
+
+  death_link:
+    # If on: Whenever you fail a puzzle (with some exceptions), everyone who is also on Death Link dies.
+    # The effect of a "death" in The Witness is a Power Surge.
+    false: 0
+    true: 1
+
+  death_link_amnesty:
+    # The number of panel fails to allow before sending a death through Death Link.
+    # 0 means every panel fail will send a death, 1 means every other panel fail will send a death, etc.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
 Timespinner:
   progression_balancing:
     # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
@@ -16105,10 +16383,9 @@ game:
   Clique: 1
   Lingo: 0
   Sudoku: 1
-  The Witness: 0
 
 requires:
-  version: 0.4.4
+  version: 0.4.5
 
 Bumper Stickers:
   progression_balancing:
@@ -16600,279 +16877,14 @@ Sudoku:
     # Share part of your item pool with other players.
     []
 
-The Witness:
-  progression_balancing:
-    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
-    # A lower setting means more getting stuck. A higher setting means less getting stuck.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 99
-    random: 0
-    random-low: 0
-    random-high: 0
-    disabled: 0 # equivalent to 0
-    normal: 50 # equivalent to 50
-    extreme: 0 # equivalent to 99
+---
+name: Lajjo Idle
+description: Idle game for Lajjo
+game: ArchipIDLE
 
-  accessibility:
-    # Set rules for reachability of your items/locations.
-    # Locations: ensure everything can be reached and acquired.
-    # Items: ensure all logically relevant items can be acquired.
-    # Minimal: ensure what is needed to reach your goal can be acquired.
-    locations: 0
-    items: 50
-    minimal: 0
+requires:
+  version: 0.4.5
 
-  local_items:
-    # Forces these items to be in their native world.
-    []
-
-  non_local_items:
-    # Forces these items to be outside their native world.
-    []
-
-  start_inventory:
-    # Start with these items.
-    {}
-
-  start_hints:
-    # Start with these item's locations prefilled into the !hint command.
-    []
-
-  start_location_hints:
-    # Start with these locations and their item prefilled into the !hint command
-    []
-
-  exclude_locations:
-    # Prevent these locations from having an important item
-    []
-
-  priority_locations:
-    # Prevent these locations from having an unimportant item
-    []
-
-  item_links:
-    # Share part of your item pool with other players.
-    []
-
-  puzzle_randomization:
-    # Puzzles in this randomizer are randomly generated. This setting changes the difficulty/types of puzzles.
-    sigma_normal: 50
-    sigma_expert: 0
-    none: 0
-
-  shuffle_symbols:
-    # You will need to unlock puzzle symbols as items to be able to solve the panels that contain those symbols.
-    # If you turn this off, there will be no progression items in the game unless you turn on door shuffle.
-    false: 0
-    true: 50
-
-  shuffle_doors:
-    # If on, opening doors, moving bridges etc. will require a "key".
-    # If set to "panels", the panel on the door will be locked until receiving its corresponding key.
-    # If set to "doors", the door will open immediately upon receiving its key. Door panels are added as location checks.
-    # "Mixed" includes all doors from "doors", and all control panels (bridges, elevators etc.) from "panels".
-    off: 50
-    panels: 0
-    doors: 0
-    mixed: 0
-
-  door_groupings:
-    # If set to "none", there will be one key for every door, resulting in up to 120 keys being added to the item pool.
-    # If set to "regional", all doors in the same general region will open at once with a single key,
-    # reducing the amount of door items and complexity.
-    off: 50
-    regional: 0
-
-  shuffle_boat:
-    # If set, adds a "Boat" item to the item pool. Before receiving this item, you will not be able to use the boat.
-    false: 0
-    true: 50
-
-  shuffle_lasers:
-    # If on, the 11 lasers are turned into items and will activate on their own upon receiving them.
-    # Note: There is a visual bug that can occur with the Desert Laser. It does not affect gameplay - The Laser can still
-    # be redirected as normal, for both applications of redirection.
-    false: 50
-    true: 0
-
-  disable_non_randomized_puzzles:
-    # Disables puzzles that cannot be randomized.
-    # This includes many puzzles that heavily involve the environment, such as Shadows, Monastery or Orchard.
-    # The lasers for those areas will activate as you solve optional puzzles, such as Discarded Panels.
-    # Additionally, the panels activating Monastery Laser and Jungle Popup Wall will be on from the start.
-    false: 50
-    true: 0
-
-  shuffle_discarded_panels:
-    # Add Discarded Panels into the location pool.
-    # Solving certain Discarded Panels may still be necessary to beat the game, even if this is off - The main example
-    # of this being the alternate activation triggers in disable_non_randomized.
-    false: 50
-    true: 0
-
-  shuffle_vault_boxes:
-    # Add Vault Boxes to the location pool.
-    false: 50
-    true: 0
-
-  obelisk_keys:
-    # Add one Obelisk Key item per Obelisk, locking you out of solving any of the associated Environmental Puzzles.
-    #
-    # Does nothing if "Shuffle Environmental Puzzles" is set to "off".
-    false: 50
-    true: 0
-
-  shuffle_EPs:
-    # Add Environmental/Obelisk Puzzles into the location pool.
-    # In "individual", every Environmental Puzzle sends an item.
-    # In "obelisk_sides", completing every puzzle on one side of an Obelisk sends an item.
-    # Note: In Obelisk Sides, any EPs excluded through another setting will be counted as pre-completed on their Obelisk.
-    off: 50
-    individual: 0
-    obelisk_sides: 0
-
-  EP_difficulty:
-    # When "Shuffle Environmental Puzzles" is on, this setting governs which EPs are eligible for the location pool.
-    # On "eclipse", every EP in the game is eligible, including the 1-hour-long "Theater Eclipse EP".
-    # On "tedious", Theater Eclipse EP is excluded from the location pool.
-    # On "normal", several other difficult or long EPs are excluded as well.
-    normal: 50
-    tedious: 0
-    eclipse: 0
-
-  shuffle_postgame:
-    # Adds locations into the pool that are guaranteed to become accessible after or at the same time as your goal.
-    # Use this if you don't play with release on victory. IMPORTANT NOTE: The possibility of your second
-    # "Progressive Dots" showing up in the Caves is ignored, they will still be considered "postgame" in base settings.
-    false: 50
-    true: 0
-
-  victory_condition:
-    # Change the victory condition from the original game's ending (elevator) to beating the Challenge
-    # or solving the mountaintop box, either using the short solution
-    # (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
-    elevator: 50
-    challenge: 0
-    mountain_box_short: 0
-    mountain_box_long: 0
-
-  mountain_lasers:
-    # Sets the amount of beams required to enter the final area.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 1
-    # Maximum value is 7
-    7: 0
-    random: 1
-    random-low: 0
-    random-high: 0
-
-  challenge_lasers:
-    # Sets the amount of beams required to enter the Caves through the Mountain Bottom Floor Discard.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 1
-    # Maximum value is 11
-    11: 0
-    random: 1
-    random-low: 0
-    random-high: 0
-
-  early_caves:
-    # Adds an item that opens the Caves Shortcuts to Swamp and Mountain,
-    # allowing early access to the Caves even if you are not playing a remote Door Shuffle mode.
-    # You can either add this item to the pool to be found on one of your randomized checks,
-    # or you can outright start with it and have immediate access to the Caves.
-    # If you choose "add_to_pool" and you are already playing a remote Door Shuffle mode, this setting will do nothing.
-    off: 50
-    add_to_pool: 0
-    starting_inventory: 0
-
-  elevators_come_to_you:
-    # If true, the Quarry Elevator, Bunker Elevator and Swamp Long Bridge will "come to you" if you approach them.
-    # This does actually affect logic as it allows unintended backwards / early access into these areas.
-    false: 50
-    true: 0
-
-  trap_percentage:
-    # Replaces junk items with traps, at the specified rate.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 100
-    20: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  trap_weights:
-    # Specify the weights determining how many copies of each trap item will be in your itempool.
-    # If you don't want a specific type of trap, you can set the weight for it to 0 (Do not delete the entry outright!).
-    # If you set all trap weights to 0, you will get no traps, bypassing the "Trap Percentage" option.
-    Bonk: 1
-    Power Surge: 2
-    Slowness: 6
-
-  puzzle_skip_amount:
-    # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
-    # Works on most panels in the game - The only big exception is The Challenge.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 30
-    10: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  hint_amount:
-    # Adds hints to Audio Logs. If set to a low amount, up to 2 additional duplicates of each hint will be added.
-    # Remaining Audio Logs will have junk hints.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 49
-    10: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  area_hint_percentage:
-    # There are two types of hints for The Witness.
-    # "Location hints" hint one location in your world or one location containing an item for your world.
-    # "Area hints" tell you some general info about the items you can find in one of the main geographic areas on the island.
-    # Use this option to specify how many of your hints you want to be area hints. The rest will be location hints.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 100
-    33: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  laser_hints:
-    # If on, lasers will tell you where their items are if you walk close to them in-game.
-    # Only applies if Laser Shuffle is enabled.
-    false: 50
-    true: 0
-
-  death_link:
-    # If on: Whenever you fail a puzzle (with some exceptions), everyone who is also on Death Link dies.
-    # The effect of a "death" in The Witness is a Power Surge.
-    false: 0
-    true: 1
-
-  death_link_amnesty:
-    # The number of panel fails to allow before sending a death through Death Link.
-    # 0 means every panel fail will send a death, 1 means every other panel fail will send a death, etc.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 5
-    1: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+ArchipIDLE:
+  progression_balancing: 50
+  accessibility: items
