@@ -45,7 +45,7 @@ game: # Pick a game to play
   Stardew Valley: 0
   Subnautica: 0
   Super Mario 64: 0
-  Super Mario World: 0
+  Super Mario World: 1
   Super Metroid: 1
   Terraria: 0
   The Legend of Zelda: 0
@@ -4816,8 +4816,8 @@ Kirby's Dream Land 3:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   game_language:
     # The language that the game should display. This does not have to match the given rom.
@@ -4829,10 +4829,10 @@ Kirby's Dream Land 3:
     # Boss Butch: collect the Heart Stars, and then complete the boss rematches in the Boss Butch mode.
     # MG5: collect the Heart Stars, and then complete a perfect run through the minigame gauntlet within the Super MG5
     # Jumping: collect the Heart Stars, and then reach a designated score within the Jumping sub-game
-    zero: 50
-    boss_butch: 0
-    mg5: 0
-    jumping: 0
+    zero: 1
+    boss_butch: 1
+    mg5: 1
+    jumping: 1
 
   goal_speed:
     # Normal: the goal is unlocked after purifying the five bosses
@@ -4846,8 +4846,8 @@ Kirby's Dream Land 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 5
     # Maximum value is 50
-    30: 50
-    random: 0
+    30: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -4869,8 +4869,8 @@ Kirby's Dream Land 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 100
-    50: 50
-    random: 0
+    50: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -4924,8 +4924,8 @@ Kirby's Dream Land 3:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 25
-    10: 50
-    random: 0
+    10: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -5023,20 +5023,20 @@ Kirby's Dream Land 3:
 
   kirby_flavor_preset:
     # The color of Kirby, from a list of presets.
-    default: 50
-    bubblegum: 0
-    cherry: 0
-    blueberry: 0
-    lemon: 0
-    kiwi: 0
-    grape: 0
-    chocolate: 0
-    marshmallow: 0
-    licorice: 0
-    watermelon: 0
-    orange: 0
-    lime: 0
-    lavender: 0
+    default: 1
+    bubblegum: 1
+    cherry: 1
+    blueberry: 1
+    lemon: 1
+    kiwi: 1
+    grape: 1
+    chocolate: 1
+    marshmallow: 1
+    licorice: 1
+    watermelon: 1
+    orange: 1
+    lime: 1
+    lavender: 1
     custom: 0
 
   kirby_flavor:
@@ -5060,20 +5060,20 @@ Kirby's Dream Land 3:
 
   gooey_flavor_preset:
     # The color of Gooey, from a list of presets.
-    default: 50
-    bubblegum: 0
-    cherry: 0
-    blueberry: 0
-    lemon: 0
-    kiwi: 0
-    grape: 0
-    chocolate: 0
-    marshmallow: 0
-    licorice: 0
-    watermelon: 0
-    orange: 0
-    lime: 0
-    lavender: 0
+    default: 1
+    bubblegum: 1
+    cherry: 1
+    blueberry: 1
+    lemon: 1
+    kiwi: 1
+    grape: 1
+    chocolate: 1
+    marshmallow: 1
+    licorice: 1
+    watermelon: 1
+    orange: 1
+    lime: 1
+    lavender: 1
     custom: 0
 
   gooey_flavor:
@@ -9306,8 +9306,8 @@ Pokemon Emerald:
 
   enable_ferry:
     # The ferry between Slateport, Lilycove, and the Battle Frontier can be used if you have the S.S. Ticket
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   remove_roadblocks:
     # Removes specific NPCs that normally stand in your way until certain events are completed.
@@ -9430,7 +9430,8 @@ Pokemon Red and Blue:
   rival_name:
     # Your rival's name. If not set to choose_in_game, must be a name not exceeding 7 characters, and the prompt to
     # name your rival in-game will be skipped. See the setup guide on archipelago.gg for a list of allowed characters.
-    choose_in_game: 50
+    choose_in_game: 0
+    Vimz: 1
 
   elite_four_badges_condition:
     # Number of badges required to challenge the Elite Four once the Indigo Plateau has been reached.
@@ -9535,8 +9536,8 @@ Pokemon Red and Blue:
 
   robbed_house_officer:
     # You can disable to remove the requirement to help Bill before you can enter the robbed house in Cerulean City.
-    false: 0
-    true: 50
+    false: 1
+    true: 1
 
   second_fossil_check_condition:
     # After choosing one of the fossil location items, you can obtain the remaining item from the Cinnabar Lab
@@ -9545,8 +9546,8 @@ Pokemon Red and Blue:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 3
-    3: 50
-    random: 0
+    3: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -9569,8 +9570,8 @@ Pokemon Red and Blue:
   old_man:
     # With Open Viridian City, the Old Man will let you through without needing to turn in Oak's Parcel.
     # Early Parcel will ensure Oak's Parcel is available at the beginning of your game.
-    vanilla: 0
-    early_parcel: 50
+    vanilla: 1
+    early_parcel: 0
     open_viridian_city: 0
 
   badgesanity:
@@ -9597,8 +9598,8 @@ Pokemon Red and Blue:
   tea:
     # Adds a Tea item to the item pool which the Saffron guards require instead of the vending machine drinks.
     # Adds a location check to the Celadon Mansion 1F, where Tea is acquired in FireRed and LeafGreen.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   extra_key_items:
     # Adds key items that are required to access the Rocket Hideout, Cinnabar Mansion, Safari Zone, and Power Plant.
@@ -9646,8 +9647,8 @@ Pokemon Red and Blue:
     # Add a location check to every trainer in the game, which can be obtained by talking to a trainer after defeating
     # them. Does not affect gym leaders and some scripted event battles (including all Rival, Giovanni, and
     # Cinnabar Gym battles).
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   dexsanity:
     # Adds location checks for Pokemon flagged "owned" on your Pokedex. You may specify a percentage of Pokemon to
@@ -9732,17 +9733,17 @@ Pokemon Red and Blue:
     # single exit misc interiors, dual exit misc interiors are all shuffled separately. Safari Zone is not shuffled.
     # Full: Any outdoor entrance may lead to any interior.
     # Insanity: All rooms in the game are shuffled.
-    off: 50
-    simple: 0
-    full: 0
-    insanity: 0
+    off: 1
+    simple: 1
+    full: 1
+    insanity: 1
 
   warp_tile_shuffle:
     # Shuffle the warp tiles in Silph Co and Sabrina's Gym among themselves, separately.
     # On Insanity, turning this off means they are mixed into the general door shuffle instead of only being shuffled
     # among themselves.
-    false: 50
-    true: 0
+    false: 1
+    true: 1
 
   randomize_rock_tunnel:
     # Randomize the layout of Rock Tunnel.
@@ -9772,8 +9773,8 @@ Pokemon Red and Blue:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 100
-    0: 50
-    random: 0
+    0: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -9805,11 +9806,11 @@ Pokemon Red and Blue:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 4.0
     # Maximum value is 255
-    random: 0
+    random: 1
     random-low: 0
     random-high: 0
     half: 0 # equivalent to 8.0
-    normal: 50 # equivalent to 16
+    normal: 0 # equivalent to 16
     double: 0 # equivalent to 32
     triple: 0 # equivalent to 48
     quadruple: 0 # equivalent to 64
@@ -10481,8 +10482,8 @@ Risk of Rain 2:
     # Minimum value is 2
     # Maximum value is 20
     5: 0
-    random: 1
-    random-low: 0
+    random: 0
+    random-low: 1
     random-high: 0
 
   scavengers_per_stage:
@@ -10491,8 +10492,8 @@ Risk of Rain 2:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 1
-    0: 50
-    random: 0
+    0: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -10502,8 +10503,8 @@ Risk of Rain 2:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 1
-    1: 50
-    random: 0
+    1: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -10514,8 +10515,8 @@ Risk of Rain 2:
     # Minimum value is 0
     # Maximum value is 2
     1: 0
-    random: 1
-    random-low: 0
+    random: 0
+    random-low: 1
     random-high: 0
 
   total_revivals:
@@ -10531,8 +10532,8 @@ Risk of Rain 2:
 
   start_with_revive:
     # Start the game with a `Dio's Best Friend` item.
-    false: 0
-    true: 50
+    false: 1
+    true: 0
 
   final_stage_death:
     # The following will count as a win if set to "true", and victory is set to "any":
@@ -10543,8 +10544,8 @@ Risk of Rain 2:
     # Victory: mithrix - only dying in Commencement will count.
     # Victory: voidling - only dying in The Planetarium will count.
     # Victory: limbo - Obliterating yourself will count.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   dlc_sotv:
     # Enable if you are using SOTV DLC.
@@ -10611,13 +10612,13 @@ Risk of Rain 2:
     default: 0
     new: 0
     uncommon: 0
-    legendary: 0
+    legendary: 1
     chaos: 1
     no_scraps: 0
     even: 0
-    scraps_only: 0
-    lunartic: 0
-    void: 0
+    scraps_only: 1
+    lunartic: 1
+    void: 1
 
   item_pool_presets:
     # Will use the item weight presets when set to true, otherwise will use the custom set item pool weights.
@@ -11285,8 +11286,8 @@ Secret of Evermore:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 2500
-    200: 50
-    random: 0
+    200: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -11296,8 +11297,8 @@ Secret of Evermore:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 2500
-    200: 50
-    random: 0
+    200: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -11380,8 +11381,8 @@ Secret of Evermore:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   trap_count:
     # Replace some filler items with traps
@@ -13621,15 +13622,15 @@ Super Mario World:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   goal:
     # Determines the goal of the seed
     # Bowser: Defeat Koopalings, reach Bowser's Castle and defeat Bowser
     # Yoshi Egg Hunt: Find a certain number of Yoshi Eggs
-    bowser: 50
-    yoshi_egg_hunt: 0
+    bowser: 1
+    yoshi_egg_hunt: 1
 
   bosses_required:
     # How many Bosses (Koopalings or Reznor) must be defeated in order to defeat Bowser
@@ -13637,8 +13638,8 @@ Super Mario World:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 11
-    7: 50
-    random: 0
+    7: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -13648,8 +13649,8 @@ Super Mario World:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 80
-    50: 50
-    random: 0
+    50: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -13659,15 +13660,15 @@ Super Mario World:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 100
-    100: 50
-    random: 0
+    100: 0
+    random: 1
     random-low: 0
     random-high: 0
 
   dragon_coin_checks:
     # Whether collecting 5 Dragon Coins in each level will grant a check
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   bowser_castle_doors:
     # How the doors of Bowser's Castle behave
@@ -13695,8 +13696,8 @@ Super Mario World:
 
   level_shuffle:
     # Whether levels are shuffled
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   exclude_special_zone:
     # If active, this option will prevent any progression items from being placed in Special Zone levels.
@@ -13798,29 +13799,29 @@ Super Mario World:
 
   mario_palette:
     # Mario palette color
-    mario: 50
-    luigi: 0
-    wario: 0
-    waluigi: 0
-    geno: 0
-    princess: 0
-    dark: 0
-    sponge: 0
+    mario: 1
+    luigi: 1
+    wario: 1
+    waluigi: 1
+    geno: 1
+    princess: 1
+    dark: 1
+    sponge: 1
 
   foreground_palette_shuffle:
     # Whether to shuffle level foreground palettes
-    false: 50
-    true: 0
+    false: 1
+    true: 1
 
   background_palette_shuffle:
     # Whether to shuffle level background palettes
-    false: 50
-    true: 0
+    false: 1
+    true: 1
 
   overworld_palette_shuffle:
     # Whether to shuffle overworld palettes
-    false: 50
-    true: 0
+    false: 1
+    true: 1
 
   starting_life_count:
     # How many extra lives to start the game with
@@ -16378,7 +16379,7 @@ Zork Grand Inquisitor:
 name: Lajjo Secondary
 description: Secondary game for Lajjo
 game:
-  Bumper Stickers: 0
+  Bumper Stickers: 1
   ChecksFinder: 0
   Clique: 1
   Lingo: 0
@@ -16460,8 +16461,8 @@ Bumper Stickers:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 5
-    3: 50
-    random: 0
+    3: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -16472,8 +16473,8 @@ Bumper Stickers:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 5
-    3: 50
-    random: 0
+    3: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -16760,19 +16761,19 @@ Lingo:
     the_master: 0
     level_2: 0
 
-  mastery_achievements:
-    # The number of achievements required to unlock THE MASTER.
-    # In the base game, 21 achievements are needed.
-    # If you include The Scientific and The Unchallenged, which are in the base game but are not counted for mastery, 23 would be required.
-    # If you include the custom achievement (The Wanderer), 24 would be required.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 1
-    # Maximum value is 24
-    21: 50
-    random: 0
-    random-low: 0
-    random-high: 0
+   mastery_achievements:
+     # The number of achievements required to unlock THE MASTER.
+     # In the base game, 21 achievements are needed.
+     # If you include The Scientific and The Unchallenged, which are in the base game but are not counted for mastery, 23 would be required.
+     # If you include the custom achievement (The Wanderer), 24 would be required.
+     #
+     # You can define additional values between the minimum and maximum values.
+     # Minimum value is 1
+     # Maximum value is 24
+     21: 50
+     random: 0
+     random-low: 0
+     random-high: 0
 
   level_2_requirement:
     # The number of panel solves required to unlock LEVEL 2.
