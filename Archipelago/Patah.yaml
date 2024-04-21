@@ -5,6 +5,8 @@ game:
   SMZ3: 1
   Super Metroid: 1
   A Link to the Past: 1
+  The Messenger: 1
+  The Witness: 1
 Super Metroid:
   progression_balancing: 50
   accessibility: locations
@@ -1605,10 +1607,276 @@ triggers:
     options: # then inserts these options
       A Link to the Past:
         swordless: off
+The Messenger:
+  progression_balancing: 50
+  accessibility: locations
+  logic_level:
+    # The level of logic to use when determining what locations in your world are accessible.
+    #
+    # Normal: can require damage boosts, but otherwise approachable for someone who has beaten the game.
+    # Hard: has leashing, normal clips, time warps and turtle boosting in logic.
+    # OoB: places everything with the minimum amount of rules possible. Expect to do OoB. Not guaranteed completable.
+    normal: 50
+    hard: 0
+    oob: 0
+
+  shuffle_seals:
+    # Whether power seal locations should be randomized.
+    false: 0
+    true: 50
+
+  shuffle_shards:
+    # Whether mega shards should be item locations.
+    false: 50
+    true: 0
+
+  goal:
+    # Requirement to finish the game. Power Seal Hunt will force power seal locations to be shuffled.
+    open_music_box: 1
+    power_seal_hunt: 1
+
+  music_box:
+    # Whether the music box gauntlet needs to be done.
+    false: 1
+    true: 1
+
+  notes_needed:
+    # How many notes are needed to access the Music Box.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 6
+    6: 0
+    random: 0
+    random-low: 0
+    random-high: 1
+
+  total_seals:
+    # Number of power seals that exist in the item pool when power seal hunt is the goal.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 85
+    45: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  percent_seals_required:
+    # Percentage of total seals required to open the shop chest.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 100
+    100: 0
+    random: 0
+    random-low: 1
+    random-high: 0
+
+  shop_price:
+    # Percentage modifier for shuffled item prices in shops
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 25
+    # Maximum value is 400
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  shop_price_plan:
+    # Plan specific prices on shop slots. Supports weighting
+    {}
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+The Witness:
+  progression_balancing: 50
+  accessibility: locations
+  puzzle_randomization:
+    # Puzzles in this randomizer are randomly generated. This setting changes the difficulty/types of puzzles.
+    sigma_normal: 50
+    sigma_expert: 0
+    none: 0
+
+  shuffle_symbols:
+    # You will need to unlock puzzle symbols as items to be able to solve the panels that contain those symbols.
+    # If you turn this off, there will be no progression items in the game unless you turn on door shuffle.
+    false: 0
+    true: 50
+
+  shuffle_doors:
+    # If on, opening doors, moving bridges etc. will require a "key".
+    # If set to "panels", the panel on the door will be locked until receiving its corresponding key.
+    # If set to "doors", the door will open immediately upon receiving its key. Door panels are added as location checks.
+    # "Mixed" includes all doors from "doors", and all control panels (bridges, elevators etc.) from "panels".
+    off: 3
+    panels: 1
+    doors: 0
+    mixed: 0
+
+  door_groupings:
+    # If set to "none", there will be one key for every door, resulting in up to 120 keys being added to the item pool.
+    # If set to "regional", all doors in the same general region will open at once with a single key,
+    # reducing the amount of door items and complexity.
+    off: 0
+    regional: 1
+
+  shuffle_boat:
+    # If set, adds a "Boat" item to the item pool. Before receiving this item, you will not be able to use the boat.
+    false: 0
+    true: 50
+
+  shuffle_lasers:
+    # If on, the 11 lasers are turned into items and will activate on their own upon receiving them.
+    # Note: There is a visual bug that can occur with the Desert Laser. It does not affect gameplay - The Laser can still
+    # be redirected as normal, for both applications of redirection.
+    false: 0
+    true: 1
+
+  disable_non_randomized_puzzles:
+    # Disables puzzles that cannot be randomized.
+    # This includes many puzzles that heavily involve the environment, such as Shadows, Monastery or Orchard.
+    # The lasers for those areas will activate as you solve optional puzzles, such as Discarded Panels.
+    # Additionally, the panels activating Monastery Laser and Jungle Popup Wall will be on from the start.
+    false: 50
+    true: 0
+
+  shuffle_discarded_panels:
+    # Add Discarded Panels into the location pool.
+    # Solving certain Discarded Panels may still be necessary to beat the game, even if this is off - The main example
+    # of this being the alternate activation triggers in disable_non_randomized.
+    false: 50
+    true: 0
+
+  shuffle_vault_boxes:
+    # Add Vault Boxes to the location pool.
+    false: 50
+    true: 0
+
+  shuffle_EPs:
+    # Add Environmental/Obelisk Puzzles into the location pool.
+    # In "individual", every Environmental Puzzle sends an item.
+    # In "obelisk_sides", completing every puzzle on one side of an Obelisk sends an item.
+    # Note: In Obelisk Sides, any EPs excluded through another setting will be counted as pre-completed on their Obelisk.
+    off: 50
+    individual: 0
+    obelisk_sides: 0
+
+  EP_difficulty:
+    # When "Shuffle Environmental Puzzles" is on, this setting governs which EPs are eligible for the location pool.
+    # On "eclipse", every EP in the game is eligible, including the 1-hour-long "Theater Eclipse EP".
+    # On "tedious", Theater Eclipse EP is excluded from the location pool.
+    # On "normal", several other difficult or long EPs are excluded as well.
+    normal: 50
+    tedious: 0
+    eclipse: 0
+
+  shuffle_postgame:
+    # Adds locations into the pool that are guaranteed to become accessible after or at the same time as your goal.
+    # Use this if you don't play with release on victory. IMPORTANT NOTE: The possibility of your second
+    # "Progressive Dots" showing up in the Caves is ignored, they will still be considered "postgame" in base settings.
+    false: 50
+    true: 0
+
+  victory_condition:
+    # Change the victory condition from the original game's ending (elevator) to beating the Challenge
+    # or solving the mountaintop box, either using the short solution
+    # (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
+    elevator: 5
+    challenge: 1
+    mountain_box_short: 0
+    mountain_box_long: 1
+
+  mountain_lasers:
+    # Sets the amount of beams required to enter the final area.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 7
+    7: 0
+    random: 0
+    random-low: 1
+    random-high: 0
+
+  challenge_lasers:
+    # Sets the amount of beams required to enter the Caves through the Mountain Bottom Floor Discard.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 11
+    11: 0
+    random: 0
+    random-low: 0
+    random-high: 1
+
+  early_caves:
+    # Adds an item that opens the Caves Shortcuts to Swamp and Mountain,
+    # allowing early access to the Caves even if you are not playing a remote Door Shuffle mode.
+    # You can either add this item to the pool to be found on one of your randomized checks,
+    # or you can outright start with it and have immediate access to the Caves.
+    # If you choose "add_to_pool" and you are already playing a remote Door Shuffle mode, this setting will do nothing.
+    off: 1
+    add_to_pool: 1
+    starting_inventory: 0
+
+  elevators_come_to_you:
+    # If true, the Quarry Elevator, Bunker Elevator and Swamp Long Bridge will "come to you" if you approach them.
+    # This does actually affect logic as it allows unintended backwards / early access into these areas.
+    false: 50
+    true: 0
+
+  trap_percentage:
+    # Replaces junk items with traps, at the specified rate.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    20: 0
+    random: 0
+    random-low: 1
+    random-high: 0
+
+  puzzle_skip_amount:
+    # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
+    # Works on most panels in the game - The only big exception is The Challenge.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 30
+    10: 0
+    random: 0
+    random-low: 1
+    random-high: 0
+
+  hint_amount:
+    # Adds hints to Audio Logs. If set to a low amount, up to 2 additional duplicates of each hint will be added.
+    # Remaining Audio Logs will have junk hints.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 49
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  death_link:
+    # If on: Whenever you fail a puzzle (with some exceptions), everyone who is also on Death Link dies.
+    # The effect of a "death" in The Witness is a Power Surge.
+    false: 0
+    true: 1
 ---
 name: Patah{NUMBER}
 description: Man måste ju vara redo för BK liksom
-game: ChecksFinder
+game:
+  ChecksFinder: 1
+  Sudoku: 1
 ChecksFinder:
+  progression_balancing: 50
+  accessibility: items
+Sudoku:
   progression_balancing: 50
   accessibility: items
