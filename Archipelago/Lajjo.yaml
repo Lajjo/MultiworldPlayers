@@ -16761,18 +16761,18 @@ Lingo:
     level_2: 0
 
    mastery_achievements:
-     # The number of achievements required to unlock THE MASTER.
-     # In the base game, 21 achievements are needed.
-     # If you include The Scientific and The Unchallenged, which are in the base game but are not counted for mastery, 23 would be required.
-     # If you include the custom achievement (The Wanderer), 24 would be required.
-     #
-     # You can define additional values between the minimum and maximum values.
-     # Minimum value is 1
-     # Maximum value is 24
-     21: 50
-     random: 0
-     random-low: 0
-     random-high: 0
+    # The number of achievements required to unlock THE MASTER.
+    # In the base game, 21 achievements are needed.
+    # If you include The Scientific and The Unchallenged, which are in the base game but are not counted for mastery, 23 would be required.
+    # If you include the custom achievement (The Wanderer), 24 would be required.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 24
+    21: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   level_2_requirement:
     # The number of panel solves required to unlock LEVEL 2.
