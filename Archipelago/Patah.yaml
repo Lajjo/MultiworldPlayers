@@ -1029,8 +1029,6 @@ Hollow Knight:
     #
     # These costs can be in Geo (except Grubfather, Seer and Eggshop), Grubs, Charms, Essence and/or Rancid Eggs
     off: 3
-    shopsonly: 0
-    notshops: 0
     on: 1
     shopsonly: 0
     notshops: 0
@@ -1873,10 +1871,6 @@ name: Patah{NUMBER}
 description: Man måste ju vara redo för BK liksom
 game:
   ChecksFinder: 1
-  Sudoku: 1
 ChecksFinder:
-  progression_balancing: 50
-  accessibility: items
-Sudoku:
   progression_balancing: 50
   accessibility: items
