@@ -362,9 +362,9 @@ A Link to the Past:
   ### End of Shop Section ###
   shuffle_prizes: # aka drops
     none: 0 # do not shuffle prize packs
-    g: 1 # shuffle "general" prize packs, as in enemy, tree pull, dig etc.
-    b: 0 # shuffle "bonk" prize packs
-    bg: 0 # shuffle both
+    general: 1 # shuffle "general" prize packs, as in enemy, tree pull, dig etc.
+    bonk: 0 # shuffle "bonk" prize packs
+    both: 0 # shuffle both
   timer:
     none: 1 # No timer will be displayed.
     timed: 0 # Starts with clock at zero. Green clocks subtract 4 minutes (total 20). Blue clocks subtract 2 minutes (total 10). Red clocks add two minutes (total 10). Winner is the player with the lowest time at the end.
@@ -9034,8 +9034,10 @@ Pokemon Emerald:
 
   require_flash:
     # The lower floors of Granite Cave and Victory Road logically require use of HM05 Flash
-    false: 0
-    true: 50
+    neither: 0
+    only_granite_cave: 0
+    only_victory_road: 0
+    both: 50
 
   elite_four_requirement:
     # Sets the requirements to challenge the elite four
@@ -12482,7 +12484,7 @@ Sonic Adventure 2 Battle:
     false: 50
     true: 0
 
-Starcraft 2 Wings of Liberty:
+Starcraft 2:
   progression_balancing:
     # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
     # A lower setting means more getting stuck. A higher setting means less getting stuck.
@@ -12557,51 +12559,64 @@ Starcraft 2 Wings of Liberty:
     fast: 0
     faster: 0
 
+  disable_forced_camera:
+    # Prevents the game from moving or locking the camera without the player's consent.
+    false: 50
+    true: 0
+
+  skip_cutscenes:
+    # Skips all cutscenes and prevents dialog from blocking progress.
+    false: 50
+    true: 0
+
   all_in_map:
-    # Determines what version of All-In (final map) that will be generated for the campaign.
+    # Determines what version of All-In (WoL final map) that will be generated for the campaign.
     ground: 50
     air: 0
 
-  final_map:
-    # Determines if the final map and goal of the campaign.
-    # All in: You need to beat All-in map
-    # Random Hard: A random hard mission is selected as a goal.
-    #             Beat this mission in order to complete the game.
-    #             All-in map won't be in the campaign
-    #
-    # Vanilla mission order always ends with All in mission!
-    #
-    # Warning: Using All-in with a short mission order (7 or fewer missions) is not recommended,
-    #     as there might not be enough locations to place all the required items,
-    #     any excess required items will be placed into the player's starting inventory!
-    #
-    # This option is short-lived. It may be changed in the future
-    all_in: 50
-    random_hard: 0
-
   mission_order:
     # Determines the order the missions are played in.  The last three mission orders end in a random mission.
-    # Vanilla (29): Keeps the standard mission order and branching from the WoL Campaign.
-    # Vanilla Shuffled (29): Keeps same branching paths from the WoL Campaign but randomizes the order of missions within.
-    # Mini Campaign (15): Shorter version of the campaign with randomized missions and optional branches.
-    # Grid (16):  A 4x4 grid of random missions.  Start at the top-left and forge a path towards bottom-right mission to win.
+    # Vanilla (83 total if all campaigns enabled): Keeps the standard mission order and branching from the vanilla Campaigns.
+    # Vanilla Shuffled (83 total if all campaigns enabled): Keeps same branching paths from the vanilla Campaigns but randomizes the order of missions within.
+    # Mini Campaign (47 total if all campaigns enabled): Shorter version of the campaign with randomized missions and optional branches.
+    # Medium Grid (16):  A 4x4 grid of random missions.  Start at the top-left and forge a path towards bottom-right mission to win.
     # Mini Grid (9):  A 3x3 version of Grid.  Complete the bottom-right mission to win.
     # Blitz (12):  12 random missions that open up very quickly.  Complete the bottom-right mission to win.
     # Gauntlet (7): Linear series of 7 random missions to complete the campaign.
     # Mini Gauntlet (4): Linear series of 4 random missions to complete the campaign.
     # Tiny Grid (4): A 2x2 version of Grid.  Complete the bottom-right mission to win.
+    # Grid (variable): A grid that will resize to use all non-excluded missions.  Corners may be omitted to make the grid more square.  Complete the bottom-right mission to win.
     vanilla: 50
     vanilla_shuffled: 0
     mini_campaign: 0
-    grid: 0
+    medium_grid: 0
     mini_grid: 0
     blitz: 0
     gauntlet: 0
     mini_gauntlet: 0
     tiny_grid: 0
+    grid: 0
 
-  player_color:
-    # Determines in-game team color.
+  maximum_campaign_size:
+    # Sets an upper bound on how many missions to include when a variable-size mission order is selected.
+    # If a set-size mission order is selected, does nothing.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 83
+    83: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  grid_two_start_positions:
+    # If turned on and 'grid' mission order is selected, removes a mission from the starting
+    # corner sets the adjacent two missions as the starter missions.
+    false: 50
+    true: 0
+
+  player_color_terran_raynor:
+    # Determines in-game team color for playable Raynor's Raiders (Terran) factions.
     white: 0
     red: 0
     blue: 0
@@ -12621,56 +12636,184 @@ Starcraft 2 Wings of Liberty:
     rainbow: 0
     default: 50
 
-  shuffle_protoss:
-    # Determines if the 3 protoss missions are included in the shuffle if Vanilla mission order is not enabled.
-    # If turned off, the 3 protoss missions will not appear and Protoss units are removed from the pool.
+  player_color_protoss:
+    # Determines in-game team color for playable Protoss factions.
+    white: 0
+    red: 0
+    blue: 0
+    teal: 0
+    purple: 0
+    yellow: 0
+    orange: 0
+    green: 0
+    light_pink: 0
+    violet: 0
+    light_grey: 0
+    dark_green: 0
+    brown: 0
+    light_green: 0
+    dark_grey: 0
+    pink: 0
+    rainbow: 0
+    default: 50
+
+  player_color_zerg:
+    # Determines in-game team color for playable Zerg factions before Kerrigan becomes Primal Kerrigan.
+    white: 0
+    red: 0
+    blue: 0
+    teal: 0
+    purple: 0
+    yellow: 0
+    orange: 0
+    green: 0
+    light_pink: 0
+    violet: 0
+    light_grey: 0
+    dark_green: 0
+    brown: 0
+    light_green: 0
+    dark_grey: 0
+    pink: 0
+    rainbow: 0
+    default: 50
+
+  player_color_zerg_primal:
+    # Determines in-game team color for playable Zerg factions after Kerrigan becomes Primal Kerrigan.
+    white: 0
+    red: 0
+    blue: 0
+    teal: 0
+    purple: 0
+    yellow: 0
+    orange: 0
+    green: 0
+    light_pink: 0
+    violet: 0
+    light_grey: 0
+    dark_green: 0
+    brown: 0
+    light_green: 0
+    dark_grey: 0
+    pink: 0
+    rainbow: 0
+    default: 50
+
+  enable_wol_missions:
+    # Enables missions from main Wings of Liberty campaign.
+    false: 0
+    true: 50
+
+  enable_prophecy_missions:
+    # Enables missions from Prophecy mini-campaign.
+    false: 0
+    true: 50
+
+  enable_hots_missions:
+    # Enables missions from Heart of the Swarm campaign.
+    false: 0
+    true: 50
+
+  enable_lotv_prologue_missions:
+    # Enables missions from Prologue campaign.
+    false: 0
+    true: 50
+
+  enable_lotv_missions:
+    # Enables missions from Legacy of the Void campaign.
+    false: 0
+    true: 50
+
+  enable_epilogue_missions:
+    # Enables missions from Epilogue campaign.
+    # These missions are considered very hard.
+    #
+    # Enabling Wings of Liberty, Heart of the Swarm and Legacy of the Void is strongly recommended in order to play Epilogue.
+    # Not recommended for short mission orders.
+    # See also: Exclude Very Hard Missions
+    false: 0
+    true: 50
+
+  enable_nco_missions:
+    # Enables missions from Nova Covert Ops campaign.
+    #
+    # Note: For best gameplay experience it's recommended to also enable Wings of Liberty campaign.
+    false: 0
+    true: 50
+
+  shuffle_campaigns:
+    # Shuffles the missions between campaigns if enabled.
+    # Only available for Vanilla Shuffled and Mini Campaign mission order
     false: 0
     true: 50
 
   shuffle_no_build:
-    # Determines if the 5 no-build missions are included in the shuffle if Vanilla mission order is not enabled.
-    # If turned off, the 5 no-build missions will not appear.
+    # Determines if the no-build missions are included in the shuffle.
+    # If turned off, the no-build missions will not appear. Has no effect for Vanilla mission order.
     false: 0
     true: 50
 
-  early_unit:
-    # Guarantees that the first mission will contain a unit.
+  starter_unit:
+    # Unlocks a random unit at the start of the game.
     #
-    # Each mission available to be the first mission has a pre-defined location where the unit should spawn.
-    # This location gets overriden over any exclusion. It's guaranteed to be reachable with an empty inventory.
-    false: 0
-    true: 50
+    # Off: No units are provided, the first unit must be obtained from the randomizer
+    # Balanced: A unit that doesn't give the player too much power early on is given
+    # Any Starter Unit: Any starter unit can be given
+    off: 50
+    balanced: 0
+    any_starter_unit: 0
 
   required_tactics:
-    # Determines the maximum tactical difficulty of the seed (separate from mission difficulty).  Higher settings
+    # Determines the maximum tactical difficulty of the world (separate from mission difficulty).  Higher settings
     # increase randomness.
     #
     # Standard:  All missions can be completed with good micro and macro.
     # Advanced:  Completing missions may require relying on starting units and micro-heavy units.
     # No Logic:  Units and upgrades may be placed anywhere.  LIKELY TO RENDER THE RUN IMPOSSIBLE ON HARDER DIFFICULTIES!
+    #            Locks Grant Story Tech option to true.
     standard: 50
     advanced: 0
     no_logic: 0
 
-  units_always_have_upgrades:
-    # If turned on, all upgrades will be present for each unit and structure in the seed.
-    # This usually results in fewer units.
+  ensure_generic_items:
+    # Specifies a minimum percentage of the generic item pool that will be present for the slot.
+    # The generic item pool is the pool of all generically useful items after all exclusions.
+    # Generically-useful items include: Worker upgrades, Building upgrades, economy upgrades,
+    # Mercenaries, Kerrigan levels and abilities, and Spear of Adun abilities
+    # Increasing this percentage will make units less common.
     #
-    # See also: Max Number of Upgrades
-    false: 0
-    true: 50
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  min_number_of_upgrades:
+    # Set a minimum to the number of upgrades a unit/structure can have.
+    # Note that most units have 4 or 6 upgrades.
+    # If a unit has fewer upgrades than the minimum, it will have all of its upgrades.
+    #
+    # Doesn't affect shared unit upgrades.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 12
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   max_number_of_upgrades:
     # Set a maximum to the number of upgrades a unit/structure can have. -1 is used to define unlimited.
-    # Note that most unit have 4 or 6 upgrades.
+    # Note that most unit have 4 to 6 upgrades.
     #
-    # If used with Units Always Have Upgrades, each unit has this given amount of upgrades (if there enough upgrades exist)
-    #
-    # See also: Units Always Have Upgrades
+    # Doesn't affect shared unit upgrades.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is -1
-    # Maximum value is 123
+    # Maximum value is 12
     -1: 50
     random: 0
     random-low: 0
@@ -12709,19 +12852,237 @@ Starcraft 2 Wings of Liberty:
     # Does nothing if upgrades are unlocked by completed mission counts.
     #
     # Individual Items:  All weapon and armor upgrades are each an item,
-    # resulting in 18 total upgrade items.
-    # Bundle Weapon And Armor:  All types of weapon upgrades are one item,
-    # and all types of armor upgrades are one item,
-    # resulting in 6 total items.
+    # resulting in 18 total upgrade items for Terran and 15 total items for Zerg and Protoss each.
+    # Bundle Weapon And Armor:  All types of weapon upgrades are one item per race,
+    # and all types of armor upgrades are one item per race,
+    # resulting in 18 total items.
     # Bundle Unit Class:  Weapon and armor upgrades are merged,
-    # but Infantry, Vehicle, and Starship upgrades are bundled separately,
+    # but upgrades are bundled separately for each race:
+    # Infantry, Vehicle, and Starship upgrades for Terran (9 items),
+    # Ground and Flyer upgrades for Zerg (6 items),
+    # Ground and Air upgrades for Protoss (6 items),
+    # resulting in 21 total items.
+    # Bundle All:  All weapon and armor upgrades are one item per race,
     # resulting in 9 total items.
-    # Bundle All:  All weapon and armor upgrades are one item,
-    # resulting in 3 total items.
     individual_items: 50
     bundle_weapon_and_armor: 0
     bundle_unit_class: 0
     bundle_all: 0
+
+  kerrigan_presence:
+    # Determines whether Kerrigan is playable outside of missions that require her.
+    #
+    # Vanilla: Kerrigan is playable as normal, appears in the same missions as in vanilla game.
+    # Not Present:  Kerrigan is not playable, unless the mission requires her to be present.  Other hero units stay playable,
+    #     and locations normally requiring Kerrigan can be checked by any unit.
+    #     Kerrigan level items, active abilities and passive abilities affecting her will not appear.
+    #     In missions where the Kerrigan unit is required, story abilities are given in same way as Grant Story Tech is set to true
+    # Not Present And No Passives:  In addition to the above, Kerrigan's passive abilities affecting other units (such as Twin Drones) will not appear.
+    #
+    # Note: Always set to "Not Present" if Heart of the Swarm campaign is disabled.
+    vanilla: 50
+    not_present: 0
+    not_present_and_no_passives: 0
+
+  kerrigan_levels_per_mission_completed:
+    # Determines how many levels Kerrigan gains when a mission is beaten.
+    #
+    # NOTE: Setting this too low can result in generation failures if The Infinite Cycle or Supreme are in the mission pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 20
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_levels_per_mission_completed_cap:
+    # Limits how many total levels Kerrigan can gain from beating missions.  This does not affect levels gained from items.
+    # Set to -1 to disable this limit.
+    #
+    # NOTE: The following missions have these level requirements:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # See Grant Story Levels for more details.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 140
+    -1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_level_item_sum:
+    # Determines the sum of the level items in the world.  This does not affect levels gained from beating missions.
+    #
+    # NOTE: The following missions have these level requirements:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # See Grant Story Levels for more details.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 140
+    70: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_level_item_distribution:
+    # Determines the amount and size of Kerrigan level items.
+    #
+    # Vanilla:  Uses the distribution in the vanilla campaign.
+    # This entails 32 individual levels and 6 packs of varying sizes.
+    # This distribution always adds up to 70, ignoring the Level Item Sum setting.
+    # Smooth:  Uses a custom, condensed distribution of 10 items between sizes 4 and 10,
+    # intended to fit more levels into settings with little room for filler while keeping some variance in level gains.
+    # This distribution always adds up to 70, ignoring the Level Item Sum setting.
+    # Size 70:  Uses items worth 70 levels each.
+    # Size 35:  Uses items worth 35 levels each.
+    # Size 14:  Uses items worth 14 levels each.
+    # Size 10:  Uses items worth 10 levels each.
+    # Size 7:  Uses items worth 7 levels each.
+    # Size 5:  Uses items worth 5 levels each.
+    # Size 2:  Uses items worth 2 level eachs.
+    # Size 1:  Uses individual levels.  As there are not enough locations in the game for this distribution,
+    # this will result in a greatly reduced total level, and is likely to remove many other items.
+    vanilla: 0
+    smooth: 50
+    size_70: 0
+    size_35: 0
+    size_14: 0
+    size_10: 0
+    size_7: 0
+    size_5: 0
+    size_2: 0
+    size_1: 0
+
+  kerrigan_total_level_cap:
+    # Limits how many total levels Kerrigan can gain from any source.  Depending on your other settings,
+    # there may be more levels available in the world, but they will not affect Kerrigan.
+    # Set to -1 to disable this limit.
+    #
+    # NOTE: The following missions have these level requirements:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # See Grant Story Levels for more details.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 140
+    -1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  start_primary_abilities:
+    # Number of Primary Abilities (Kerrigan Tier 1, 2, and 4) to start the game with.
+    # If set to 4, a Tier 7 ability is also included.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_primal_status:
+    # Determines when Kerrigan appears in her Primal Zerg form.
+    # This greatly increases her energy regeneration.
+    #
+    # Vanilla:  Kerrigan is human in missions that canonically appear before The Crucible,
+    # and zerg thereafter.
+    # Always Zerg:  Kerrigan is always zerg.
+    # Always Human:  Kerrigan is always human.
+    # Level 35:  Kerrigan is human until reaching level 35, and zerg thereafter.
+    # Half Completion:  Kerrigan is human until half of the missions in the world are completed,
+    # and zerg thereafter.
+    # Item:  Kerrigan's Primal Form is an item. She is human until it is found, and zerg thereafter.
+    vanilla: 50
+    always_zerg: 0
+    always_human: 0
+    level_35: 0
+    half_completion: 0
+    item: 0
+
+  spear_of_adun_presence:
+    # Determines in which missions Spear of Adun calldowns will be available.
+    # Affects only abilities used from Spear of Adun top menu.
+    #
+    # Not Present: Spear of Adun calldowns are unavailable.
+    # LotV Protoss: Spear of Adun calldowns are only available in LotV main campaign
+    # Protoss: Spear od Adun calldowns are available in any Protoss mission
+    # Everywhere: Spear od Adun calldowns are available in any mission of any race
+    not_present: 0
+    lotv_protoss: 50
+    protoss: 0
+    everywhere: 0
+
+  spear_of_adun_present_in_no_build:
+    # Determines if Spear of Adun calldowns are available in no-build missions.
+    #
+    # If turned on, Spear of Adun calldown powers are available in missions specified under "Spear of Adun Presence".
+    # If turned off, Spear of Adun calldown powers are unavailable in all no-build missions
+    false: 50
+    true: 0
+
+  spear_of_adun_autonomously_cast_ability_presence:
+    # Determines availability of Spear of Adun powers, that are autonomously cast.
+    # Affects abilities like Reconstruction Beam or Overwatch
+    #
+    # Not Presents: Autocasts are not available.
+    # LotV Protoss: Spear of Adun autocasts are only available in LotV main campaign
+    # Protoss: Spear od Adun autocasts are available in any Protoss mission
+    # Everywhere: Spear od Adun autocasts are available in any mission of any race
+    not_present: 0
+    lotv_protoss: 50
+    protoss: 0
+    everywhere: 0
+
+  spear_of_adun_autonomously_cast_present_in_no_build:
+    # Determines if Spear of Adun autocasts are available in no-build missions.
+    #
+    # If turned on, Spear of Adun autocasts are available in missions specified under "Spear of Adun Autonomously Cast Powers Presence".
+    # If turned off, Spear of Adun autocasts are unavailable in all no-build missions
+    false: 50
+    true: 0
+
+  grant_story_tech:
+    # If set true, grants special tech required for story mission completion for duration of the mission.
+    # Otherwise, you need to find these tech by a normal means as items.
+    # Affects story missions like Back in the Saddle and Supreme
+    #
+    # Locked to true if Required Tactics is set to no logic.
+    false: 50
+    true: 0
+
+  grant_story_levels:
+    # If enabled, grants Kerrigan the required minimum levels for the following missions:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # The bonus levels only apply during the listed missions, and can exceed the Total Level Cap.
+    #
+    # If disabled, either of these missions is included, and there are not enough levels in the world, generation may fail.
+    # To prevent this, either increase the amount of levels in the world, or enable this option.
+    #
+    # If disabled and Required Tactics is set to no logic, this option is forced to Minimum.
+    #
+    # Disabled: Kerrigan does not get bonus levels for these missions,
+    #           instead the levels must be gained from items or beating missions.
+    # Additive: Kerrigan gains bonus levels equal to the mission's required level.
+    # Minimum: Kerrigan is either at her real level, or at the mission's required level,
+    #          depending on which is higher.
+    disabled: 0
+    additive: 0
+    minimum: 50
+
+  take_over_ai_allies:
+    # On maps supporting this feature allows you to take control over an AI Ally.
+    false: 50
+    true: 0
 
   locked_items:
     # Guarantees that these items will be unlockable
@@ -12737,8 +13098,24 @@ Starcraft 2 Wings of Liberty:
     # It may be impossible to build a valid campaign if too many missions are excluded.
     []
 
+  exclude_very_hard_missions:
+    # Excludes Very Hard missions outside of Epilogue campaign (All-In, Salvation, and all Epilogue missions are considered Very Hard).
+    # Doesn't apply to "Vanilla" mission order.
+    #
+    # Default: Not excluded for mission orders "Vanilla Shuffled" or "Grid" with Maximum Campaign Size >= 20,
+    #          excluded for any other order
+    # Yes: Non-Epilogue Very Hard missions are excluded and won't be generated
+    # No: Non-Epilogue Very Hard missions can appear normally. Not recommended for too short mission orders.
+    #
+    # See also: Excluded Missions, Enable Epilogue Missions, Maximum Campaign Size
+    default: 50
+    true: 0
+    false: 0
+
   nco_items:
     # If turned on, the equipment upgrades from Nova Covert Ops may be present in the world.
+    #
+    # If Nova Covert Ops campaign is enabled, this option is locked to be turned on.
     false: 0
     true: 50
 
@@ -12752,66 +13129,102 @@ Starcraft 2 Wings of Liberty:
     false: 0
     true: 50
 
-  mission_progress_locations:
-    # Enables or disables item rewards for progressing (not finishing) a mission.
-    # Progressing a mission is usually a task of completing or progressing into a main objective.
-    # Clearing an expansion base also counts here.
+  vanilla_locations:
+    # Enables or disables item rewards for completing vanilla objectives.
+    # Vanilla objectives are bonus objectives from the vanilla game,
+    # along with some additional objectives to balance the missions.
+    # Enable these locations for a balanced experience.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
 
-  bonus_locations:
-    # Enables or disables item rewards for completing bonus tasks.
-    # Bonus tasks are those giving you a campaign-wide or mission-wide bonus in vanilla game:
-    # Research, credits, bonus units or resources, etc.
+  extra_locations:
+    # Enables or disables item rewards for mission progress and minor objectives.
+    # This includes mandatory mission objectives,
+    # collecting reinforcements and resource pickups,
+    # destroying structures, and overcoming minor challenges.
+    # Enables these locations to add more checks and items to your world.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
 
   challenge_locations:
     # Enables or disables item rewards for completing challenge tasks.
-    # Challenges are tasks that have usually higher requirements to be completed
-    # than to complete the mission they're in successfully.
-    # You might be required to visit the same mission later when getting stronger in order to finish these tasks.
+    # Challenges are tasks that are more difficult than completing the mission, and are often based on achievements.
+    # You might be required to visit the same mission later after getting stronger in order to finish these tasks.
+    # Enable these locations to increase the difficulty of completing the multiworld.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
 
-  optional_boss_locations:
-    # Enables or disables item rewards for defeating optional bosses.
-    # An optional boss is any boss that's not required to kill in order to finish the mission successfully.
-    # All Brutalisks, Loki, etc. belongs here.
+  mastery_locations:
+    # Enables or disables item rewards for overcoming especially difficult challenges.
+    # These challenges are often based on Mastery achievements and Feats of Strength.
+    # Enable these locations to add the most difficult checks to the world.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
+
+  minerals_per_item:
+    # Configures how many minerals are given per resource item.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 500
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  vespene_per_item:
+    # Configures how much vespene gas is given per resource item.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 500
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  starting_supply_per_item:
+    # Configures how much starting supply per is given per item.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 200
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
 Stardew Valley:
   progression_balancing:
@@ -12871,15 +13284,22 @@ Stardew Valley:
 
   goal:
     # What's your goal with this play-through?
-    # Community Center: Complete the Community Center.
-    # Grandpa's Evaluation: Succeed grandpa's evaluation with 4 lit candles.
-    # Bottom of the Mines: Reach level 120 in the mineshaft.
-    # Cryptic Note: Complete the quest "Cryptic Note" where Mr Qi asks you to reach floor 100 in the Skull Cavern.
-    # Master Angler: Catch every fish in the game. Pairs well with Fishsanity.
-    # Complete Collection: Complete the museum by donating every possible item. Pairs well with Museumsanity.
-    # Full House: Get married and have two children. Pairs well with Friendsanity.
+    # Community Center: Complete the Community Center
+    # Grandpa's Evaluation: Succeed Grandpa's evaluation with 4 lit candles
+    # Bottom of the Mines: Reach level 120 in the mineshaft
+    # Cryptic Note: Complete the quest "Cryptic Note" where Mr Qi asks you to reach floor 100 in the Skull Cavern
+    # Master Angler: Catch every fish. Adapts to chosen Fishsanity option
+    # Complete Collection: Complete the museum by donating every possible item. Pairs well with Museumsanity
+    # Full House: Get married and have two children. Pairs well with Friendsanity
     # Greatest Walnut Hunter: Find all 130 Golden Walnuts
-    # Perfection: Attain Perfection, based on the vanilla definition.
+    # Protector of the Valley: Complete all the monster slayer goals. Adapts to Monstersanity
+    # Full Shipment: Ship every item in the collection tab. Adapts to Shipsanity
+    # Gourmet Chef: Cook every recipe. Adapts to Cooksanity
+    # Craft Master: Craft every item.
+    # Legend: Earn 10 000 000g
+    # Mystery of the Stardrops: Find every stardrop
+    # Allsanity: Complete every check in your slot
+    # Perfection: Attain Perfection, based on the vanilla definition
     community_center: 50
     grandpa_evaluation: 0
     bottom_of_the_mines: 0
@@ -12888,7 +13308,25 @@ Stardew Valley:
     complete_collection: 0
     full_house: 0
     greatest_walnut_hunter: 0
+    protector_of_the_valley: 0
+    full_shipment: 0
+    gourmet_chef: 0
+    craft_master: 0
+    legend: 0
+    mystery_of_the_stardrops: 0
+    allsanity: 0
     perfection: 0
+
+  farm_type:
+    # What farm to play on?
+    standard: 0
+    riverland: 0
+    forest: 0
+    hill_top: 0
+    wilderness: 0
+    four_corners: 0
+    beach: 0
+    random: 50
 
   starting_money:
     # Amount of gold when arriving at the farm.
@@ -12927,21 +13365,29 @@ Stardew Valley:
     # What items are needed for the community center bundles?
     # Vanilla: Standard bundles from the vanilla game
     # Thematic: Every bundle will require random items compatible with their original theme
+    # Remixed: Picks bundles at random from thematic, vanilla remixed and new custom ones
     # Shuffled: Every bundle will require random items and follow no particular structure
     vanilla: 0
-    thematic: 50
+    thematic: 0
+    remixed: 50
     shuffled: 0
 
   bundle_price:
     # How many items are needed for the community center bundles?
+    # Minimum: Every bundle will require only one item
     # Very Cheap: Every bundle will require 2 items fewer than usual
     # Cheap: Every bundle will require 1 item fewer than usual
     # Normal: Every bundle will require the vanilla number of items
-    # Expensive: Every bundle will require 1 extra item when applicable
+    # Expensive: Every bundle will require 1 extra item
+    # Very Expensive: Every bundle will require 2 extra items
+    # Maximum: Every bundle will require many extra items
+    minimum: 0
     very_cheap: 0
     cheap: 0
     normal: 50
     expensive: 0
+    very_expensive: 0
+    maximum: 0
 
   entrance_randomization:
     # Should area entrances be randomized?
@@ -12971,7 +13417,7 @@ Stardew Valley:
     # Formerly named "Seed Shuffle"
     # Pierre now sells a random amount of seasonal seeds and Joja sells them without season requirements, but only in huge packs.
     # Disabled: All the seeds are unlocked from the start, there are no location checks for growing and harvesting crops
-    # Shuffled: Seeds are unlocked as archipelago items, for each seed there is a location check for growing and harvesting that crop
+    # Enabled: Seeds are unlocked as archipelago items, for each seed there is a location check for growing and harvesting that crop
     disabled: 0
     enabled: 50
 
@@ -12988,8 +13434,14 @@ Stardew Valley:
     # Shuffle the tool upgrades?
     # Vanilla: Clint will upgrade your tools with metal bars.
     # Progressive: You will randomly find Progressive Tool upgrades.
+    # Cheap: Tool Upgrades will cost 2/5th as much
+    # Very Cheap: Tool Upgrades will cost 1/5th as much
     vanilla: 0
     progressive: 50
+    vanilla_cheap: 0
+    vanilla_very_cheap: 0
+    progressive_cheap: 0
+    progressive_very_cheap: 0
 
   skill_progression:
     # Shuffle skill levels?
@@ -13004,9 +13456,14 @@ Stardew Valley:
     # Progressive: You will receive the buildings and will be able to build the first one of each type for free,
     #     once it is received. If you want more of the same building, it will cost the vanilla price.
     # Progressive early shipping bin: Same as Progressive, but the shipping bin will be placed early in the multiworld.
+    # Cheap: Buildings will cost half as much
+    # Very Cheap: Buildings will cost 1/5th as much
     vanilla: 0
+    vanilla_cheap: 0
+    vanilla_very_cheap: 0
     progressive: 0
-    progressive_early_shipping_bin: 50
+    progressive_cheap: 50
+    progressive_very_cheap: 0
 
   festival_locations:
     # Shuffle Festival Activities?
@@ -13049,10 +13506,13 @@ Stardew Valley:
     board_only: 50
     board_qi: 0
 
-  help_wanted_locations:
-    # Include location checks for Help Wanted quests
-    # Out of every 7 quests, 4 will be item deliveries, and then 1 of each for: Fishing, Gathering and Slaying Monsters.
-    # Choosing a multiple of 7 is recommended.
+  quest_locations:
+    # Include location checks for quests
+    # None: No quests are checks
+    # Story: Only story quests are checks
+    # Number: Story quests and help wanted quests are checks up to the specified amount. Multiple of 7 recommended
+    # Out of every 7 help wanted quests, 4 will be item deliveries, and then 1 of each for: Fishing, Gathering and Slaying Monsters.
+    # Extra Help wanted quests might be added if current settings don't have enough locations
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
@@ -13060,7 +13520,8 @@ Stardew Valley:
     random: 0
     random-low: 0
     random-high: 0
-    none: 0 # equivalent to 0
+    none: 0 # equivalent to -1
+    story: 0 # equivalent to 0
     minimum: 50 # equivalent to 7
     normal: 0 # equivalent to 14
     lots: 0 # equivalent to 28
@@ -13069,7 +13530,7 @@ Stardew Valley:
   fishsanity:
     # Locations for catching a fish the first time?
     # None: There are no locations for catching fish
-    # Legendaries: Each of the 5 legendary fish are checks
+    # Legendaries: Each of the 5 legendary fish are checks, plus the extended family if qi board is turned on
     # Special: A curated selection of strong fish are checks
     # Randomized: A random selection of fish are checks
     # All: Every single fish in the game is a location that contains an item. Pairs well with the Master Angler Goal
@@ -13094,6 +13555,79 @@ Stardew Valley:
     none: 0
     milestones: 50
     randomized: 0
+    all: 0
+
+  monstersanity:
+    # Locations for slaying monsters?
+    # None: There are no checks for slaying monsters
+    # One per category: Every category visible at the adventure guild gives one check
+    # One per Monster: Every unique monster gives one check
+    # Monster Eradication Goals: The Monster Eradication Goals each contain one check
+    # Short Monster Eradication Goals: The Monster Eradication Goals each contain one check, but are reduced by 60%
+    # Very Short Monster Eradication Goals: The Monster Eradication Goals each contain one check, but are reduced by 90%
+    # Progressive Eradication Goals: The Monster Eradication Goals each contain 5 checks, each 20% of the way
+    # Split Eradication Goals: The Monster Eradication Goals are split by monsters, each monster has one check
+    none: 0
+    one_per_category: 50
+    one_per_monster: 0
+    goals: 0
+    short_goals: 0
+    very_short_goals: 0
+    progressive_goals: 0
+    split_goals: 0
+
+  shipsanity:
+    # Locations for shipping items?
+    # None: There are no checks for shipping items
+    # Crops: Every crop and forageable being shipped is a check
+    # Fish: Every fish being shipped is a check except legendaries
+    # Full Shipment: Every item in the Collections page is a check
+    # Full Shipment With Fish: Every item in the Collections page and every fish is a check
+    # Everything: Every item in the game that can be shipped is a check
+    none: 50
+    crops: 0
+    fish: 0
+    full_shipment: 0
+    full_shipment_with_fish: 0
+    everything: 0
+
+  cooksanity:
+    # Locations for cooking food?
+    # None: There are no checks for cooking
+    # Queen of Sauce: Every Queen of Sauce Recipe can be cooked for a check
+    # All: Every cooking recipe can be cooked for a check
+    none: 50
+    queen_of_sauce: 0
+    all: 0
+
+  chefsanity:
+    # Locations for leaning cooking recipes?
+    # Vanilla: All cooking recipes are learned normally
+    # Queen of Sauce: Every Queen of sauce episode is a check, all queen of sauce recipes are items
+    # Purchases: Every purchasable recipe is a check
+    # Friendship: Recipes obtained from friendship are checks
+    # Skills: Recipes obtained from skills are checks
+    # All: Learning every cooking recipe is a check
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
+    random: 0
+    random-low: 0
+    random-high: 0
+    none: 50 # equivalent to 0
+    queen_of_sauce: 0 # equivalent to 1
+    purchases: 0 # equivalent to 2
+    qos_and_purchases: 0 # equivalent to 3
+    skills: 0 # equivalent to 4
+    friendship: 0 # equivalent to 8
+    all: 0 # equivalent to 15
+
+  craftsanity:
+    # Checks for crafting items?
+    # If enabled, all recipes purchased in shops will be checks as well.
+    # Recipes obtained from other sources will depend on related archipelago settings
+    none: 50
     all: 0
 
   friendsanity:
@@ -13820,8 +14354,9 @@ Super Mario World:
 
   overworld_palette_shuffle:
     # Whether to shuffle overworld palettes
-    false: 1
-    true: 1
+    off: 1
+    on_legacy: 1
+    on_curated: 1
 
   starting_life_count:
     # How many extra lives to start the game with
@@ -13969,8 +14504,8 @@ Super Metroid:
     # - Power Bomb (lower Norfair above fire flea room)
     # - Missile (Gravity Suit)
     # - Missile (green Maridia shinespark)
-    false: 0
-    true: 1
+    false: 1
+    true: 0
 
   strict_minors:
     # Instead of using the Minors proportions as probabilities, enforce a strict distribution to match the proportions
