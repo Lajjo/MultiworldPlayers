@@ -1,7 +1,7 @@
 meta_description: "Will overrule listed settings from player yaml files"
-null:
-  Hollow Knight:
-    RandomizeGeoRocks: false
 
-  Pokemon Emerald:
-    dexsanity: false
+Hollow Knight:
+  RandomizeGeoRocks: false
+
+Pokemon Emerald:
+  dexsanity: false
