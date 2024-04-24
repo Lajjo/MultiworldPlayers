@@ -20,15 +20,15 @@ game: # Pick a game to play
   Hollow Knight: 0
   Hylics 2: 0
   Kingdom Hearts 2: 0
-  Kirby's Dream Land 3: 0
+  Kirby's Dream Land 3: 1
   Landstalker - The Treasures of King Nole: 0
   Links Awakening DX: 1
-  Lufia II Ancient Cave: 0
+  Lufia II Ancient Cave: 1
   MegaMan Battle Network 3: 0
-  Meritous: 0
-  Minecraft: 0
+  Meritous: 1
+  Minecraft: 1
   Muse Dash: 0
-  Noita: 0
+  Noita: 1
   Ocarina of Time: 0
   Overcooked! 2: 0
   Pokemon Emerald: 1
@@ -36,7 +36,7 @@ game: # Pick a game to play
   Raft: 0
   Risk of Rain 2: 1
   Rogue Legacy: 0
-  Secret of Evermore: 0
+  Secret of Evermore: 1
   Shivers: 0
   Slay the Spire: 0
   SMZ3: 1
@@ -56,15 +56,21 @@ game: # Pick a game to play
   Undertale: 0
   VVVVVV: 0
   Wargroove: 0
-  Yoshi's Island: 0
+  Yoshi's Island: 1
   Zillion: 0
   Zork Grand Inquisitor: 0
 
 requires:
-  version: 0.4.5 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
 
 A Link to the Past:
   progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
     random: 1
     random-low: 0
     random-high: 0
@@ -113,284 +119,624 @@ A Link to the Past:
     # Share part of your item pool with other players.
     []
 
-  ### Logic Section ###
-  glitches_required: # Determine the logic required to complete the seed
-    none: 6 # No glitches required
-    minor_glitches: 3 # Puts fake flipper, waterwalk, super bunny shenanigans, and etc into logic
-    overworld_glitches: 1 # Assumes the player has knowledge of both overworld major glitches (boots clips, mirror clips) and minor glitches
-    hybrid_major_glitches: 0 # In addition to overworld glitches, also requires underworld clips between dungeons.
-    no_logic: 0 # Your own items are placed with no regard to any logic; such as your Fire Rod can be on your Trinexx.
-    # Other players items are placed into your world under HMG logic
-  dark_room_logic: # Logic for unlit dark rooms
-    lamp: 6 # require the Lamp for these rooms to be considered accessible.
-    torches: 3 # in addition to lamp, allow the fire rod and presence of easily accessible torches for access
-    none: 1 # all dark rooms are always considered doable, meaning this may force completion of rooms in complete darkness
-  restrict_dungeon_item_on_boss: # aka ambrosia boss items
-    on: 0 # prevents unshuffled compasses, maps and keys to be boss drops, they can still drop keysanity and other players' items
-    off: 1
+  start_inventory_from_pool:
+    # Start with these items and don't place them in the world.
+    # The game decides what the replacement items will be.
+    {}
 
-  ### End of Logic Section ###
-  bigkey_shuffle: # Big Key Placement
+  goal:
+    # Ganon: Climb GT, defeat Agahnim 2, and then kill Ganon
+    # Crystals: Only killing Ganon is required. However, items may still be placed in GT
+    # Bosses: Defeat the boss of all dungeons, including Agahnim's tower and GT (Aga 2)
+    # Pedestal: Pull the Triforce from the Master Sword pedestal
+    # Ganon Pedestal: Pull the Master Sword pedestal, then kill Ganon
+    # Triforce Hunt: Collect Triforce pieces spread throughout the worlds, then turn them in to Murahadala in front of Hyrule Castle
+    # Local Triforce Hunt: Collect Triforce pieces spread throughout your world, then turn them in to Murahadala in front of Hyrule Castle
+    # Ganon Triforce Hunt: Collect Triforce pieces spread throughout the worlds, then kill Ganon
+    # Local Ganon Triforce Hunt: Collect Triforce pieces spread throughout your world, then kill Ganon
+    ganon: 1
+    crystals: 1
+    bosses: 1
+    pedestal: 1
+    ganon_pedestal: 0
+    triforce_hunt: 1
+    local_triforce_hunt: 0
+    ganon_triforce_hunt: 0
+    local_ganon_triforce_hunt: 0
+
+  mode:
+    # Standard: Begin the game by rescuing Zelda from her cell and escorting her to the Sanctuary
+    # Open: Begin the game from your choice of Link's House or the Sanctuary
+    # Inverted: Begin in the Dark World. The Moon Pearl is required to avoid bunny-state in Light World, and the Light World game map is altered
+    standard: 0
+    open: 9
+    inverted: 1
+
+  glitches_required:
+    # Determine the logic required to complete the seed
+    # None: No glitches required
+    # Minor Glitches: Puts fake flipper, waterwalk, super bunny shenanigans, and etc into logic
+    # Overworld Glitches: Assumes the player has knowledge of both overworld major glitches (boots clips, mirror clips) and minor glitches
+    # Hybrid Major Glitches: In addition to overworld glitches, also requires underworld clips between dungeons.
+    # No Logic: Your own items are placed with no regard to any logic; such as your Fire Rod can be on your Trinexx.
+    no_glitches: 6
+    minor_glitches: 3
+    overworld_glitches: 1
+    hybrid_major_glitches: 0
+    no_logic: 0
+
+  dark_room_logic:
+    # Logic for unlit dark rooms. Lamp: require the Lamp for these rooms to be considered accessible.
+    # Torches: in addition to lamp, allow the fire rod and presence of easily accessible torches for access.
+    # None: all dark rooms are always considered doable, meaning this may force completion of rooms in complete darkness.
+    lamp: 6
+    torches: 3
+    none: 1
+
+  open_pyramid:
+    # Determines whether the hole at the top of pyramid is open.
+    # Goal will open the pyramid if the goal requires you to kill Ganon, without needing to kill Agahnim 2.
+    # Auto is the same as goal except if Ganon's dropdown is in another location, the hole will be closed.
+    closed: 0
+    open: 1
+    goal: 0
+    auto: 1
+
+  crystals_needed_for_gt:
+    # Number of crystals needed to open Ganon's Tower
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  crystals_needed_for_ganon:
+    # Number of crystals needed to damage Ganon
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    7: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  triforce_pieces_mode:
+    # Determine how to calculate the extra available triforce pieces.
+    # Extra: available = triforce_pieces_extra + triforce_pieces_required
+    # Percentage: available = (triforce_pieces_percentage /100) * triforce_pieces_required
+    # Available: available = triforce_pieces_available
+    extra: 0
+    percentage: 0
+    available: 1
+
+  triforce_pieces_percentage:
+    # Set to how many triforce pieces according to a percentage of the required ones, are available to collect in the world.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 100
+    # Maximum value is 1000
+    150: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  triforce_pieces_required:
+    # Set to how many out of X triforce pieces you need to win the game in a triforce hunt.
+    # Default is 20. Max is 90, Min is 1.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 90
+    20: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  triforce_pieces_available:
+    # Set to how many triforces pieces are available to collect in the world. Default is 30. Max is 90, Min is 1
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 90
+    30: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  triforce_pieces_extra:
+    # Set to how many extra triforces pieces are available to collect in the world.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 89
+    10: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  entrance_shuffle:
+    # Dungeons Simple: Shuffle just dungeons amongst each other, swapping dungeons entirely, so Hyrule Castle is always 1 dungeon.
+    # Dungeons Full: Shuffle any dungeon entrance with any dungeon interior, so Hyrule Castle can be 4 different dungeons, but keep dungeons to a specific world.
+    # Dungeons Crossed: like dungeons_full, but allow cross-world traversal through a dungeon. Warning: May force repeated dungeon traversal.
+    # Simple: Entrances are grouped together before being randomized. Interiors with two entrances are grouped shuffled together with each other,
+    # and Death Mountain entrances are shuffled only on Death Mountain. Dungeons are swapped entirely.
+    # Restricted: Like Simple, but single entrance interiors, multi entrance interiors, and Death Mountain interior entrances are all shuffled with each other.
+    # Full: Like Restricted, but all Dungeon entrances are shuffled with all non-Dungeon entrances.
+    # Crossed: Like Full, but interiors with multiple entrances are no longer confined to the same world, which may allow crossing worlds.
+    # Insanity: Like Crossed, but entrances and exits may be decoupled from each other, so that leaving through an exit may not return you to the entrance you entered from.
+    vanilla: 10
+    dungeons_simple: 0
+    dungeons_full: 0
+    dungeons_crossed: 0
+    simple: 8
+    restricted: 6
+    full: 4
+    crossed: 2
+    insanity: 1
+
+  entrance_shuffle_seed:
+    # You can specify a number to use as an entrance shuffle seed, or a group name. Everyone with the same group name
+    # will get the same entrance shuffle result as long as their Entrance Shuffle, Mode, Retro Caves, and Glitches
+    # Required options are the same.
+    random: 50
+
+  big_key_shuffle:
+    # Big Key Placement
     original_dungeon: 0
     own_dungeons: 0
     own_world: 1
     any_world: 1
     different_world: 0
     start_with: 0
-  smallkey_shuffle: # Small Key Placement
+
+  small_key_shuffle:
+    # Small Key Placement
     original_dungeon: 50
     own_dungeons: 0
     own_world: 1
     any_world: 1
     different_world: 0
+    start_with: 0
     universal: 0
-    start_with: 0
-  key_drop_shuffle: # Shuffle keys found in pots or dropped from killed enemies
-    off: 4
-    on: 1
-  compass_shuffle: # Compass Placement
+
+  key_drop_shuffle:
+    # Shuffle keys found in pots and dropped from killed enemies,
+    # respects the small key and big key shuffle options.
+    false: 0
+    true: 50
+
+  compass_shuffle:
+    # Compass Placement
     original_dungeon: 0
     own_dungeons: 0
     own_world: 1
     any_world: 1
     different_world: 0
     start_with: 0
-  map_shuffle: # Map Placement
+
+  map_shuffle:
+    # Map Placement
     original_dungeon: 0
     own_dungeons: 0
     own_world: 1
     any_world: 1
     different_world: 0
     start_with: 0
+
+  restrict_dungeon_item_on_boss:
+    # Don't place dungeon-native items on the dungeon's boss.
+    false: 50
+    true: 0
+
+  item_pool:
+    # Easy: Doubled upgrades, progressives, and etc. Normal:  Item availability remains unchanged from vanilla game.
+    # Hard: Reduced upgrade availability (max: 14 hearts, blue mail, tempered sword, fire shield, no silvers unless swordless).
+    # Expert: Minimum upgrade availability (max: 8 hearts, green mail, master sword, fighter shield, no silvers unless swordless).
+    easy: 0
+    normal: 50
+    hard: 0
+    expert: 0
+
+  item_functionality:
+    # Easy: Allow Hammer to damage ganon, Allow Hammer tablet collection, Allow swordless medallion use everywhere.
+    # Normal: Vanilla item functionality
+    # Hard: Reduced helpfulness of items (potions less effective, can't catch faeries, cape uses double magic, byrna does not grant invulnerability, boomerangs do not stun, silvers disabled outside ganon)
+    # Expert: Vastly reduces the helpfulness of items (potions barely effective, can't catch faeries, cape uses double magic, byrna does not grant invulnerability, boomerangs and hookshot do not stun, silvers disabled outside ganon)
+    easy: 0
+    normal: 50
+    hard: 0
+    expert: 0
+
+  enemy_health:
+    # Default: Vanilla enemy HP. Easy: Enemies have reduced health. Hard: Enemies have increased health.
+    # Expert: Enemies have greatly increased health.
+    easy: 0
+    default: 50
+    hard: 0
+    expert: 0
+
+  enemy_damage:
+    # Default: Vanilla enemy damage. Shuffled: 0 # Enemies deal 0 to 4 hearts and armor helps.
+    # Chaos: Enemies deal 0 to 8 hearts and armor just reshuffles the damage.
+    default: 50
+    shuffled: 0
+    chaos: 0
+
+  progressive:
+    # How item types that have multiple tiers (armor, bows, gloves, shields, and swords) should be rewarded
+    off: 0
+    grouped_random: 1
+    on: 0
+
+  swordless:
+    # No swords. Curtains in Skull Woods and Agahnim's
+    # Tower are removed, Agahnim's Tower barrier can be
+    # destroyed with hammer. Misery Mire and Turtle Rock
+    # can be opened without a sword. Hammer damages Ganon.
+    # Ether and Bombos Tablet can be activated with Hammer
+    # (and Book).
+    false: 9
+    true: 1
+
   dungeon_counters:
-    on: 0 # Always display amount of items checked in a dungeon
-    pickup: 1 # Show when compass is picked up
-    default: 0 # Show when compass is picked up if the compass itself is shuffled
-    off: 0 # Never show item count in dungeons
-  progressive: # Enable or disable progressive items (swords, shields, bow)
-    on: 4 # All items are progressive
-    off: 0 # No items are progressive
-    grouped_random: 1 # Randomly decides for all items. Swords could be progressive, shields might not be
-  entrance_shuffle:
-    none: 10 # Vanilla game map. All entrances and exits lead to their original locations. You probably want this option
-    dungeonssimple: 0 # Shuffle just dungeons amongst each other, swapping dungeons entirely, so Hyrule Castle is always 1 dungeon
-    dungeonsfull: 0 # Shuffle any dungeon entrance with any dungeon interior, so Hyrule Castle can be 4 different dungeons, but keep dungeons to a specific world
-    dungeonscrossed: 0 # like dungeonsfull, but allow cross-world traversal through a dungeon. Warning: May force repeated dungeon traversal
-    simple: 8 # Entrances are grouped together before being randomized. Simple uses the most strict grouping rules
-    restricted: 6 # Less strict than simple
-    full: 4 # Less strict than restricted
-    crossed: 2 # Less strict than full
-    insanity: 1 # Very few grouping rules. Good luck
-    # you can also define entrance shuffle seed, like so:
-    crossed-1000: 0 # using this method, you can have the same layout as another player and share entrance information
-    # however, many other settings like logic, world state, retro etc. may affect the shuffle result as well.
-    crossed-group-myfriends: 0 # using this method, everyone with "group-myfriends" will share the same seed
-  goal:
-    ganon: 1 # Climb GT, defeat Agahnim 2, and then kill Ganon
-    crystals: 1 # Only killing Ganon is required. However, items may still be placed in GT
-    bosses: 1 # Defeat the boss of all dungeons, including Agahnim's tower and GT (Aga 2)
-    pedestal: 1 # Pull the Triforce from the Master Sword pedestal
-    ganon_pedestal: 0 # Pull the Master Sword pedestal, then kill Ganon
-    triforce_hunt: 1 # Collect 20 of 30 Triforce pieces spread throughout the worlds, then turn them in to Murahadala in front of Hyrule Castle
-    local_triforce_hunt: 0 # Collect 20 of 30 Triforce pieces spread throughout your world, then turn them in to Murahadala in front of Hyrule Castle
-    ganon_triforce_hunt: 0 # Collect 20 of 30 Triforce pieces spread throughout the worlds, then kill Ganon
-    local_ganon_triforce_hunt: 0 # Collect 20 of 30 Triforce pieces spread throughout your world, then kill Ganon
-  open_pyramid:
-    goal: 0 # Opens the pyramid if the goal requires you to kill Ganon, unless the goal is Slow Ganon or All Dungeons
-    auto: 1 # Same as Goal, but also is closed if holes are shuffled and ganon is part of the shuffle pool
-    open: 0 # Pyramid hole is always open. Ganon's vulnerable condition is still required before he can he hurt
-    closed: 0 # Pyramid hole is always closed until you defeat Agahnim atop Ganon's Tower
-  triforce_pieces_mode: #Determine how to calculate the extra available triforce pieces.
-    extra: 0 # available = triforce_pieces_extra + triforce_pieces_required
-    percentage: 0 # available = (triforce_pieces_percentage /100) * triforce_pieces_required
-    available: 1 # available = triforce_pieces_available
-  triforce_pieces_extra: # Set to how many extra triforces pieces are available to collect in the world.
-    # Format "pieces: chance"
-    0: 0
-    5: 0
-    10: 1
-    15: 1
-    20: 1
-  triforce_pieces_percentage: # Set to how many triforce pieces according to a percentage of the required ones, are available to collect in the world.
-    # Format "pieces: chance"
-    100: 0 #No extra
-    150: 50 #Half the required will be added as extra
-    200: 0 #There are the double of the required ones available.
-  triforce_pieces_available: # Set to how many triforces pieces are available to collect in the world. Default is 30. Max is 90, Min is 1
-    # Format "pieces: chance"
-    25: 0
-    30: 1
-    40: 0
-    50: 0
-  triforce_pieces_required: # Set to how many out of X triforce pieces you need to win the game in a triforce hunt. Default is 20. Max is 90, Min is 1
-    # Format "pieces: chance"
-    15: 1
-    20: 1
-    30: 1
-    40: 1
-    50: 1
-  crystals_needed_for_gt: # Crystals required to open GT
-    0: 0
-    7: 0
-    random: 1
-    random-low: 0 # any valid number, weighted towards the lower end
-    random-middle: 0 # any valid number, weighted towards the central range
-    random-high: 0 # any valid number, weighted towards the higher end
-  crystals_needed_for_ganon: # Crystals required to hurt Ganon
-    0: 0
-    7: 0
+    # On: Always display amount of items checked in a dungeon. Pickup: Show when compass is picked up.
+    # Default: Show when compass is picked up if the compass itself is shuffled. Off: Never show item count in dungeons.
+    on: 0
+    pickup: 1
+    default: 0
+    off: 0
+
+  retro_bow:
+    # Zelda-1 like mode. You have to purchase a quiver to shoot arrows using rupees.
+    false: 50
+    true: 0
+
+  retro_caves:
+    # Zelda-1 like mode. There are randomly placed take-any caves that contain one Sword and
+    # choices of Heart Container/Blue Potion.
+    false: 50
+    true: 0
+
+  hints:
+    # On/Full: Put item and entrance placement hints on telepathic tiles and some NPCs, Full removes joke hints.
+    off: 0
+    on: 1
+    full: 1
+
+  scams:
+    # If on, these Merchants will no longer tell you what they're selling.
+    off: 1
+    king_zora: 1
+    bottle_merchant: 1
+    all: 1
+
+  boss_shuffle:
+    # Shuffles bosses around to different locations.
+    # Basic will shuffle all bosses except Ganon and Agahnim anywhere they can be placed.
+    # Full chooses 3 bosses at random to be placed twice instead of Lanmolas, Moldorm, and Helmasaur.
+    # Chaos allows any boss to appear any number of times.
+    # Singularity places a single boss in as many places as possible, and a second boss in any remaining locations.
+    # Supports plando placement.
+    none: 5
+    basic: 3
+    full: 2
+    chaos: 1
+    singularity: 0
+
+  pot_shuffle:
+    # Shuffle contents of pots within "supertiles" (item will still be nearby original placement).
+    false: 50
+    true: 0
+
+  enemy_shuffle:
+    # Randomize every enemy spawn.
+    # If mode is Standard, Hyrule Castle is left out (may result in visually wrong enemy sprites in that area.)
+    false: 9
+    true: 1
+
+  killable_thieves:
+    # Makes Thieves killable.
+    false: 50
+    true: 0
+
+  bush_shuffle:
+    # Randomize chance that a bush contains an enemy as well as which enemy may spawn.
+    false: 50
+    true: 0
+
+  shop_item_slots:
+    # Number of slots in all shops available to have items from the multiworld
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 30
+    0: 4
     random: 1
     random-low: 0
-    random-middle: 0
     random-high: 0
-  mode:
-    standard: 0 # Begin the game by rescuing Zelda from her cell and escorting her to the Sanctuary
-    open: 9 # Begin the game from your choice of Link's House or the Sanctuary
-    inverted: 1 # Begin in the Dark World. The Moon Pearl is required to avoid bunny-state in Light World, and the Light World game map is altered
-  retro_bow:
-    on: 0 # Zelda-1 like mode. You have to purchase a quiver to shoot arrows using rupees.
-    off: 1
-  retro_caves:
-    on: 0 # Zelda-1 like mode. There are randomly placed take-any caves that contain one Sword and choices of Heart Container/Blue Potion.
-    off: 1
-  hints: # On/Full: Put item and entrance placement hints on telepathic tiles and some NPCs, Full removes joke hints.
-    "on": 1
-    "off": 0
-    full: 1
-  scams: # If on, these Merchants will no longer tell you what they're selling.
-    "off": 1
-    "king_zora": 1
-    "bottle_merchant": 1
-    "all": 1
-  swordless:
-    on: 1 # Your swords are replaced by rupees. Gameplay changes have been made to accommodate this change
-    off: 9
-  item_pool:
-    easy: 0 # Doubled upgrades, progressives, and etc
-    normal: 1 # Item availability remains unchanged from vanilla game
-    hard: 0 # Reduced upgrade availability (max: 14 hearts, blue mail, tempered sword, fire shield, no silvers unless swordless)
-    expert: 0 # Minimum upgrade availability (max: 8 hearts, green mail, master sword, fighter shield, no silvers unless swordless)
-  item_functionality:
-    easy: 0 # Allow Hammer to damage ganon, Allow Hammer tablet collection, Allow swordless medallion use everywhere.
-    normal: 1 # Vanilla item functionality
-    hard: 0 # Reduced helpfulness of items (potions less effective, can't catch faeries, cape uses double magic, byrna does not grant invulnerability, boomerangs do not stun, silvers disabled outside ganon)
-    expert: 0 # Vastly reduces the helpfulness of items (potions barely effective, can't catch faeries, cape uses double magic, byrna does not grant invulnerability, boomerangs and hookshot do not stun, silvers disabled outside ganon)
-  tile_shuffle: # Randomize the tile layouts in flying tile rooms
-    on: 1
-    off: 0
-  misery_mire_medallion: # required medallion to open Misery Mire front entrance
-    random: 1
-    Ether: 0
-    Bombos: 0
-    Quake: 0
-  turtle_rock_medallion: # required medallion to open Turtle Rock front entrance
-    random: 1
-    Ether: 0
-    Bombos: 0
-    Quake: 0
-  ### Enemizer Section ###
-  boss_shuffle:
-    none: 5 # Vanilla bosses
-    basic: 3 # Existing bosses except Ganon and Agahnim are shuffled throughout dungeons
-    full: 2 # 3 bosses can occur twice
-    chaos: 1 # Any boss can appear any amount of times
-    singularity: 0 # Picks a boss, tries to put it everywhere that works, if there's spaces remaining it picks a boss to fill those
-  enemy_shuffle: # Randomize enemy placement
-    on: 1
-    off: 9
-  killable_thieves: # Make thieves killable
-    on: 0 # Usually turned on together with enemy_shuffle to make annoying thief placement more manageable
-    off: 1
-  bush_shuffle: # Randomize the chance that bushes have enemies and the enemies under said bush
-    on: 0
-    off: 1
-  enemy_damage:
-    default: 1 # Vanilla enemy damage
-    shuffled: 0 # Enemies deal 0 to 4 hearts and armor helps
-    chaos: 0 # Enemies deal 0 to 8 hearts and armor just reshuffles the damage
-  enemy_health:
-    default: 1 # Vanilla enemy HP
-    easy: 0 # Enemies have reduced health
-    hard: 0 # Enemies have increased health
-    expert: 0 # Enemies have greatly increased health
-  pot_shuffle:
-    "on": 1 # Keys, items, and buttons hidden under pots in dungeons are shuffled with other pots in their supertile
-    "off": 1 # Default pot item locations
-  ### End of Enemizer Section ###
-  ### Beemizer ###
-  # can add weights for any whole number between 0 and 100
-  beemizer_total_chance: # Remove items from the global item pool and replace them with single bees (fill bottles) and bee traps
-    0: 1 # No junk fill items are replaced (Beemizer is off)
-    25: 0 # 25% chance for each junk fill item (rupees, bombs and arrows) to be replaced with bees
-    50: 0 # 50% chance for each junk fill item (rupees, bombs and arrows) to be replaced with bees
-    75: 0 # 75% chance for each junk fill item (rupees, bombs and arrows) to be replaced with bees
-    100: 0 # All junk fill items (rupees, bombs and arrows) are replaced with bees
-  beemizer_trap_chance:
-    60: 50 # 60% chance for each beemizer replacement to be a trap, 40% chance to be a single bee
-    70: 0 # 70% chance for each beemizer replacement to be a trap, 30% chance to be a single bee
-    80: 0 # 80% chance for each beemizer replacement to be a trap, 20% chance to be a single bee
-    90: 0 # 90% chance for each beemizer replacement to be a trap, 10% chance to be a single bee
-    100: 0 # All beemizer replacements are traps
-  ### Shop Settings ###
-  shop_item_slots: # Maximum amount of shop slots to be filled with regular item pool items (such as Moon Pearl)
-    0: 4
-    5: 0
-    15: 0
-    30: 0
-    random: 1 # 0 to 30 evenly distributed
-  shop_price_modifier: # Percentage modifier for shuffled item prices in shops
-    # you can add additional values between minimum and maximum
-    0: 0 # minimum value
-    400: 0 # maximum value
+
+  randomize_shop_inventories:
+    # Generate new default inventories for overworld/underworld shops, and unique shops; or each shop independently
+    default: 1
+    randomize_by_shop_type: 1
+    randomize_each: 1
+
+  shuffle_shop_inventories:
+    # Shuffle default inventories of the shops around
+    false: 1
+    true: 1
+
+  include_witch_hut:
+    # Consider witch's hut like any other shop and shuffle/randomize it too
+    false: 1
+    true: 1
+
+  randomize_shop_prices:
+    # Randomize the prices of the items in shop inventories
+    false: 1
+    true: 1
+
+  randomize_cost_types:
+    # Prices of the items in shop inventories may cost hearts, arrow, or bombs instead of rupees
+    false: 1
+    true: 1
+
+  shop_price_modifier:
+    # Percentage modifier for shuffled item prices in shops
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 400
+    100: 50
     random: 0
     random-low: 0
     random-high: 0
-    100: 50
-  shop_shuffle:
-    none: 9
-    g: 0 # Generate new default inventories for overworld/underworld shops, and unique shops
-    f: 0 # Generate new default inventories for every shop independently
-    i: 0 # Shuffle default inventories of the shops around
-    p: 0 # Randomize the prices of the items in shop inventories
-    u: 0 # Shuffle capacity upgrades into the item pool (and allow them to traverse the multiworld)
-    w: 0 # Consider witch's hut like any other shop and shuffle/randomize it too
-    P: 0 # Prices of the items in shop inventories cost hearts, arrow, or bombs instead of rupees
-    ip: 0 # Shuffle inventories and randomize prices
-    fpu: 1 # Generate new inventories, randomize prices and shuffle capacity upgrades into item pool
-    uip: 0 # Shuffle inventories, randomize prices and shuffle capacity upgrades into the item pool
-    # You can add more combos
-  ### End of Shop Section ###
-  shuffle_prizes: # aka drops
-    none: 0 # do not shuffle prize packs
-    g: 1 # shuffle "general" prize packs, as in enemy, tree pull, dig etc.
-    b: 0 # shuffle "bonk" prize packs
-    bg: 0 # shuffle both
-  timer:
-    none: 1 # No timer will be displayed.
-    timed: 0 # Starts with clock at zero. Green clocks subtract 4 minutes (total 20). Blue clocks subtract 2 minutes (total 10). Red clocks add two minutes (total 10). Winner is the player with the lowest time at the end.
-    timed_ohko: 0 # Starts the clock at ten minutes. Green clocks add five minutes (total 25). As long as the clock as at zero, Link will die in one hit.
-    ohko: 0 # Timer always at zero. Permanent OHKO.
-    timed_countdown: 0 # Starts the clock with forty minutes. Same clocks as timed mode, but if the clock hits zero you lose. You can still keep playing, though.
-    display: 0 # Displays a timer, but otherwise does not affect gameplay or the item pool.
-  countdown_start_time: # For timed_ohko and timed_countdown timer modes, the amount of time in minutes to start with
-    0: 0 # For timed_ohko, starts in OHKO mode when starting the game
-    10: 50
-    20: 0
-    30: 0
-    60: 0
-  red_clock_time: # For all timer modes, the amount of time in minutes to gain or lose when picking up a red clock
-    -2: 50
-    1: 0
-  blue_clock_time: # For all timer modes, the amount of time in minutes to gain or lose when picking up a blue clock
-    1: 0
-    2: 50
-  green_clock_time: # For all timer modes, the amount of time in minutes to gain or lose when picking up a green clock
-    4: 50
-    10: 0
-    15: 0
-  glitch_boots:
-    on: 1 # Start with Pegasus Boots in any glitched logic mode that makes use of them
+
+  shuffle_capacity_upgrades:
+    # Shuffle capacity upgrades into the item pool (and allow them to traverse the multiworld).
+    # On Combined will shuffle only a single bomb upgrade and arrow upgrade each which bring you to the maximum capacity.
+    off: 1
+    on: 1
+    on_combined: 1
+
+  bombless_start:
+    # Start with a max of 0 bombs available, requiring Bomb Upgrade items in order to use bombs
+    false: 1
+    true: 1
+
+  shuffle_prizes:
+    # Shuffle "general" prize packs, as in enemy, tree pull, dig etc.; "bonk" prizes; or both.
     off: 0
+    general: 50
+    bonk: 0
+    both: 0
+
+  tile_shuffle:
+    # Randomize flying tiles floor patterns.
+    false: 0
+    true: 1
+
+  misery_mire_medallion:
+    # Required medallion to open Misery Mire front entrance.
+    ether: 0
+    bombos: 0
+    quake: 0
+    random: 50
+
+  turtle_rock_medallion:
+    # Required medallion to open Turtle Rock front entrance.
+    ether: 0
+    bombos: 0
+    quake: 0
+    random: 50
+
+  glitch_boots:
+    # If this is enabled, the player will start with Pegasus Boots when playing with overworld glitches or harder logic.
+    false: 0
+    true: 50
+
+  beemizer_total_chance:
+    # Percentage chance for each junk-fill item (rupees, bombs, arrows) to be
+    # replaced with either a bee swarm trap or a single bottle-filling bee.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  beemizer_trap_chance:
+    # Percentage chance for each replaced junk-fill item to be a bee swarm
+    # trap; all other replaced items are single bottle-filling bees.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    60: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  timer:
+    # None: No timer will be displayed. OHKO: Timer always at zero. Permanent OHKO.
+    # Timed: Starts with clock at zero. Green clocks subtract 4 minutes (total 20). Blue clocks subtract 2 minutes (total 10). Red clocks add two minutes (total 10). Winner is the player with the lowest time at the end.
+    # Timed OHKO: Starts the clock at ten minutes. Green clocks add five minutes (total 25). As long as the clock as at zero, Link will die in one hit.
+    # Timed Countdown: Starts the clock with forty minutes. Same clocks as timed mode, but if the clock hits zero you lose. You can still keep playing, though.
+    # Display: Displays a timer, but otherwise does not affect gameplay or the item pool.
+    none: 50
+    timed: 0
+    timed_ohko: 0
+    ohko: 0
+    timed_countdown: 0
+    display: 0
+
+  countdown_start_time:
+    # For Timed OHKO and Timed Countdown timer modes, the amount of time in minutes to start with.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 480
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  red_clock_time:
+    # For all timer modes, the amount of time in minutes to gain or lose when picking up a red clock.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -60
+    # Maximum value is 60
+    -2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  blue_clock_time:
+    # For all timer modes, the amount of time in minutes to gain or lose when picking up a blue clock.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -60
+    # Maximum value is 60
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  green_clock_time:
+    # For all timer modes, the amount of time in minutes to gain or lose when picking up a green clock.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -60
+    # Maximum value is 60
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+
+  allow_collect:
+    # Allows for !collect / co-op to auto-open chests containing items for other players.
+    false: 50
+    true: 0
+
+  ow_palettes:
+    # The type of palette shuffle to use for the overworld
+    default: 1
+    good: 1
+    blackout: 0
+    puke: 0
+    classic: 1
+    grayscale: 0
+    negative: 0
+    dizzy: 0
+    sick: 0
+
+  uw_palettes:
+    # The type of palette shuffle to use for the underworld (caves, dungeons, etc.)
+    default: 1
+    good: 1
+    blackout: 0
+    puke: 0
+    classic: 1
+    grayscale: 0
+    negative: 0
+    dizzy: 0
+    sick: 0
+
+  hud_palettes:
+    # The type of palette shuffle to use for the HUD
+    default: 1
+    good: 1
+    blackout: 0
+    puke: 1
+    classic: 1
+    grayscale: 0
+    negative: 0
+    dizzy: 1
+    sick: 1
+
+  sword_palettes:
+    # The type of palette shuffle to use for the sword
+    default: 1
+    good: 1
+    blackout: 0
+    puke: 1
+    classic: 1
+    grayscale: 0
+    negative: 0
+    dizzy: 1
+    sick: 1
+
+  shield_palettes:
+    # The type of palette shuffle to use for the shield
+    default: 1
+    good: 1
+    blackout: 0
+    puke: 1
+    classic: 1
+    grayscale: 0
+    negative: 0
+    dizzy: 1
+    sick: 1
+
+  heartbeep:
+    # How quickly the heart beep sound effect will play
+    normal: 0
+    double: 0
+    half: 0
+    quarter: 0
+    off: 1
+
+  heartcolor:
+    # The color of hearts in the HUD
+    red: 0
+    blue: 0
+    green: 0
+    yellow: 0
+    random: 1
+
+  quickswap:
+    # Allows you to quickly swap items while playing with L/R
+    false: 0
+    true: 50
+
+  menuspeed:
+    # How quickly the menu appears/disappears
+    normal: 50
+    instant: 0
+    double: 0
+    triple: 0
+    quadruple: 0
+    half: 0
+
+  music:
+    # Whether background music will play in game
+    false: 0
+    true: 50
+
+  reduceflashing:
+    # Reduces flashing for certain scenes such as the Misery Mire and Ganon's Tower opening cutscenes
+    false: 0
+    true: 50
+
+  triforcehud:
+    # When and how the triforce hunt HUD should display
+    normal: 50
+    hide_goal: 0
+    hide_required: 0
+    hide_both: 0
+
   # rom options section
   random_sprite_on_event: # An alternative to specifying randomonhit / randomonexit / etc... in sprite down below.
     enabled: # If enabled, sprite down below is ignored completely, (although it may become the sprite pool)
@@ -420,6 +766,7 @@ A Link to the Past:
     use_weighted_sprite_pool: # Always on if no sprite_pool exists, otherwise it controls whether to use sprite as a weighted sprite pool
       on: 0
       off: 1
+
   #sprite_pool: # When specified, limits the pool of sprites used for randomon-event to the specified pool.  Uncomment to use this.
   #  - link
   #  - pride link
@@ -438,98 +785,6 @@ A Link to the Past:
     Link: 0 # To add other sprites: open the gui/Creator, go to adjust, select a sprite and write down the name the gui calls it
     Frog_Link: 1
     Astronaut: 1
-  music: # If "off", all in-game music will be disabled
-    on: 1
-    off: 0
-  quickswap: # Enable switching items by pressing the L+R shoulder buttons
-    on: 1
-    off: 0
-  triforcehud: # Disable visibility of the triforce hud unless collecting a piece or speaking to Murahadala
-    normal: 0 # original behavior (always visible)
-    hide_goal: 1 # hide counter until a piece is collected or speaking to Murahadala
-    hide_required: 0 # Always visible, but required amount is invisible until determined by Murahadala
-    hide_both: 0 # Hide both under above circumstances
-  reduceflashing: # Reduces instances of flashing such as lightning attacks, weather, ether and more.
-    on: 1
-    off: 0
-  menuspeed: # Controls how fast the item menu opens and closes
-    normal: 1
-    instant: 0
-    double: 0
-    triple: 0
-    quadruple: 0
-    half: 0
-  heartcolor: # Controls the color of your health hearts
-    red: 0
-    blue: 0
-    green: 0
-    yellow: 0
-    random: 1
-  heartbeep: # Controls the frequency of the low-health beeping
-    double: 0
-    normal: 0
-    half: 0
-    quarter: 0
-    off: 1
-  ow_palettes: # Change the colors of the overworld
-    default: 1 # No changes
-    good: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 0
-    negative: 0
-    classic: 1
-    dizzy: 0
-    sick: 0
-    puke: 0
-  uw_palettes: # Change the colors of caves and dungeons
-    default: 1 # No changes
-    good: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 0
-    negative: 0
-    classic: 1
-    dizzy: 0
-    sick: 0
-    puke: 0
-  hud_palettes: # Change the colors of the hud
-    default: 1 # No changes
-    good: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 0
-    negative: 0
-    classic: 1
-    dizzy: 1
-    sick: 1
-    puke: 1
-  sword_palettes: # Change the colors of swords
-    default: 1 # No changes
-    good: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 0
-    negative: 0
-    classic: 1
-    dizzy: 1
-    sick: 1
-    puke: 1
-  shield_palettes: # Change the colors of shields
-    default: 1 # No changes
-    good: 1 # Shuffle the colors, with harmony in mind
-    blackout: 0 # everything black / blind mode
-    grayscale: 0
-    negative: 0
-    classic: 1
-    dizzy: 1
-    sick: 1
-    puke: 1
-
-  death_link:
-    false: 0
-    true: 1
-
-  allow_collect: # Allows for !collect / co-op to auto-open chests containing items for other players.
-    #    Off by default, because it currently crashes on real hardware.
-    false: 50
-    true: 0
 
 A Short Hike:
   progression_balancing:
@@ -740,8 +995,8 @@ Adventure:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   bat_logic:
     # How the bat is considered for logic
@@ -1084,8 +1339,8 @@ Blasphemous:
   death_link:
     # When you die, everyone dies. The reverse is also true.
     # Note that Guilt Fragments will not appear when killed by Death Link.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Castlevania 64:
   progression_balancing:
@@ -1202,6 +1457,7 @@ Castlevania 64:
 
   special1s_per_warp:
     # Sets how many Special1 jewels are needed per warp menu option unlock.
+    # This will decrease until the number x 7 is less than or equal to the Total Specail1s if it isn't already.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
@@ -1213,7 +1469,6 @@ Castlevania 64:
 
   total_special1s:
     # Sets how many Speical1 jewels are in the pool in total.
-    # If this is set to be less than Special1s Per Warp x 7, it will decrease by 1 until it isn't.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 7
@@ -1550,9 +1805,9 @@ Castlevania 64:
     # When you die, everyone dies. Of course the reverse is true too.
     # Explosive: Makes received DeathLinks kill you via the Magical Nitro explosion
     # instead of the normal death animation.
-    off: 50
+    off: 0
     on: 0
-    explosive: 0
+    explosive: 1
 
   start_inventory_from_pool:
     # Start with these items and don't place them in the world.
@@ -1617,8 +1872,8 @@ Celeste 64:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   death_link_amnesty:
     # How many deaths it takes to send a DeathLink
@@ -1902,8 +2157,8 @@ Dark Souls III:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   enable_dlc:
     # To use this option, you must own both the ASHES OF ARIANDEL and the RINGED CITY DLC
@@ -1993,6 +2248,12 @@ DLCQuest:
     low: 0 # equivalent to 5
     normal: 50 # equivalent to 20
     high: 0 # equivalent to 50
+    coin piece: 0 # equivalent to -1
+
+  permanent_coins:
+    # If purchasing a pack decreases your current coins amounts.
+    false: 50
+    true: 0
 
   time_is_money:
     # Whether the Time is Money pack is considered required to complete the grindstone.
@@ -2018,8 +2279,8 @@ DLCQuest:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Donkey Kong Country 3:
   progression_balancing:
@@ -2339,8 +2600,8 @@ DOOM 1993:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   reset_level_on_death:
     # When dying, levels are reset and monsters respawned. But inventory and checks are kept.
@@ -2505,8 +2766,8 @@ DOOM II:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   reset_level_on_death:
     # When dying, levels are reset and monsters respawned. But inventory and checks are kept.
@@ -2940,8 +3201,8 @@ Factorio:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   energy_link:
     # Allow sending energy to other worlds. 25% of the energy is lost in the transfer.
@@ -3276,10 +3537,10 @@ Final Fantasy Mystic Quest:
     true: 0
 
   map_shuffle_seed:
-    # If this is a number, it will be used as a set seed number for Map, Crest, and Battlefield Reward shuffles.
+    # If this is a number, it will be used as a set seed number for Map, Crest, Battlefield Reward, and Companion shuffles.
     # If this is "random" the seed will be chosen randomly. If it is any other text, it will be used as a seed group name.
     # All players using the same seed group name will get the same shuffle results, as long as their Map Shuffle,
-    # Crest Shuffle, and Shuffle Battlefield Rewards settings are the same.
+    # Crest Shuffle, Shuffle Battlefield Rewards, Companion Shuffle, and Kaeli's Mom settings are the same.
     random: 50
 
   battlefields_battles_quantities:
@@ -3511,8 +3772,8 @@ Heretic:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   episode1:
     # City of the Damned.
@@ -3644,8 +3905,8 @@ Hollow Knight:
 
   RandomizeCharmNotches:
     # Allow for Charm Notches to be randomized into the item pool. Includes those sold by Salubra.
-    false: 50
-    true: 0
+    false: 0
+    true: 50
 
   RandomizePaleOre:
     # Randomize Pale Ores into the item pool and open their locations for randomization.
@@ -3669,8 +3930,8 @@ Hollow Knight:
 
   RandomizeRelics:
     # Randomize Relics (King's Idol, et al.) into the item pool and open their locations for randomization.
-    false: 0
-    true: 50
+    false: 50
+    true: 0
 
   RandomizeWhisperingRoots:
     # Randomize the essence rewards from Whispering Roots into the item pool. Whispering Roots will now grant a randomized
@@ -3690,8 +3951,7 @@ Hollow Knight:
     true: 0
 
   RandomizeMimics:
-    # Randomize Mimic Grubs into the item pool and open their locations for randomization.Mimic Grubs are always placed
-    # in your own game.
+    # Randomize Mimic Grubs into the item pool and open their locations for randomization.
     false: 50
     true: 0
 
@@ -3703,13 +3963,13 @@ Hollow Knight:
 
   RandomizeStags:
     # Randomize Stag Stations unlocks into the item pool as well as placing randomized items on the stag station bell/toll.
-    false: 50
-    true: 0
+    false: 0
+    true: 50
 
   RandomizeLifebloodCocoons:
     # Randomize Lifeblood Cocoon grants into the item pool and open their locations for randomization.
-    false: 50
-    true: 0
+    false: 0
+    true: 50
 
   RandomizeGrimmkinFlames:
     # Randomize Grimmkin Flames into the item pool and open their locations for randomization.
@@ -3845,6 +4105,8 @@ Hollow Knight:
     hollowknight: 0
     siblings: 0
     radiance: 0
+    godhome: 0
+    godhome_flower: 0
 
   WhitePalace:
     # Whether or not to include White Palace or not.  Note: Even if excluded, the King Fragment check may still be
@@ -3859,6 +4121,15 @@ Hollow Knight:
     false: 0
     true: 50
 
+  AddUnshuffledLocations:
+    # Adds non-randomized locations to the location pool, which allows syncing
+    # of location state with co-op or automatic collection via collect.
+    #
+    # Note: This will increase the number of location checks required to purchase
+    # hints to the total maximum.
+    false: 50
+    true: 0
+
   StartingGeo:
     # The amount of starting geo you have.
     #
@@ -3872,8 +4143,8 @@ Hollow Knight:
 
   DeathLink:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   DeathLinkShade:
     # Sets whether to create a shade when you are killed by a DeathLink and how to handle your existing shade, if any.
@@ -3895,8 +4166,8 @@ Hollow Knight:
     # * This option has no effect if DeathLink is disabled.
     # ** Self-death fragile charm behavior is not changed; if a self-death normally breaks fragile charms in vanilla, it
     #     will continue to do so.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   MinimumGeoPrice:
     # The minimum geo price for items in geo shops.
@@ -4330,8 +4601,8 @@ Hylics 2:
     # When you die, everyone dies. The reverse is also true.
     # Note that this also includes death by using the PERISH gesture.
     # Can be toggled via in-game console command "/deathlink".
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Kingdom Hearts 2:
   progression_balancing:
@@ -4712,7 +4983,7 @@ Kingdom Hearts 2:
     #
     # Toggle does not negate fight logic but is an alternative.
     #
-    # Final Chest is also can be put into logic with this skip.
+    # Full Cor Skip is also affected by this Toggle.
     false: 50
     true: 0
 
@@ -5315,8 +5586,8 @@ Landstalker - The Treasures of King Nole:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Links Awakening DX:
   progression_balancing:
@@ -5563,6 +5834,29 @@ Links Awakening DX:
     any_world: 1
     different_world: 0
 
+  music:
+    # [Vanilla] Regular Music
+    # [Shuffled] Shuffled Music
+    # [Off] No music
+    vanilla: 0
+    shuffled: 1
+    off: 0
+
+  shuffle_instruments:
+    # Shuffle Instruments
+    # [Original Dungeon] The item will be within its original dungeon
+    # [Own Dungeons] The item will be within a dungeon in your world
+    # [Own World] The item will be somewhere in your world
+    # [Any World] The item could be anywhere
+    # [Different World] The item will be somewhere in another world
+    # [Vanilla] The item will be in its vanilla location in your world
+    original_dungeon: 0
+    own_dungeons: 0
+    own_world: 0
+    any_world: 1
+    different_world: 0
+    vanilla: 0
+
   music_change_condition:
     # Controls how the music changes.
     # [Sword] When you pick up a sword, the music changes
@@ -5579,6 +5873,17 @@ Links Awakening DX:
     # Enables AP specific title screen and disables the intro cutscene
     false: 0
     true: 50
+
+  boots_controls:
+    # Adds additional button to activate Pegasus Boots (does nothing if you haven't picked up your boots!)
+    # [Vanilla] Nothing changes, you have to equip the boots to use them
+    # [Bracelet] Holding down the button for the bracelet also activates boots (somewhat like Link to the Past)
+    # [Press A] Holding down A activates boots
+    # [Press B] Holding down B activates boots
+    vanilla: 0
+    bracelet: 0
+    press_a: 1
+    press_b: 0
 
 Lufia II Ancient Cave:
   progression_balancing:
@@ -5648,9 +5953,9 @@ Lufia II Ancient Cave:
     # Minimum value is 5
     # Maximum value is 75
     25: 0
-    random: 1
+    random: 0
     random-low: 0
-    random-high: 0
+    random-high: 1
 
   blue_chest_count:
     # The number of blue chest items that will be in your item pool.
@@ -5712,10 +6017,11 @@ Lufia II Ancient Cave:
     daos: 0
     egg_dragon: 0
     master: 0
-    random-high: 1
-    random-sinistral: 1
-    random-middle: 1
-    random-low: 1
+    random-high: 0
+    random-low: 0
+    random-sinistral: 0
+    random-middle: 0
+    random: 1
 
   capsule_cravings_jp_style:
     # Make capsule monster cravings behave as in the Japanese version.
@@ -5763,8 +6069,8 @@ Lufia II Ancient Cave:
     random: 0
     random-low: 0
     random-high: 0
-    default: 50 # equivalent to 1
-    party_starting_level: 0 # equivalent to 0
+    default: 0 # equivalent to 1
+    party_starting_level: 1 # equivalent to 0
 
   crowded_floor_chance:
     # The chance of a floor being a crowded floor.
@@ -5980,10 +6286,10 @@ Lufia II Ancient Cave:
     # boss_iris_treasure_hunt — complete both the "boss" and the "iris_treasure_hunt" objective (in any order)
     # final_floor — merely reach the final floor
     # Default value: boss
-    boss: 50
-    iris_treasure_hunt: 0
+    boss: 1
+    iris_treasure_hunt: 1
     boss_iris_treasure_hunt: 0
-    final_floor: 0
+    final_floor: 1
 
   gold_modifier:
     # Percentage modifier for gold gained from enemies.
@@ -6013,6 +6319,15 @@ Lufia II Ancient Cave:
     random: 1
     random-low: 0
     random-high: 0
+
+  inactive_exp_gain:
+    # The rate at which characters not currently in the active party gain EXP.
+    #
+    # Supported values: disabled, half, full
+    # Default value: disabled (same as in an unmodified game)
+    disabled: 0
+    half: 0
+    full: 1
 
   initial_floor:
     # The initial floor, where you begin your journey.
@@ -6095,10 +6410,10 @@ Lufia II Ancient Cave:
     #
     # Supported values: disabled, double, triple, quadruple
     # Default value: disabled (same as in an unmodified game)
-    disabled: 50
+    disabled: 0
     double: 0
     triple: 0
-    quadruple: 0
+    quadruple: 1
 
   shop_interval:
     # Place shops after a certain number of floors.
@@ -6114,10 +6429,10 @@ Lufia II Ancient Cave:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
     # Maximum value is 10
-    random: 0
+    random: 1
     random-low: 0
     random-high: 0
-    disabled: 50 # equivalent to 0
+    disabled: 0 # equivalent to 0
 
   shop_inventory:
     # Determine the item types that can appear in shops.
@@ -6153,8 +6468,8 @@ Lufia II Ancient Cave:
     # true — you start without capsule monster; 7 new "items" are added to your pool and shuffled into the multiworld;
     #     when one of these items is found, the corresponding capsule monster is unlocked for you to use
     # Default value: false (same as in an unmodified game)
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   shuffle_party_members:
     # Shuffle the party members into the multiworld.
@@ -6163,10 +6478,10 @@ Lufia II Ancient Cave:
     # false — all 6 optional party members are present in the cafe and can be recruited right away
     # true — only Maxim is available from the start; 6 new "items" are added to your pool and shuffled into the
     #     multiworld; when one of these items is found, the corresponding party member is unlocked for you to use.
-    #     While cave diving, you can add newly unlocked ones to your party by using the character items from the inventory
+    #     While cave diving, you can add or remove unlocked party members by using the character items from the inventory
     # Default value: false (same as in an unmodified game)
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 MegaMan Battle Network 3:
   progression_balancing:
@@ -6335,8 +6650,8 @@ Meritous:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Minecraft:
   progression_balancing:
@@ -6484,8 +6799,8 @@ Minecraft:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   starting_items:
     # Start with these items. Each entry should be of this format: {item: "item_name", amount: #, nbt: "nbt_string"}
@@ -6581,21 +6896,8 @@ Muse Dash:
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 15
-    # Maximum value is 500
+    # Maximum value is 528
     40: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  additional_item_percentage:
-    # The percentage of songs that will have 2 items instead of 1 when completing them.
-    # - Starting Songs will always have 2 items.
-    # - Locations will be filled with duplicate songs if there are not enough items.
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 50
-    # Maximum value is 100
-    80: 50
     random: 0
     random-low: 0
     random-high: 0
@@ -6657,8 +6959,8 @@ Muse Dash:
     silvers: 0
 
   music_sheet_count_percentage:
-    # Collecting enough Music Sheets will unlock the goal song needed for completion.
-    # This option controls how many are in the item pool, based on the total number of songs.
+    # Controls how many music sheets are added to the pool based on the number of songs, including starting songs.
+    # Higher numbers leads to more consistent game lengths, but will cause individual music sheets to be less important.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 10
@@ -6703,8 +7005,8 @@ Muse Dash:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   include_songs:
     # Any song listed here will be guaranteed to be included as part of the seed.
@@ -6780,8 +7082,8 @@ Noita:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   bad_effects:
     # Whether negative effects on the Noita world are added to the item pool.
@@ -6802,7 +7104,7 @@ Noita:
     # Choose where you would like Hidden Chest and Pedestal checks to be placed.
     # Main Path includes the main 7 biomes you typically go through to get to the final boss.
     # Side Path includes the Lukki Lair and Fungal Caverns. 9 biomes total.
-    # Main World includes the full world (excluding parallel worlds). 14 biomes total.
+    # Main World includes the full world (excluding parallel worlds). 15 biomes total.
     # Note: The Collapsed Mines have been combined into the Mines as the biome is tiny.
     main_path: 50
     side_path: 0
@@ -6844,15 +7146,14 @@ Noita:
     # Makes bosses count as location checks. The boss only needs to die, you do not need the kill credit.
     # The Main Path option includes Gate Guardian, Suomuhauki, and Kolmisilmä.
     # The Side Path option includes the Main Path bosses, Sauvojen Tuntija, and Ylialkemisti.
-    # The All Bosses option includes all 12 bosses.
+    # The All Bosses option includes all 15 bosses.
     no_bosses: 50
     main_path: 0
     side_path: 0
     all_bosses: 0
 
   extra_orbs:
-    # Add extra orbs to your item pool, to prevent you from needing to wait as long
-    # for the last orb you need for your victory condition.
+    # Add extra orbs to your item pool, to prevent you from needing to wait as long for the last orb you need for your victory condition.
     # Extra orbs received past your victory condition's amount will be received as hearts instead.
     # Can be turned on for the Greed Ending goal, but will only really make it harder.
     #
@@ -6867,8 +7168,8 @@ Noita:
   shop_price:
     # Reduce the costs of Archipelago items in shops.
     # By default, the price of Archipelago items matches the price of wands at that shop.
-    full_price: 50
-    25_percent_off: 0
+    full_price: 0
+    25_percent_off: 1
     50_percent_off: 0
     75_percent_off: 0
 
@@ -8709,8 +9010,8 @@ Ocarina of Time:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Overcooked! 2:
   progression_balancing:
@@ -8793,9 +9094,9 @@ Overcooked! 2:
     # - Death Only: A DeathLink broadcast will be sent every time a chef falls into a stage hazard. All local chefs will be killed when any one perishes.
     #
     # - Death and Overcook: Same as above, but an additional broadcast will be sent whenever the kitchen catches on fire from burnt food.
-    disabled: 50
-    death_only: 0
-    death_and_overcook: 0
+    disabled: 0
+    death_only: 1
+    death_and_overcook: 1
 
   shuffle_level_order:
     # Shuffles the order of kitchens on the overworld map. Also draws from DLC maps.
@@ -8804,7 +9105,7 @@ Overcooked! 2:
 
   include_dlcs:
     # Which DLCs should be included when 'Shuffle Level Order' is enabled?'
-    ["Seasonal", "Story"]
+    ["Story", "Seasonal"]
 
   include_horde_levels:
     # Includes "Horde Defense" levels in the pool of possible kitchens when Shuffle Level Order is enabled. Also adds
@@ -8964,6 +9265,7 @@ Pokemon Emerald:
     champion: 1
     steven: 1
     norman: 1
+    legendary_hunt: 0
 
   badges:
     # Adds Badges to the pool
@@ -8973,7 +9275,7 @@ Pokemon Emerald:
     # Completely Random: Badges can be found anywhere
     vanilla: 0
     shuffle: 0
-    completely_random: 1
+    completely_random: 50
 
   hms:
     # Adds HMs to the pool
@@ -8983,16 +9285,21 @@ Pokemon Emerald:
     # Completely Random: HMs can be found anywhere
     vanilla: 0
     shuffle: 0
-    completely_random: 1
+    completely_random: 50
 
   key_items:
     # Adds most key items to the pool. These are usually required to unlock
     # a location or region (e.g. Devon Scope, Letter, Basement Key)
     false: 0
-    true: 1
+    true: 50
 
   bikes:
     # Adds the mach bike and acro bike to the pool
+    false: 0
+    true: 1
+
+  event_tickets:
+    # Adds the event tickets to the pool, which let you access legendaries by sailing from Lilycove
     false: 0
     true: 1
 
@@ -9016,12 +9323,33 @@ Pokemon Emerald:
     false: 0
     true: 1
 
+  berry_trees:
+    # Adds berry trees to the pool. Empty soil patches are converted to locations and contribute Sitrus Berries to the pool.
+    false: 50
+    true: 0
+
+  dexsanity:
+    # Adding a "caught" pokedex entry gives you an item (catching, evolving, trading, etc.).
+    #
+    # Defeating gym leaders provides dex info, allowing you to see where on the map you can catch species you need.
+    #
+    # Each pokedex entry adds a Poke Ball, Great Ball, or Ultra Ball to the pool.
+    false: 50
+    true: 0
+
+  trainersanity:
+    # Defeating a trainer for the first time gives you an item. Trainers are no longer missable.
+    #
+    # Trainers no longer give you money for winning. Each trainer adds a valuable item (nugget, stardust, etc.) to the pool.
+    false: 50
+    true: 0
+
   item_pool_type:
     # Determines which non-progression items get put into the item pool
     #
     # Shuffled: Item pool consists of shuffled vanilla items
     # Diverse Balanced: Item pool consists of random items approximately proportioned
-    # according to what they're replacing (i.e. more pokeballs, fewer X items, etc...)
+    # according to what they're replacing (i.e. more pokeballs, fewer X items, etc.)
     # Diverse: Item pool consists of uniformly random (non-unique) items
     shuffled: 50
     diverse_balanced: 0
@@ -9033,9 +9361,11 @@ Pokemon Emerald:
     true: 0
 
   require_flash:
-    # The lower floors of Granite Cave and Victory Road logically require use of HM05 Flash
-    false: 0
-    true: 50
+    # Determines whether HM05 Flash is logically required to navigate a dark cave
+    neither: 0
+    only_granite_cave: 0
+    only_victory_road: 0
+    both: 50
 
   elite_four_requirement:
     # Sets the requirements to challenge the elite four
@@ -9075,6 +9405,55 @@ Pokemon Emerald:
     random-low: 0
     random-high: 0
 
+  legendary_hunt_catch:
+    # Sets whether legendaries need to be caught to satisfy the Legendary Hunt win condition. Defeated legendaries can be respawned by defeating the Elite 4.
+    false: 0
+    true: 1
+
+  legendary_hunt_count:
+    # Sets the number of legendaries that must be caught/defeated for the Legendary Hunt goal
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 12
+    3: 0
+    random: 1
+    random-low: 0
+    random-high: 0
+
+  allowed_legendary_hunt_encounters:
+    # Sets which legendary encounters can contribute to the Legendary Hunt goal.
+    #
+    # Latios will always be the roamer. Latias will always be at Southern Island.
+    #
+    # Possible values are:
+    # "Groudon"
+    # "Kyogre"
+    # "Rayquaza"
+    # "Latios"
+    # "Latias"
+    # "Regirock"
+    # "Registeel"
+    # "Regice"
+    # "Ho-Oh"
+    # "Lugia"
+    # "Deoxys"
+    # "Mew"
+    [
+      "Kyogre",
+      "Lugia",
+      "Groudon",
+      "Mew",
+      "Ho-Oh",
+      "Latias",
+      "Deoxys",
+      "Latios",
+      "Regice",
+      "Registeel",
+      "Regirock",
+      "Rayquaza",
+    ]
+
   wild_pokemon:
     # Randomizes wild pokemon encounters (grass, caves, water, fishing)
     #
@@ -9089,10 +9468,13 @@ Pokemon Emerald:
     match_base_stats_and_type: 0
     completely_random: 1
 
-  allow_wild_legendaries:
-    # Wild encounters can be replaced by legendaries. Only applied if Randomize Wild Pokemon is not Vanilla.
-    false: 0
-    true: 1
+  wild_encounter_blacklist:
+    # Prevents listed species from appearing in the wild when wild encounters are randomized.
+    #
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    #
+    # Use "_Legendaries" as a shortcut for legendary pokemon.
+    []
 
   starters:
     # Randomizes the starter pokemon in Professor Birch's bag
@@ -9108,10 +9490,13 @@ Pokemon Emerald:
     match_base_stats_and_type: 0
     completely_random: 1
 
-  allow_starter_legendaries:
-    # Starters can be replaced by legendaries. Only applied if Randomize Starters is not Vanilla.
-    false: 0
-    true: 1
+  starter_blacklist:
+    # Prevents listed species from appearing as starters when starters are randomized.
+    #
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    #
+    # Use "_Legendaries" as a shortcut for legendary pokemon.
+    []
 
   trainer_parties:
     # Randomizes the parties of all trainers.
@@ -9127,18 +9512,48 @@ Pokemon Emerald:
     match_base_stats_and_type: 0
     completely_random: 1
 
-  allow_trainer_legendaries:
-    # Enemy trainer pokemon can be replaced by legendaries. Only applied if Randomize Trainer Parties is not Vanilla.
-    false: 0
-    true: 1
-
-  static_encounters:
-    # Randomizes static encounters (Rayquaza, hidden Kekleons, fake Voltorb pokeballs, etc...)
+  trainer_party_blacklist:
+    # Prevents listed species from appearing in opponent trainers' parties if opponent parties are randomized.
     #
-    # Vanilla: Static encounters are unchanged
-    # Shuffle: Static encounters are shuffled between each other
-    # Match Base Stats: Static encounters are replaced with species with approximately the same bst
-    # Match Type: Static encounters are replaced with species that share a type with the original
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    #
+    # Use "_Legendaries" as a shortcut for legendary pokemon.
+    []
+
+  force_fully_evolved:
+    # When an opponent uses a pokemon of the specified level or higher, restricts the species to only fully evolved pokemon.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  legendary_encounters:
+    # Randomizes legendary encounters (Rayquaza, Regice, Latias, etc.). The roamer will always be Latios during legendary hunts.
+    #
+    # Vanilla: Legendary encounters are unchanged
+    # Shuffle: Legendary encounters are shuffled between each other
+    # Match Base Stats: Legendary encounters are replaced with species with approximately the same bst
+    # Match Type: Legendary encounters are replaced with species that share a type with the original
+    # Match Base Stats and Type: Apply both Match Base Stats and Match Type
+    # Completely Random: There are no restrictions
+    vanilla: 0
+    shuffle: 0
+    match_base_stats: 0
+    match_type: 0
+    match_base_stats_and_type: 0
+    completely_random: 1
+
+  misc_pokemon:
+    # Randomizes non-legendary static encounters. May grow to include other pokemon like trades or gifts.
+    #
+    # Vanilla: Species are unchanged
+    # Shuffle: Species are shuffled between each other
+    # Match Base Stats: Species are replaced with species with approximately the same bst
+    # Match Type: Species are replaced with species that share a type with the original
     # Match Base Stats and Type: Apply both Match Base Stats and Match Type
     # Completely Random: There are no restrictions
     vanilla: 0
@@ -9215,35 +9630,43 @@ Pokemon Emerald:
     random-low: 0
     random-high: 0
 
-  tm_compatibility:
-    # Modifies the compatibility of TMs
+  tm_tutor_compatibility:
+    # Sets the percent chance that a given TM or move tutor is compatible with a species
     #
-    # Vanilla: Compatibility is unchanged
-    # Fully Compatible: Every species can learn any TM
-    # Completely Random: Compatibility is 50/50 for every TM (does not remain consistent across evolution)
-    vanilla: 0
-    fully_compatible: 1
-    completely_random: 0
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    100: 1
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 0 # equivalent to -1
 
   hm_compatibility:
-    # Modifies the compatibility of HMs
+    # Sets the percent chance that a given HM is compatible with a species
     #
-    # Vanilla: Compatibility is unchanged
-    # Fully Compatible: Every species can learn any HM
-    # Completely Random: Compatibility is 50/50 for every HM (does not remain consistent across evolution)
-    vanilla: 0
-    fully_compatible: 1
-    completely_random: 0
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 50
+    # Maximum value is 100
+    100: 1
+    random: 0
+    random-low: 0
+    random-high: 0
+    vanilla: 50 # equivalent to -1
 
-  tm_moves:
-    # Randomizes the moves taught by TMs
+  tm_tutor_moves:
+    # Randomizes the moves taught by TMs and move tutors
     false: 0
     true: 1
 
-  reusable_tms:
-    # Sets TMs to not break after use (they remain sellable)
+  reusable_tms_tutors:
+    # Sets TMs to not break after use (they remain sellable). Sets move tutors to infinite use.
     false: 0
     true: 1
+
+  move_blacklist:
+    # A list of moves which should be excluded from learnsets, TMs, and move tutors.
+    []
 
   min_catch_rate:
     # Sets the minimum catch rate a pokemon can have. Any pokemon with a catch rate below this floor will have it raised to this value.
@@ -9265,19 +9688,26 @@ Pokemon Emerald:
     false: 50
     true: 0
 
+  normalize_encounter_rates:
+    # Make every slot on an encounter table approximately equally likely.
+    #
+    # This does NOT mean every species is equally likely. But it will make rarer encounters less rare overall.
+    false: 0
+    true: 1
+
   exp_modifier:
     # Multiplies gained experience by a percentage
     #
     # 100 is default
     # 50 is half
     # 200 is double
-    # etc...
+    # etc.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 1000
-    100: 50
-    random: 0
+    100: 0
+    random: 1
     random-low: 0
     random-high: 0
 
@@ -9285,6 +9715,42 @@ Pokemon Emerald:
     # Causes trainers to not start a battle with you unless you talk to them
     false: 50
     true: 0
+
+  purge_spinners:
+    # Trainers will rotate in predictable patterns on a set interval instead of randomly and don't turn toward you when you run
+    false: 50
+    true: 0
+
+  match_trainer_levels:
+    # When you start a battle with a trainer, your party's levels will be automatically set to match that trainer's highest level pokemon.
+    #
+    # The experience you receive will match your party's average actual level, and will only be awarded when you win the battle.
+    #
+    # This is a pseudo-replacement for a level cap and makes every trainer battle a fair fight while still allowing you to level up.
+    #
+    # Off: The vanilla experience
+    # Additive: The modifier you apply to your team is a flat bonus
+    # Multiplicative: The modifier you apply to your team is a percent bonus
+    off: 50
+    additive: 0
+    multiplicative: 0
+
+  match_trainer_levels_bonus:
+    # A level bonus (or penalty) to apply to your team when matching an opponent's levels.
+    #
+    # When the match trainer levels option is "additive", this value is added to your team's levels during a battle.
+    # For example, if this value is 5 (+5 levels), you'll have a level 25 team against a level 20 team, and a level 45 team against a level 40 team.
+    #
+    # When the match trainer levels option is "multiplicative", this is a percent bonus.
+    # For example, if this value is 5 (+5%), you'll have a level 21 team against a level 20 team, and a level 42 team against a level 40 team.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -100
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   double_battle_chance:
     # The percent chance that a trainer with more than 1 pokemon will be converted into a double battle.
@@ -9304,11 +9770,6 @@ Pokemon Emerald:
     false: 50
     true: 0
 
-  enable_ferry:
-    # The ferry between Slateport, Lilycove, and the Battle Frontier can be used if you have the S.S. Ticket
-    false: 0
-    true: 1
-
   remove_roadblocks:
     # Removes specific NPCs that normally stand in your way until certain events are completed.
     #
@@ -9326,7 +9787,19 @@ Pokemon Emerald:
 
   extra_boulders:
     # Places strength boulders on Route 115 which block access to Meteor Falls from the beach.
-    # This aims to take some power away from Surf as a tool for access.
+    # This aims to take some power away from Surf by restricting how much it allows you to access.
+    false: 50
+    true: 0
+
+  extra_bumpy_slope:
+    # Adds a bumpy slope to Route 115 which allows access to Meteor Falls if you have the Acro Bike.
+    # This aims to take some power away from Surf by adding a new way to exit the Rustboro area.
+    false: 50
+    true: 0
+
+  modify_118:
+    # Changes the layout of Route 118 so that it must be crossed with the Acro Bike instead of Surf.
+    # This aims to take some power away from Surf by restricting how much it allows you to access.
     false: 50
     true: 0
 
@@ -9335,10 +9808,10 @@ Pokemon Emerald:
     false: 50
     true: 0
 
-  fly_without_badge:
-    # Fly does not require the Feather Badge to use in the field
-    false: 0
-    true: 50
+  hm_requirements:
+    # Sets the requirements to use HMs outside of battle
+    vanilla: 50
+    fly_without_badge: 0
 
   turbo_a:
     # Holding A will advance most text automatically
@@ -9355,9 +9828,48 @@ Pokemon Emerald:
     progression: 0
     none: 0
 
+  remote_items:
+    # Instead of placing your own items directly into the ROM, all items are received from the server, including items you find for yourself.
+    #
+    # This enables co-op of a single slot and recovering more items after a lost save file (if you're so unlucky).
+    # But it changes pickup behavior slightly and requires connection to the server to receive any items.
+    false: 50
+    true: 0
+
+  music:
+    # Shuffles music played in any situation where it loops. Includes many FRLG tracks.
+    false: 0
+    true: 1
+
+  fanfares:
+    # Shuffles fanfares for item pickups, healing at the pokecenter, etc.
+    #
+    # When this option is enabled, pressing B will interrupt most fanfares.
+    false: 0
+    true: 1
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+
+  enable_wonder_trading:
+    # Allows participation in wonder trading with other players in your current multiworld. Speak with the center receptionist on the second floor of any pokecenter.
+    #
+    # Wonder trading NEVER affects logic.
+    #
+    # Certain aspects of a pokemon species are per-game, not per-pokemon.
+    # As a result, some things are not retained during a trade, including type, ability, level up learnset, and so on.
+    # Receiving a pokemon this way does not mark it as found in your pokedex.
+    # Trade evolutions do not evolve this way; they retain their modified methods (level ups and item use).
+    false: 0
+    true: 50
+
   easter_egg:
-    # ???
-    Example Passphrase: 50
+    # Enter certain phrases and something special might happen.
+    #
+    # All secret phrases are something that could be a trendy phrase in Dewford Town. They are case insensitive.
+    EMERALD SECRET: 50
 
 Pokemon Red and Blue:
   progression_balancing:
@@ -9452,7 +9964,7 @@ Pokemon Red and Blue:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 100
-    0: 1
+    0: 50
     random: 0
     random-low: 0
     random-high: 0
@@ -9464,7 +9976,7 @@ Pokemon Red and Blue:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 100
-    0: 1
+    0: 50
     random: 0
     random-low: 0
     random-high: 0
@@ -9617,7 +10129,7 @@ Pokemon Red and Blue:
 
   all_elevators_locked:
     # Adds requirements to the Celadon Department Store elevator and Silph Co elevators to have the Lift Key.
-    # No logical implications normally, but may have a significant impact on Insanity Door Shuffle.
+    # No logical implications normally, but may have a significant impact on some Door Shuffle options.
     false: 0
     true: 50
 
@@ -9731,23 +10243,32 @@ Pokemon Red and Blue:
   door_shuffle:
     # Simple: entrances are randomized together in groups: Pokemarts, Gyms, single exit dungeons, dual exit dungeons,
     # single exit misc interiors, dual exit misc interiors are all shuffled separately. Safari Zone is not shuffled.
-    # Full: Any outdoor entrance may lead to any interior.
-    # Insanity: All rooms in the game are shuffled.
+    # On Simple only, the Town Map will be updated to show the new locations for each dungeon.
+    # Interiors: Any outdoor entrance may lead to any interior, but intra-interior doors are not shuffled. Previously
+    # named Full.
+    # Full: Exterior to interior entrances are shuffled, and interior to interior doors are shuffled, separately.
+    # Insanity: All doors in the game are shuffled.
+    # Decoupled: Doors may be decoupled from each other, so that leaving through an exit may not return you to the
+    # door you entered from.
     off: 1
     simple: 1
+    interiors: 1
     full: 1
     insanity: 1
+    decoupled: 1
 
   warp_tile_shuffle:
-    # Shuffle the warp tiles in Silph Co and Sabrina's Gym among themselves, separately.
-    # On Insanity, turning this off means they are mixed into the general door shuffle instead of only being shuffled
-    # among themselves.
-    false: 1
-    true: 1
+    # Vanilla: The warp tiles in Silph Co and Sabrina's Gym are not changed.
+    # Shuffle: The warp tile destinations are shuffled among themselves.
+    # Mixed: The warp tiles are mixed into the pool of available doors for Full, Insanity, and Decoupled. Same as Shuffle
+    # for any other door shuffle option.
+    vanilla: 1
+    shuffle: 1
+    mixed: 1
 
   randomize_rock_tunnel:
-    # Randomize the layout of Rock Tunnel.
-    # If Insanity Door Shuffle is on, this will cause only the main entrances to Rock Tunnel to be shuffled.
+    # Randomize the layout of Rock Tunnel. If Full, Insanity, or Decoupled Door Shuffle is on, this will cause only the
+    # main entrances to Rock Tunnel to be shuffled.
     false: 50
     true: 0
 
@@ -9792,13 +10313,15 @@ Pokemon Red and Blue:
   level_scaling:
     # Off: Encounters use vanilla game levels.
     # By Spheres: Levels are scaled by access sphere. Areas reachable in later spheres will have higher levels.
-    # Spheres and Distance: Levels are scaled by access spheres as well as distance from Pallet Town, measured by number
-    # of internal region connections. This is a much more severe curving of levels and may lead to much less variation in
-    # levels found in a particular map. However, it may make the higher door shuffle settings significantly more bearable,
-    # as these options more often result in a smaller number of larger access spheres.
+    # By Spheres and Distance: Levels are scaled by access spheres as well as distance from Pallet Town, measured by
+    # number  of internal region connections. This is a much more severe curving of levels and may lead to much less
+    # variation in levels found in a particular map. However, it may make the higher door shuffle settings significantly
+    # more bearable, as these options more often result in a smaller number of larger access spheres.
+    # Auto: Scales by Spheres if Door Shuffle is off or on Simple, otherwise scales by Spheres and Distance
     off: 0
-    by_spheres: 50
+    by_spheres: 0
     by_spheres_and_distance: 0
+    auto: 50
 
   exp_modifier:
     # Modifier for EXP gained. When specifying a number, exp is multiplied by this amount and divided by 16.
@@ -10376,8 +10899,8 @@ Raft:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Risk of Rain 2:
   progression_balancing:
@@ -10440,7 +10963,7 @@ Risk of Rain 2:
     #
     # Explore Mode: Each environment will have location checks within each environment.
     # environments will be locked in the item pool until received.
-    classic: 1
+    classic: 0
     explore: 1
 
   victory:
@@ -10553,6 +11076,17 @@ Risk of Rain 2:
     #  Adds Void Items into the item pool
     false: 0
     true: 1
+
+  require_stages:
+    # Add Stage items to the pool to block access to the next set of environments.
+    false: 0
+    true: 50
+
+  progressive_stages:
+    # This will convert Stage items to be a progressive item. For example instead of "Stage 2" it would be
+    #  "Progressive Stage"
+    false: 0
+    true: 50
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
@@ -10938,16 +11472,16 @@ Rogue Legacy:
     # List of classes that will be in the item pool to find. The upgraded form of the class will be added with it.
     # The upgraded form of your starting class will be available regardless.
     [
-      "Miner",
-      "Lich",
-      "Knave",
       "Mage",
-      "Traitor",
-      "Dragon",
       "Knight",
+      "Knave",
       "Shinobi",
+      "Lich",
       "Spellthief",
+      "Dragon",
       "Barbarian",
+      "Traitor",
+      "Miner",
     ]
 
   new_game_plus:
@@ -11186,8 +11720,8 @@ Rogue Legacy:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Secret of Evermore:
   progression_balancing:
@@ -11351,10 +11885,17 @@ Secret of Evermore:
     full: 0
 
   sniffamizer:
-    # On Shuffles, Full randomizes drops in sniff locations
+    # Off: all vanilla items in sniff spots
+    # Shuffle: sniff items shuffled into random sniff spots
+    #     Everywhere: add sniff spots to multiworld pool
     off: 0
-    on: 50
-    full: 0
+    shuffle: 50
+    everywhere: 0
+
+  sniff_ingredients:
+    # Select which items should be used as sniff items
+    vanilla_ingredients: 50
+    random_ingredients: 0
 
   callbeadamizer:
     # On Shuffles call bead characters, Full shuffles individual spells
@@ -11516,7 +12057,7 @@ Shivers:
     local: 0
 
   puzzle_hints_required:
-    # If turned on puzzle hints will be available before the corresponding puzzle is required. For example: The Tiki
+    # If turned on puzzle hints will be available before the corresponding puzzle is required. For example: The Shaman
     # Drums puzzle will be placed after access to the security cameras which give you the solution. Turning this off
     # allows for greater randomization.
     false: 0
@@ -11524,6 +12065,7 @@ Shivers:
 
   include_information_plaques:
     # Adds Information Plaques as checks.
+    # (40 Locations)
     false: 50
     true: 0
 
@@ -11534,6 +12076,7 @@ Shivers:
 
   elevators_stay_solved:
     # Adds elevators as checks and will remain open upon solving them.
+    # (3 Locations)
     false: 0
     true: 50
 
@@ -11544,6 +12087,7 @@ Shivers:
 
   early_lightning:
     # Allows lightning to be captured at any point in the game. You will still need to capture all ten Ixupi for victory.
+    # (1 Location)
     false: 50
     true: 0
 
@@ -11615,7 +12159,7 @@ Slay the Spire:
     #  including custom ones.
     #
     #  if the chosen character mod is not installed it will default back to 'The Ironclad'
-    the_ironclad: 50
+    the_ironclad: 0
     the_silent: 0
     the_defect: 0
     the_watcher: 0
@@ -11628,6 +12172,7 @@ Slay the Spire:
     the_automaton: 0
     the_snecko: 0
     spire_take_the_wheel: 0
+    random: 1
 
   ascension:
     # What Ascension do you wish to play with.
@@ -11728,7 +12273,7 @@ SMZ3:
     # Randomized - The sword can be placed anywhere.
     # Early - The sword will be placed in a location accessible from the start of
     # the game.
-    # Unce assured - The sword will always be placed on Link's Uncle.
+    # Uncle - The sword will always be placed on Link's Uncle.
     randomized: 50
     early: 0
     uncle: 0
@@ -11746,7 +12291,7 @@ SMZ3:
 
   goal:
     # This option decides what goal is required to finish the randomizer.
-    # Defeat Ganon and Mother Brain - Find the required crystals and boss tokens kill both bosses.
+    # Defeat Ganon and Mother Brain - Find the required crystals and boss tokens to kill both bosses.
     # Fast Ganon and Defeat Mother Brain - The hole to ganon is open without having to defeat Agahnim in
     #                                      Ganon's Tower and Ganon can be defeat as soon you have the required
     #                                      crystals to make Ganon vulnerable. For keysanity, this mode also removes
@@ -11952,7 +12497,8 @@ Sonic Adventure 2 Battle:
     true: 0
 
   animalsanity:
-    # Determines whether picking up counted small animals grants checks
+    # Determines whether unique counts of animals grant checks.
+    # ALL animals must be collected in a single run of a mission to get all checks.
     # (421 Locations)
     false: 50
     true: 0
@@ -12474,15 +13020,15 @@ Sonic Adventure 2 Battle:
 
   ring_link:
     # Whether your in-level ring gain/loss is linked to other players
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
-Starcraft 2 Wings of Liberty:
+Starcraft 2:
   progression_balancing:
     # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
     # A lower setting means more getting stuck. A higher setting means less getting stuck.
@@ -12557,51 +13103,64 @@ Starcraft 2 Wings of Liberty:
     fast: 0
     faster: 0
 
+  disable_forced_camera:
+    # Prevents the game from moving or locking the camera without the player's consent.
+    false: 50
+    true: 0
+
+  skip_cutscenes:
+    # Skips all cutscenes and prevents dialog from blocking progress.
+    false: 50
+    true: 0
+
   all_in_map:
-    # Determines what version of All-In (final map) that will be generated for the campaign.
+    # Determines what version of All-In (WoL final map) that will be generated for the campaign.
     ground: 50
     air: 0
 
-  final_map:
-    # Determines if the final map and goal of the campaign.
-    # All in: You need to beat All-in map
-    # Random Hard: A random hard mission is selected as a goal.
-    #             Beat this mission in order to complete the game.
-    #             All-in map won't be in the campaign
-    #
-    # Vanilla mission order always ends with All in mission!
-    #
-    # Warning: Using All-in with a short mission order (7 or fewer missions) is not recommended,
-    #     as there might not be enough locations to place all the required items,
-    #     any excess required items will be placed into the player's starting inventory!
-    #
-    # This option is short-lived. It may be changed in the future
-    all_in: 50
-    random_hard: 0
-
   mission_order:
     # Determines the order the missions are played in.  The last three mission orders end in a random mission.
-    # Vanilla (29): Keeps the standard mission order and branching from the WoL Campaign.
-    # Vanilla Shuffled (29): Keeps same branching paths from the WoL Campaign but randomizes the order of missions within.
-    # Mini Campaign (15): Shorter version of the campaign with randomized missions and optional branches.
-    # Grid (16):  A 4x4 grid of random missions.  Start at the top-left and forge a path towards bottom-right mission to win.
+    # Vanilla (83 total if all campaigns enabled): Keeps the standard mission order and branching from the vanilla Campaigns.
+    # Vanilla Shuffled (83 total if all campaigns enabled): Keeps same branching paths from the vanilla Campaigns but randomizes the order of missions within.
+    # Mini Campaign (47 total if all campaigns enabled): Shorter version of the campaign with randomized missions and optional branches.
+    # Medium Grid (16):  A 4x4 grid of random missions.  Start at the top-left and forge a path towards bottom-right mission to win.
     # Mini Grid (9):  A 3x3 version of Grid.  Complete the bottom-right mission to win.
     # Blitz (12):  12 random missions that open up very quickly.  Complete the bottom-right mission to win.
     # Gauntlet (7): Linear series of 7 random missions to complete the campaign.
     # Mini Gauntlet (4): Linear series of 4 random missions to complete the campaign.
     # Tiny Grid (4): A 2x2 version of Grid.  Complete the bottom-right mission to win.
+    # Grid (variable): A grid that will resize to use all non-excluded missions.  Corners may be omitted to make the grid more square.  Complete the bottom-right mission to win.
     vanilla: 50
     vanilla_shuffled: 0
     mini_campaign: 0
-    grid: 0
+    medium_grid: 0
     mini_grid: 0
     blitz: 0
     gauntlet: 0
     mini_gauntlet: 0
     tiny_grid: 0
+    grid: 0
 
-  player_color:
-    # Determines in-game team color.
+  maximum_campaign_size:
+    # Sets an upper bound on how many missions to include when a variable-size mission order is selected.
+    # If a set-size mission order is selected, does nothing.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 83
+    83: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  grid_two_start_positions:
+    # If turned on and 'grid' mission order is selected, removes a mission from the starting
+    # corner sets the adjacent two missions as the starter missions.
+    false: 50
+    true: 0
+
+  player_color_terran_raynor:
+    # Determines in-game team color for playable Raynor's Raiders (Terran) factions.
     white: 0
     red: 0
     blue: 0
@@ -12621,56 +13180,184 @@ Starcraft 2 Wings of Liberty:
     rainbow: 0
     default: 50
 
-  shuffle_protoss:
-    # Determines if the 3 protoss missions are included in the shuffle if Vanilla mission order is not enabled.
-    # If turned off, the 3 protoss missions will not appear and Protoss units are removed from the pool.
+  player_color_protoss:
+    # Determines in-game team color for playable Protoss factions.
+    white: 0
+    red: 0
+    blue: 0
+    teal: 0
+    purple: 0
+    yellow: 0
+    orange: 0
+    green: 0
+    light_pink: 0
+    violet: 0
+    light_grey: 0
+    dark_green: 0
+    brown: 0
+    light_green: 0
+    dark_grey: 0
+    pink: 0
+    rainbow: 0
+    default: 50
+
+  player_color_zerg:
+    # Determines in-game team color for playable Zerg factions before Kerrigan becomes Primal Kerrigan.
+    white: 0
+    red: 0
+    blue: 0
+    teal: 0
+    purple: 0
+    yellow: 0
+    orange: 0
+    green: 0
+    light_pink: 0
+    violet: 0
+    light_grey: 0
+    dark_green: 0
+    brown: 0
+    light_green: 0
+    dark_grey: 0
+    pink: 0
+    rainbow: 0
+    default: 50
+
+  player_color_zerg_primal:
+    # Determines in-game team color for playable Zerg factions after Kerrigan becomes Primal Kerrigan.
+    white: 0
+    red: 0
+    blue: 0
+    teal: 0
+    purple: 0
+    yellow: 0
+    orange: 0
+    green: 0
+    light_pink: 0
+    violet: 0
+    light_grey: 0
+    dark_green: 0
+    brown: 0
+    light_green: 0
+    dark_grey: 0
+    pink: 0
+    rainbow: 0
+    default: 50
+
+  enable_wol_missions:
+    # Enables missions from main Wings of Liberty campaign.
+    false: 0
+    true: 50
+
+  enable_prophecy_missions:
+    # Enables missions from Prophecy mini-campaign.
+    false: 0
+    true: 50
+
+  enable_hots_missions:
+    # Enables missions from Heart of the Swarm campaign.
+    false: 0
+    true: 50
+
+  enable_lotv_prologue_missions:
+    # Enables missions from Prologue campaign.
+    false: 0
+    true: 50
+
+  enable_lotv_missions:
+    # Enables missions from Legacy of the Void campaign.
+    false: 0
+    true: 50
+
+  enable_epilogue_missions:
+    # Enables missions from Epilogue campaign.
+    # These missions are considered very hard.
+    #
+    # Enabling Wings of Liberty, Heart of the Swarm and Legacy of the Void is strongly recommended in order to play Epilogue.
+    # Not recommended for short mission orders.
+    # See also: Exclude Very Hard Missions
+    false: 0
+    true: 50
+
+  enable_nco_missions:
+    # Enables missions from Nova Covert Ops campaign.
+    #
+    # Note: For best gameplay experience it's recommended to also enable Wings of Liberty campaign.
+    false: 0
+    true: 50
+
+  shuffle_campaigns:
+    # Shuffles the missions between campaigns if enabled.
+    # Only available for Vanilla Shuffled and Mini Campaign mission order
     false: 0
     true: 50
 
   shuffle_no_build:
-    # Determines if the 5 no-build missions are included in the shuffle if Vanilla mission order is not enabled.
-    # If turned off, the 5 no-build missions will not appear.
+    # Determines if the no-build missions are included in the shuffle.
+    # If turned off, the no-build missions will not appear. Has no effect for Vanilla mission order.
     false: 0
     true: 50
 
-  early_unit:
-    # Guarantees that the first mission will contain a unit.
+  starter_unit:
+    # Unlocks a random unit at the start of the game.
     #
-    # Each mission available to be the first mission has a pre-defined location where the unit should spawn.
-    # This location gets overriden over any exclusion. It's guaranteed to be reachable with an empty inventory.
-    false: 0
-    true: 50
+    # Off: No units are provided, the first unit must be obtained from the randomizer
+    # Balanced: A unit that doesn't give the player too much power early on is given
+    # Any Starter Unit: Any starter unit can be given
+    off: 50
+    balanced: 0
+    any_starter_unit: 0
 
   required_tactics:
-    # Determines the maximum tactical difficulty of the seed (separate from mission difficulty).  Higher settings
+    # Determines the maximum tactical difficulty of the world (separate from mission difficulty).  Higher settings
     # increase randomness.
     #
     # Standard:  All missions can be completed with good micro and macro.
     # Advanced:  Completing missions may require relying on starting units and micro-heavy units.
     # No Logic:  Units and upgrades may be placed anywhere.  LIKELY TO RENDER THE RUN IMPOSSIBLE ON HARDER DIFFICULTIES!
+    #            Locks Grant Story Tech option to true.
     standard: 50
     advanced: 0
     no_logic: 0
 
-  units_always_have_upgrades:
-    # If turned on, all upgrades will be present for each unit and structure in the seed.
-    # This usually results in fewer units.
+  ensure_generic_items:
+    # Specifies a minimum percentage of the generic item pool that will be present for the slot.
+    # The generic item pool is the pool of all generically useful items after all exclusions.
+    # Generically-useful items include: Worker upgrades, Building upgrades, economy upgrades,
+    # Mercenaries, Kerrigan levels and abilities, and Spear of Adun abilities
+    # Increasing this percentage will make units less common.
     #
-    # See also: Max Number of Upgrades
-    false: 0
-    true: 50
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  min_number_of_upgrades:
+    # Set a minimum to the number of upgrades a unit/structure can have.
+    # Note that most units have 4 or 6 upgrades.
+    # If a unit has fewer upgrades than the minimum, it will have all of its upgrades.
+    #
+    # Doesn't affect shared unit upgrades.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 12
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   max_number_of_upgrades:
     # Set a maximum to the number of upgrades a unit/structure can have. -1 is used to define unlimited.
-    # Note that most unit have 4 or 6 upgrades.
+    # Note that most unit have 4 to 6 upgrades.
     #
-    # If used with Units Always Have Upgrades, each unit has this given amount of upgrades (if there enough upgrades exist)
-    #
-    # See also: Units Always Have Upgrades
+    # Doesn't affect shared unit upgrades.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is -1
-    # Maximum value is 123
+    # Maximum value is 12
     -1: 50
     random: 0
     random-low: 0
@@ -12709,19 +13396,237 @@ Starcraft 2 Wings of Liberty:
     # Does nothing if upgrades are unlocked by completed mission counts.
     #
     # Individual Items:  All weapon and armor upgrades are each an item,
-    # resulting in 18 total upgrade items.
-    # Bundle Weapon And Armor:  All types of weapon upgrades are one item,
-    # and all types of armor upgrades are one item,
-    # resulting in 6 total items.
+    # resulting in 18 total upgrade items for Terran and 15 total items for Zerg and Protoss each.
+    # Bundle Weapon And Armor:  All types of weapon upgrades are one item per race,
+    # and all types of armor upgrades are one item per race,
+    # resulting in 18 total items.
     # Bundle Unit Class:  Weapon and armor upgrades are merged,
-    # but Infantry, Vehicle, and Starship upgrades are bundled separately,
+    # but upgrades are bundled separately for each race:
+    # Infantry, Vehicle, and Starship upgrades for Terran (9 items),
+    # Ground and Flyer upgrades for Zerg (6 items),
+    # Ground and Air upgrades for Protoss (6 items),
+    # resulting in 21 total items.
+    # Bundle All:  All weapon and armor upgrades are one item per race,
     # resulting in 9 total items.
-    # Bundle All:  All weapon and armor upgrades are one item,
-    # resulting in 3 total items.
     individual_items: 50
     bundle_weapon_and_armor: 0
     bundle_unit_class: 0
     bundle_all: 0
+
+  kerrigan_presence:
+    # Determines whether Kerrigan is playable outside of missions that require her.
+    #
+    # Vanilla: Kerrigan is playable as normal, appears in the same missions as in vanilla game.
+    # Not Present:  Kerrigan is not playable, unless the mission requires her to be present.  Other hero units stay playable,
+    #     and locations normally requiring Kerrigan can be checked by any unit.
+    #     Kerrigan level items, active abilities and passive abilities affecting her will not appear.
+    #     In missions where the Kerrigan unit is required, story abilities are given in same way as Grant Story Tech is set to true
+    # Not Present And No Passives:  In addition to the above, Kerrigan's passive abilities affecting other units (such as Twin Drones) will not appear.
+    #
+    # Note: Always set to "Not Present" if Heart of the Swarm campaign is disabled.
+    vanilla: 50
+    not_present: 0
+    not_present_and_no_passives: 0
+
+  kerrigan_levels_per_mission_completed:
+    # Determines how many levels Kerrigan gains when a mission is beaten.
+    #
+    # NOTE: Setting this too low can result in generation failures if The Infinite Cycle or Supreme are in the mission pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 20
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_levels_per_mission_completed_cap:
+    # Limits how many total levels Kerrigan can gain from beating missions.  This does not affect levels gained from items.
+    # Set to -1 to disable this limit.
+    #
+    # NOTE: The following missions have these level requirements:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # See Grant Story Levels for more details.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 140
+    -1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_level_item_sum:
+    # Determines the sum of the level items in the world.  This does not affect levels gained from beating missions.
+    #
+    # NOTE: The following missions have these level requirements:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # See Grant Story Levels for more details.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 140
+    70: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_level_item_distribution:
+    # Determines the amount and size of Kerrigan level items.
+    #
+    # Vanilla:  Uses the distribution in the vanilla campaign.
+    # This entails 32 individual levels and 6 packs of varying sizes.
+    # This distribution always adds up to 70, ignoring the Level Item Sum setting.
+    # Smooth:  Uses a custom, condensed distribution of 10 items between sizes 4 and 10,
+    # intended to fit more levels into settings with little room for filler while keeping some variance in level gains.
+    # This distribution always adds up to 70, ignoring the Level Item Sum setting.
+    # Size 70:  Uses items worth 70 levels each.
+    # Size 35:  Uses items worth 35 levels each.
+    # Size 14:  Uses items worth 14 levels each.
+    # Size 10:  Uses items worth 10 levels each.
+    # Size 7:  Uses items worth 7 levels each.
+    # Size 5:  Uses items worth 5 levels each.
+    # Size 2:  Uses items worth 2 level eachs.
+    # Size 1:  Uses individual levels.  As there are not enough locations in the game for this distribution,
+    # this will result in a greatly reduced total level, and is likely to remove many other items.
+    vanilla: 0
+    smooth: 50
+    size_70: 0
+    size_35: 0
+    size_14: 0
+    size_10: 0
+    size_7: 0
+    size_5: 0
+    size_2: 0
+    size_1: 0
+
+  kerrigan_total_level_cap:
+    # Limits how many total levels Kerrigan can gain from any source.  Depending on your other settings,
+    # there may be more levels available in the world, but they will not affect Kerrigan.
+    # Set to -1 to disable this limit.
+    #
+    # NOTE: The following missions have these level requirements:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # See Grant Story Levels for more details.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is -1
+    # Maximum value is 140
+    -1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  start_primary_abilities:
+    # Number of Primary Abilities (Kerrigan Tier 1, 2, and 4) to start the game with.
+    # If set to 4, a Tier 7 ability is also included.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  kerrigan_primal_status:
+    # Determines when Kerrigan appears in her Primal Zerg form.
+    # This greatly increases her energy regeneration.
+    #
+    # Vanilla:  Kerrigan is human in missions that canonically appear before The Crucible,
+    # and zerg thereafter.
+    # Always Zerg:  Kerrigan is always zerg.
+    # Always Human:  Kerrigan is always human.
+    # Level 35:  Kerrigan is human until reaching level 35, and zerg thereafter.
+    # Half Completion:  Kerrigan is human until half of the missions in the world are completed,
+    # and zerg thereafter.
+    # Item:  Kerrigan's Primal Form is an item. She is human until it is found, and zerg thereafter.
+    vanilla: 50
+    always_zerg: 0
+    always_human: 0
+    level_35: 0
+    half_completion: 0
+    item: 0
+
+  spear_of_adun_presence:
+    # Determines in which missions Spear of Adun calldowns will be available.
+    # Affects only abilities used from Spear of Adun top menu.
+    #
+    # Not Present: Spear of Adun calldowns are unavailable.
+    # LotV Protoss: Spear of Adun calldowns are only available in LotV main campaign
+    # Protoss: Spear od Adun calldowns are available in any Protoss mission
+    # Everywhere: Spear od Adun calldowns are available in any mission of any race
+    not_present: 0
+    lotv_protoss: 50
+    protoss: 0
+    everywhere: 0
+
+  spear_of_adun_present_in_no_build:
+    # Determines if Spear of Adun calldowns are available in no-build missions.
+    #
+    # If turned on, Spear of Adun calldown powers are available in missions specified under "Spear of Adun Presence".
+    # If turned off, Spear of Adun calldown powers are unavailable in all no-build missions
+    false: 50
+    true: 0
+
+  spear_of_adun_autonomously_cast_ability_presence:
+    # Determines availability of Spear of Adun powers, that are autonomously cast.
+    # Affects abilities like Reconstruction Beam or Overwatch
+    #
+    # Not Presents: Autocasts are not available.
+    # LotV Protoss: Spear of Adun autocasts are only available in LotV main campaign
+    # Protoss: Spear od Adun autocasts are available in any Protoss mission
+    # Everywhere: Spear od Adun autocasts are available in any mission of any race
+    not_present: 0
+    lotv_protoss: 50
+    protoss: 0
+    everywhere: 0
+
+  spear_of_adun_autonomously_cast_present_in_no_build:
+    # Determines if Spear of Adun autocasts are available in no-build missions.
+    #
+    # If turned on, Spear of Adun autocasts are available in missions specified under "Spear of Adun Autonomously Cast Powers Presence".
+    # If turned off, Spear of Adun autocasts are unavailable in all no-build missions
+    false: 50
+    true: 0
+
+  grant_story_tech:
+    # If set true, grants special tech required for story mission completion for duration of the mission.
+    # Otherwise, you need to find these tech by a normal means as items.
+    # Affects story missions like Back in the Saddle and Supreme
+    #
+    # Locked to true if Required Tactics is set to no logic.
+    false: 50
+    true: 0
+
+  grant_story_levels:
+    # If enabled, grants Kerrigan the required minimum levels for the following missions:
+    # Supreme: 35
+    # The Infinite Cycle: 70
+    # The bonus levels only apply during the listed missions, and can exceed the Total Level Cap.
+    #
+    # If disabled, either of these missions is included, and there are not enough levels in the world, generation may fail.
+    # To prevent this, either increase the amount of levels in the world, or enable this option.
+    #
+    # If disabled and Required Tactics is set to no logic, this option is forced to Minimum.
+    #
+    # Disabled: Kerrigan does not get bonus levels for these missions,
+    #           instead the levels must be gained from items or beating missions.
+    # Additive: Kerrigan gains bonus levels equal to the mission's required level.
+    # Minimum: Kerrigan is either at her real level, or at the mission's required level,
+    #          depending on which is higher.
+    disabled: 0
+    additive: 0
+    minimum: 50
+
+  take_over_ai_allies:
+    # On maps supporting this feature allows you to take control over an AI Ally.
+    false: 50
+    true: 0
 
   locked_items:
     # Guarantees that these items will be unlockable
@@ -12737,8 +13642,24 @@ Starcraft 2 Wings of Liberty:
     # It may be impossible to build a valid campaign if too many missions are excluded.
     []
 
+  exclude_very_hard_missions:
+    # Excludes Very Hard missions outside of Epilogue campaign (All-In, Salvation, and all Epilogue missions are considered Very Hard).
+    # Doesn't apply to "Vanilla" mission order.
+    #
+    # Default: Not excluded for mission orders "Vanilla Shuffled" or "Grid" with Maximum Campaign Size >= 20,
+    #          excluded for any other order
+    # Yes: Non-Epilogue Very Hard missions are excluded and won't be generated
+    # No: Non-Epilogue Very Hard missions can appear normally. Not recommended for too short mission orders.
+    #
+    # See also: Excluded Missions, Enable Epilogue Missions, Maximum Campaign Size
+    default: 50
+    true: 0
+    false: 0
+
   nco_items:
     # If turned on, the equipment upgrades from Nova Covert Ops may be present in the world.
+    #
+    # If Nova Covert Ops campaign is enabled, this option is locked to be turned on.
     false: 0
     true: 50
 
@@ -12752,66 +13673,102 @@ Starcraft 2 Wings of Liberty:
     false: 0
     true: 50
 
-  mission_progress_locations:
-    # Enables or disables item rewards for progressing (not finishing) a mission.
-    # Progressing a mission is usually a task of completing or progressing into a main objective.
-    # Clearing an expansion base also counts here.
+  vanilla_locations:
+    # Enables or disables item rewards for completing vanilla objectives.
+    # Vanilla objectives are bonus objectives from the vanilla game,
+    # along with some additional objectives to balance the missions.
+    # Enable these locations for a balanced experience.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
 
-  bonus_locations:
-    # Enables or disables item rewards for completing bonus tasks.
-    # Bonus tasks are those giving you a campaign-wide or mission-wide bonus in vanilla game:
-    # Research, credits, bonus units or resources, etc.
+  extra_locations:
+    # Enables or disables item rewards for mission progress and minor objectives.
+    # This includes mandatory mission objectives,
+    # collecting reinforcements and resource pickups,
+    # destroying structures, and overcoming minor challenges.
+    # Enables these locations to add more checks and items to your world.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
 
   challenge_locations:
     # Enables or disables item rewards for completing challenge tasks.
-    # Challenges are tasks that have usually higher requirements to be completed
-    # than to complete the mission they're in successfully.
-    # You might be required to visit the same mission later when getting stronger in order to finish these tasks.
+    # Challenges are tasks that are more difficult than completing the mission, and are often based on achievements.
+    # You might be required to visit the same mission later after getting stronger in order to finish these tasks.
+    # Enable these locations to increase the difficulty of completing the multiworld.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
 
-  optional_boss_locations:
-    # Enables or disables item rewards for defeating optional bosses.
-    # An optional boss is any boss that's not required to kill in order to finish the mission successfully.
-    # All Brutalisks, Loki, etc. belongs here.
+  mastery_locations:
+    # Enables or disables item rewards for overcoming especially difficult challenges.
+    # These challenges are often based on Mastery achievements and Feats of Strength.
+    # Enable these locations to add the most difficult checks to the world.
     #
     # Enabled: All locations fitting into this do their normal rewards
-    # Trash: Forces a trash item in
-    # Nothing: No rewards for this type of tasks, effectively disabling such locations
+    # Resources: Forces these locations to contain Starting Resources
+    # Disabled: Removes item rewards from these locations.
     #
     # Note: Individual locations subject to plando are always enabled, so the plando can be placed properly.
     # See also: Excluded Locations, Item Plando (https://archipelago.gg/tutorial/Archipelago/plando/en#item-plando)
     enabled: 50
-    trash: 0
-    nothing: 0
+    resources: 0
+    disabled: 0
+
+  minerals_per_item:
+    # Configures how many minerals are given per resource item.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 500
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  vespene_per_item:
+    # Configures how much vespene gas is given per resource item.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 500
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  starting_supply_per_item:
+    # Configures how much starting supply per is given per item.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 200
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
 Stardew Valley:
   progression_balancing:
@@ -12870,16 +13827,23 @@ Stardew Valley:
     []
 
   goal:
-    # What's your goal with this play-through?
-    # Community Center: Complete the Community Center.
-    # Grandpa's Evaluation: Succeed grandpa's evaluation with 4 lit candles.
-    # Bottom of the Mines: Reach level 120 in the mineshaft.
-    # Cryptic Note: Complete the quest "Cryptic Note" where Mr Qi asks you to reach floor 100 in the Skull Cavern.
-    # Master Angler: Catch every fish in the game. Pairs well with Fishsanity.
-    # Complete Collection: Complete the museum by donating every possible item. Pairs well with Museumsanity.
-    # Full House: Get married and have two children. Pairs well with Friendsanity.
-    # Greatest Walnut Hunter: Find all 130 Golden Walnuts
-    # Perfection: Attain Perfection, based on the vanilla definition.
+    # Goal for this playthrough
+    # Community Center: Complete the Community Center
+    # Grandpa's Evaluation: 4 lit candles in Grandpa's evaluation
+    # Bottom of the Mines: Reach level 120 in the mines
+    # Cryptic Note: Complete the quest "Cryptic Note" (Skull Cavern Floor 100)
+    # Master Angler: Catch every fish. Adapts to Fishsanity
+    # Complete Collection: Complete the museum collection
+    # Full House: Get married and have 2 children
+    # Greatest Walnut Hunter: Find 130 Golden Walnuts
+    # Protector of the Valley: Complete the monster slayer goals. Adapts to Monstersanity
+    # Full Shipment: Ship every item. Adapts to Shipsanity
+    # Gourmet Chef: Cook every recipe. Adapts to Cooksanity
+    # Craft Master: Craft every item
+    # Legend: Earn 10 000 000g
+    # Mystery of the Stardrops: Find every stardrop
+    # Allsanity: Complete every check in your slot
+    # Perfection: Attain Perfection
     community_center: 50
     grandpa_evaluation: 0
     bottom_of_the_mines: 0
@@ -12888,7 +13852,25 @@ Stardew Valley:
     complete_collection: 0
     full_house: 0
     greatest_walnut_hunter: 0
+    protector_of_the_valley: 0
+    full_shipment: 0
+    gourmet_chef: 0
+    craft_master: 0
+    legend: 0
+    mystery_of_the_stardrops: 0
+    allsanity: 0
     perfection: 0
+
+  farm_type:
+    # What farm to play on?
+    standard: 0
+    riverland: 0
+    forest: 0
+    hill_top: 0
+    wilderness: 0
+    four_corners: 0
+    beach: 0
+    random: 50
 
   starting_money:
     # Amount of gold when arriving at the farm.
@@ -12927,28 +13909,36 @@ Stardew Valley:
     # What items are needed for the community center bundles?
     # Vanilla: Standard bundles from the vanilla game
     # Thematic: Every bundle will require random items compatible with their original theme
+    # Remixed: Picks bundles at random from thematic, vanilla remixed and new custom ones
     # Shuffled: Every bundle will require random items and follow no particular structure
     vanilla: 0
-    thematic: 50
+    thematic: 0
+    remixed: 50
     shuffled: 0
 
   bundle_price:
     # How many items are needed for the community center bundles?
+    # Minimum: Every bundle will require only one item
     # Very Cheap: Every bundle will require 2 items fewer than usual
     # Cheap: Every bundle will require 1 item fewer than usual
     # Normal: Every bundle will require the vanilla number of items
-    # Expensive: Every bundle will require 1 extra item when applicable
+    # Expensive: Every bundle will require 1 extra item
+    # Very Expensive: Every bundle will require 2 extra items
+    # Maximum: Every bundle will require many extra items
+    minimum: 0
     very_cheap: 0
     cheap: 0
     normal: 50
     expensive: 0
+    very_expensive: 0
+    maximum: 0
 
   entrance_randomization:
     # Should area entrances be randomized?
     # Disabled: No entrance randomization is done
     # Pelican Town: Only doors in the main town area are randomized with each other
     # Non Progression: Only entrances that are always available are randomized with each other
-    # Buildings: All Entrances that Allow you to enter a building are randomized with each other
+    # Buildings: All entrances that allow you to enter a building are randomized with each other
     # Chaos: Same as "Buildings", but the entrances get reshuffled every single day!
     disabled: 50
     pelican_town: 0
@@ -12971,7 +13961,7 @@ Stardew Valley:
     # Formerly named "Seed Shuffle"
     # Pierre now sells a random amount of seasonal seeds and Joja sells them without season requirements, but only in huge packs.
     # Disabled: All the seeds are unlocked from the start, there are no location checks for growing and harvesting crops
-    # Shuffled: Seeds are unlocked as archipelago items, for each seed there is a location check for growing and harvesting that crop
+    # Enabled: Seeds are unlocked as archipelago items, for each seed there is a location check for growing and harvesting that crop
     disabled: 0
     enabled: 50
 
@@ -12988,8 +13978,14 @@ Stardew Valley:
     # Shuffle the tool upgrades?
     # Vanilla: Clint will upgrade your tools with metal bars.
     # Progressive: You will randomly find Progressive Tool upgrades.
+    # Cheap: Tool Upgrades will cost 2/5th as much
+    # Very Cheap: Tool Upgrades will cost 1/5th as much
     vanilla: 0
     progressive: 50
+    vanilla_cheap: 0
+    vanilla_very_cheap: 0
+    progressive_cheap: 0
+    progressive_very_cheap: 0
 
   skill_progression:
     # Shuffle skill levels?
@@ -13003,10 +13999,14 @@ Stardew Valley:
     # Vanilla: You can buy each building normally.
     # Progressive: You will receive the buildings and will be able to build the first one of each type for free,
     #     once it is received. If you want more of the same building, it will cost the vanilla price.
-    # Progressive early shipping bin: Same as Progressive, but the shipping bin will be placed early in the multiworld.
+    # Cheap: Buildings will cost half as much
+    # Very Cheap: Buildings will cost 1/5th as much
     vanilla: 0
+    vanilla_cheap: 0
+    vanilla_very_cheap: 0
     progressive: 0
-    progressive_early_shipping_bin: 50
+    progressive_cheap: 50
+    progressive_very_cheap: 0
 
   festival_locations:
     # Shuffle Festival Activities?
@@ -13049,10 +14049,13 @@ Stardew Valley:
     board_only: 50
     board_qi: 0
 
-  help_wanted_locations:
-    # Include location checks for Help Wanted quests
-    # Out of every 7 quests, 4 will be item deliveries, and then 1 of each for: Fishing, Gathering and Slaying Monsters.
-    # Choosing a multiple of 7 is recommended.
+  quest_locations:
+    # Include location checks for quests
+    # None: No quests are checks
+    # Story: Only story quests are checks
+    # Number: Story quests and help wanted quests are checks up to the specified amount. Multiple of 7 recommended
+    # Out of every 7 help wanted quests, 4 will be item deliveries, and then 1 of each for: Fishing, Gathering and Slaying Monsters.
+    # Extra Help wanted quests might be added if current settings don't have enough locations
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
@@ -13060,7 +14063,8 @@ Stardew Valley:
     random: 0
     random-low: 0
     random-high: 0
-    none: 0 # equivalent to 0
+    none: 0 # equivalent to -1
+    story: 0 # equivalent to 0
     minimum: 50 # equivalent to 7
     normal: 0 # equivalent to 14
     lots: 0 # equivalent to 28
@@ -13069,7 +14073,7 @@ Stardew Valley:
   fishsanity:
     # Locations for catching a fish the first time?
     # None: There are no locations for catching fish
-    # Legendaries: Each of the 5 legendary fish are checks
+    # Legendaries: Each of the 5 legendary fish are checks, plus the extended family if qi board is turned on
     # Special: A curated selection of strong fish are checks
     # Randomized: A random selection of fish are checks
     # All: Every single fish in the game is a location that contains an item. Pairs well with the Master Angler Goal
@@ -13094,6 +14098,79 @@ Stardew Valley:
     none: 0
     milestones: 50
     randomized: 0
+    all: 0
+
+  monstersanity:
+    # Locations for slaying monsters?
+    # None: There are no checks for slaying monsters
+    # One per category: Every category visible at the adventure guild gives one check
+    # One per Monster: Every unique monster gives one check
+    # Monster Eradication Goals: The Monster Eradication Goals each contain one check
+    # Short Monster Eradication Goals: The Monster Eradication Goals each contain one check, but are reduced by 60%
+    # Very Short Monster Eradication Goals: The Monster Eradication Goals each contain one check, but are reduced by 90%
+    # Progressive Eradication Goals: The Monster Eradication Goals each contain 5 checks, each 20% of the way
+    # Split Eradication Goals: The Monster Eradication Goals are split by monsters, each monster has one check
+    none: 0
+    one_per_category: 50
+    one_per_monster: 0
+    goals: 0
+    short_goals: 0
+    very_short_goals: 0
+    progressive_goals: 0
+    split_goals: 0
+
+  shipsanity:
+    # Locations for shipping items?
+    # None: There are no checks for shipping items
+    # Crops: Every crop and forageable being shipped is a check
+    # Fish: Every fish being shipped is a check except legendaries
+    # Full Shipment: Every item in the Collections page is a check
+    # Full Shipment With Fish: Every item in the Collections page and every fish is a check
+    # Everything: Every item in the game that can be shipped is a check
+    none: 50
+    crops: 0
+    fish: 0
+    full_shipment: 0
+    full_shipment_with_fish: 0
+    everything: 0
+
+  cooksanity:
+    # Locations for cooking food?
+    # None: There are no checks for cooking
+    # Queen of Sauce: Every Queen of Sauce Recipe can be cooked for a check
+    # All: Every cooking recipe can be cooked for a check
+    none: 50
+    queen_of_sauce: 0
+    all: 0
+
+  chefsanity:
+    # Locations for learning cooking recipes?
+    # Vanilla: All cooking recipes are learned normally
+    # Queen of Sauce: Every Queen of sauce episode is a check, all queen of sauce recipes are items
+    # Purchases: Every purchasable recipe is a check
+    # Friendship: Recipes obtained from friendship are checks
+    # Skills: Recipes obtained from skills are checks
+    # All: Learning every cooking recipe is a check
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 15
+    random: 0
+    random-low: 0
+    random-high: 0
+    none: 50 # equivalent to 0
+    queen_of_sauce: 0 # equivalent to 1
+    purchases: 0 # equivalent to 2
+    qos_and_purchases: 0 # equivalent to 3
+    skills: 0 # equivalent to 4
+    friendship: 0 # equivalent to 8
+    all: 0 # equivalent to 15
+
+  craftsanity:
+    # Checks for crafting items?
+    # If enabled, all recipes purchased in shops will be checks as well.
+    # Recipes obtained from other sources will depend on related archipelago settings
+    none: 50
     all: 0
 
   friendsanity:
@@ -13248,8 +14325,8 @@ Stardew Valley:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Subnautica:
   progression_balancing:
@@ -13375,13 +14452,31 @@ Subnautica:
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
     # Note: can be toggled via in-game console command "deathlink".
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   start_inventory_from_pool:
     # Start with these items and don't place them in the world.
     # The game decides what the replacement items will be.
     {}
+
+  filler_items_distribution:
+    # Random chance weights of various filler resources that can be obtained.
+    # Available items: "Copper Ore", "Crystalline Sulfur", "Diamond", "Gold", "Kyanite", "Lead", "Lithium", "Magnetite", "Nickel Ore", "Reactor Rod", "Ruby", "Salt Deposit", "Silver Ore", "Titanium"
+    Copper Ore: 1
+    Crystalline Sulfur: 1
+    Diamond: 1
+    Gold: 1
+    Kyanite: 1
+    Lead: 1
+    Lithium: 1
+    Magnetite: 1
+    Nickel Ore: 1
+    Reactor Rod: 1
+    Ruby: 1
+    Salt Deposit: 1
+    Silver Ore: 1
+    Titanium: 1
 
 Super Mario 64:
   progression_balancing:
@@ -13439,25 +14534,77 @@ Super Mario 64:
     # Share part of your item pool with other players.
     []
 
-  AreaRandomizer:
+  area_rando:
     # Randomize Entrances
     off: 50
     courses_only: 0
     courses_and_secrets_separate: 0
     courses_and_secrets: 0
 
-  ProgressiveKeys:
-    # Keys will first grant you access to the Basement, then to the Secound Floor
+  buddy_checks:
+    # Bob-omb Buddies are checks, Cannon Unlocks are items
+    false: 50
+    true: 0
+
+  exclamation_boxes:
+    # Include 1Up Exclamation Boxes during randomization.
+    # Adds 29 locations to the pool.
+    off: 50
+    1ups_only: 0
+
+  progressive_keys:
+    # Keys will first grant you access to the Basement, then to the Second Floor
     false: 0
     true: 50
 
-  EnableCoinStars:
-    # Disable to Ignore 100 Coin Stars. You can still collect them, but they don't do anything
+  enable_coin_stars:
+    # Disable to Ignore 100 Coin Stars. You can still collect them, but they don't do anything.
+    # Removes 15 locations from the pool.
     false: 0
     true: 50
 
-  AmountOfStars:
-    # How many stars exist. Disabling 100 Coin Stars removes 15 from the Pool. At least max of any Cost set
+  enable_move_rando:
+    # Mario is unable to perform some actions until a corresponding item is picked up.
+    # This option is incompatible with builds using a 'nomoverando' branch.
+    # Specific actions to randomize can be specified in the YAML.
+    false: 50
+    true: 0
+
+  move_rando_actions:
+    # Which actions to randomize when Move Randomizer is enabled
+    [
+      "Triple Jump",
+      "Long Jump",
+      "Backflip",
+      "Side Flip",
+      "Wall Kick",
+      "Dive",
+      "Ground Pound",
+      "Kick",
+      "Climb",
+      "Ledge Grab",
+    ]
+
+  strict_cap_requirements:
+    # If disabled, Stars that expect special caps may have to be acquired without the caps
+    false: 0
+    true: 50
+
+  strict_cannon_requirements:
+    # If disabled, Stars that expect cannons may have to be acquired without them.
+    # Has no effect if Buddy Checks and Move Randomizer are disabled
+    false: 0
+    true: 50
+
+  strict_move_requirements:
+    # If disabled, Stars that expect certain moves may have to be acquired without them. Only makes a difference
+    # if Move Randomization is enabled
+    false: 0
+    true: 50
+
+  amount_of_stars:
+    # How many stars exist.
+    # If there aren't enough locations to hold the given total, the total will be reduced.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 35
@@ -13467,99 +14614,78 @@ Super Mario 64:
     random-low: 0
     random-high: 0
 
-  StrictCapRequirements:
-    # If disabled, Stars that expect special caps may have to be acquired without the caps
-    false: 0
-    true: 50
-
-  StrictCannonRequirements:
-    # If disabled, Stars that expect cannons may have to be acquired without them. Only makes a difference if Buddy
-    # Checks are enabled
-    false: 0
-    true: 50
-
-  FirstBowserStarDoorCost:
-    # How many stars are required at the Star Door to Bowser in the Dark World
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 50
-    8: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  BasementStarDoorCost:
-    # How many stars are required at the Star Door in the Basement
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 70
-    30: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  SecondFloorStarDoorCost:
-    # How many stars are required to access the third floor
-    #
-    # You can define additional values between the minimum and maximum values.
-    # Minimum value is 0
-    # Maximum value is 90
-    50: 50
-    random: 0
-    random-low: 0
-    random-high: 0
-
-  MIPS1Cost:
-    # How many stars are required to spawn MIPS the first time
+  first_bowser_star_door_cost:
+    # What percent of the total stars are required at the Star Door to Bowser in the Dark World
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 40
-    15: 50
+    7: 50
     random: 0
     random-low: 0
     random-high: 0
 
-  MIPS2Cost:
-    # How many stars are required to spawn MIPS the second time.
+  basement_star_door_cost:
+    # What percent of the total stars are required at the Star Door in the Basement
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
-    # Maximum value is 80
-    50: 50
+    # Maximum value is 50
+    25: 50
     random: 0
     random-low: 0
     random-high: 0
 
-  StarsToFinish:
-    # How many stars are required at the infinite stairs
+  second_floor_star_door_cost:
+    # What percent of the total stars are required to access the third floor
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
-    # Maximum value is 100
-    70: 50
+    # Maximum value is 70
+    42: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  mips1_cost:
+    # What percent of the total stars are required to spawn MIPS the first time
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 35
+    12: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  mips2_cost:
+    # What percent of the total stars are required to spawn MIPS the second time.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 70
+    42: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  stars_to_finish:
+    # What percent of the total stars are required at the infinite stairs
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 90
+    58: 50
     random: 0
     random-low: 0
     random-high: 0
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
-  BuddyChecks:
-    # Bob-omb Buddies are checks, Cannon Unlocks are items
-    false: 50
-    true: 0
-
-  ExclamationBoxes:
-    # Include 1Up Exclamation Boxes during randomization
-    off: 50
-    1ups_only: 0
-
-  CompletionType:
+  completion_type:
     # Set goal for game completion
     last_bowser_stage: 50
     all_bowser_stages: 0
@@ -13643,12 +14769,14 @@ Super Mario World:
     random-low: 0
     random-high: 0
 
-  number_of_yoshi_eggs:
-    # How many Yoshi Eggs are in the pool for Yoshi Egg Hunt
+  max_yoshi_egg_cap:
+    # Maximum possible number of Yoshi Eggs that will be in the item pool
+    # If fewer available locations exist in the pool than this number, the number of available locations will be used instead.
+    # Required Percentage of Yoshi Eggs will be calculated based off of that number.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
-    # Maximum value is 80
+    # Maximum value is 255
     50: 0
     random: 1
     random-low: 0
@@ -13669,6 +14797,32 @@ Super Mario World:
     # Whether collecting 5 Dragon Coins in each level will grant a check
     false: 0
     true: 1
+
+  moon_checks:
+    # Whether collecting a 3-Up Moon in a level will grant a check
+    false: 50
+    true: 0
+
+  hidden_1up_checks:
+    # Whether collecting a hidden 1-Up mushroom in a level will grant a check
+    # These checks are considered cryptic as there's no actual indicator that they're in their respective places
+    # Enable this option at your own risk
+    false: 50
+    true: 0
+
+  bonus_block_checks:
+    # Whether collecting a 1-Up mushroom from a Bonus Block in a level will grant a check
+    false: 50
+    true: 0
+
+  blocksanity:
+    # Whether hitting a block with an item or coin inside will grant a check
+    # Note that some blocks are excluded due to how the option and the game works!
+    # Exclusion list:
+    #   * Blocks in Top Secret Area & Front Door/Bowser Castle
+    #   * Blocks that are unreachable unless you glitch your way in
+    false: 50
+    true: 0
 
   bowser_castle_doors:
     # How the doors of Bowser's Castle behave
@@ -13728,7 +14882,19 @@ Super Mario World:
     # What messages to display in-game for items received
     none: 0
     all: 0
-    progression: 50
+    progression: 0
+    progression_minus_yoshi_eggs: 50
+
+  junk_fill_percentage:
+    # Replace a percentage of non-required Yoshi Eggs in the item pool with random junk items (only applicable on Yoshi Egg Hunt goal)
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
 
   trap_fill_percentage:
     # Replace a percentage of junk items in the item pool with random traps
@@ -13769,6 +14935,20 @@ Super Mario World:
     medium: 50
     high: 0
 
+  reverse_trap_weight:
+    # Likelihood of a receiving a trap which causes the controls to be reversed in the current level
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
+  thwimp_trap_weight:
+    # Likelihood of a receiving a trap which causes a Thwimp to spawn above the player
+    none: 0
+    low: 0
+    medium: 50
+    high: 0
+
   autosave:
     # Whether a save prompt will appear after every level
     false: 0
@@ -13783,8 +14963,8 @@ Super Mario World:
   overworld_speed:
     # How fast Mario moves on the overworld
     slow: 0
-    vanilla: 50
-    fast: 0
+    vanilla: 0
+    fast: 1
 
   music_shuffle:
     # Music shuffle type
@@ -13792,9 +14972,19 @@ Super Mario World:
     # Consistent: Each music track is consistently shuffled throughout the game
     # Full: Each individual level has a random music track
     # Singularity: The entire game uses one song for overworld and one song for levels
-    none: 50
+    none: 0
     consistent: 0
-    full: 0
+    full: 1
+    singularity: 0
+
+  sfx_shuffle:
+    # Shuffles almost every instance of sound effect playback
+    # Archipelago elements that play sound effects aren't randomized
+    # None: No SFX are shuffled
+    # Full: Each individual SFX call has a random SFX
+    # Singularity: The entire game uses one SFX for every SFX call
+    none: 0
+    full: 1
     singularity: 0
 
   mario_palette:
@@ -13808,20 +14998,23 @@ Super Mario World:
     dark: 1
     sponge: 1
 
-  foreground_palette_shuffle:
-    # Whether to shuffle level foreground palettes
-    false: 1
-    true: 1
-
-  background_palette_shuffle:
-    # Whether to shuffle level background palettes
-    false: 1
-    true: 1
+  level_palette_shuffle:
+    # Whether to shuffle level palettes
+    # Off: Do not shuffle palettes
+    # On Legacy: Uses only the palette sets from the original game
+    # On Curated: Uses custom, hand-crafted palette sets
+    off: 1
+    on_legacy: 1
+    on_curated: 1
 
   overworld_palette_shuffle:
     # Whether to shuffle overworld palettes
-    false: 1
-    true: 1
+    # Off: Do not shuffle palettes
+    # On Legacy: Uses only the palette sets from the original game
+    # On Curated: Uses custom, hand-crafted palette sets
+    off: 1
+    on_legacy: 1
+    on_curated: 1
 
   starting_life_count:
     # How many extra lives to start the game with
@@ -13969,8 +15162,8 @@ Super Metroid:
     # - Power Bomb (lower Norfair above fire flea room)
     # - Missile (Gravity Suit)
     # - Missile (green Maridia shinespark)
-    false: 0
-    true: 1
+    false: 50
+    true: 0
 
   strict_minors:
     # Instead of using the Minors proportions as probabilities, enforce a strict distribution to match the proportions
@@ -14205,7 +15398,7 @@ Super Metroid:
   custom_objective:
     # Use randomized custom objectives. You can choose which objectives are available for the randomizer to choose from. If enabled, the randomizer
     # will choose "Custom objective count" objectives from "Custom objective list". Otherwise, only objective is used. Default is disabled.
-    false: 1
+    false: 0
     true: 1
 
   custom_objective_list:
@@ -14340,8 +15533,8 @@ Terraria:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 The Legend of Zelda:
   progression_balancing:
@@ -14483,28 +15676,61 @@ The Messenger:
     # Share part of your item pool with other players.
     []
 
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 0
+    true: 1
+
   logic_level:
     # The level of logic to use when determining what locations in your world are accessible.
     #
-    # Normal: can require damage boosts, but otherwise approachable for someone who has beaten the game.
-    # Hard: has leashing, normal clips, time warps and turtle boosting in logic.
-    # OoB: places everything with the minimum amount of rules possible. Expect to do OoB. Not guaranteed completable.
+    # Normal: Can require damage boosts, but otherwise approachable for someone who has beaten the game.
+    # Hard: Expects more knowledge and tighter execution. Has leashing, normal clips and much tighter d-boosting in logic.
     normal: 50
     hard: 0
-    oob: 0
-
-  shuffle_seals:
-    # Whether power seal locations should be randomized.
-    false: 0
-    true: 50
 
   shuffle_shards:
     # Whether mega shards should be item locations.
     false: 50
     true: 0
 
+  limited_movement:
+    # Removes either rope dart or wingsuit from the itempool. Forces logic to at least hard and accessibility to minimal.
+    false: 50
+    true: 0
+
+  early_meditation:
+    # Guarantees meditation will be found early
+    false: 50
+    true: 0
+
+  available_portals:
+    # Number of portals that are available from the start. Autumn Hills, Howling Grotto, and Glacial Peak are always available. If portal outputs are not randomized, Searing Crags will also be available.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 3
+    # Maximum value is 6
+    6: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  shuffle_portals:
+    # Whether the portals lead to random places.
+    # Entering a portal from its vanilla area will always lead to HQ, and will unlock it if relevant.
+    # Supports plando.
+    #
+    # None: Portals will take you where they're supposed to.
+    # Shops: Portals can lead to any area except Music Box and Elemental Skylands, with each portal output guaranteed to not overlap with another portal's. Will only put you at a portal or a shop.
+    # Checkpoints: Like Shops except checkpoints without shops are also valid drop points.
+    # Anywhere: Like Checkpoints except it's possible for multiple portals to output to the same map.
+    none: 50
+    shops: 0
+    checkpoints: 0
+    anywhere: 0
+
   goal:
-    # Requirement to finish the game. Power Seal Hunt will force power seal locations to be shuffled.
+    # Requirement to finish the game. To win with the power seal hunt goal, you must enter the Music Box through the shop chest.
     open_music_box: 50
     power_seal_hunt: 0
 
@@ -14546,6 +15772,11 @@ The Messenger:
     random-low: 0
     random-high: 0
 
+  traps:
+    # Whether traps should be included in the itempool.
+    false: 50
+    true: 0
+
   shop_price:
     # Percentage modifier for shuffled item prices in shops
     #
@@ -14560,11 +15791,6 @@ The Messenger:
   shop_price_plan:
     # Plan specific prices on shop slots. Supports weighting
     {}
-
-  death_link:
-    # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
 
 The Witness:
   progression_balancing:
@@ -14623,14 +15849,16 @@ The Witness:
     []
 
   puzzle_randomization:
-    # Puzzles in this randomizer are randomly generated. This setting changes the difficulty/types of puzzles.
+    # Puzzles in this randomizer are randomly generated. This option changes the difficulty/types of puzzles.
     sigma_normal: 50
     sigma_expert: 0
     none: 0
 
   shuffle_symbols:
-    # You will need to unlock puzzle symbols as items to be able to solve the panels that contain those symbols.
-    # If you turn this off, there will be no progression items in the game unless you turn on door shuffle.
+    # If on, you will need to unlock puzzle symbols as items to be able to solve the panels that contain those symbols.
+    #
+    # Please note that there is no minimum set of progression items in this randomizer.
+    # If you turn this option off and don't turn on door shuffle or obelisk keys, there will be no progression items, which will disallow you from adding your yaml to a multiworld generation.
     false: 0
     true: 50
 
@@ -14645,41 +15873,40 @@ The Witness:
     mixed: 0
 
   door_groupings:
-    # If set to "none", there will be one key for every door, resulting in up to 120 keys being added to the item pool.
-    # If set to "regional", all doors in the same general region will open at once with a single key,
-    # reducing the amount of door items and complexity.
+    # If set to "none", there will be one key for each door, potentially resulting in upwards of 120 keys being added to the item pool.
+    # If set to "regional", all doors in the same general region will open at once with a single key, reducing the amount of door items and complexity.
     off: 50
     regional: 0
 
   shuffle_boat:
-    # If set, adds a "Boat" item to the item pool. Before receiving this item, you will not be able to use the boat.
+    # If on, adds a "Boat" item to the item pool. Before receiving this item, you will not be able to use the boat.
     false: 0
     true: 50
 
   shuffle_lasers:
     # If on, the 11 lasers are turned into items and will activate on their own upon receiving them.
-    # Note: There is a visual bug that can occur with the Desert Laser. It does not affect gameplay - The Laser can still
-    # be redirected as normal, for both applications of redirection.
-    false: 50
-    true: 0
+    off: 50
+    local: 0
+    anywhere: 0
 
   disable_non_randomized_puzzles:
     # Disables puzzles that cannot be randomized.
     # This includes many puzzles that heavily involve the environment, such as Shadows, Monastery or Orchard.
+    #
     # The lasers for those areas will activate as you solve optional puzzles, such as Discarded Panels.
-    # Additionally, the panels activating Monastery Laser and Jungle Popup Wall will be on from the start.
+    # Additionally, the panel activating the Jungle Popup Wall will be on from the start.
     false: 50
     true: 0
 
   shuffle_discarded_panels:
-    # Add Discarded Panels into the location pool.
-    # Solving certain Discarded Panels may still be necessary to beat the game, even if this is off - The main example
-    # of this being the alternate activation triggers in disable_non_randomized.
+    # Adds Discarded Panels into the location pool.
+    #
+    # Even if this is off, solving certain Discarded Panels may still be necessary to beat the game - The main example of this being the alternate activation triggers in "Disable non randomized puzzles".
     false: 50
     true: 0
 
   shuffle_vault_boxes:
-    # Add Vault Boxes to the location pool.
+    # Adds Vault Boxes to the location pool.
     false: 50
     true: 0
 
@@ -14687,56 +15914,63 @@ The Witness:
     # Add one Obelisk Key item per Obelisk, locking you out of solving any of the associated Environmental Puzzles.
     #
     # Does nothing if "Shuffle Environmental Puzzles" is set to "off".
-    false: 50
-    true: 0
+    false: 0
+    true: 50
 
   shuffle_EPs:
-    # Add Environmental/Obelisk Puzzles into the location pool.
-    # In "individual", every Environmental Puzzle sends an item.
-    # In "obelisk_sides", completing every puzzle on one side of an Obelisk sends an item.
-    # Note: In Obelisk Sides, any EPs excluded through another setting will be counted as pre-completed on their Obelisk.
+    # Adds Environmental/Obelisk Puzzles into the location pool.
+    # If set to "individual", every Environmental Puzzle sends an item.
+    # If set to "Obelisk Sides", completing every puzzle on one side of an Obelisk sends an item.
+    #
+    # Note: In Obelisk Sides, any EPs excluded through another option will be pre-completed on their Obelisk.
     off: 50
     individual: 0
     obelisk_sides: 0
 
   EP_difficulty:
     # When "Shuffle Environmental Puzzles" is on, this setting governs which EPs are eligible for the location pool.
-    # On "eclipse", every EP in the game is eligible, including the 1-hour-long "Theater Eclipse EP".
-    # On "tedious", Theater Eclipse EP is excluded from the location pool.
-    # On "normal", several other difficult or long EPs are excluded as well.
+    # If set to "eclipse", every EP in the game is eligible, including the 1-hour-long "Theater Eclipse EP".
+    # If set to "tedious", Theater Eclipse EP is excluded from the location pool.
+    # If set to "normal", several other difficult or long EPs are excluded as well.
     normal: 50
     tedious: 0
     eclipse: 0
 
   shuffle_postgame:
     # Adds locations into the pool that are guaranteed to become accessible after or at the same time as your goal.
-    # Use this if you don't play with release on victory. IMPORTANT NOTE: The possibility of your second
-    # "Progressive Dots" showing up in the Caves is ignored, they will still be considered "postgame" in base settings.
+    # Use this if you don't play with release on victory.
     false: 50
     true: 0
 
   victory_condition:
-    # Change the victory condition from the original game's ending (elevator) to beating the Challenge
-    # or solving the mountaintop box, either using the short solution
-    # (7 lasers or whatever you've changed it to) or the long solution (11 lasers or whatever you've changed it to).
+    # Set the victory condition for this world.
+    # Elevator: Start the elevator at the bottom of the mountain (requires Mountain Lasers).
+    # Challenge: Beat the secret Challenge (requires Challenge Lasers).
+    # Mountain Box Short: Input the short solution to the Mountaintop Box (requires Mountain Lasers).
+    # Mountain Box Long: Input the long solution to the Mountaintop Box (requires Challenge Lasers).
+    #
+    # It is important to note that while the Mountain Box requires Desert Laser to be redirected in Town for that laser
+    # to count, the laser locks on the Elevator and Challenge Timer panels do not.
     elevator: 50
     challenge: 0
     mountain_box_short: 0
     mountain_box_long: 0
 
   mountain_lasers:
-    # Sets the amount of beams required to enter the final area.
+    # Sets the number of lasers required to enter the Mountain.
+    # If set to a higher number than 7, the mountaintop box will be slightly rotated to make it possible to solve without the hatch being opened.
+    # This change will also be applied logically to the long solution ("Challenge Lasers" option).
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
-    # Maximum value is 7
+    # Maximum value is 11
     7: 0
     random: 1
     random-low: 0
     random-high: 0
 
   challenge_lasers:
-    # Sets the amount of beams required to enter the Caves through the Mountain Bottom Floor Discard.
+    # Sets the number of lasers required to enter the Caves through the Mountain Bottom Floor Discard and to unlock the Challenge Timer Panel.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 1
@@ -14747,17 +15981,16 @@ The Witness:
     random-high: 0
 
   early_caves:
-    # Adds an item that opens the Caves Shortcuts to Swamp and Mountain,
-    # allowing early access to the Caves even if you are not playing a remote Door Shuffle mode.
-    # You can either add this item to the pool to be found on one of your randomized checks,
-    # or you can outright start with it and have immediate access to the Caves.
-    # If you choose "add_to_pool" and you are already playing a remote Door Shuffle mode, this setting will do nothing.
+    # Adds an item that opens the Caves Shortcuts to Swamp and Mountain, allowing early access to the Caves even if you are not playing a remote Door Shuffle mode.
+    # You can either add this item to the pool to be found in the multiworld, or you can outright start with it and have immediate access to the Caves.
+    #
+    # If you choose "Add To Pool" and you are already playing a remote Door Shuffle mode, this option will do nothing.
     off: 50
     add_to_pool: 0
     starting_inventory: 0
 
   elevators_come_to_you:
-    # If true, the Quarry Elevator, Bunker Elevator and Swamp Long Bridge will "come to you" if you approach them.
+    # If on, the Quarry Elevator, Bunker Elevator and Swamp Long Bridge will "come to you" if you approach them.
     # This does actually affect logic as it allows unintended backwards / early access into these areas.
     false: 50
     true: 0
@@ -14782,8 +16015,7 @@ The Witness:
     Slowness: 6
 
   puzzle_skip_amount:
-    # Adds this number of Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
-    # Works on most panels in the game - The only big exception is The Challenge.
+    # Adds this many Puzzle Skips into the pool, if there is room. Puzzle Skips let you skip one panel.
     #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
@@ -14800,7 +16032,7 @@ The Witness:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 49
-    10: 50
+    12: 50
     random: 0
     random-low: 0
     random-high: 0
@@ -14826,8 +16058,8 @@ The Witness:
     true: 0
 
   death_link:
-    # If on: Whenever you fail a puzzle (with some exceptions), everyone who is also on Death Link dies.
-    # The effect of a "death" in The Witness is a Power Surge.
+    # If on, whenever you fail a puzzle (with some exceptions), you and everyone who is also on Death Link dies.
+    # The effect of a "death" in The Witness is a Bonk Trap.
     false: 0
     true: 1
 
@@ -15243,8 +16475,8 @@ Timespinner:
 
   DeathLink:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 TUNIC:
   progression_balancing:
@@ -15601,17 +16833,17 @@ VVVVVV:
     # Share part of your item pool with other players.
     []
 
-  MusicRandomizer:
+  music_rando:
     # Randomize Music
     false: 50
     true: 0
 
-  AreaRandomizer:
+  area_rando:
     # Randomize Entrances to Areas
     false: 50
     true: 0
 
-  DoorCost:
+  door_cost:
     # Amount of Trinkets required to enter Areas. Set to 0 to disable artificial locks.
     #
     # You can define additional values between the minimum and maximum values.
@@ -15622,17 +16854,17 @@ VVVVVV:
     random-low: 0
     random-high: 0
 
-  AreaCostRandomizer:
+  area_cost:
     # Randomize which Area requires which set of DoorCost Trinkets
     false: 50
     true: 0
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
-  DeathLinkAmnesty:
+  death_link_amnesty:
     # Amount of Deaths to take before sending a DeathLink signal, for balancing difficulty
     #
     # You can define additional values between the minimum and maximum values.
@@ -15946,11 +17178,11 @@ Yoshi's Island:
 
   level_shuffle:
     # Disabled: All levels will appear in their normal location.
-    # Bosses Guranteed: All worlds will have a boss on -4 and -8.
+    # Bosses Guaranteed: All worlds will have a boss on -4 and -8.
     # Full: Worlds may have more than 2 or no bosses in them.
     # Regardless of the setting, 6-8 and Extra stages are not shuffled.
     disabled: 50
-    bosses_guranteed: 0
+    bosses_guaranteed: 0
     full: 0
 
   boss_shuffle:
@@ -16005,8 +17237,8 @@ Yoshi's Island:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
 Zillion:
   progression_balancing:
@@ -16256,6 +17488,11 @@ Zillion:
   skill:
     # the difficulty level of the game
     #
+    # higher skill:
+    # - can require more precise platforming movement
+    # - lowers your defense
+    # - gives you less time to escape at the end
+    #
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 5
@@ -16362,8 +17599,8 @@ Zork Grand Inquisitor:
 
   deathsanity:
     # If true, adds 16 player death locations to the world
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   grant_missable_location_checks:
     # If true, performing an irreversible action will grant the locations checks that would have become unobtainable as a
@@ -16385,7 +17622,7 @@ game:
   Lingo: 0
 
 requires:
-  version: 0.4.5
+  version: 0.4.6
 
 Bumper Stickers:
   progression_balancing:
@@ -16636,7 +17873,7 @@ Clique:
 
   color:
     # Customize your button! Now available in 12 unique colors.
-    red: 50
+    red: 0
     orange: 0
     yellow: 0
     green: 0
@@ -16648,6 +17885,7 @@ Clique:
     brown: 0
     white: 0
     black: 0
+    random: 1
 
   hard_mode:
     # Only for the most masochistically inclined... Requires button activation!
@@ -16758,14 +17996,52 @@ Lingo:
     false: 50
     true: 0
 
+  enable_pilgrimage:
+    # If on, you are required to complete a pilgrimage in order to access the Pilgrim Antechamber.
+    # If off, the pilgrimage will be deactivated, and the sun painting will be added to the pool, even if door shuffle is off.
+    false: 50
+    true: 0
+
+  pilgrimage_allows_roof_access:
+    # If on, you may use the Crossroads roof access during a pilgrimage (and you may be expected to do so).
+    # Otherwise, pilgrimage will be deactivated when going up the stairs.
+    false: 0
+    true: 50
+
+  pilgrimage_allows_paintings:
+    # If on, you may use paintings during a pilgrimage (and you may be expected to do so).
+    # Otherwise, pilgrimage will be deactivated when going through a painting.
+    false: 0
+    true: 50
+
+  sunwarp_access:
+    # Determines how access to sunwarps works.
+    # On "normal", all sunwarps are enabled from the start.
+    # On "disabled", all sunwarps are disabled. Pilgrimage must be disabled when this is used.
+    # On "unlock", sunwarps start off disabled, and all six activate once you receive an item.
+    # On "individual", sunwarps start off disabled, and each has a corresponding item that unlocks it.
+    # On "progressive", sunwarps start off disabled, and they unlock in order using a progressive item.
+    normal: 50
+    disabled: 0
+    unlock: 0
+    individual: 0
+    progressive: 0
+
+  shuffle_sunwarps:
+    # If on, the pairing and ordering of the sunwarps in the game will be randomized.
+    false: 50
+    true: 0
+
   victory_condition:
     # Change the victory condition.
     # On "the_end", the goal is to solve THE END at the top of the tower.
     # On "the_master", the goal is to solve THE MASTER at the top of the tower, after getting the number of achievements specified in the Mastery Achievements option.
     # On "level_2", the goal is to solve LEVEL 2 in the second room, after solving the number of panels specified in the Level 2 Requirement option.
+    # On "pilgrimage", the goal is to solve PILGRIM in the Pilgrim Antechamber, typically after performing a Pilgrimage.
     the_end: 50
     the_master: 0
     level_2: 0
+    pilgrimage: 0
 
   mastery_achievements:
     # The number of achievements required to unlock THE MASTER.
@@ -16832,8 +18108,8 @@ Lingo:
 
   death_link:
     # If on: Whenever another player on death link dies, you will be returned to the starting room.
-    false: 50
-    true: 0
+    false: 0
+    true: 1
 
   start_inventory_from_pool:
     # Start with these items and don't place them in the world.
