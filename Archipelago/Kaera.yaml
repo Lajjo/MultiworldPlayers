@@ -3,8 +3,8 @@ name: Kaera{NUMBER}
 game:
   ArchipIDLE: 0
   ChecksFinder: 0
-  A Link to the Past: 5
-  SMZ3: 20
+  A Link to the Past: 10
+  SMZ3: 1
   Hollow Knight: 0
 A Link to the Past:
   crystals_needed_for_gt:
@@ -141,16 +141,16 @@ Hollow Knight:
   RandomizeStags: 'true'
   RandomizeLifebloodCocoons: 'true'
   RandomizeGrimmkinFlames: 'false'
-  RandomizeJournalEntries: 'false'
-  RandomizeNail: 'false'
-  RandomizeGeoRocks: 'true'
+  RandomizeJournalEntries: 'true'
+  RandomizeNail: 'true'
+  RandomizeGeoRocks: 'false'
   RandomizeBossGeo: 'true'
   RandomizeSoulTotems: 'true'
   RandomizeLoreTablets: 'true'
-  PreciseMovement: 'false'
-  ProficientCombat: 'false'
-  BackgroundObjectPogos: 'false'
-  EnemyPogos: 'false'
+  PreciseMovement: 'true'
+  ProficientCombat: 'true'
+  BackgroundObjectPogos: 'true'
+  EnemyPogos: 'true'
   ObscureSkips: 'false'
   ShadeSkips: 'false'
   InfectionSkips: 'false'
