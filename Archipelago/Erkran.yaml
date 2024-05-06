@@ -33,9 +33,9 @@ description: Default Dark Souls III Template
 requires:
   version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
 game:
-  Dark Souls III: 1
+  Dark Souls III: 0
   Terraria: 0
-  Rogue Legacy: 0
+  Rogue Legacy: 1
 
 
 Dark Souls III:
@@ -53,22 +53,22 @@ Dark Souls III:
   enable_health_upgrade_locations: 'false'
   enable_progressive_locations: 'false'
   pool_type: shuffle
-  auto_equip: 'false'
+  auto_equip: 'true'
   lock_equip: 'false'
-  no_weapon_requirements: 'false'
+  no_weapon_requirements: 'true'
   randomize_infusion: 'false'
   randomize_infusion_percentage: 33
-  randomize_weapon_level: none
-  randomize_weapon_level_percentage: 33
-  min_levels_in_5: 1
+  randomize_weapon_level: all
+  randomize_weapon_level_percentage: 100
+  min_levels_in_5: 5
   max_levels_in_5: 5
-  min_levels_in_10: 1
+  min_levels_in_10: 10
   max_levels_in_10: 10
-  early_banner: off
+  early_banner: early_global
   late_basin_of_vows: 'false'
   late_dlc: 'false'
-  no_spell_requirements: 'false'
-  no_equip_load: 'false'
+  no_spell_requirements: 'true'
+  no_equip_load: 'true'
   death_link: 'false'
   enable_dlc: 'false'
 
@@ -94,12 +94,12 @@ Rogue Legacy:
   universal_fairy_chests: 'false'
   universal_chests: 'false'
   vendors: early
-  architect: anywhere
-  architect_fee: 40
+  architect: early
+  architect_fee: 10
   disable_charon: 'false'
   require_purchasing: 'true'
   progressive_blueprints: 'false'
-  gold_gain_multiplier: normal
+  gold_gain_multiplier: double
   number_of_children: 3
   free_diary_on_generation: 'true'
   khidr: vanilla
