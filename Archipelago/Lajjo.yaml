@@ -34,7 +34,7 @@ game: # Pick a game to play
   Pokemon Emerald: 0
   Pokemon Red and Blue: 0
   Raft: 0
-  Risk of Rain 2: 1
+  Risk of Rain 2: 0
   Rogue Legacy: 0
   Secret of Evermore: 0
   Shivers: 0
@@ -61,7 +61,7 @@ game: # Pick a game to play
   Zork Grand Inquisitor: 0
 
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 
 A Link to the Past:
   progression_balancing:
@@ -17622,7 +17622,7 @@ game:
   Lingo: 0
 
 requires:
-  version: 0.4.6
+  version: 0.5.0
 
 Bumper Stickers:
   progression_balancing:
