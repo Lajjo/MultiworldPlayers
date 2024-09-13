@@ -34,8 +34,8 @@ requires:
   version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 game:
   Dark Souls III: 0
-  Terraria: 0
-  Rogue Legacy: 1
+  Terraria: 1
+  Rogue Legacy: 0
 
 
 Dark Souls III:
