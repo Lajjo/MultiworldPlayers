@@ -211,7 +211,7 @@ Risk of Rain 2:
   total_revivals: 0
   start_with_revive: 'false'
   starting_inventory:
-  []
+    []
   item_pickup_step: 2
   death_link: 'true'
   enable_lunar: 'true'
