@@ -4,7 +4,7 @@ game:
   Hollow Knight: 0
   SMZ3: 1
   Super Metroid: 1
-  A Link to the Past: 1
+  A Link to the Past: 0
   The Messenger: 0
   The Witness: 0
 Super Metroid:
@@ -2043,7 +2043,7 @@ The Witness:
 name: Patah{NUMBER}
 description: Man måste ju vara redo för BK liksom
 game:
-  ChecksFinder: 1
+  ChecksFinder: 0
 ChecksFinder:
   progression_balancing: 50
   accessibility: items
