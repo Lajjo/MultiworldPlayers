@@ -34,7 +34,7 @@ game: # Pick a game to play
   Pokemon Emerald: 0
   Pokemon Red and Blue: 0
   Raft: 0
-  Risk of Rain 2: 0
+  Risk of Rain 2: 1
   Rogue Legacy: 0
   Secret of Evermore: 0
   Shivers: 0
@@ -11922,8 +11922,8 @@ Secret of Evermore:
 
   death_link:
     # When you die, everyone dies. Of course the reverse is true too.
-    false: 0
-    true: 1
+    false: 1
+    true: 0
 
   trap_count:
     # Replace some filler items with traps
