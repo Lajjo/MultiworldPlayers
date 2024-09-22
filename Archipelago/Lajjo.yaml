@@ -2,10 +2,13 @@ name: Lajjo Main # Your name in-game. Spaces will be replaced with underscores a
 description: Lajjo Main game - all inclusive # Used to describe your yaml. Useful if you have multiple files
 
 game: # Pick a game to play
+  A Hat in Time: 0
   A Link to the Past: 1
   A Short Hike: 0
   Adventure: 0
+  Aquaria: 0
   Blasphemous: 0
+  Bomb Rush Cyberfunk: 0
   Castlevania 64: 0
   Celeste 64: 0
   Dark Souls III: 0
@@ -24,6 +27,7 @@ game: # Pick a game to play
   Landstalker - The Treasures of King Nole: 0
   Links Awakening DX: 1
   Lufia II Ancient Cave: 0
+  Mario & Luigi Superstar Saga: 0
   MegaMan Battle Network 3: 0
   Meritous: 0
   Minecraft: 0
@@ -41,12 +45,13 @@ game: # Pick a game to play
   Slay the Spire: 0
   SMZ3: 1
   Sonic Adventure 2 Battle: 0
-  Starcraft 2 Wings of Liberty: 0
+  Starcraft 2: 0
   Stardew Valley: 0
   Subnautica: 0
   Super Mario 64: 0
   Super Mario World: 0
   Super Metroid: 1
+  Super Metroid Map Rando: 0
   Terraria: 0
   The Legend of Zelda: 0
   The Messenger: 0
@@ -57,11 +62,683 @@ game: # Pick a game to play
   VVVVVV: 0
   Wargroove: 0
   Yoshi's Island: 0
+  Yu-Gi-Oh! 2006: 0
   Zillion: 0
   Zork Grand Inquisitor: 0
 
 requires:
   version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+
+A Hat in Time:
+  # Game Options
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    #
+    # - **Locations:** ensure everything can be reached and acquired.
+    # - **Items:** ensure all logically relevant items can be acquired.
+    # - **Minimal:** ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    "false": 0
+    "true": 1
+
+  # General Options
+  EndGoal:
+    # The end goal required to beat the game.
+    # Finale: Reach Time's End and beat Mustache Girl. The Finale will be in its vanilla location.
+    #
+    # Rush Hour: Reach and complete Rush Hour. The level will be in its vanilla location and Chapter 7
+    # will be the final chapter. You also must find Nyakuza Metro itself and complete all of its levels.
+    # Requires DLC2 content to be enabled.
+    #
+    # Seal the Deal: Reach and complete the Seal the Deal death wish main objective.
+    # Requires Death Wish content to be enabled.
+    finale: 50
+    rush_hour: 0
+    seal_the_deal: 0
+
+  ShuffleAlpineZiplines:
+    # If enabled, Alpine's zipline paths leading to the peaks will be locked behind items.
+    "false": 50
+    "true": 0
+
+  LogicDifficulty:
+    # Choose the difficulty setting for logic.
+    # For an exhaustive list of all logic tricks for each difficulty, see this Google Doc:
+    # https://docs.google.com/document/d/1x9VLSQ5davfx1KGamR9T0mD5h69_lDXJ6H7Gq7knJRI/edit?usp=sharing
+    normal: 50
+    moderate: 0
+    hard: 0
+    expert: 0
+
+  ShuffleStorybookPages:
+    # If enabled, each storybook page in the purple Time Rifts is an item check.
+    # The Compass Badge can track these down for you.
+    "false": 0
+    "true": 50
+
+  ShuffleActContracts:
+    # If enabled, shuffle Snatcher's act contracts into the pool as items
+    "false": 0
+    "true": 50
+
+  ShuffleSubconPaintings:
+    # If enabled, shuffle items into the pool that unlock Subcon Forest fire spirit paintings.
+    # These items are progressive, with the order of Village-Swamp-Courtyard.
+    "false": 50
+    "true": 0
+
+  NoPaintingSkips:
+    # If enabled, prevent Subcon fire wall skips from being in logic on higher difficulty settings.
+    "false": 50
+    "true": 0
+
+  CTRLogic:
+    # Choose how you want to logically clear Cheating the Race.
+    time_stop_only: 50
+    scooter: 0
+    sprint: 0
+    nothing: 0
+
+  MinPonCost:
+    # The minimum number of Pons that any item in the Badge Seller's shop can cost.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 800
+    75: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MaxPonCost:
+    # The maximum number of Pons that any item in the Badge Seller's shop can cost.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 800
+    300: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  BadgeSellerMinItems:
+    # The smallest number of items that the Badge Seller can have for sale.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  BadgeSellerMaxItems:
+    # The largest number of items that the Badge Seller can have for sale.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Act Options
+
+  ActRandomizer:
+    # If enabled, shuffle the game's Acts between each other.
+    # Light will cause Time Rifts to only be shuffled amongst each other,
+    # and Blue Time Rifts and Purple Time Rifts to be shuffled separately.
+    "false": 0
+    light: 50
+    insanity: 0
+
+  ActPlando:
+    # Plando acts onto other acts. For example, "Train Rush": "Alpine Free Roam" will place Alpine Free Roam
+    # at Train Rush.
+    {}
+
+  ActBlacklist:
+    # Blacklist acts from being shuffled onto other acts. Multiple can be listed per act.
+    # For example, "Barrel Battle": ["The Big Parade", "Dead Bird Studio"]
+    # will prevent The Big Parade and Dead Bird Studio from being shuffled onto Barrel Battle.
+    {}
+
+  FinaleShuffle:
+    # If enabled, chapter finales will only be shuffled amongst each other in act shuffle.
+    "false": 50
+    "true": 0
+
+  StartingChapter:
+    # Determines which chapter you will be guaranteed to be able to enter at the beginning of the game.
+    "1": 50
+    "2": 0
+    "3": 0
+    "4": 0
+
+  LowestChapterCost:
+    # Value determining the lowest possible cost for a chapter.
+    # Chapter costs will, progressively, be calculated based on this value (except for the final chapter).
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  HighestChapterCost:
+    # Value determining the highest possible cost for a chapter.
+    # Chapter costs will, progressively, be calculated based on this value (except for the final chapter).
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 15
+    # Maximum value is 45
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ChapterCostIncrement:
+    # Lower values mean chapter costs increase slower. Higher values make the cost differences more steep.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 8
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ChapterCostMinDifference:
+    # The minimum difference between chapter costs.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 8
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  FinalChapterMinCost:
+    # Minimum Time Pieces required to enter the final chapter. This is part of your goal.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
+    30: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  FinalChapterMaxCost:
+    # Maximum Time Pieces required to enter the final chapter. This is part of your goal.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
+    35: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Item Options
+
+  YarnBalancePercent:
+    # How much (in percentage) of the yarn in the pool that will be progression balanced.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  TimePieceBalancePercent:
+    # How much (in percentage) of time pieces in the pool that will be progression balanced.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    35: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  RandomizeHatOrder:
+    # Randomize the order that hats are stitched in.
+    # Time Stop Last will force Time Stop to be the last hat in the sequence.
+    "false": 0
+    "true": 50
+    time_stop_last: 0
+
+  UmbrellaLogic:
+    # Makes Hat Kid's default punch attack do absolutely nothing, making the Umbrella much more relevant and useful
+    "false": 50
+    "true": 0
+
+  StartWithCompassBadge:
+    # If enabled, start with the Compass Badge. In Archipelago, the Compass Badge will track all items in the world
+    # (instead of just Relics). Recommended if you're not familiar with where item locations are.
+    "false": 0
+    "true": 50
+
+  CompassBadgeMode:
+    # closest - Compass Badge points to the closest item regardless of classification
+    # important_only - Compass Badge points to progression/useful items only
+    # important_first - Compass Badge points to progression/useful items first, then it will point to junk items
+    closest: 50
+    important_only: 0
+    important_first: 0
+
+  MaxExtraTimePieces:
+    # Maximum number of extra Time Pieces from the DLCs.
+    # Arctic Cruise will add up to 6. Nyakuza Metro will add up to 10. The absolute maximum is 56.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 16
+    16: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  YarnCostMin:
+    # The minimum possible yarn needed to stitch a hat.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 12
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  YarnCostMax:
+    # The maximum possible yarn needed to stitch a hat.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 12
+    8: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  YarnAvailable:
+    # How much yarn is available to collect in the item pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 30
+    # Maximum value is 80
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MinExtraYarn:
+    # The minimum number of extra yarn in the item pool.
+    # There must be at least this much more yarn over the total number of yarn needed to craft all hats.
+    # For example, if this option's value is 10, and the total yarn needed to craft all hats is 40,
+    # there must be at least 50 yarn in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 15
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  HatItems:
+    # Removes all yarn from the pool and turns the hats into individual items instead.
+    "false": 50
+    "true": 0
+
+  # Arctic Cruise Options
+
+  EnableDLC1:
+    # Shuffle content from The Arctic Cruise (Chapter 6) into the game. This also includes the Tour time rift.
+    # DO NOT ENABLE THIS OPTION IF YOU DO NOT HAVE SEAL THE DEAL DLC INSTALLED!!!
+    "false": 50
+    "true": 0
+
+  Tasksanity:
+    # If enabled, Ship Shape tasks will become checks. Requires DLC1 content to be enabled.
+    "false": 50
+    "true": 0
+
+  TasksanityTaskStep:
+    # How many tasks the player must complete in Tasksanity to send a check.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 3
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  TasksanityCheckCount:
+    # How many Tasksanity checks there will be in total.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 30
+    18: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ExcludeTour:
+    # Removes the Tour time rift from the game. This option is recommended if you don't want to deal with
+    # important levels being shuffled onto the Tour time rift, or important items being shuffled onto Tour pages
+    # when your goal is Time's End.
+    "false": 50
+    "true": 0
+
+  ShipShapeCustomTaskGoal:
+    # Change the number of tasks required to complete Ship Shape. If this option's value is 0, the number of tasks
+    # required will be TasksanityTaskStep x TasksanityCheckCount, if Tasksanity is enabled. If Tasksanity is disabled,
+    # it will use the game's default of 18.
+    # This option will not affect Cruisin' for a Bruisin'.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 90
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Nyakuza Metro Options
+  EnableDLC2:
+    # Shuffle content from Nyakuza Metro (Chapter 7) into the game.
+    # DO NOT ENABLE THIS OPTION IF YOU DO NOT HAVE NYAKUZA METRO DLC INSTALLED!!!
+    "false": 50
+    "true": 0
+
+  BaseballBat:
+    # Replace the Umbrella with the baseball bat from Nyakuza Metro.
+    # DLC2 content does not have to be shuffled for this option but Nyakuza Metro still needs to be installed.
+    "false": 50
+    "true": 0
+
+  MetroMinPonCost:
+    # The cheapest an item can be in any Nyakuza Metro shop. Includes ticket booths.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 800
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  MetroMaxPonCost:
+    # The most expensive an item can be in any Nyakuza Metro shop. Includes ticket booths.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 10
+    # Maximum value is 800
+    200: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  NyakuzaThugMinShopItems:
+    # The smallest number of items that the thugs in Nyakuza Metro can have for sale.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  NyakuzaThugMaxShopItems:
+    # The largest number of items that the thugs in Nyakuza Metro can have for sale.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  NoTicketSkips:
+    # Prevent metro gate skips from being in logic on higher difficulties.
+    # Rush Hour option will only consider the ticket skips for Rush Hour in logic.
+    "false": 50
+    "true": 0
+    rush_hour: 0
+
+  # Death Wish Options
+  EnableDeathWish:
+    # Shuffle Death Wish contracts into the game. Each contract by default will have 1 check granted upon completion.
+    # DO NOT ENABLE THIS OPTION IF YOU DO NOT HAVE SEAL THE DEAL DLC INSTALLED!!!
+    "false": 50
+
+    "true": 0
+
+  DWShuffle:
+    # An alternative mode for Death Wish where each contract is unlocked one by one, in a random order.
+    # Stamp requirements to unlock contracts is removed. Any excluded contracts will not be shuffled into the sequence.
+    # If Seal the Deal is the end goal, it will always be the last Death Wish in the sequence.
+    # Disabling candles is highly recommended.
+    "false": 50
+    "true": 0
+
+  DWShuffleCountMin:
+    # The minimum number of Death Wishes that can be in the Death Wish shuffle sequence.
+    # The final result is clamped at the number of non-excluded Death Wishes.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 38
+    18: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  DWShuffleCountMax:
+    # The maximum number of Death Wishes that can be in the Death Wish shuffle sequence.
+    # The final result is clamped at the number of non-excluded Death Wishes.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 5
+    # Maximum value is 38
+    25: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  DeathWishOnly:
+    # An alternative gameplay mode that allows you to exclusively play Death Wish in a seed.
+    # This has the following effects:
+    # - Death Wish is instantly unlocked from the start
+    # - All hats and other progression items are instantly given to you
+    # - Useful items such as Fast Hatter Badge will still be in the item pool instead of in your inventory at the start
+    # - All chapters and their levels are unlocked, act shuffle is forced off
+    # - Any checks other than Death Wish contracts are completely removed
+    # - All Pons in the item pool are replaced with Health Pons or random cosmetics
+    # - The EndGoal option is forced to complete Seal the Deal
+    "false": 50
+    "true": 0
+
+  DWEnableBonus:
+    # In Death Wish, add a location for completing all of a DW contract's bonuses,
+    # in addition to the location for completing the DW contract normally.
+    # WARNING!! Only for the brave! This option can create VERY DIFFICULT SEEDS!
+    # ONLY turn this on if you know what you are doing to yourself and everyone else in the multiworld!
+    # Using Peace and Tranquility to auto-complete the bonuses will NOT count!
+    "false": 50
+    "true": 0
+
+  DWAutoCompleteBonuses:
+    # If enabled, auto complete all bonus stamps after completing the main objective in a Death Wish.
+    # This option will have no effect if bonus checks (DWEnableBonus) are turned on.
+    "false": 0
+    "true": 50
+
+  DWExcludeAnnoyingContracts:
+    # Exclude Death Wish contracts from the pool that are particularly tedious or take a long time to reach/clear.
+    # Excluded Death Wishes are automatically completed as soon as they are unlocked.
+    # This option currently excludes the following contracts:
+    # - Vault Codes in the Wind
+    # - Boss Rush
+    # - Camera Tourist
+    # - The Mustache Gauntlet
+    # - Rift Collapse: Deep Sea
+    # - Cruisin' for a Bruisin'
+    # - Seal the Deal (non-excluded if goal, but the checks are still excluded)
+    "false": 0
+    "true": 50
+
+  DWExcludeAnnoyingBonuses:
+    # If Death Wish full completions are shuffled in, exclude tedious Death Wish full completions from the pool.
+    # Excluded bonus Death Wishes automatically reward their bonus stamps upon completion of the main objective.
+    # This option currently excludes the following bonuses:
+    # - So You're Back From Outer Space
+    # - Encore! Encore!
+    # - Snatcher's Hit List
+    # - 10 Seconds until Self-Destruct
+    # - Killing Two Birds
+    # - Zero Jumps
+    # - Bird Sanctuary
+    # - Wound-Up Windmill
+    # - Vault Codes in the Wind
+    # - Boss Rush
+    # - Camera Tourist
+    # - The Mustache Gauntlet
+    # - Rift Collapse: Deep Sea
+    # - Cruisin' for a Bruisin'
+    # - Seal the Deal
+    "false": 0
+    "true": 50
+
+  DWExcludeCandles:
+    # If enabled, exclude all candle Death Wishes.
+    "false": 0
+    "true": 50
+
+  DWTimePieceRequirement:
+    # How many Time Pieces that will be required to unlock Death Wish.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 35
+    15: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Trap Options
+  TrapChance:
+    # The chance for any junk item in the pool to be replaced by a trap.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+
+    random-high: 0
+
+  BabyTrapWeight:
+    # The weight of Baby Traps in the trap pool.
+    # Baby Traps place a multitude of the Conductor's grandkids into Hat Kid's hands, causing her to lose her balance.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  LaserTrapWeight:
+    # The weight of Laser Traps in the trap pool.
+    # Laser Traps will spawn multiple giant lasers (from Snatcher's boss fight) at Hat Kid's location.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ParadeTrapWeight:
+    # The weight of Parade Traps in the trap pool.
+    # Parade Traps will summon multiple Express Band owls with knives that chase Hat Kid by mimicking her movement.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
 
 A Link to the Past:
   progression_balancing:
@@ -1155,6 +1832,168 @@ Adventure:
     black: 0
     white: 0
 
+Aquaria:
+  # Game Options
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    #
+    # - **Locations:** ensure everything can be reached and acquired.
+    # - **Items:** ensure all logically relevant items can be acquired.
+    # - **Minimal:** ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  objective:
+    # The game objective can be to kill the creator or to kill the creator after obtaining all three secret memories.
+    kill_the_creator: 50
+    obtain_secrets_and_kill_the_creator: 0
+
+  mini_bosses_to_beat:
+    # The number of minibosses to beat before having access to the creator (the final boss). The minibosses are
+    # "Nautilus Prime", "Blaster Peg Prime", "Mergog", "Mithalan priests", "Octopus Prime", "Crabbius Maximus",
+    # "Mantis Shrimp Prime" and "King Jellyfish God Prime".
+    # Note that the Energy Statue and Simon Says are not minibosses.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 8
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  big_bosses_to_beat:
+    # The number of big bosses to beat before having access to the creator (the final boss). The big bosses are
+    # "Fallen God", "Mithalan God", "Drunian God", "Sun God" and "The Golem".
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  turtle_randomizer:
+    # Randomize the transportation turtle.
+    none: 0
+    all: 0
+    all_except_final: 50
+
+  early_energy_form:
+    # Force the Energy Form to be in a location early in the game
+    "false": 0
+    "true": 50
+
+  light_needed_to_get_to_dark_places:
+    # Make sure that the sun form or the dumbo pet can be acquired before getting to dark places.
+    # Be aware that navigating in dark places without light is extremely difficult.
+    "false": 0
+    "true": 50
+
+  bind_song_needed_to_get_under_rock_bulb:
+    # Make sure that the bind song can be acquired before having to obtain sing bulbs under rocks.
+    "false": 50
+    "true": 0
+
+  unconfine_home_water:
+    # Open the way out of the Home Water area so that Naija can go to open water and beyond without the bind song.
+    "off": 50
+    via_energy_door: 0
+    via_transturtle: 0
+    via_both: 0
+
+  no_progression_hard_or_hidden_locations:
+    # Make sure that there are no progression items at hard-to-reach or hard-to-find locations.
+    # Those locations are very High locations (that need beast form, soup and skill to get),
+    # every location in the bubble cave, locations where need you to cross a false wall without any indication,
+    # the Arnassi race, bosses and minibosses. Useful for those that want a more casual run.
+    "false": 50
+    "true": 0
+
+  ingredient_randomizer:
+    # Select if the simple ingredients (that do not have a recipe) should be randomized.
+    # If "Common Ingredients" is selected, the randomization will exclude the "Red Bulb", "Special Bulb" and "Rukh Egg".
+    "off": 50
+    common_ingredients: 0
+    all_ingredients: 0
+
+  dish_randomizer:
+    # Randomize the drop of Dishes (Ingredients with recipe).
+    "false": 50
+    "true": 0
+
+  aquarian_translation:
+    # Translate the Aquarian scripture in the game into English.
+    "false": 50
+    "true": 0
+
+  skip_first_vision:
+    # The first vision in the game, where Naija transforms into Energy Form and gets flooded by enemies, is quite cool but
+    # can be quite long when you already know what is going on. This option can be used to skip this vision.
+    "false": 50
+    "true": 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    "false": 0
+    "true": 1
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  start_inventory_from_pool:
+    # Start with these items and don't place them in the world.
+    #
+    # The game decides what the replacement items will be.
+    {}
+
 Blasphemous:
   progression_balancing:
     # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
@@ -1341,6 +2180,177 @@ Blasphemous:
     # Note that Guilt Fragments will not appear when killed by Death Link.
     false: 0
     true: 1
+
+Bomb Rush Cyberfunk:
+  # Game Options
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    #
+    # - **Locations:** ensure everything can be reached and acquired.
+    # - **Items:** ensure all logically relevant items can be acquired.
+    # - **Minimal:** ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  logic:
+    # Choose the logic used by the randomizer.
+    glitchless: 50
+    glitched: 0
+
+  skip_intro:
+    # Skips escaping the police station.
+    #
+    # Graffiti spots tagged during the intro will not unlock items.
+    "false": 0
+    "true": 50
+
+  skip_dreams:
+    # Skips the dream sequences at the end of each chapter.
+    #
+    # This can be changed later in the options menu inside the Archipelago phone app.
+    "false": 50
+    "true": 0
+
+  skip_statue_hands:
+    # Skips spraying the lion statue hands after the dream in Chapter 5.
+    "false": 50
+    "true": 0
+
+  total_rep:
+    # Change the total amount of REP in your world.
+    #
+    # At least 960 REP is needed to finish the game.
+    #
+    # Will be rounded to the nearest number divisible by 8.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1000
+    # Maximum value is 2000
+    1400: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  extra_rep_required:
+    # Changes the final boss to require 1000 REP instead of 960 REP to start.
+    "false": 50
+    "true": 0
+
+  starting_movestyle:
+    # Choose which movestyle to start with.
+    skateboard: 50
+    inline_skates: 0
+    bmx: 0
+
+  limited_graffiti:
+    # Each graffiti design can only be used a limited number of times before being removed from your inventory.
+    #
+    # In some cases, such as completing a dream, using graffiti to defeat enemies, or spraying over your own graffiti, uses will not be counted.
+    #
+    # If enabled, doing graffiti is disabled during crew battles, to prevent softlocking.
+    "false": 50
+    "true": 0
+
+  small_graffiti_uses:
+    # Choose if small graffiti should be separate, meaning that you will need to switch characters every time you run out, or combined, meaning that unlocking new characters will add 5 uses that any character can use.
+    #
+    # Has no effect if Limited Graffiti is disabled.
+    separate: 50
+    combined: 0
+
+  skip_polo_photos:
+    # Skip taking pictures of Polo for items.
+    "false": 50
+    "true": 0
+
+  dont_save_photos:
+    # Photos taken with the Camera app will not be saved.
+    #
+    # This can be changed later in the options menu inside the Archipelago phone app.
+    "false": 50
+    "true": 0
+
+  score_difficulty:
+    # Alters the score required to win score challenges and crew battles.
+    #
+    # This can be changed later in the options menu inside the Archipelago phone app.
+    normal: 50
+    medium: 0
+    hard: 0
+    very_hard: 0
+    extreme: 0
+
+  damage_multiplier:
+    # Multiplies all damage received.
+    #
+    # At 3x, most damage will OHKO the player, including falling into pits.
+    # At 6x, all damage will OHKO the player.
+    #
+    # This can be changed later in the options menu inside the Archipelago phone app.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 6
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  death_link:
+    # When you die, everyone dies. The reverse is also true.
+    #
+    # This can be changed later in the options menu inside the Archipelago phone app.
+    "false": 0
+    "true": 1
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
 
 Castlevania 64:
   progression_balancing:
@@ -6482,6 +7492,256 @@ Lufia II Ancient Cave:
     # Default value: false (same as in an unmodified game)
     false: 0
     true: 1
+
+Mario & Luigi Superstar Saga:
+  # Game Options
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    #
+    # - **Locations:** ensure everything can be reached and acquired.
+    # - **Items:** ensure all logically relevant items can be acquired.
+    # - **Minimal:** ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  coins:
+    # Add all coin blocks in the game to the location pool.
+    "false": 50
+    "true": 0
+
+  difficult_logic:
+    # This adjusts the logic to be more difficult in a few areas,
+    # allowing for the logic to account for players getting to certain areas in unintended ways.
+    # Enable at your own risk, this is not an option made for beginners.
+    "false": 50
+    "true": 0
+
+  castle_skip:
+    # Skip straight from the entrance hall to Bowletta in Bowser's Castle.
+    # All Bowser's Castle locations will be removed from the location pool.
+    "false": 50
+    "true": 0
+
+  extra_pipes:
+    # Gives the player access to pipes 1, 3, 4, and 6 from the start.
+    "false": 50
+    "true": 0
+
+  skip_minecart:
+    # Skip the minecart minigame that leads you through Hoohoo Mountain Base.
+    # This will remove the 1 location in the minecart cave from the location pool.
+    "false": 50
+    "true": 0
+
+  disable_surf:
+    # Remove the surf minigame location from the location pool.
+    "false": 50
+    "true": 0
+
+  harhalls_pants:
+    # This will remove the Harhall's Pants check from the pool.
+    "false": 50
+    "true": 0
+
+  block_visibility:
+    # This makes any hidden blocks in the game into regular item blocks and vice versa.
+    # Disabled: Hidden blocks will remain invisible.
+    # Hidden Visible: Hidden blocks will turn visible to the player.
+    # Blocks Invisible: All item blocks will turn invisible. Hidden blocks will also remain invisible.
+    disabled: 50
+    hidden_visible: 0
+    blocks_invisible: 0
+
+  chuckle_beans:
+    # Choose how you want chuckle bean digspots to be randomized.
+    # An amount of chuckle beans will be removed from the item pool,
+    # equal to the amount of locations removed by the setting that you choose.
+    # None: No chuckle bean digspots will be added into the location pool.
+    # Only Visible: Only chuckle bean digspots clearly marked with an X will be added into the location pool.
+    # All: All chuckle bean digspots will be added into the location pool.
+    none: 0
+    only_visible: 0
+    all: 50
+
+  music_options:
+    # Choose if you want to randomize or disable music.
+    # default: Music will be untouched.
+    # randomize: Music will be randomized.
+    # disable: All music will be disabled. No music will play throughout the entire game.
+    default: 50
+    randomize: 0
+    disable: 0
+
+  randomize_sounds:
+    # Randomizes every sound in the game, minus a select few that can softlock the game.
+    "false": 50
+    "true": 0
+
+  randomize_enemies:
+    # Randomize all normal enemy encounters in the game.
+    # If Bowser's castle skip is enabled, then enemies from Bowser's Castle will not be included.
+    # Disabled: Enemies will not be randomized.
+    # Vanilla Groups: Vanilla enemy groups will be shuffled with each other. Custom enemy groups will not be made.
+    # Custom Groups: Custom enemy groups will be made and shuffled. Some enemy groups will only be semi-random,
+    # including groups with flying enemies or pestnuts in them.
+    disabled: 50
+    vanilla_groups: 0
+    custom_groups: 0
+
+  randomize_bosses:
+    # Randomize all boss encounters in the game.
+    # If Bowser's castle skip is enabled then bosses from Bowser's Castle will not be included.
+    # Some bosses are not randomized due to flags, and story (such as the final boss).
+    # Boss Only: Bosses will only be swapped with another boss.
+    # Boss Normal: Bosses can be swapped with normal enemy encounters.
+    disabled: 50
+    boss_only: 0
+    boss_normal: 0
+
+  randomize_backgrounds:
+    # This randomizes the background image in battles.
+    "false": 50
+    "true": 0
+
+  scale_stats:
+    # This scales enemy HP, POW, DEF, and XP to vanilla values.
+    # This setting is intended for use with the Enemy Randomizer and is Recommended to turn on.
+    # If you are not using the Enemy Randomizer the effects will be minimal.
+    "false": 50
+    "true": 0
+
+  xp_multiplier:
+    # This will multiply any XP you receive in battle by the chosen multiplier.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  tattle_hp:
+    # This will display the enemies' current and max health while in battle.
+    "false": 50
+    "true": 0
+
+  mario_color:
+    # This changes the color of Mario's hat, as well as some key colors that are red including UI etc.
+    red: 50
+    green: 0
+    blue: 0
+    cyan: 0
+    yellow: 0
+    orange: 0
+    purple: 0
+    pink: 0
+    black: 0
+    white: 0
+    silhouette: 0
+    chaos: 0
+    true_chaos: 0
+
+  luigi_color:
+    # This changes the color of Luigi's hat, as well as some key colors that are green including UI etc.
+    red: 0
+    green: 50
+    blue: 0
+    cyan: 0
+    yellow: 0
+    orange: 0
+    purple: 0
+    pink: 0
+    black: 0
+    white: 0
+    silhouette: 0
+    chaos: 0
+    true_chaos: 0
+
+  mario_pants:
+    # This changes the color of Mario's trousers.
+    vanilla: 50
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    yellow: 0
+    orange: 0
+    purple: 0
+    pink: 0
+    black: 0
+    white: 0
+    chaos: 0
+
+  luigi_pants:
+    # This changes the color of Luigi's trousers.
+    vanilla: 50
+    red: 0
+    green: 0
+    blue: 0
+    cyan: 0
+    yellow: 0
+    orange: 0
+    purple: 0
+    pink: 0
+    black: 0
+    white: 0
+    chaos: 0
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  start_inventory_from_pool:
+    # Start with these items and don't place them in the world.
+    #
+    # The game decides what the replacement items will be.
+    {}
 
 MegaMan Battle Network 3:
   progression_balancing:
@@ -15451,6 +16711,548 @@ Super Metroid:
     false: 50
     true: 0
 
+Super Metroid Map Rando:
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # Locations: ensure everything can be reached and acquired.
+    # Items: ensure all logically relevant items can be acquired.
+    # Minimal: ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  remote_items:
+    # Indicates you get items sent from your own world. This allows coop play of a world.
+    false: 50
+    true: 0
+
+  death_link:
+    # When DeathLink is enabled and someone dies, you will die. With survive reserve tanks can save you.
+    disable: 0
+    enable: 1
+    enable_survive: 0
+
+  preset:
+    # Skill assumptions determine which tricks the randomizer assumes the player is able to perform.
+    # Use "Custom" to specify your own Techs, Strats, Leniencies and Boss Proficiencies.
+    easy: 0
+    medium: 0
+    hard: 50
+    veryhard: 0
+    expert: 0
+    insane: 0
+    custom: 0
+
+  techs:
+    # Custom list of techs used when Preset is set to Custom
+    []
+
+  strats:
+    # Custom list of strats used when Preset is set to Custom
+    []
+
+  shinespark_tiles:
+    # Smaller values assume ability to short-charge over shorter distances.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 14
+    # Maximum value is 32
+    26: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  resource_multiplier:
+    # Leniency factor on assumed energy & ammo usage, between 1 and 300
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 300
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  gate_glitch_leniency:
+    # Expected failed attempts to get a successful gate glitch
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    14: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  door_stuck_leniency:
+    # Expected failed attempts to get door stuck for X-ray climbing
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  escape_timer_multiplier:
+    # Leniency factor on escape timer, between 1 and 300
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 300
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  randomized_start:
+    # This setting determines where Samus begins the game:
+    #
+    # - Ship: Samus begins in Landing Site at the Ship.
+    # - Random: Samus begins in a random room somewhere on Zebes.
+    false: 0
+    true: 1
+
+  phantoon_proficiency:
+    # Skill level at the Phantoon fight, between 0 and 100
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  draygon_proficiency:
+    # Skill level at the Draygon fight, between 0 and 100
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ridley_proficiency:
+    # Skill level at the Ridley fight, between 0 and 100
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  botwoon_proficiency:
+    # Skill level at the Botwoon fight, between 0 and 100
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  save_animals:
+    # This setting affects whether saving the animals (Etecoons and Dachora) will be possible and/or required in the escape:
+    #
+    # - No: Saving the animals might not be possible to do.
+    # - Maybe: Extra escape time is given, making it possible but not required to save the animals.
+    # - Yes: Extra escape time is given, and the player is required to save the animals.
+    off: 50
+    maybe: 0
+    on: 0
+
+  early_save:
+    # This option ensures that a save station will be accessible early in the game,
+    # no later than during the second logical progression step. This has an effect
+    # only when using Random start location.
+    false: 50
+    true: 0
+
+  ultra_low_qol:
+    # This disables many quality-of-life changes that are normally built into the randomizer, including:
+    #
+    # - Faster cutscenes (e.g., involving Baby Metroid, Mother Brain, save & refill stations)
+    # - Refill stations giving Supers and Power Bombs in addition to Missiles
+    # - The auto-save before the escape sequence
+    # - Patching out major glitches: Spacetime beam, GT code, and out-of-bounds (death trigger)
+    # - Removal of item fanfares
+    # - Fast decompression (for quicker room loading)
+    # - Camera fix when entering Kraid's, Crocomire's, or Spore Spawn's room
+    # - Graphical fixes when exiting boss rooms
+    # - Graphical fix to Bomb Torizo statue crumble animation
+    #
+    # This setting also automatically disables all other quality-of-life options. For AP,
+    # enabling any quality-of-life option DOESNT causes this setting to be automatically disabled.
+    #
+    # This setting is not recommended for most players, but it is an option for those wanting the game to
+    # feel and behave as vanilla as possible. If enabled, expect to encounter a significant amount of graphical glitches.
+    #
+    # Note: If this setting is enabled, the logic will take into account that refill stations no longer give Supers and Power Bombs.
+    false: 50
+    true: 0
+
+  quality_of_life:
+    # These options help provide a smoother, more intuitive, and less tedious game experience.
+    # Players wanting a full experience of exploration may want to disable some of these options.
+    # Three presets are provided:
+    #
+    # - Off: All quality-of-life options are turned off. This is for players who want a full experience
+    #     of exploration, with a similar feel to the original game. This may involve a lot of wandering around and backtracking
+    #     to figure out where to go. Map stations are harder to find and provide minimal assistance as all item dots look the same.
+    # - Low: Many quality-of-life options are turned off, restoring some unintuitive but potentially
+    #     interesting vanilla game behavior: some items do not spawn until defeating Phantoon or waking the planet,
+    #     Acid Chozo statue requires Space Jump to use it, and completing the escape may require collecting certain items
+    #     and/or carefully managing energy in the Mother Brain fight. Map stations are somewhat less powerful because all ammo and
+    #     tank items appear as small dots the same as Missiles.
+    # - Default: Quality-of-life options are turned to their generally recommended settings (mostly on).
+    #     Map stations are very useful, with different item dot shapes to distinguish three tiers of items: Missiles, other
+    #     ammo/tank items, and unique items.
+    # - Max: All quality-of-life options are turned on to their highest settings. This includes
+    #     respin, lenient Space Jump, and momentum conservation to more easily control Samus, and an extra-fast Mother Brain fight
+    #     that completely skips the second and third phases.
+    # - Custom: Uses your specified quality of life options, defaulting to "Default" Quality-of-life values if not specified.
+    off: 0
+    low: 0
+    default: 50
+    max: 0
+    custom: 0
+
+  objectives:
+    # This setting determines the conditions needed to open the way to Mother Brain:
+    #
+    # - None: The way is already open from the start of the game.
+    # - Bosses: Defeat Kraid, Phantoon, Draygon, and Ridley.
+    # - Minibosses: Defeat Spore Spawn, Crocomire, Botwoon, and Golden Torizo.
+    # - Metroids: Defeat all the Metroids in the four Metroid rooms.
+    # - Chozos: Defeat Bomb Torizo and Golden Torizo, and activate Bowling Alley and Acid Chozo statues.
+    #   Note that Phantoon must be defeated before the Bowling Alley statue can be activated.
+    # - Pirates: Defeat the enemies in Pit Room, Baby Kraid Room, Plasma Room, and Metal Pirates Room.
+    #   Note that Morph and Missiles must be collected before the enemies spawn in Pit Room.
+    #
+    # In every case, the way to beat the game is to escape after defeating Mother Brain. Objective rooms are marked with X's on the map.
+    none: 0
+    bosses: 1
+    minibosses: 1
+    metroids: 1
+    chozos: 1
+    pirates: 1
+
+  doors_mode:
+    # This setting determines the types of non-gray doors that exist in the game:
+    #
+    # - Blue: All doors are blue, except for gray doors.
+    # - Ammo: Red, green, and yellow doors are randomly mixed in.
+    #
+    # Gray doors are unaffected by this setting and always exist in the same set of rooms: boss/miniboss
+    # rooms and the four Pirates rooms (Pit Room, Baby Kraid Room, Plasma Room, and Metal Pirates Room).
+    #
+    # For ammo doors, both sides of the door will have the same color and share a lock, so that unlocking
+    # one side of the door also unlocks the other.
+    blue: 2
+    ammo: 1
+
+  area_assignment:
+    # Each map is partitioned into six connected regions, which are assigned to in-game areas in different ways depending on this setting:
+    #
+    # - Standard: Landing Site is always in Crateria. The other areas are assigned based on their size (in number of map tiles),
+    #             in order from largest to smallest: Norfair, Brinstar, Maridia, Tourian, Wrecked Ship.
+    # - Randomized: The areas are assigned randomly. In particular, Landing Site can be in any area.
+    standard: 0
+    randomized: 1
+
+  supers_double:
+    # If enabled, Supers will deal double damage to Mother Brain, applying to all three phases of the fight.
+    # Given that the randomizer does not change the ammo distribution (there are only 50 Supers in the game),
+    # this option reduces the need for a long "ammo hunt" before fighting Mother Brain if the player has not found Charge Beam.
+    # This option can be set independently of the "Mother Brain fight" setting, though in case of a "Short" Mother Brain fight,
+    # its practical effect is minimal.
+    false: 0
+    true: 1
+
+  mother_brain:
+    # This option affects the length of the Mother Brain fight, affecting only phases 2 and 3:
+    #
+    # - Vanilla: The fight behaves as in the vanilla game. Some cutscenes are accelerated, but only in ways that
+    # should not interfere with how the player executes the fight (including the stand-up glitch).
+    # - Short: The fight ends immediately after Mother Brain finishes the first Rainbow Beam attack.
+    # - Skip: The fight is skipped entirely.
+    #
+    # With the "Short" and "Skip" options, Samus will not get an energy refill before the escape, as the cutscene is
+    # skipped where the refill would normally happen. However, Samus will always collect Hyper Beam.
+    vanilla: 0
+    short: 50
+    skip: 0
+
+  escape_enemies_cleared:
+    # If this option is enabled, enemies do not spawn during the escape.
+    #
+    # If this option is disabled, in many rooms enemies will cause heavy lag and visual glitches during the escape
+    # (much of which is vanilla game behavior but not normally observable in casual play).
+    #
+    # Note that regardless of whether or not this option is enabled, currently the randomizer opens up major
+    # barriers during the escape (though a future version of the randomizer might make these behaviors become
+    # part of the same option):
+    #
+    # - All bosses/minibosses are cleared.
+    # - Shaktool Room is cleared.
+    # - Acid Chozo Statue acid is drained.
+    # - Maridia Tube is broken.
+    false: 50
+    true: 0
+
+  escape_refill:
+    # If this option is enabled, then Samus' energy is refilled at the beginning of the escape sequence.
+    # This is mainly effective in combination with the "Short" Mother Brain option (which is the default),
+    # to compensate for not being refilled by the Baby Metroid.
+    #
+    # If this option is disabled, it is possible that the escape may require having collected Reserve Tanks
+    # and/or manipulating Mother Brain to end the fight with more energy (up to 340, by damaging down correctly
+    # and disabling suits).
+    false: 0
+    true: 1
+
+  escape_movement_items:
+    # If enabled, Samus will collect and equip all movement items when acquiring Hyper Beam:
+    #
+    # - Varia Suit
+    # - Gravity Suit
+    # - Morph Ball
+    # - Bombs
+    # - Spring Ball
+    # - Screw Attack
+    # - Hi-Jump Boots
+    # - Space Jump
+    # - Speed Booster
+    # - Grapple
+    # - X-Ray
+    #
+    # The escape timer is based on an assumption that the player has all these items available. By granting them
+    # with Hyper Beam, it avoids the possibility of the player needing to hunt for movement items in order to
+    # complete the escape fast enough.
+    #
+    # Note: Regardless of this setting, in this randomizer Hyper Beam always breaks bomb blocks, Super blocks,
+    # and Power Bomb blocks and can open blue/green gates from either side.
+    false: 50
+    true: 0
+
+  mark_map_stations:
+    # If enabled, the map station for the current area will always be visible as a special tile on the map even before
+    # you have reached it. This affects both the pause menu map and the HUD mini-map.
+    false: 0
+    true: 1
+
+  transition_letters:
+    # This option affects how transitions between areas are marked on the map:
+    #
+    # - Off: An arrow is used, showing the direction of the transition.
+    # - On: A letter is used, the first letter of the name of the neighboring area.
+    #
+    # In both cases, transitions markers (arrows or letters) are colored according to the neighboring area's color.
+    false: 0
+    true: 1
+
+  item_markers:
+    # This option affects the way that items are drawn on the map (pause menu map and HUD minimap). There are four choices:
+    #
+    # - Basic: All items are marked on the map with small dots.
+    # - Majors: Unique items, E-Tanks, and Reserve Tanks are marked with large solid dots; other items are marked with small dots.
+    # - Uniques: Unique items are marked with large solid dots; other items are marked with small dots.
+    # - 3Tiered: Unique items are marked with large solid dots; Supers, Power Bombs, E-Tanks, and Reserve
+    #   Tanks are marked with large hollow dots; Missiles are marked with small dots.
+    basic: 0
+    majors: 0
+    uniques: 0
+    3tiered: 1
+
+  item_dots_disappear:
+    # If enabled, this option makes item dots disappear on the map after item collection:
+    false: 0
+    true: 1
+
+  all_items_spawn:
+    # In the vanilla game, some items do not spawn until certain conditions are fulfilled:
+    #
+    # - Items in Wrecked Ship rooms (with the exception of the one item in Wrecked Ship Main Shaft) do not
+    #   spawn until after Phantoon is defeated, when the rooms change to appearing "powered on".
+    # - The item in the left side of Morph Ball Room and in The Final Missile do not spawn until the planet is
+    #   awakened.
+    # - The item in Pit Room does not spawn until entering with Morph and Missiles collected.
+    #
+    # These conditions are apparently unintended artifacts of how the game was coded and are not normally
+    # observable during casual play of the vanilla game. However, they can frequently be observed in the
+    # randomizer, which can be counter-intuitive for players. When this quality-of-life option is enabled, these
+    # items will spawn from the beginning of the game instead of requiring those conditions.
+    false: 0
+    true: 1
+
+  buffed_drops:
+    # If enabled, then certain enemy drops are improved:
+    #
+    # - Small energy drops give 10 energy.
+    # - Respawning enemies drop Power Bombs at double the normal rate.
+    false: 0
+    true: 1
+
+  acid_chozo:
+    # In the vanilla game, the statue in Acid Chozo Statue Room will not activate (to lower the acid)
+    # unless Space Jump has been collected. This option removes this requirement, allowing the statue
+    # to be activated without Space Jump.
+    false: 0
+    true: 1
+
+  fast_elevators:
+    # If enabled, Samus moves up and down elevators at a faster speed.
+    #
+    # This also has an effect of reducing the total heat damage taken while on elevators. For example, it
+    # makes it more likely to be able to survive an unexpected trip down the Lower Norfair Main Hall elevator, which takes
+    # 47 energy in each direction with this option enabled, compared to 109 energy with it disabled.
+    false: 0
+    true: 50
+
+  fast_doors:
+    # If enabled, this doubles the speed of aligning the camera and scrolling through the door. It does not affect
+    # the speed at which the game fades out to black or fades back in, so it should not disrupt the execution of
+    # strats across rooms.
+    false: 0
+    true: 50
+
+  fast_pause_menu:
+    # If enabled, this increases the speed and responsiveness of pause menu navigation:
+    #
+    # - It is no longer needed to hold L, R, or Start for 4 frames for these inputs to have their effect.
+    # - The fade-in and fade-out of the pause menu is faster.
+    # - Fade-in and fade-out are faster when switching between map and equipment screens with L & R.
+    # - Fade-in and fade-out are faster when switching between maps with Select.
+    # - Diagonal scrolling is enabled on the map screen.
+    # Changes are avoided that could meaningfully affect pause buffering strats or game behavior:
+    #
+    # - Fade-out of gameplay while pausing is unaffected.
+    # - Fade-in of gameplay while unpausing is unaffected.
+    false: 50
+    true: 0
+
+  respin:
+    # If enabled, you can press jump to make Samus spin while mid-air. For example, this can be used
+    # after having broken spin, or when falling or jumping without spin.
+    #
+    # Note: The randomizer logic does not take this setting into account. Therefore, even when it is enabled,
+    # the game will not require it to be used, and it may create sequence break opportunities.
+    false: 50
+    true: 0
+
+  infinite_space_jump:
+    # If enabled, Space Jump behaves in air the same as it does underwater, making it easier to use by widening
+    # the window of time to press jump.
+    #
+    # Note: The randomizer logic does not take this setting into account. Therefore, even when it is enabled,
+    # the game will not require it to be used, and it may create sequence break opportunities.
+    false: 50
+    true: 0
+
+  momentum_conservation:
+    # If enabled, Samus' horizontal momentum is conserved when landing from a spin jump while holding run and forward.
+    #
+    # Note: The randomizer logic does not take this setting into account. Therefore, even when it is enabled,
+    # the game will not require it to be used, and it may create sequence break opportunities.
+    false: 50
+    true: 0
+
+  wall_jump:
+    # This affects how the wall jump ability works in the game.
+    #
+    # - Vanilla: Wall jumping behaves like in the vanilla game.
+    # - Collectible: A special new "WallJump" item is added to the game (replacing one "Missile" pack),
+    #                 and wall jumping is only possible after collecting this item.
+    # - Disabled: The ability to wall jump is removed from the game.
+    #
+    # This setting is taken into account in the logic. Selections other than "Vanilla" may significantly increase
+    # the difficulty of the game, by requiring the player to know how to perform many tricks to avoid wall jumping
+    # (using frozen enemies, Speed Booster, Bombs, etc.), depending on the Skill Assumption settings.
+    #
+    # Regardless of this setting, it is always possible to get a wall-jump check (the pose that Samus makes when
+    # moving away from a nearby wall), even if pressing jump during the check will not trigger a wall jump.
+    vanilla: 0
+    collectible: 1
+    disabled: 0
+
+  etank_refill:
+    # This option affects the refill that E-Tanks give when collected:
+    #
+    # - Disabled: E-Tanks do not provide an energy refill.
+    # - Vanilla: E-Tanks behave as in the vanilla game, refilling regular energy but not reserve energy.
+    # - Full: E-Tanks also refill reserves, on top of regular energy.
+    disabled: 0
+    vanilla: 50
+    full: 0
+
+  maps_revealed:
+    # When enabled, all maps are fully revealed from the beginning of the game, without needing to activate the map stations.
+    false: 50
+    true: 0
+
+  map_layout:
+    # This setting affects how the rooms are arranged on the map:
+    #
+    #     - Vanilla: The rooms are arranged as they are in the vanilla game, i.e. there is no map randomization.
+    #     - Tame: The rooms are arranged in a random but relatively friendly way: one-ways tend to have short return paths that loop back around.
+    #     - Wild: The rooms are arranged in a more random and less friendly way: there will often be one-ways with only long return paths.
+    vanilla: 0
+    tame: 0
+    wild: 50
+
 Terraria:
   progression_balancing:
     # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
@@ -17239,6 +19041,232 @@ Yoshi's Island:
     # When you die, everyone dies. Of course the reverse is true too.
     false: 0
     true: 1
+
+Yu-Gi-Oh! 2006:
+  # Game Options
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    #
+    # - **Locations:** ensure everything can be reached and acquired.
+    # - **Items:** ensure all logically relevant items can be acquired.
+    # - **Minimal:** ensure what is needed to reach your goal can be acquired.
+    locations: 0
+    items: 50
+    minimal: 0
+
+  structure_deck:
+    # Which Structure Deck you start with
+    dragons_roar: 0
+    zombie_madness: 0
+    blazing_destruction: 0
+    fury_from_the_deep: 0
+    warriors_triumph: 0
+    spellcasters_judgement: 0
+    none: 0
+    random_deck: 50
+
+  banlist:
+    # Which Banlist you start with
+    no_banlist: 0
+    september_2003: 0
+    march_2004: 0
+    september_2004: 0
+    march_2005: 0
+    september_2005: 50
+
+  final_campaign_boss_unlock_condition:
+    # How to unlock the final campaign boss and goal for the world
+    campaign_opponents: 50
+    challenges: 0
+
+  fourth_tier_5_campaign_boss_unlock_condition:
+    # How to unlock the fourth campaign boss
+    campaign_opponents: 50
+    challenges: 0
+
+  third_tier_5_campaign_boss_unlock_condition:
+    # How to unlock the third campaign boss
+    campaign_opponents: 50
+    challenges: 0
+
+  final_campaign_boss_challenges:
+    # Number of Limited/Theme Duels completed for the Final Campaign Boss to appear
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 91
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  fourth_tier_5_campaign_boss_challenges:
+    # Number of Limited/Theme Duels completed for the Fourth Level 5 Campaign Opponent to appear
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 91
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  third_tier_5_campaign_boss_challenges:
+    # Number of Limited/Theme Duels completed for the Third Level 5 Campaign Opponent to appear
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 91
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  final_campaign_boss_campaign_opponents:
+    # Number of Campaign Opponents Duels defeated for the Final Campaign Boss to appear
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 24
+    12: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  fourth_tier_5_campaign_boss_campaign_opponents:
+    # Number of Campaign Opponents Duels defeated for the Fourth Level 5 Campaign Opponent to appear
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 23
+    7: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  third_tier_5_campaign_boss_campaign_opponents:
+    # Number of Campaign Opponents Duels defeated for the Third Level 5 Campaign Opponent to appear
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 22
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  number_of_challenges:
+    # Number of random Limited/Theme Duels that are included. The rest will be inaccessible.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 91
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  starting_money:
+    # The amount of money you start with
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100000
+    3000: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  money_reward_multiplier:
+    # By which amount the campaign reward money is multiplied
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 255
+    20: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  normalize_boosters_packs:
+    # If enabled every booster pack costs the same otherwise vanilla cost is used
+    "false": 0
+    "true": 50
+
+  booster_pack_prices:
+    # Only Works if normalize booster packs is enabled.
+    # Sets the amount that what every booster pack costs.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 3000
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  add_empty_banlist:
+    # Adds a Ban List where everything is at 3 to the item pool
+    "false": 50
+    "true": 0
+
+  campaign_opponents_shuffle:
+    # Replaces the campaign with random opponents from the entire game
+    "false": 50
+    "true": 0
+
+  ocg_arts:
+    # Always use the OCG artworks for cards
+    "false": 50
+    "true": 0
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
 
 Zillion:
   progression_balancing:
