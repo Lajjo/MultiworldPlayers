@@ -272,7 +272,7 @@ name: Bleng Secondary
 requires:
   version: 0.4.4 # Version of Archipelago required for this yaml to work as expected.
 game:
-  ChecksFinder: 1
+  ChecksFinder: 0
   ArchipIDLE: 0
   Slay the Spire: 0
 ArchipIDLE:

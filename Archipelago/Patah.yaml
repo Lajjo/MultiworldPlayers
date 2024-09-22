@@ -1,11 +1,11 @@
 name: Patah{NUMBER}
 description: Main game
 game:
-  Hollow Knight: 0
+  Hollow Knight: 1
   SMZ3: 1
-  Super Metroid: 1
+  Super Metroid: 0
   A Link to the Past: 0
-  The Messenger: 0
+  The Messenger: 1
   The Witness: 0
 Super Metroid:
   progression_balancing: 50
@@ -2037,13 +2037,5 @@ The Witness:
   death_link:
     # If on: Whenever you fail a puzzle (with some exceptions), everyone who is also on Death Link dies.
     # The effect of a "death" in The Witness is a Power Surge.
-    false: 0
-    true: 1
----
-name: Patah{NUMBER}
-description: Man måste ju vara redo för BK liksom
-game:
-  ChecksFinder: 0
-ChecksFinder:
-  progression_balancing: 50
-  accessibility: items
+    false: 1
+    true: 9
