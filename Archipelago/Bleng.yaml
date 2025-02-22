@@ -4,7 +4,7 @@ requires:
   version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
 game:
   Slay the Spire: 0
-  Dark Souls III: 0
+  Dark Souls III: 1
   Hollow Knight: 1
   Risk of Rain 2: 0
   The Witness: 0
