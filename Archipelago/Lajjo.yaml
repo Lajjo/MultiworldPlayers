@@ -13,7 +13,7 @@ game: # Pick a game to play
   Celeste 64: 0
   Dark Souls III: 0
   DLCQuest: 0
-  Donkey Kong Country 3: 0
+  Donkey Kong Country 3: 1
   DOOM 1993: 0
   DOOM II: 0
   Factorio: 0
@@ -23,9 +23,9 @@ game: # Pick a game to play
   Hollow Knight: 0
   Hylics 2: 0
   Kingdom Hearts 2: 0
-  Kirby's Dream Land 3: 0
+  Kirby's Dream Land 3: 1
   Landstalker - The Treasures of King Nole: 0
-  Links Awakening DX: 1
+  Links Awakening DX: 0
   Lufia II Ancient Cave: 0
   Mario & Luigi Superstar Saga: 0
   MegaMan Battle Network 3: 0
@@ -38,7 +38,7 @@ game: # Pick a game to play
   Pokemon Emerald: 0
   Pokemon Red and Blue: 0
   Raft: 0
-  Risk of Rain 2: 1
+  Risk of Rain 2: 0
   Rogue Legacy: 0
   Secret of Evermore: 0
   Shivers: 0
@@ -49,7 +49,7 @@ game: # Pick a game to play
   Stardew Valley: 0
   Subnautica: 0
   Super Mario 64: 0
-  Super Mario World: 0
+  Super Mario World: 1
   Super Metroid: 1
   Super Metroid Map Rando: 0
   Terraria: 0
