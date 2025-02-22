@@ -36,6 +36,7 @@ game:
   Dark Souls III: 1
   Terraria: 0
   Rogue Legacy: 0
+  Super Mario 64: 0
 
 Dark Souls III:
   progression_balancing: "75"
@@ -134,3 +135,37 @@ Terraria:
   achievements: exclude_grindy
   fill_extra_checks_with: useful_items
   death_link: "false"
+
+Super Mario 64:
+  progression_balancing: "50"
+  accessibility: full
+  area_rando: courses_and_secrets
+  buddy_checks: "false"
+  exclamation_boxes: "false"
+  progressive_keys: "true"
+  enable_coin_stars: "true"
+  move_rando_actions:
+    - Triple Jump
+    - Long Jump
+    - Backflip
+    - Side Flip
+    - Wall Kick
+    - Dive
+    - Ground Pound
+    - Kick
+    - Climb
+    - Ledge Grab
+  strict_cap_requirements: "false"
+  strict_cannon_requirements: "true"
+  strict_move_requirements: "true"
+  amount_of_stars: "120"
+  first_bowser_star_door_cost: "7"
+  basement_star_door_cost: "25"
+  second_floor_star_door_cost: "42"
+  mips1_cost: "12"
+  mips2_cost: "42"
+  stars_to_finish: "58"
+  death_link: "true"
+  completion_type: last_bowser_stage
+  start_inventory: {}
+  enable_move_rando: random
