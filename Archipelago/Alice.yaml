@@ -6,8 +6,7 @@ Hollow Knight:
   accessibility: full
   RandomizeDreamers: 'true'
   RandomizeSkills: 'true'
-  RandomizeFocus: 'false'
-  RandomizeSwim: 'false'
+  RandomizeSwim: 'true'
   RandomizeCharms: 'true'
   RandomizeKeys: 'true'
   RandomizeMaskShards: 'true'
@@ -18,18 +17,15 @@ Hollow Knight:
   RandomizeJunkPitChests: 'true'
   RandomizeRancidEggs: 'true'
   RandomizeRelics: 'true'
-  RandomizeWhisperingRoots: 'true'
   RandomizeBossEssence: 'true'
   RandomizeGrubs: 'true'
   RandomizeMimics: 'true'
   RandomizeMaps: 'true'
   RandomizeStags: 'true'
-  RandomizeLifebloodCocoons: 'true'
-  RandomizeJournalEntries: 'true'
+  RandomizeJournalEntries: 'false'
   RandomizeNail: 'true'
-  RandomizeGeoRocks: 'true'
+  RandomizeGeoRocks: 'false'
   RandomizeBossGeo: 'true'
-  RandomizeSoulTotems: 'false'
   RandomizeLoreTablets: 'true'
   RandomizeElevatorPass: 'true'
   PreciseMovement: 'false'
@@ -48,6 +44,7 @@ Hollow Knight:
   ComplexSkips: 'false'
   DifficultSkips: 'false'
   RemoveSpellUpgrades: 'false'
+  Goal: grub_hunt
   GrubHuntGoal: '-1'
   WhitePalace: nopathofpain
   ExtraPlatforms: 'true'
@@ -80,14 +77,17 @@ Hollow Knight:
   SplitMothwingCloak: 'true'
   SplitMantisClaw: 'true'
   CostSanity: 'on'
-  CostSanityHybridChance: '100'
+  CostSanityHybridChance: '69'
   CostSanityEggWeight: '1'
   CostSanityGrubWeight: '1'
   CostSanityEssenceWeight: '1'
   CostSanityCharmWeight: '1'
   CostSanityGeoWeight: '1'
   start_inventory: {}
+  RandomizeFocus: random
+  RandomizeWhisperingRoots: random
+  RandomizeLifebloodCocoons: random
   RandomizeGrimmkinFlames: random
+  RandomizeSoulTotems: random
   StartLocation: random
-  Goal: random
   StartingGeo: random
