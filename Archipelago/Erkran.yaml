@@ -39,22 +39,21 @@ game:
   Super Mario 64: 0
 
 Dark Souls III:
-  progression_balancing: "75"
+  progression_balancing: "99"
   accessibility: full
-  early_banner: "off"
+  early_banner: early_global
   late_basin_of_vows: "off"
   late_dlc: "off"
-  death_link: "true"
+  death_link: random
   enable_dlc: "false"
   enable_ngp: "false"
   random_starting_loadout: "true"
-  require_one_handed_starting_weapons: "true"
+  require_one_handed_starting_weapons: "false"
   auto_equip: "true"
-  lock_equip: "true"
+  lock_equip: "false"
   no_equip_load: "true"
   no_weapon_requirements: "true"
   no_spell_requirements: "true"
-  randomize_infusion: "false"
   randomize_infusion_percentage: "100"
   randomize_weapon_level: all
   randomize_weapon_level_percentage: "100"
@@ -71,14 +70,20 @@ Dark Souls III:
   all_chests_are_mimics: "false"
   impatient_mimics: "false"
   exclude_locations:
+    - Archdragon Peak
+    - Consumed King's Garden
+    - DLC
     - Hidden
     - Miscellaneous
     - Small Crystal Lizards
     - Small Souls
+    - Smouldering Lake
+    - Untended Graves
     - Upgrade
   excluded_location_behavior: forbid_useful
   missable_location_behavior: forbid_useful
   start_inventory: {}
+  randomize_infusion: random
   smooth_soul_items: random
   smooth_upgrade_items: random
   smooth_upgraded_weapons: random
