@@ -491,8 +491,8 @@ Hollow Knight:
     Siblings: 10
     Radiance: 10
     Godhome: 0
-    Godhome Flower: 0
-    Grub Hunt: 5
+    godhome_flower: 0
+    grub_hunt: 5
   GrubHuntGoal: 46
   WhitePalace: Exclude
   StartingGeo: 0
