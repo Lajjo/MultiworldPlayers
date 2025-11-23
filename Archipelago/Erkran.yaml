@@ -25,7 +25,7 @@
 #     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
 #     {number} will be replaced with the counter value of the name.
 #     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
-name: Erkran{number}
+name: erkran
 
 # Used to describe your yaml. Useful if you have multiple files.
 description: Default Dark Souls III Template
@@ -33,44 +33,60 @@ description: Default Dark Souls III Template
 requires:
   version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
 game:
-  Dark Souls III: 0
-  Terraria: 1
+  Dark Souls III: 1
+  Terraria: 0
   Rogue Legacy: 0
-
+  Super Mario 64: 0
 
 Dark Souls III:
-  progression_balancing: 50
-  accessibility: items
-  enable_weapon_locations: 'true'
-  enable_shield_locations: 'true'
-  enable_armor_locations: 'true'
-  enable_ring_locations: 'true'
-  enable_spell_locations: 'true'
-  enable_key_locations: 'true'
-  enable_boss_locations: 'true'
-  enable_npc_locations: 'false'
-  enable_misc_locations: 'false'
-  enable_health_upgrade_locations: 'false'
-  enable_progressive_locations: 'false'
-  pool_type: shuffle
-  auto_equip: 'true'
-  lock_equip: 'false'
-  no_weapon_requirements: 'true'
-  randomize_infusion: 'false'
-  randomize_infusion_percentage: 33
-  randomize_weapon_level: all
-  randomize_weapon_level_percentage: 100
-  min_levels_in_5: 5
-  max_levels_in_5: 5
-  min_levels_in_10: 10
-  max_levels_in_10: 10
+  progression_balancing: "99"
+  accessibility: full
   early_banner: early_global
-  late_basin_of_vows: 'false'
-  late_dlc: 'false'
-  no_spell_requirements: 'true'
-  no_equip_load: 'true'
-  death_link: 'false'
-  enable_dlc: 'false'
+  late_basin_of_vows: "off"
+  late_dlc: "off"
+  death_link: random
+  enable_dlc: "false"
+  enable_ngp: "false"
+  random_starting_loadout: "true"
+  require_one_handed_starting_weapons: "false"
+  auto_equip: "true"
+  lock_equip: "false"
+  no_equip_load: "true"
+  no_weapon_requirements: "true"
+  no_spell_requirements: "true"
+  randomize_infusion_percentage: "100"
+  randomize_weapon_level: all
+  randomize_weapon_level_percentage: "100"
+  min_levels_in_5: "5"
+  max_levels_in_5: "5"
+  min_levels_in_10: "10"
+  max_levels_in_10: "10"
+  randomize_enemies: "true"
+  simple_early_bosses: "false"
+  scale_enemies: "true"
+  randomize_mimics_with_enemies: "true"
+  randomize_small_crystal_lizards_with_enemies: "true"
+  reduce_harmless_enemies: "false"
+  all_chests_are_mimics: "false"
+  impatient_mimics: "false"
+  exclude_locations:
+    - Archdragon Peak
+    - Consumed King's Garden
+    - DLC
+    - Hidden
+    - Miscellaneous
+    - Small Crystal Lizards
+    - Small Souls
+    - Smouldering Lake
+    - Untended Graves
+    - Upgrade
+  excluded_location_behavior: forbid_useful
+  missable_location_behavior: forbid_useful
+  start_inventory: {}
+  randomize_infusion: random
+  smooth_soul_items: random
+  smooth_upgrade_items: random
+  smooth_upgraded_weapons: random
 
 Rogue Legacy:
   progression_balancing: 50
@@ -91,17 +107,17 @@ Rogue Legacy:
   new_game_plus: normal
   fairy_chests_per_zone: 1
   chests_per_zone: 20
-  universal_fairy_chests: 'false'
-  universal_chests: 'false'
+  universal_fairy_chests: "false"
+  universal_chests: "false"
   vendors: early
   architect: early
   architect_fee: 10
-  disable_charon: 'false'
-  require_purchasing: 'true'
-  progressive_blueprints: 'false'
+  disable_charon: "false"
+  require_purchasing: "true"
+  progressive_blueprints: "false"
   gold_gain_multiplier: double
   number_of_children: 3
-  free_diary_on_generation: 'true'
+  free_diary_on_generation: "true"
   khidr: vanilla
   alexander: vanilla
   leon: vanilla
@@ -114,8 +130,8 @@ Rogue Legacy:
   equip_pool: 10
   crit_chance_pool: 5
   crit_damage_pool: 5
-  allow_default_names: 'true'
-  death_link: 'false'
+  allow_default_names: "true"
+  death_link: "false"
 
 Terraria:
   progression_balancing: 50
@@ -123,4 +139,38 @@ Terraria:
   goal: mechanical_bosses
   achievements: exclude_grindy
   fill_extra_checks_with: useful_items
-  death_link: 'false'
+  death_link: "false"
+
+Super Mario 64:
+  progression_balancing: "50"
+  accessibility: full
+  area_rando: courses_and_secrets
+  buddy_checks: "false"
+  exclamation_boxes: "false"
+  progressive_keys: "true"
+  enable_coin_stars: "true"
+  move_rando_actions:
+    - Triple Jump
+    - Long Jump
+    - Backflip
+    - Side Flip
+    - Wall Kick
+    - Dive
+    - Ground Pound
+    - Kick
+    - Climb
+    - Ledge Grab
+  strict_cap_requirements: "false"
+  strict_cannon_requirements: "true"
+  strict_move_requirements: "true"
+  amount_of_stars: "120"
+  first_bowser_star_door_cost: "7"
+  basement_star_door_cost: "25"
+  second_floor_star_door_cost: "42"
+  mips1_cost: "12"
+  mips2_cost: "42"
+  stars_to_finish: "58"
+  death_link: "true"
+  completion_type: last_bowser_stage
+  start_inventory: {}
+  enable_move_rando: random
