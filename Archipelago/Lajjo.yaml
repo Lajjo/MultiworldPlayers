@@ -19646,8 +19646,9 @@ description: Secondary game for Lajjo
 game:
   Bumper Stickers: 0
   ChecksFinder: 0
-  Clique: 1
+  Clique: 0
   Lingo: 0
+  Paint: 1
 
 requires:
   version: 0.5.0
@@ -20143,3 +20144,32 @@ Lingo:
     # Start with these items and don't place them in the world.
     # The game decides what the replacement items will be.
     {}
+
+Paint:
+  progression_balancing:
+    "50": 25
+  accessibility:
+    full: 25
+  logic_percent:
+    "80": 25
+  goal_percent:
+    "80": 25
+  half_percent_checks:
+    "50": 25
+  quarter_percent_checks:
+    "70": 25
+  canvas_size_increment:
+    "100": 25
+  starting_tool:
+    brush: 25
+  trap_count:
+    "0": 25
+  death_link:
+    "false": 0
+    "true": 1
+  local_items: {}
+  non_local_items: {}
+  start_hints: {}
+  start_location_hints: {}
+  exclude_locations: {}
+  priority_locations: {}
