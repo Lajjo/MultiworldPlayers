@@ -1,12 +1,12 @@
 description: Blengs fat file for archipelago randomizer
 name: Bleng Main
 requires:
-  version: 0.4.6 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.4 # Version of Archipelago required for this yaml to work as expected.
 game:
   Slay the Spire: 0
-  Dark Souls III: 1
-  Hollow Knight: 1
-  Risk of Rain 2: 0
+  Dark Souls III: 0
+  Hollow Knight: 0
+  Risk of Rain 2: 1
   The Witness: 0
 
 Slay the Spire:
@@ -531,35 +531,56 @@ Hollow Knight:
   DeathLinkShade: shade
 
 Risk of Rain 2:
+  Risk of Rain 2:
+  progression_balancing: '50'
+  accessibility: full
   goal: explore
-  total_locations: random
-  total_revivals: 0
-  start_with_revive: 'false'
-  starting_inventory:
-    []
-  item_pickup_step: 2
-  death_link: 'true'
-  enable_lunar: 'true'
-  item_weights: random
-  item_pool_presets: 'true'
-  green_scrap: 16
-  red_scrap: 4
-  yellow_scrap: 1
-  white_scrap: 32
-  common_item: 64
-  uncommon_item: 32
-  legendary_item: 8
-  boss_item: 4
-  lunar_item: 16
-  equipment: 32
-  progression_balancing: 50
-  accessibility: items
-  victory: random
-  chests_per_stage: random
-  shrines_per_stage: random
+  victory: any
+  total_revivals: '4'
+  start_with_revive: 'true'
+  final_stage_death: 'false'
   dlc_sotv: 'true'
+  death_link: 'true'
+  item_pickup_step: '2'
+  shrine_use_step: '0'
+  enable_trap: 'false'
+  enable_lunar: 'true'
+  chests_per_stage: '10'
+  shrines_per_stage: '5'
+  scavengers_per_stage: '0'
+  scanner_per_stage: '1'
+  altars_per_stage: '1'
   require_stages: 'true'
   progressive_stages: 'true'
+  total_locations: '40'
+  item_weights: no_scraps
+  item_pool_presets: 'true'
+  white_scrap: '32'
+  green_scrap: '16'
+  yellow_scrap: '1'
+  red_scrap: '4'
+  common_item: '64'
+  uncommon_item: '32'
+  legendary_item: '8'
+  boss_item: '4'
+  lunar_item: '16'
+  void_item: '16'
+  equipment: '32'
+  money: '64'
+  lunar_coin: '20'
+  experience: '40'
+  mountain_trap: '5'
+  time_warp_trap: '20'
+  combat_trap: '20'
+  teleport_trap: '20'
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+  exclude_locations: []
+  priority_locations: []
+  start_inventory:
+    Radar Scanner: 1
 
 The Witness:
   progression_balancing: '50'
