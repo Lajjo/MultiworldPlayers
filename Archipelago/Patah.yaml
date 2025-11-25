@@ -4,7 +4,7 @@ game:
   Hollow Knight: 0
   SMZ3: 0
   Super Metroid: 1
-  A Link to the Past: 1
+  A Link to the Past: 0
   The Messenger: 0
   The Witness: 0
   Super Mario 64: 0
@@ -74,8 +74,8 @@ Super Metroid:
     easy: 0
     medium: 4
     hard: 3
-    harder: 2
-    hardcore: 1
+    harder: 0
+    hardcore: 0
     mania: 0
     infinity: 0
   morph_placement:
