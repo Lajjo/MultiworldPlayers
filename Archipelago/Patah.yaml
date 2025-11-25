@@ -1,15 +1,16 @@
 name: Patah{NUMBER}
 description: Main game
 game:
-  Hollow Knight: 1
-  SMZ3: 1
+  Hollow Knight: 0
+  SMZ3: 0
   Super Metroid: 1
   A Link to the Past: 1
   The Messenger: 0
-  The Witness: 1
+  The Witness: 0
   Super Mario 64: 0
-  Ocarina of Time: 1
-  Links Awakening DX: 1
+  Ocarina of Time: 0
+  Links Awakening DX: 0
+  Paint: 1
 
 Super Metroid:
   progression_balancing: 50
@@ -1462,23 +1463,55 @@ Super Mario 64:
   completion_type:
     all_bowser_stages: 1
 
+Paint:
+  progression_balancing: '50'
+  accessibility: full
+  logic_percent: '80'
+  goal_percent: '80'
+  half_percent_checks: '50'
+  quarter_percent_checks: '70'
+  canvas_size_increment: '50'
+  trap_count: '0'
+  death_link: 'false'
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+  exclude_locations: []
+  priority_locations: []
+  start_inventory: {}
+  start_inventory_from_pool: {}
+  starting_tool: random
+
 ---
 
 name: Patah{NUMBER}
 description: Secondary game
 game:
   ChecksFinder: 1
-  Clique: 1
+  Paint: 0
 
 ChecksFinder:
   progression_balancing: 50
   accessibility: full
   start_inventory: {}
 
-Clique:
-  progression_balancing: 50
+Paint:
+  progression_balancing: '50'
   accessibility: full
-  hard_mode: true
+  logic_percent: '80'
+  goal_percent: '80'
+  half_percent_checks: '50'
+  quarter_percent_checks: '70'
+  canvas_size_increment: '50'
+  trap_count: '0'
+  death_link: 'false'
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+  exclude_locations: []
+  priority_locations: []
   start_inventory: {}
   start_inventory_from_pool: {}
-  color: random
+  starting_tool: random
