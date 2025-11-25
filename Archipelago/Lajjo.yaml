@@ -3,7 +3,7 @@ description: Lajjo Main game - all inclusive # Used to describe your yaml. Usefu
 
 game: # Pick a game to play
   A Hat in Time: 0
-  A Link to the Past: 1
+  A Link to the Past: 0
   A Short Hike: 0
   Adventure: 0
   Aquaria: 0
@@ -13,7 +13,7 @@ game: # Pick a game to play
   Celeste 64: 0
   Dark Souls III: 0
   DLCQuest: 0
-  Donkey Kong Country 3: 1
+  Donkey Kong Country 3: 0
   DOOM 1993: 0
   DOOM II: 0
   Factorio: 0
@@ -43,13 +43,13 @@ game: # Pick a game to play
   Secret of Evermore: 0
   Shivers: 0
   Slay the Spire: 0
-  SMZ3: 1
+  SMZ3: 0
   Sonic Adventure 2 Battle: 0
   Starcraft 2: 0
   Stardew Valley: 0
   Subnautica: 0
   Super Mario 64: 0
-  Super Mario World: 1
+  Super Mario World: 0
   Super Metroid: 1
   Super Metroid Map Rando: 0
   Terraria: 0
@@ -20155,18 +20155,23 @@ Paint:
   goal_percent:
     "80": 25
   half_percent_checks:
-    "50": 25
+    50: 1
+    60: 1
+    70: 1
   quarter_percent_checks:
-    "70": 25
+    90: 1
+    70: 0
   canvas_size_increment:
-    "100": 25
+    25: 0
+    50: 1
+    100: 0
   starting_tool:
-    brush: 25
+    random: 1
   trap_count:
     "0": 25
   death_link:
-    "false": 0
-    "true": 1
+    false: 0
+    true: 1
   local_items: {}
   non_local_items: {}
   start_hints: {}
