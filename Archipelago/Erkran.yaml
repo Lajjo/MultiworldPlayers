@@ -33,59 +33,62 @@ description: Default Dark Souls III Template
 requires:
   version: 0.6.4 # Version of Archipelago required for this yaml to work as expected.
 game:
-  Dark Souls III: 0 
+  Dark Souls III: 0
   Terraria: 0
-  Rogue Legacy: 1
+  Rogue Legacy: 0
+  Civilization VI: 0
+  Pokemon Red and Blue: 0
 
 Dark Souls III:
   progression_balancing: "99"
   accessibility: full
-  early_banner: early_global
+  early_banner: "off"
   late_basin_of_vows: "off"
   late_dlc: "off"
-  death_link: random
+  death_link: "false"
   enable_dlc: "false"
   enable_ngp: "false"
   random_starting_loadout: "true"
-  require_one_handed_starting_weapons: "false"
+  require_one_handed_starting_weapons: "true"
   auto_equip: "true"
   lock_equip: "false"
-  no_equip_load: "true"
-  no_weapon_requirements: "true"
-  no_spell_requirements: "true"
+  no_equip_load: "false"
+  no_weapon_requirements: "false"
+  no_spell_requirements: "false"
+  randomize_infusion: "true"
   randomize_infusion_percentage: "100"
   randomize_weapon_level: all
   randomize_weapon_level_percentage: "100"
   min_levels_in_5: "5"
-  max_levels_in_5: "5"
+  max_levels_in_5: "0"
   min_levels_in_10: "10"
-  max_levels_in_10: "10"
+  max_levels_in_10: "0"
+  smooth_soul_items: "true"
+  smooth_upgrade_items: "false"
+  smooth_upgraded_weapons: "true"
   randomize_enemies: "true"
-  simple_early_bosses: "false"
+  simple_early_bosses: "true"
   scale_enemies: "true"
-  randomize_mimics_with_enemies: "true"
-  randomize_small_crystal_lizards_with_enemies: "true"
+  randomize_mimics_with_enemies: "false"
+  randomize_small_crystal_lizards_with_enemies: "false"
   reduce_harmless_enemies: "false"
   all_chests_are_mimics: "false"
   impatient_mimics: "false"
   exclude_locations:
     - Archdragon Peak
-    - Consumed King's Garden
-    - DLC
     - Hidden
     - Miscellaneous
     - Small Crystal Lizards
     - Small Souls
-    - Smouldering Lake
-    - Untended Graves
     - Upgrade
   excluded_location_behavior: forbid_useful
   missable_location_behavior: forbid_useful
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+  priority_locations: []
   start_inventory: {}
-  randomize_infusion: random
-  smooth_soul_items: random
-  smooth_upgrade_items: random
-  smooth_upgraded_weapons: random
 
 Rogue Legacy:
   progression_balancing: 50
@@ -140,3 +143,133 @@ Terraria:
   fill_extra_checks_with: useful_items
   death_link: "false"
 
+Civilization VI:
+  progression_balancing: "99"
+  accessibility: full
+  progression_style: districts_only
+  shuffle_goody_hut_rewards: "true"
+  boostsanity: "false"
+  research_cost_multiplier: "100"
+  pre_hint_items: []
+  hide_item_names: "false"
+  advisor_show_progression_items: "true"
+  death_link: "false"
+  death_link_effect: Unit Killed
+  death_link_effect_percent: "20"
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+  exclude_locations: []
+  priority_locations: []
+  start_inventory: {}
+  start_inventory_from_pool: {}
+
+Pokemon Red and Blue:
+  progression_balancing: "99"
+  accessibility: items
+  game_version: blue
+  elite_four_badges_condition: "8"
+  elite_four_key_items_condition: "0"
+  elite_four_pokedex_condition: "0"
+  victory_road_condition: "7"
+  route_22_gate_condition: "7"
+  viridian_gym_condition: "7"
+  cerulean_cave_badges_condition: "4"
+  cerulean_cave_key_items_condition: "50"
+  route_3_condition: defeat_brock
+  robbed_house_officer: "true"
+  second_fossil_check_condition: "3"
+  fossil_check_item_types: any
+  exp_all: start_with
+  old_man: early_parcel
+  badgesanity: "false"
+  badges_needed_for_hm_moves: "on"
+  key_items_only: "false"
+  tea: "false"
+  extra_key_items: "false"
+  split_card_key: "off"
+  all_elevators_locked: "true"
+  extra_strength_boulders: "false"
+  require_item_finder: "false"
+  randomize_hidden_items: "off"
+  prizesanity: "false"
+  trainersanity: "0"
+  dexsanity: "0"
+  randomize_pokedex: vanilla
+  require_pokedex: "true"
+  all_pokemon_seen: "false"
+  oaks_aide_rt_2: "10"
+  oaks_aide_rt_11: "20"
+  oaks_aide_rt_15: "30"
+  stonesanity: "false"
+  door_shuffle: "off"
+  warp_tile_shuffle: vanilla
+  randomize_rock_tunnel: "false"
+  dark_rock_tunnel_logic: "true"
+  free_fly_location: "true"
+  town_map_fly_location: "false"
+  blind_trainers: "0"
+  minimum_steps_between_encounters: "3"
+  level_scaling: auto
+  exp_modifier: "16"
+  randomize_wild_pokemon: completely_random
+  area_1_to_1_mapping: "true"
+  randomize_starter_pokemon: completely_random
+  randomize_static_pokemon: completely_random
+  randomize_legendary_pokemon: vanilla
+  catch_em_all: "off"
+  randomize_pokemon_stats: vanilla
+  randomize_pokemon_catch_rates: "false"
+  minimum_catch_rate: "125"
+  randomize_trainer_parties: vanilla
+  trainer_legendaries: "false"
+  move_balancing: "false"
+  fix_combat_bugs: "true"
+  randomize_pokemon_movesets: vanilla
+  confine_transform_to_ditto: "true"
+  start_with_four_moves: "false"
+  same_type_attack_bonus: "true"
+  randomize_tm_moves: "false"
+  tm_same_type_compatibility: "-1"
+  tm_normal_type_compatibility: "-1"
+  tm_other_type_compatibility: "-1"
+  hm_same_type_compatibility: "-1"
+  hm_normal_type_compatibility: "-1"
+  hm_other_type_compatibility: "-1"
+  inherit_tm_hm_compatibility: "false"
+  randomize_move_types: "false"
+  randomize_pokemon_types: vanilla
+  secondary_type_chance: "-1"
+  randomize_type_chart: vanilla
+  normal_matchups: "143"
+  super_effective_matchups: "38"
+  not_very_effective_matchups: "38"
+  immunity_matchups: "6"
+  type_chart_seed: random
+  safari_zone_normal_battles: "false"
+  normalize_encounter_chances: "false"
+  reusable_tms: "true"
+  better_shops: "on"
+  master_ball_price: "5000"
+  starting_money: "3000"
+  lose_money_on_blackout: "true"
+  poke_doll_skip: patched
+  bicycle_gate_skips: patched
+  trap_percentage: "0"
+  poison_trap_weight: medium
+  fire_trap_weight: medium
+  paralyze_trap_weight: medium
+  sleep_trap_weight: medium
+  ice_trap_weight: disabled
+  randomize_pokemon_palettes: vanilla
+  death_link: "false"
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+  exclude_locations: []
+  priority_locations: []
+  start_inventory: {}
+  trainer_name: random
+  rival_name: random
