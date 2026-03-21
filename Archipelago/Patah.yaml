@@ -3,14 +3,14 @@ description: Main game
 game:
   Hollow Knight: 0
   SMZ3: 0
-  Super Metroid: 1
+  Super Metroid: 0
   A Link to the Past: 0
   The Messenger: 0
   The Witness: 0
   Super Mario 64: 0
-  Ocarina of Time: 0
+  Ocarina of Time: 1
   Links Awakening DX: 0
-  Paint: 1
+  Paint: 0
 
 Super Metroid:
   progression_balancing: 50
@@ -74,8 +74,8 @@ Super Metroid:
     easy: 0
     medium: 4
     hard: 3
-    harder: 0
-    hardcore: 0
+    harder: 2
+    hardcore: 1
     mania: 0
     infinity: 0
   morph_placement:
@@ -1074,328 +1074,156 @@ Links Awakening DX:
     'true': 25
 
 Ocarina of Time:
-  progression_balancing:
-    '50': 25
-  accessibility:
-    full: 25
-  death_link:
-    'true': 1
-  logic_rules:
-    glitchless: 25
-  logic_no_night_tokens_without_suns_song:
-    'true': 1
-  open_forest:
-    open: 1
-    closed_deku: 1
-  open_kakariko:
-    open: 1
-    zelda: 1
-  open_door_of_time:
-    'false': 1
-    'true': 4
-  zora_fountain:
-    closed: 25
-  gerudo_fortress:
-    fast: 1
-  bridge:
-    open: 1
-  trials:
-    '0': 1
-    random-low: 1
-  starting_age:
-    random: 1
-  shuffle_interior_entrances:
-    'off': 4
-    simple: 1
-    all: 1
-  shuffle_grotto_entrances:
-    'false': 3
-    'true': 1
-  shuffle_dungeon_entrances:
-    'off': 1
-    simple: 1
-  shuffle_overworld_entrances:
-    'false': 3
-    'true': 1
-  owl_drops:
-    'true': 1
-  warp_songs:
-    'false': 3
-    'true': 1
-  spawn_positions:
-    'off': 25
-  shuffle_bosses:
-    'off': 3
-    limited: 2
-    full: 1
-  triforce_hunt:
-    'false': 4
-    'true': 1
-  triforce_goal:
-    random-low: 2
-    random-middle: 1
-  extra_triforce_percentage:
-    '50': 25
-    random-low: 1
-  bombchus_in_logic:
-    'false': 25
-  dungeon_shortcuts:
-    'off': 25
-  mq_dungeons_mode:
-    vanilla: 25
-  mq_dungeons_count:
-    '0': 25
-  bridge_stones:
-    random-low: 2
-    random-middle: 1
-  bridge_medallions:
-    random-low: 2
-    random-middle: 1
-  bridge_rewards:
-    random-low: 2
-    random-middle: 1
-  bridge_tokens:
-    random-low: 2
-    random-middle: 1
-  bridge_hearts:
-    random-low: 2
-    random-middle: 1
-  shuffle_song_items:
-    any: 1
-  shopsanity:
-    random_number: 1
-  shop_slots:
-    random: 1
-  shopsanity_prices:
-    normal: 25
-  tokensanity:
-    'off': 4
-    all: 1
-  shuffle_scrubs:
-    'off': 1
-    low: 1
-  shuffle_child_trade:
-    vanilla: 1
-    shuffle: 1
-  shuffle_freestanding_items:
-    'off': 25
-  shuffle_pots:
-    'off': 25
-  shuffle_crates:
-    'off': 25
-  shuffle_cows:
-    'false': 1
-    'true': 1
-  shuffle_beehives:
-    'false': 25
-  shuffle_kokiri_sword:
-    'false': 1
-  shuffle_ocarinas:
-    'false': 1
-    'true': 1
-  shuffle_gerudo_card:
-    'false': 1
-  shuffle_beans:
-    'true': 1
-  shuffle_medigoron_carpet_salesman:
-    'true': 1
-  shuffle_frog_song_rupees:
-    'true': 1
-  shuffle_mapcompass:
-    startwith: 25
-  shuffle_smallkeys:
-    dungeon: 2
-    keysanity: 1
-  shuffle_hideoutkeys:
-    vanilla: 2
-    keysanity: 1
-  shuffle_bosskeys:
-    dungeon: 1
-    keysanity: 2
-  enhance_map_compass:
-    'true': 1
-  shuffle_ganon_bosskey:
-    stones: 1
-    medallions: 1
-    dungeons: 2
-    tokens: 1
-    hearts: 1
-  ganon_bosskey_medallions:
-    random-low: 1
-    random-middle: 2
-    random-high: 3
-  ganon_bosskey_stones:
-    random-low: 1
-    random-middle: 2
-    random-high: 3
-  ganon_bosskey_rewards:
-    random-low: 1
-    random-middle: 2
-    random-high: 3
-  ganon_bosskey_tokens:
-    random-low: 1
-    random-middle: 2
-    random-high: 1
-  ganon_bosskey_hearts:
-    random-low: 1
-    random-middle: 2
-    random-high: 3
-  key_rings:
-    'off': 1
-    all: 1
-    random_dungeons: 1
-  no_escape_sequence:
-    'true': 25
-  no_guard_stealth:
-    'true': 25
-  no_epona_race:
-    'true': 25
-  skip_some_minigame_phases:
-    'true': 25
-  complete_mask_quest:
-    'false': 25
-  useful_cutscenes:
-    'false': 25
-  fast_chests:
-    'true': 25
-  free_scarecrow:
-    'true': 1
-  fast_bunny_hood:
-    'true': 1
-  plant_beans:
-    'false': 25
-  chicken_count:
-    '7': 25
-  big_poe_count:
-    '1': 25
-  fae_torch_count:
-    '24': 25
-  correct_chest_appearances:
-    'off': 25
-  minor_items_as_major_chest:
-    'false': 25
-  invisible_chests:
-    'false': 25
-  correct_potcrate_appearances:
-    textures_unchecked: 25
-  hints:
-    always: 25
-  misc_hints:
-    'true': 25
-  hint_dist:
-    async: 25
-  text_shuffle:
-    none: 25
-  damage_multiplier:
-    normal: 25
-  deadly_bonks:
-    none: 25
-  no_collectible_hearts:
-    'false': 25
-  starting_tod:
-    default: 25
-  blue_fire_arrows:
-    'true': 1
-  fix_broken_drops:
-    'false': 25
-  start_with_consumables:
-    'true': 1
-  start_with_rupees:
-    'false': 25
-  item_pool_value:
-    balanced: 25
-  junk_ice_traps:
-    normal: 25
-  ice_trap_appearance:
-    major_only: 25
-  adult_trade_start:
-    claim_check: 25
-  default_targeting:
-    hold: 25
-  display_dpad:
-    'true': 25
-  dpad_dungeon_menu:
-    'true': 25
-  correct_model_colors:
-    'true': 25
-  background_music:
-    randomized: 1
-  fanfares:
-    randomized: 1
-  ocarina_fanfares:
-    'false': 25
-  kokiri_color:
-    random_choice: 1
-  goron_color:
-    random_choice: 1
-  zora_color:
-    random_choice: 1
-  silver_gauntlets_color:
-    random_choice: 1
-  golden_gauntlets_color:
-    random_choice: 1
-  mirror_shield_frame_color:
-    random_choice: 1
-  navi_color_default_inner:
-    random_choice: 1
-  navi_color_default_outer:
-    random_choice: 1
-  navi_color_enemy_inner:
-    random_choice: 1
-  navi_color_enemy_outer:
-    random_choice: 1
-  navi_color_npc_inner:
-    random_choice: 1
-  navi_color_npc_outer:
-    random_choice: 1
-  navi_color_prop_inner:
-    random_choice: 1
-  navi_color_prop_outer:
-    random_choice: 1
-  sword_trail_duration:
-    '4': 25
-  sword_trail_color_inner:
-    random_choice: 1
-  sword_trail_color_outer:
-    random_choice: 1
-  bombchu_trail_color_inner:
-    random_choice: 1
-  bombchu_trail_color_outer:
-    random_choice: 1
-  boomerang_trail_color_inner:
-    random_choice: 1
-  boomerang_trail_color_outer:
-    random_choice: 1
-  heart_color:
-    completely_random: 1
-  magic_color:
-    completely_random: 1
-  a_button_color:
-    random_choice: 1
-  b_button_color:
-    random_choice: 1
-  c_button_color:
-    random_choice: 1
-  start_button_color:
-    random_choice: 1
-  sfx_navi_overworld:
-    random_ear_safe: 1
-  sfx_navi_enemy:
-    random_ear_safe: 1
-  sfx_low_hp:
-    random_ear_safe: 1
-  sfx_menu_cursor:
-    random_ear_safe: 1
-  sfx_menu_select:
-    random_ear_safe: 1
-  sfx_nightfall:
-    random_ear_safe: 1
-  sfx_horse_neigh:
-    random_ear_safe: 1
-  sfx_hover_boots:
-    random_ear_safe: 1
-  sfx_ocarina:
-    random: 1
+  progression_balancing: '50'
+  accessibility: full
+  death_link: 'true'
+  logic_rules: glitchless
+  logic_no_night_tokens_without_suns_song: 'true'
+  logic_tricks: []
+  open_forest: closed_deku
+  open_kakariko: zelda
+  open_door_of_time: 'true'
+  zora_fountain: adult
+  gerudo_fortress: fast
+  bridge: open
+  trials: '0'
+  starting_age: child
+  shuffle_interior_entrances: 'off'
+  shuffle_grotto_entrances: 'false'
+  shuffle_dungeon_entrances: simple
+  shuffle_overworld_entrances: 'false'
+  owl_drops: 'false'
+  warp_songs: 'false'
+  spawn_positions: 'off'
+  shuffle_bosses: full
+  triforce_hunt: 'false'
+  triforce_goal: '20'
+  extra_triforce_percentage: '50'
+  bombchus_in_logic: 'false'
+  dungeon_shortcuts: 'off'
+  dungeon_shortcuts_list: []
+  mq_dungeons_mode: vanilla
+  mq_dungeons_list: []
+  mq_dungeons_count: '0'
+  bridge_stones: '3'
+  bridge_medallions: '6'
+  bridge_rewards: '9'
+  bridge_tokens: '40'
+  bridge_hearts: '20'
+  shuffle_song_items: any
+  shopsanity: random_number
+  shop_slots: '0'
+  shopsanity_prices: normal
+  tokensanity: all
+  shuffle_scrubs: random_prices
+  shuffle_child_trade: shuffle
+  shuffle_freestanding_items: 'off'
+  shuffle_pots: 'off'
+  shuffle_crates: 'off'
+  shuffle_cows: 'true'
+  shuffle_beehives: 'false'
+  shuffle_kokiri_sword: 'true'
+  shuffle_ocarinas: 'true'
+  shuffle_gerudo_card: 'true'
+  shuffle_beans: 'true'
+  shuffle_medigoron_carpet_salesman: 'true'
+  shuffle_frog_song_rupees: 'true'
+  shuffle_mapcompass: startwith
+  shuffle_smallkeys: keysanity
+  shuffle_hideoutkeys: keysanity
+  shuffle_bosskeys: keysanity
+  enhance_map_compass: 'false'
+  shuffle_ganon_bosskey: dungeons
+  ganon_bosskey_medallions: '6'
+  ganon_bosskey_stones: '3'
+  ganon_bosskey_rewards: '6'
+  ganon_bosskey_tokens: '40'
+  ganon_bosskey_hearts: '20'
+  key_rings: random_dungeons
+  key_rings_list: []
+  no_escape_sequence: 'true'
+  no_guard_stealth: 'true'
+  no_epona_race: 'false'
+  skip_some_minigame_phases: 'true'
+  complete_mask_quest: 'false'
+  useful_cutscenes: 'false'
+  fast_chests: 'true'
+  free_scarecrow: 'true'
+  fast_bunny_hood: 'true'
+  plant_beans: 'false'
+  chicken_count: '7'
+  big_poe_count: '1'
+  fae_torch_count: '24'
+  correct_chest_appearances: 'off'
+  minor_items_as_major_chest: 'false'
+  invisible_chests: 'false'
+  correct_potcrate_appearances: textures_unchecked
+  hints: always
+  misc_hints: 'true'
+  hint_dist: async
+  text_shuffle: none
+  damage_multiplier: normal
+  deadly_bonks: none
+  no_collectible_hearts: 'false'
+  starting_tod: default
+  blue_fire_arrows: 'false'
+  fix_broken_drops: 'false'
+  start_with_consumables: 'false'
+  start_with_rupees: 'false'
+  item_pool_value: balanced
+  junk_ice_traps: normal
+  ice_trap_appearance: major_only
+  adult_trade_start: claim_check
+  default_targeting: hold
+  display_dpad: 'true'
+  dpad_dungeon_menu: 'true'
+  correct_model_colors: 'true'
+  background_music: normal
+  fanfares: normal
+  ocarina_fanfares: 'false'
+  kokiri_color: kokiri_green
+  goron_color: goron_red
+  zora_color: zora_blue
+  silver_gauntlets_color: silver
+  golden_gauntlets_color: gold
+  mirror_shield_frame_color: red
+  navi_color_default_inner: white
+  navi_color_default_outer: match_inner
+  navi_color_enemy_inner: yellow
+  navi_color_enemy_outer: match_inner
+  navi_color_npc_inner: light_blue
+  navi_color_npc_outer: match_inner
+  navi_color_prop_inner: green
+  navi_color_prop_outer: match_inner
+  sword_trail_duration: '4'
+  sword_trail_color_inner: white
+  sword_trail_color_outer: match_inner
+  bombchu_trail_color_inner: red
+  bombchu_trail_color_outer: match_inner
+  boomerang_trail_color_inner: yellow
+  boomerang_trail_color_outer: match_inner
+  heart_color: red
+  magic_color: green
+  a_button_color: n64_blue
+  b_button_color: n64_green
+  c_button_color: yellow
+  start_button_color: n64_red
+  sfx_navi_overworld: default
+  sfx_navi_enemy: default
+  sfx_low_hp: default
+  sfx_menu_cursor: default
+  sfx_menu_select: default
+  sfx_nightfall: default
+  sfx_horse_neigh: default
+  sfx_hover_boots: default
+  sfx_ocarina: ocarina
+  local_items: []
+  non_local_items: []
+  start_hints: []
+  start_location_hints: []
+  exclude_locations: []
+  priority_locations: []
+  start_inventory: {}
 
 Super Mario 64:
   progression_balancing:
@@ -1483,35 +1311,35 @@ Paint:
   start_inventory_from_pool: {}
   starting_tool: random
 
----
+# ---
 
-name: Patah{NUMBER}
-description: Secondary game
-game:
-  ChecksFinder: 1
-  Paint: 0
+# name: Patah{NUMBER}
+# description: Secondary game
+# game:
+#   ChecksFinder: 1
+#   Paint: 0
 
-ChecksFinder:
-  progression_balancing: 50
-  accessibility: full
-  start_inventory: {}
+# ChecksFinder:
+#   progression_balancing: 50
+#   accessibility: full
+#   start_inventory: {}
 
-Paint:
-  progression_balancing: '50'
-  accessibility: full
-  logic_percent: '80'
-  goal_percent: '80'
-  half_percent_checks: '50'
-  quarter_percent_checks: '70'
-  canvas_size_increment: '50'
-  trap_count: '0'
-  death_link: 'false'
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
-  exclude_locations: []
-  priority_locations: []
-  start_inventory: {}
-  start_inventory_from_pool: {}
-  starting_tool: random
+# Paint:
+#   progression_balancing: '50'
+#   accessibility: full
+#   logic_percent: '80'
+#   goal_percent: '80'
+#   half_percent_checks: '50'
+#   quarter_percent_checks: '70'
+#   canvas_size_increment: '50'
+#   trap_count: '0'
+#   death_link: 'false'
+#   local_items: []
+#   non_local_items: []
+#   start_hints: []
+#   start_location_hints: []
+#   exclude_locations: []
+#   priority_locations: []
+#   start_inventory: {}
+#   start_inventory_from_pool: {}
+#   starting_tool: random
