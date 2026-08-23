@@ -2,15 +2,19 @@ name: Patah{NUMBER}
 description: Main game
 game:
   Hollow Knight: 0
-  SMZ3: 1
+  SMZ3: 0
   Super Metroid: 0
   A Link to the Past: 0
   The Messenger: 0
   The Witness: 0
   Super Mario 64: 0
-  Ocarina of Time: 0
+  Ship of Harkinian: 1
   Links Awakening DX: 0
   Paint: 0
+
+requires:
+  game:
+    Ship of Harkinian: 1.4.2 # Version of the world required for this yaml to work as expected.
 
 Super Metroid:
   progression_balancing: 50
@@ -1073,158 +1077,6 @@ Links Awakening DX:
   ap_title_screen:
     'true': 25
 
-Ocarina of Time:
-  progression_balancing: '50'
-  accessibility: full
-  death_link: 'true'
-  logic_rules: glitchless
-  logic_no_night_tokens_without_suns_song: 'true'
-  logic_tricks: []
-  open_forest: closed_deku
-  open_kakariko: zelda
-  open_door_of_time: 'true'
-  zora_fountain: adult
-  gerudo_fortress: fast
-  bridge: open
-  trials: '0'
-  starting_age: child
-  shuffle_interior_entrances: 'off'
-  shuffle_grotto_entrances: 'false'
-  shuffle_dungeon_entrances: simple
-  shuffle_overworld_entrances: 'false'
-  owl_drops: 'false'
-  warp_songs: 'false'
-  spawn_positions: 'off'
-  shuffle_bosses: full
-  triforce_hunt: 'false'
-  triforce_goal: '20'
-  extra_triforce_percentage: '50'
-  bombchus_in_logic: 'false'
-  dungeon_shortcuts: 'off'
-  dungeon_shortcuts_list: []
-  mq_dungeons_mode: vanilla
-  mq_dungeons_list: []
-  mq_dungeons_count: '0'
-  bridge_stones: '3'
-  bridge_medallions: '6'
-  bridge_rewards: '9'
-  bridge_tokens: '40'
-  bridge_hearts: '20'
-  shuffle_song_items: any
-  shopsanity: random_number
-  shop_slots: '0'
-  shopsanity_prices: normal
-  tokensanity: all
-  shuffle_scrubs: random_prices
-  shuffle_child_trade: shuffle
-  shuffle_freestanding_items: 'off'
-  shuffle_pots: 'off'
-  shuffle_crates: 'off'
-  shuffle_cows: 'true'
-  shuffle_beehives: 'false'
-  shuffle_kokiri_sword: 'true'
-  shuffle_ocarinas: 'true'
-  shuffle_gerudo_card: 'true'
-  shuffle_beans: 'true'
-  shuffle_medigoron_carpet_salesman: 'true'
-  shuffle_frog_song_rupees: 'true'
-  shuffle_mapcompass: startwith
-  shuffle_smallkeys: keysanity
-  shuffle_hideoutkeys: keysanity
-  shuffle_bosskeys: keysanity
-  enhance_map_compass: 'false'
-  shuffle_ganon_bosskey: dungeons
-  ganon_bosskey_medallions: '6'
-  ganon_bosskey_stones: '3'
-  ganon_bosskey_rewards: '6'
-  ganon_bosskey_tokens: '40'
-  ganon_bosskey_hearts: '20'
-  key_rings: random_dungeons
-  key_rings_list: []
-  no_escape_sequence: 'true'
-  no_guard_stealth: 'true'
-  no_epona_race: 'false'
-  skip_some_minigame_phases: 'true'
-  complete_mask_quest: 'false'
-  useful_cutscenes: 'false'
-  fast_chests: 'true'
-  free_scarecrow: 'true'
-  fast_bunny_hood: 'true'
-  plant_beans: 'false'
-  chicken_count: '7'
-  big_poe_count: '1'
-  fae_torch_count: '24'
-  correct_chest_appearances: 'off'
-  minor_items_as_major_chest: 'false'
-  invisible_chests: 'false'
-  correct_potcrate_appearances: textures_unchecked
-  hints: always
-  misc_hints: 'true'
-  hint_dist: async
-  text_shuffle: none
-  damage_multiplier: normal
-  deadly_bonks: none
-  no_collectible_hearts: 'false'
-  starting_tod: default
-  blue_fire_arrows: 'false'
-  fix_broken_drops: 'false'
-  start_with_consumables: 'false'
-  start_with_rupees: 'false'
-  item_pool_value: balanced
-  junk_ice_traps: normal
-  ice_trap_appearance: major_only
-  adult_trade_start: claim_check
-  default_targeting: hold
-  display_dpad: 'true'
-  dpad_dungeon_menu: 'true'
-  correct_model_colors: 'true'
-  background_music: normal
-  fanfares: normal
-  ocarina_fanfares: 'false'
-  kokiri_color: kokiri_green
-  goron_color: goron_red
-  zora_color: zora_blue
-  silver_gauntlets_color: silver
-  golden_gauntlets_color: gold
-  mirror_shield_frame_color: red
-  navi_color_default_inner: white
-  navi_color_default_outer: match_inner
-  navi_color_enemy_inner: yellow
-  navi_color_enemy_outer: match_inner
-  navi_color_npc_inner: light_blue
-  navi_color_npc_outer: match_inner
-  navi_color_prop_inner: green
-  navi_color_prop_outer: match_inner
-  sword_trail_duration: '4'
-  sword_trail_color_inner: white
-  sword_trail_color_outer: match_inner
-  bombchu_trail_color_inner: red
-  bombchu_trail_color_outer: match_inner
-  boomerang_trail_color_inner: yellow
-  boomerang_trail_color_outer: match_inner
-  heart_color: red
-  magic_color: green
-  a_button_color: n64_blue
-  b_button_color: n64_green
-  c_button_color: yellow
-  start_button_color: n64_red
-  sfx_navi_overworld: default
-  sfx_navi_enemy: default
-  sfx_low_hp: default
-  sfx_menu_cursor: default
-  sfx_menu_select: default
-  sfx_nightfall: default
-  sfx_horse_neigh: default
-  sfx_hover_boots: default
-  sfx_ocarina: ocarina
-  local_items: []
-  non_local_items: []
-  start_hints: []
-  start_location_hints: []
-  exclude_locations: []
-  priority_locations: []
-  start_inventory: {}
-
 Super Mario 64:
   progression_balancing:
     '50': 25
@@ -1310,6 +1162,1338 @@ Paint:
   start_inventory: {}
   start_inventory_from_pool: {}
   starting_tool: random
+
+Ship of Harkinian:
+  progression_balancing:
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    full: 50
+    minimal: 0
+
+  ###############
+  # Area Access #
+  ###############
+  closed_forest:
+    # On - Kokiri Sword & Deku Shield are required to access the Deku Tree, and completing the Deku Tree is required to access the Lost Woods Bridge Exit.
+    # Deku Only - Kokiri boy no longer blocks the path to the Bridge but Mido still requires the Kokiri Sword and Deku Shield to access the tree.
+    # Off - Mido no longer blocks the path to the Deku Tree. Kokiri boy no longer blocks the path out of the forest.
+    'on': 1
+    deku_only: 4
+    'off': 2
+
+  kakariko_gate:
+    # Closed - The gate will remain closed until Zelda's Letter is shown to the guard.
+    # Open - The gate is always open. The Happy Mask Shop will open immediately after obtaining Zelda's Letter.
+    closed: 1
+    open: 1
+
+  door_of_time:
+    # Closed - The Ocarina of Time, the Song of Time and all three Spiritual Stones are required to open the Door of Time.
+    # Song only - Play the Song of Time in front of the Door of Time to open it.
+    # Open - The Door of Time is permanently open with no requirements.
+    closed: 0
+    song_only: 2
+    open: 1
+
+  zoras_fountain:
+    # Closed - King Zora obstructs the way to Zora's Fountain. Ruto's Letter must be shown as child Link in order to move him in both time periods.
+    # Closed as child - Ruto's Letter is only required to move King Zora as child Link. Zora's Fountain starts open as adult.
+    # Open - King Zora has already mweeped out of the way in both time periods. Ruto's Letter is removed from the item pool.
+    closed: 0
+    closed_as_child: 2
+    open: 1
+
+  sleeping_waterfall:
+    # Closed:
+    # Sleeping Waterfall obstructs the entrance to Zora's Domain. Zelda's Lullaby must be played in order to open it.
+    #
+    # Open:
+    # Sleeping Waterfall is always open. Link may always enter Zora's Domain and Zelda's Lullaby is not required to enter Zora's Domain.
+    closed: 2
+    open: 1
+
+  jabu_jabu:
+    # Closed - A fish is required to open Jabu-Jabu's mouth.
+    # Open - Jabu-Jabu's mouth opens without the need for a fish.
+    closed: 50
+    open: 0
+
+  lock_overworld_doors:
+    # Adds locks to all wooden overworld doors, requiring specific small keys to open them.
+    'false': 3
+    'true': 1
+
+  enable_all_tricks:
+    # Bypass the individual trick or glitch selections below and enable all of them.
+    'false': 50
+    'true': 0
+
+  tricks_in_logic:
+    # Define what tricks or glitches are considered in logic. For more information on what each trick does, check the Ship of Harkinian Randomizer -> Tricks/Glitches settings.
+    # Trick names: Visible Collision, Grottos Without Agony, Fewer Tunic Requirements, Rusted Switches, Flaming Chests, Damage Boost Simple, Hover Boost Simple, Bombchu Beehives, Blue Fire Mud Walls, Open Underwater Chest, KF Adult GS, LW Bridge, LW Mido Backflip, LW GS Bean, HC Storms GS, HF Big Poe Without Epona, Kak Man On Roof, Kak Tower GS, Kak Adult Windmill PoH, Kak Child Windmill PoH, Kak Rooftop GS, GY PoH, GY Child Dampe Race PoH, GY Shadow Fire Arrows, DMT Soil GS, DMT Bombable, DMT Hookshot Lower GS, DMT Hovers Lower GS, DMT Bean Lower GS, DMT JS Lower GS, DMT Climb Hovers, DMT Upper GS, GC Pot, GC Pot Strength, GC Rolling Strength, GC Leftmost, GC Grotto, GC Link Goron Dins, DMC Hover Bean PoH, DMC Bolero Jump, DMC Boulder JS, DMC Boulder Skip, ZR Lower, ZR Upper, ZR Hover, ZR Cucco, ZD King Zora Skip, ZD GS, ZF Great Fairy Without Explosives, LH Lab Wall GS, LH Lab Diving, LH Water Hookshot, Pass Guards With Nothing, GF Jump, GF Warrior With Difficult Weapon, GF Ledge Clip into GTG, HW Crossing, Lens HW, HW Reverse, Colossus GS, Deku B1 Skip, Deku B1 Bow Webs, Deku B1 Backflip Over Spiked Log, DC Scarecrow GS, DC Vines GS, DC Stairs With Bow, DC Slingshot Skip, DC Scrub Room, DC Jump, DC Hammer Floor, DC Dodongo Chu, Jabu Alcove Jump Dive, Jabu Boss Hover, Jabu Near Boss Ranged, Jabu Near Boss Explosives, Lens BotW, BotW Child Deadhand, BotW Basement, Forest First GS, Forest Outdoors East GS, Forest Vines, Forest Outdoors Ledge, Forest Doorframe, Forest Outside Backdoor, Forest Outdoors Hearts Boomerang, Fire Boss Door Jump, Fire SoT, Fire Strength, Fire Scarecrow, Fire Flame Maze, Water Longshot Torch, Water Cracked Wall Hovers, Water Cracked Wall, Water BK Region, Water North Basement Ledge Jump, Water BK Jump Dive, Water FW Central GS, Water Irons Central GS, Water Central Bow, Water Hookshot Falling Platform GS, Water Rang Falling Platform GS, Water River GS, Water Dragon Jump Dive, Water Adult Dragon, Water Child Dragon, Water Morpha Without Hookshot, Lens Shadow, Lens Shadow Platform, Lens Bongo, Shadow Umbrella Hover, Shadow Umbrella Clip, Shadow Umbrella GS, Shadow Freestanding Key, Shadow Statue, Shadow Bongo, Lens Spirit, Spirit Child Chu, Spirit Lobby GS, Spirit Lower Adult Switch, Spirit Lobby Jump, Spirit Platform Hookshot, Spirit Map Chest, Spirit Sun Chest, Spirit Wall, Ice Block GS, Lens GTG, GTG Without Hookshot, GTG Fake Wall, Lens Ganon, Ganon Spirit Trial Hookshot, Damage Boost, Ground Jump, Ground Jump Hard, Hookshot Extension, Bottom of the Well Navi Dive, Lost Wood Navi Dive
+    []
+
+  ##################
+  # World Settings #
+  ##################
+  starting_age:
+    # Decide whether to start as child Link or adult Link.
+    # Child Link starts in Link's House in Kokiri Forest.
+    # Adult Link starts in the Temple of Time.
+    # CAUTION: When "Closed Forest" is set to "On" or "Door of Time" is set to closed with either "Shuffle Dungeon Rewards" set to "Off" or "Shuffle Ocarinas" set to "Off,"
+    # this option will be forced to child.
+    child: 2
+    adult: 1
+
+  starting_hearts:
+    # Specify the number of starting hearts Link will have. Modifies how many Heart Containers and Heart Pieces are in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 20
+    3: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-20: 0 # random value between 1 and 20
+
+  fortress_carpenters:
+    # Sets the state of the carpenters captured by Gerudo in Gerudo Fortress, and with it the number of guards that spawn.
+    # Normal - All 4 carpenters are required to be saved.
+    # Fast - Only the bottom left carpenter requires rescuing.
+    # Free - The bridge is repaired from the start, and Nabooru cannot spawn.
+    # Only Normal is compatible with the Gerudo Fortress Key Ring.
+    normal: 0
+    fast: 50
+    free: 0
+
+  rainbow_bridge:
+    # Alters the requirements to open the bridge to Ganon's Castle.
+    # Vanilla - Obtain the Shadow Medallion, Spirit Medallion and Light Arrows.
+    # Always open - No requirements.
+    # Stones - Obtain the specified amount of Spiritual Stones.
+    # Medallions - Obtain the specified amount of medallions.
+    # Dungeon rewards - Obtain the specified total sum of Spiritual Stones or medallions.
+    # Dungeons - Complete the specified amount of dungeons. Dungeons are considered complete after stepping in to the blue warp after the boss.
+    # Tokens - Obtain the specified amount of Gold Skulltula Tokens.
+    # Greg - Find Greg the Green Rupee.
+    vanilla: 0
+    always_open: 1
+    stones: 0
+    medallions: 0
+    dungeon_rewards: 3
+    dungeons: 0
+    tokens: 0
+    greg: 1
+
+  rainbow_bridge_stones_required:
+    # If Rainbow Bridge is set to Stones, this is how many Spiritual Stones are required to open it.
+    # If the Greg Modifier is not set to Reward, the max will be 3.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 4
+    3: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-4: 1 # random value between 1 and 4
+
+  rainbow_bridge_medallions_required:
+    # If Rainbow Bridge is set to Medallions, this is how many medallions are required to open it.
+    # If the Greg Modifier is not set to Reward, the max will be 6.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 7
+    6: 0
+    random: 0
+    random-low: 1 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-7: 0 # random value between 1 and 7
+
+  rainbow_bridge_dungeon_rewards_required:
+    # If Rainbow Bridge is set to Dungeon Rewards, this is how many dungeon rewards are required to open it.
+    # If the Greg Modifier is not set to Reward, the max will be 9.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    9: 0
+    random: 0
+    random-low: 1 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-10: 0 # random value between 1 and 10
+
+  rainbow_bridge_dungeons_required:
+    # If Rainbow Bridge is set to Dungeons, this is how many completed dungeons are required to open it.
+    # If the Greg Modifier is not set to Reward, the max will be 8.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
+    8: 0
+    random: 0
+    random-low: 1 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-9: 0 # random value between 1 and 9
+
+  rainbow_bridge_skull_tokens_required:
+    # If Rainbow Bridge is set to Tokens, this is how many Gold Skulltula Tokens are required to open it.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    50: 0
+    random: 0
+    random-low: 1 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-100: 0 # random value between 1 and 100
+
+  rainbow_bridge_greg_modifier:
+    # If Rainbow Bridge is enabled, Greg will count toward the bridge requirement goal.
+    # Off - Greg won't count toward the bridge requirement.
+    # Reward - Greg will count toward the bridge requirement and be considered in the logic.
+    # Wildcard - Greg will count toward the bridge requirement but will not be considered in the logic.
+    'off': 0
+    reward: 0
+    wildcard: 1
+
+  medallion_locked_trials:
+    # Doors to trials will be barred until their corresponding medallion is acquired.
+    'false': 0
+    'true': 1
+
+  ganons_trials:
+    # Sets the number of Ganon's Trials required to dispel the barrier.
+    # Skip - No trials are required and the barrier is already dispelled.
+    # Set Number - Select a number of trials that will be required. The required trials will be chosen randomly.
+    skip: 0
+    set_number: 1
+
+  ganons_trials_count:
+    # Sets how many of Ganon's Trials are required to dispel the barrier.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 6
+    6: 0
+    random: 0
+    random-low: 1 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-6: 0 # random value between 0 and 6
+
+  triforce_hunt:
+    # Pieces of the Triforce of Courage have been scattered across the world. Find them all to finish the game!
+    # If this option is enabled, Ganon's Boss Key will not be shuffled and the Light Arrow Cutscene (LACS) will revert to its vanilla behavior.
+    # When the required amount of pieces has been found, the game will save and credits will roll.
+    # Afterward, you can load back into the game to receive Ganon's Boss Key if you desire to beat Ganon.
+    'false': 4
+    'true': 1
+
+  triforce_hunt_pieces_total:
+    # Specify an exact number of Triforce Pieces to add to the item pool. If the item pool is out of space, no more Triforce Pieces will be added.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    30: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 1 # random value weighted towards higher values
+    random-range-1-100: 0 # random value between 1 and 100
+
+  triforce_hunt_pieces_required_percentage:
+    # The percentage of Triforce Pieces that will be required to complete the game.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    60: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-100: 0 # random value between 1 and 100
+    random-range-50-85: 1
+
+  #################
+  # Shuffle Items #
+  #################
+  shuffle_songs:
+    # Shuffles songs into the item pool.
+    # Off - Songs will appear at their vanilla locations.
+    # Song Locations - Songs will only appear at locations that normally teach songs.
+    # Dungeon rewards - Songs appear after beating a major dungeon boss.
+    #     The 4 remaining songs are located at:
+    #     - Zelda's Lullaby location
+    #     - Ice Cavern's Serenade of Water location
+    #     - Bottom of the Well Lens of Truth location
+    #     - Gerudo Training Ground Ice Arrows Location
+    # Anywhere - Songs can appear at any location.
+    'off': 0
+    song_locations: 0
+    dungeon_rewards: 0
+    anywhere: 1
+
+  shuffle_skull_tokens:
+    # Shuffles Gold Skulltula Tokens into the item pool. This means Gold Skulltulas can contain other items as well.
+    # Off - GS tokens will not be shuffled.
+    # Dungeons - Only shuffle GS tokens that are within dungeons.
+    # Overworld - Only shuffle GS tokens that are outside of dungeons.
+    # All Tokens - Shuffle all 100 GS tokens.
+    'off': 7
+    dungeon: 1
+    overworld: 1
+    all: 1
+
+  skulls_sun_song:
+    # All Gold Skulltulas that require nighttime to appear will only be expected to be collected after getting Sun's Song.
+    'false': 0
+    'true': 1
+
+  shuffle_freestanding_items:
+    # Freestanding rupees & hearts are shuffled to random items. Freestanding heart pieces and small keys are already shuffled by default.
+    # Off - Freestanding rupees & hearts will not be shuffled.
+    # Dungeons - Only freestanding rupees & hearts that are within dungeons will be shuffled.
+    # Overworld - Only freestanding rupees & hearts that are outside of dungeons will be shuffled.
+    # All - Shuffle all freestanding rupees & hearts.
+    'off': 50
+    dungeon: 0
+    overworld: 0
+    all: 0
+
+  shuffle_kokiri_sword:
+    # Shuffles the Kokiri Sword into the item pool.
+    # This will require the use of Deku Sticks until the Kokiri Sword is found.
+    'false': 0
+    'true': 1
+
+  shuffle_master_sword:
+    # Shuffles the Master Sword into the item pool.
+    # If you haven't found the Master Sword before facing Ganon, you won't receive it during the fight.
+    'false': 50
+    'true': 0
+
+  shuffle_childs_wallet:
+    # Enabling this shuffles the Child's Wallet into the item pool.
+    # You will not be able to carry any rupees until you find a wallet.
+    'false': 50
+    'true': 0
+
+  shuffle_tycoon_wallet:
+    # Enabling this adds an extra Progressive Wallet to the pool and adds a new 999 capacity tier after Giants Wallet.
+    'false': 0
+    'true': 1
+
+  shuffle_ocarinas:
+    # Enabling this shuffles the Fairy Ocarina and the Ocarina of Time into the item pool.
+    # This will require finding an Ocarina before being able to play songs.
+    'false': 0
+    'true': 1
+
+  shuffle_ocarina_buttons:
+    # Enabling this shuffles the Ocarina buttons into the item pool.
+    # This will require finding the buttons before being able to use them in songs.
+    'false': 0
+    'true': 1
+
+  shuffle_swim:
+    # Shuffles the ability to Swim into the item pool.
+    # The ability to swim has to be found as an item (you can still go underwater if you use the Iron Boots).
+    # If you enter a water entrance without swim you will be respawned on land to prevent infinite death loops.
+    # If you void out in Water Temple you will immediately be kicked out to prevent a softlock.
+    'false': 0
+    'true': 1
+
+  shuffle_weird_egg:
+    # Shuffles the Weird Egg from Malon into the item pool. Enabling Skip Child Zelda disables this feature.
+    # The Weird Egg is required to unlock several events:
+    #   - Zelda's Lullaby from Impa
+    #   - Saria's Song in Sacred Forest Meadow
+    #   - Epona's Song and chicken minigame at Lon Lon Ranch
+    #   - Zelda's Letter for Kakariko gate (if Kakariko Gate is set to Closed)
+    #   - Happy Mask Shop side quest
+    'false': 0
+    'true': 1
+
+  shuffle_gerudo_membership_card:
+    # Shuffles the Gerudo Membership Card into the item pool.
+    # The Gerudo Membership Card is required to enter the Gerudo Training Ground, opening the gate to Haunted Wasteland and the Horseback Archery minigame.
+    'false': 0
+    'true': 1
+
+  shuffle_fishing_pole:
+    # Shuffles the fishing pole into the item pool. The fishing pole is required to play the fishing pond minigame.
+    'false': 0
+    'true': 1
+
+  shuffle_deku_stick_bag:
+    # Shuffles the Deku Stick bag into the item pool. The Deku Stick bag is required to hold Deku Sticks.
+    'false': 0
+    'true': 1
+
+  shuffle_deku_nut_bag:
+    # Shuffles the Deku Nut bag into the item pool. The Deku Nut bag is required to hold Deku Nuts.
+    'false': 50
+    'true': 0
+
+  rocs_feather:
+    # Adds Roc's Feather to the item pool. Roc's Feather is a custom item granting the player a jump on demand.
+    # The jump can also be used when already in midair. Roc's Feather is not considered by logic.
+    'false': 50
+    'true': 0
+
+  ############################
+  # Shuffle NPCs & Merchants #
+  ############################
+  shuffle_shops:
+    # Shuffle shop items amongst the different shops.
+    'false': 0
+    'true': 1
+
+  shuffle_shops_item_amount:
+    # If Shuffle Shops is on, set how many shop items in each shop will be replaced by an entirely random item with a random price.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 7
+    4: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 1 # random value weighted towards higher values
+    random-range-0-7: 0 # random value between 0 and 7
+
+  shuffle_shops_minimum_price:
+    # If Shuffle Shops is on, set the minimum price of randomized shop items. Final price will be rounded down to multiples of 5.
+    # Shuffled vanilla shop items will keep their vanilla price regardless of what's chosen here.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999
+    10: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-999: 0 # random value between 0 and 999
+    random-range-1-20: 1
+
+  shuffle_shops_maximum_price:
+    # If Shuffle Shops is on, set the maximum price of randomized shop items. Final price will be rounded down to multiples of 5.
+    # If this is set below the minimum, this option will be set to whatever the minimum is set to.
+    # Shuffled vanilla shop items will keep their vanilla price regardless of what's chosen here.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999
+    250: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-201-700: 1 # random value between 0 and 999
+
+  shop_affordable_prices:
+    # After choosing a price range, set it to the affordable amount based on the wallet requirement.
+    # Affordable prices per tier: starter=1, adult=100, giant=201, tycoon=501
+    # Use this to enable wallet tier locking, but making shop items not as expensive as they could be.
+    'false': 0
+    'true': 1
+
+  shuffle_fish:
+    # Shuffles various fish in the game. The Hylian Loach is not included.
+    # Off - Fish will not be shuffled. No changes will be made to fish behavior.
+    # Pond - Only the fishing pond's fish will be shuffled. Catching a fish in the fishing pond will grant a reward, and there are 15 fish for each age.
+    # Overworld - Only fish in generic grottos and Zora's domain will be shuffled. These fish will need a bottle in order to scoop them up.
+    # All - All fish will be shuffled.
+    'off': 50
+    pond: 0
+    overworld: 0
+    all: 0
+
+  shuffle_scrubs:
+    # Shuffles Deku Scrub merchants in the game.
+    # Off - Scrubs will not be shuffled. The 3 Scrubs that give one-time items in the vanilla game (POH, Deku Nut capacity, and Deku Stick capacity) will not spawn.
+    # One-Time Only - Only the 3 Scrubs that give one-time items in the vanilla game are shuffled.
+    # All - All Scrubs are shuffled.
+    'off': 2
+    one_time_only: 1
+    all: 1
+
+  shuffle_scrubs_minimum_price:
+    # If Shuffle Scrubs is on, set their minimum price. Final price will be rounded down to multiples of 5.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999
+    10: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-999: 0 # random value between 0 and 999
+    random-range-1-20: 1
+
+  shuffle_scrubs_maximum_price:
+    # If Shuffle Scrubs is on, set their maximum price. Final price will be rounded down to multiples of 5.
+    # If this is set below the minimum, this option will be set to whatever the minimum is set to.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999
+    90: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-999: 0 # random value between 0 and 999
+    random-range-30-90: 1
+
+  scrub_affordable_prices:
+    # After choosing a price range, set it to the affordable amount based on the wallet requirement.
+    # Affordable prices per tier: starter=1, adult=100, giant=201, tycoon=501
+    # Use this to enable wallet tier locking, but making shop items not as expensive as they could be.
+    'false': 50
+    'true': 0
+
+  shuffle_beehives:
+    # Shuffle all beehives.
+    'false': 50
+    'true': 0
+
+  shuffle_cows:
+    # Randomize what cows will give when playing Epona's Song for them for the first time.
+    'false': 4
+    'true': 1
+
+  shuffle_pots:
+    # Pots will drop a randomized item the first time they're broken and collected. This does not include the flying pots.
+    # With this option enabled, Ganon's boss key door is moved further up the stairs to allow access to the pots before obtaining Ganon's Boss Key.
+    # Off - Pots will not be shuffled.
+    # Dungeons - Only shuffle pots that are within dungeons.
+    # Overworld - Only shuffle pots that are outside of dungeons.
+    # All Pots - Shuffle all pots.
+    'off': 50
+    dungeon: 0
+    overworld: 0
+    all: 0
+
+  shuffle_crates:
+    # Large and small crates will drop a randomized item the first time they're broken and collected.
+    # Off - Crates will not be shuffled.
+    # Dungeons - Only shuffle crates that are within dungeons.
+    # Overworld - Only shuffle crates that are outside of dungeons.
+    # All Crates - Shuffle all crates.
+    'off': 50
+    dungeon: 0
+    overworld: 0
+    all: 0
+
+  shuffle_trees:
+    # Trees will contain randomized items which are dropped the first time the player rolls into one.
+    # Trees will have a special appearance when carrying randomized items.
+    #
+    # Some trees are dependent on Link's age, such as some trees in Hyrule Field.
+    # Two trees at Hyrule Castle are only shuffled with No Logic.
+    'false': 50
+    'true': 0
+
+  shuffle_merchants:
+    # This setting governs if the Bean Salesman, Medigoron, Granny and the Carpet Salesman sell a random item.
+    # Beans Merchant Only - Only the Bean Salesman will have a check, and a pack of Magic Beans will be added to the item pool.
+    # All But Beans - Medigoron, Granny and the Carpet Salesman will have checks.
+    # All - Apply both effects.
+    'off': 50
+    bean_merchant_only: 0
+    all_but_beans: 0
+    all: 1
+
+  shuffle_merchants_minimum_price:
+    # If Shuffle Merchants is on, set their minimum price. Final price will be rounded down to multiples of 5.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999
+    10: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-999: 0 # random value between 0 and 999
+    random-range-1-20: 1
+
+  shuffle_merchants_maximum_price:
+    # If Shuffle Merchants is on, set their maximum price. Final price will be rounded down to multiples of 5.
+    # If this is set below the minimum, this option will be set to whatever the minimum is set to.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 999
+    90: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-999: 0 # random value between 0 and 999
+    random-range-30-90: 1
+
+  merchant_affordable_prices:
+    # After choosing a price range, set it to the affordable amount based on the wallet requirement.
+    # Affordable prices per tier: starter=1, adult=100, giant=201, tycoon=501
+    # Use this to enable wallet tier locking, but making shop items not as expensive as they could be.
+    'false': 50
+    'true': 0
+
+  shuffle_frog_song_rupees:
+    # Shuffle the purple rupee rewards from the frogs in Zora's River. If this is turned off, only the Song of Storms and Frog Minigame rewards are shuffled.
+    'false': 0
+    'true': 1
+
+  shuffle_adult_trade_items:
+    # Adds all adult trade quest items to the pool. If this is turned off, only the Claim Check is in the pool.
+    'false': 0
+    'true': 1
+
+  shuffle_100_gs_reward:
+    # Shuffle the item the cursed rich man in the House of Skulltula gives you when you have collected all 100 Gold Skulltula Tokens.
+    # You can still talk to him multiple times to get Huge Rupees.
+    'false': 50
+    'true': 0
+
+  shuffle_boss_souls:
+    # Shuffles 8 boss souls (one for each blue warp dungeon). A boss will not appear until you collect its respective soul.
+    # On + Ganon will also hide Ganon and Ganondorf behind a boss soul.
+    'off': 50
+    'on': 0
+    on_plus_ganons: 0
+
+  shuffle_fountain_fairies:
+    # Shuffle fairies in fountain locations.
+    # This includes the sets of fairies found in Ganon's Castle and Desert Colossus.
+    'false': 50
+    'true': 0
+
+  shuffle_stone_fairies:
+    # Shuffle fairies from Gossip Stone locations.
+    'false': 50
+    'true': 0
+
+  shuffle_bean_fairies:
+    # Shuffle fairies from Magic Bean locations.
+    'false': 50
+    'true': 0
+
+  shuffle_song_fairies:
+    # Shuffle fairy spots. These are spots where a big fairy is revealed by a song.
+    #
+    # This excludes Gossip Stones and Magic Bean locations.
+    'false': 50
+    'true': 0
+
+  shuffle_grass:
+    # Grass/Bushes will drop a randomized item the first time they're cut and collected.
+    # Off - Grass/Bushes will not be shuffled.
+    # Dungeons - Only shuffle grass/bushes that are within dungeons.
+    # Overworld - Only shuffle grass/bushes that are outside of dungeons.
+    # All Grass/Bushes - Shuffle all grass/bushes.
+    'off': 50
+    dungeon: 0
+    overworld: 0
+    all: 0
+
+  #########################
+  # Shuffle Dungeon Items #
+  #########################
+  shuffle_dungeon_rewards:
+    # Shuffles the location of Spiritual Stones and medallions.
+    # Off - Spiritual Stones and medallions will be given in their vanilla location from their respective boss.
+    # End of Dungeons - Spiritual Stones and medallions will be given as rewards for beating major dungeons. Link will always start with one stone or medallion.
+    # Any Dungeon - Spiritual Stones and medallions can only appear inside any dungeon.
+    # Overworld - Spiritual Stones and medallions can only appear outside of dungeons.
+    # Anywhere - Spiritual Stones and medallions can appear anywhere.
+    'off': 0
+    end_of_dungeons: 4
+    any_dungeon: 0
+    overworld: 0
+    anywhere: 1
+
+  maps_and_compasses:
+    # Start with - You will start with Maps & Compasses from all dungeons.
+    # Vanilla - Maps & Compasses will appear in their vanilla locations.
+    # Own Dungeon - Maps & Compasses can only appear in their respective dungeon.
+    # Any Dungeon - Maps & Compasses can only appear inside any dungeon.
+    # Overworld - Maps & Compasses can only appear outside of dungeons.
+    # Anywhere - Maps & Compasses can appear anywhere in the world.
+    start_with: 50
+    vanilla: 0
+    own_dungeon: 0
+    any_dungeon: 0
+    overworld: 0
+    anywhere: 0
+
+  small_key_shuffle:
+    # Vanilla - Small Keys will appear in their vanilla locations. You start with 3 keys in Spirit Temple MQ because the vanilla key layout is not beatable in logic.
+    # Own Dungeon - Small Keys can only appear in their respective dungeon. If Fire Temple is not a Master Quest dungeon, the door to the Boss Key chest will be unlocked.
+    # Any Dungeon - Small Keys can only appear inside any dungeon.
+    # Overworld - Small Keys can only appear outside of dungeons.
+    # Anywhere - Small Keys can appear anywhere in the world.
+    start_with: 0
+    vanilla: 0
+    own_dungeon: 1
+    any_dungeon: 0
+    overworld: 0
+    anywhere: 1
+
+  gerudo_fortress_key_shuffle:
+    # Vanilla - Thieves' Hideout Keys will appear in their vanilla locations.
+    # Any Dungeon - Thieves' Hideout Keys can only appear inside any dungeon.
+    # Overworld - Thieves' Hideout Keys can only appear outside of dungeons.
+    # Anywhere - Thieves' Hideout Keys can appear anywhere in the world.
+    vanilla: 4
+    any_dungeon: 0
+    overworld: 0
+    anywhere: 1
+
+  boss_key_shuffle:
+    # Vanilla - Boss Keys will appear in their vanilla locations.
+    # Own Dungeon - Boss Keys can only appear in their respective dungeon.
+    # Any Dungeon - Boss Keys can only appear inside any dungeon.
+    # Overworld - Boss Keys can only appear outside of dungeons.
+    # Anywhere - Boss Keys can appear anywhere in the world.
+    start_with: 0
+    vanilla: 0
+    own_dungeon: 1
+    any_dungeon: 0
+    overworld: 0
+    anywhere: 2
+
+  ganons_castle_boss_key:
+    # Vanilla - Ganon's Boss Key will appear in the vanilla location.
+    # Anywhere - Ganon's Boss Key can appear anywhere.
+    # LACS - These settings put the boss key on the Light Arrow Cutscene location, from Zelda in Temple of Time as adult, with differing requirements:
+    # - Vanilla: Obtain the Shadow Medallion and Spirit Medallion.
+    # - Stones: Obtain the specified amount of Spiritual Stones.
+    # - Medallions: Obtain the specified amount of medallions.
+    # - Dungeon rewards: Obtain the specified total sum of Spiritual Stones or medallions.
+    # - Dungeons: Complete the specified amount of dungeons. Dungeons are considered complete after stepping into the blue warp after the boss.
+    # - Tokens: Obtain the specified amount of Gold Skulltula Tokens.
+    vanilla: 0
+    anywhere: 1
+    lacs_vanilla: 0
+    lacs_stones: 0
+    lacs_medallions: 0
+    lacs_dungeon_rewards: 2
+    lacs_dungeons: 0
+    lacs_skull_tokens: 0
+
+  ganons_castle_boss_key_stones_required:
+    # If Ganon's Castle Boss Key is set to Stones, this is how many Spiritual Stones are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    # If the Greg Modifier is not set to Reward, the max will be 3.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 4
+    3: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 1 # random value weighted towards higher values
+    random-range-1-4: 0 # random value between 1 and 4
+
+  ganons_castle_boss_key_medallions_required:
+    # If Ganon's Castle Boss Key is set to Medallions, this is how many medallions are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    # If the Greg Modifier is not set to Reward, the max will be 6.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 7
+    6: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 1 # random value weighted towards higher values
+    random-range-1-7: 0 # random value between 1 and 7
+
+  ganons_castle_boss_key_dungeon_rewards_required:
+    # If Ganon's Castle Boss Key is set to Dungeon Rewards, this is how many dungeon rewards are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    # If the Greg Modifier is not set to Reward, the max will be 9.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 10
+    6: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 1 # random value weighted towards higher values
+    random-range-1-10: 0 # random value between 1 and 10
+
+  ganons_castle_boss_key_dungeons_required:
+    # If Ganon's Castle Boss Key is set to Dungeons, this is how many dungeon completions are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    # If the Greg Modifier is not set to Reward, the max will be 8.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
+    8: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 1 # random value weighted towards higher values
+    random-range-1-9: 0 # random value between 1 and 9
+
+  ganons_castle_boss_key_skull_tokens_required:
+    # If Ganon's Castle Boss Key is set to Tokens, this is how many Gold Skulltula Tokens are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    50: 0
+    random: 0
+    random-low: 1 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-100: 0 # random value between 1 and 100
+
+  ganons_castle_boss_key_greg_modifier:
+    # If Ganon's Castle Boss Key is enabled, Greg will count toward the LACS goal.
+    # Off - Greg will not count toward the LACS goal requirement.
+    # Reward - Greg will count toward the LACS goal and be considered in the logic.
+    # Wildcard - Greg will count toward the LACS goal but not be considered in the logic.
+    'off': 0
+    reward: 0
+    wildcard: 1
+
+  key_rings:
+    # Keyrings will replace all small keys from a particular dungeon with a single keyring that awards all keys for its associated dungeon.
+    #
+    # Off - No dungeons will have their keys replaced with keyrings.
+    #
+    # Count - A specified amount of randomly selected dungeons will have their keys replaced with keyrings.
+    #
+    # Selection - Hand select which dungeons will have their keys replaced with keyrings.
+    #
+    # Selecting key ring for dungeons will have no effect if Small Keys are set to Vanilla.
+    #
+    # If Gerudo Fortress Carpenters is set to Normal, and Gerudo Fortress Keys is set to anything other than Vanilla, then the maximum amount of Key Rings that can be selected by Count will be 9. Otherwise, the maximum amount of Key Rings will be 8.
+    'off': 1
+    count: 1
+    selection: 0
+
+  key_rings_count:
+    # If "Count" is selected for the Key Rings option, this is the count that will be used. If 9 is selected and Gerudo Fortress Keys don't meet the specified requirements, this option will be set to 8.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 9
+    0: 0
+    random: 1
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-9: 0 # random value between 0 and 9
+
+  gerudo_fortress_key_ring:
+    # Only used if Key Rings option is set to "Selection". Will only work if Gerudo Fortress Keys meet the specified requirements.
+    'false': 50
+    'true': 0
+
+  forest_temple_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  fire_temple_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  water_temple_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  spirit_temple_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  shadow_temple_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  bottom_of_the_well_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  gerudo_training_ground_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  ganons_castle_key_ring:
+    # Only used if Key Rings option is set to "Selection"
+    'false': 50
+    'true': 0
+
+  ##############
+  # Timesavers #
+  ##############
+  big_poe_target_count:
+    # The Poe collector will give a reward for turning in this many Big Poes.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    1: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-10: 0 # random value between 0 and 10
+
+  skip_child_zelda:
+    # Start with Zelda's Letter and the item Impa would normally give you and skip the sequence up until after meeting Zelda. Disables the ability to shuffle Weird Egg.
+    'false': 1
+    'true': 0
+
+  skip_epona_race:
+    # Epona can be summoned with Epona's Song without needing to race Ingo.
+    'false': 0
+    'true': 50
+
+  complete_mask_quest:
+    # Once the Happy Mask Shop is opened, all masks will be available to be borrowed.
+    'false': 0
+    'true': 50
+
+  skip_scarecrows_song:
+    # Start with the ability to summon Pierre the Scarecrow. Pulling out an Ocarina in Pierre's locations will automatically summon him.
+    # With Shuffle Ocarina Buttons enabled, you'll need at least two Ocarina buttons to summon him.
+    'false': 0
+    'true': 50
+
+  #####################
+  # Item Pool & Traps #
+  #####################
+  item_pool:
+    # Sets how many major items appear in the item pool.
+    # Balanced - Original item pool.
+    # Plentiful - Extra major items are added to the pool.
+    # Scarce - Some excess items are removed, including health upgrades.
+    # Minimal - Most excess items are removed.
+    balanced: 50
+    plentiful: 0
+    scarce: 0
+    minimal: 0
+
+  ice_trap_count:
+    # Specify an exact number of Ice Traps to add to the item pool. If the item pool is out of space, no more will be added.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    6: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-100: 0 # random value between 0 and 100
+    random-range-0-10: 1
+
+  ice_trap_filler_replacement:
+    # Specify a percentage of filler items to replace with Ice Traps.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-100: 0 # random value between 0 and 100
+
+  #########
+  # Hints #
+  #########
+  hint_clarity:
+    # Sets the clarity of hints.
+    #
+    # Obscure - Hints tell you the tier of an item but not what it is.
+    # Hookshot > Important Item
+    #
+    # Ambiguous (Experimental) - Hints tell you what the item could be based on its item group.
+    # Light Arrows > Magic Arrows
+    # (Quality of groups depends on game)
+    #
+    # Clear - Hints tell you exactly what the item is and opens the hint in the hint tab for free.
+    # Boomerang > Boomerang
+    obscure: 0
+    ambiguous: 0
+    clear: 50
+
+  gossip_stone_hints:
+    # Choose whether Gossip Stones should give hints and what is required to read them. Currently,
+    # Gossip Stones can only give out location hints and junk hints. Way of the Hero and Barren hints
+    # are not yet implemented.
+    #
+    # None - Gossip Stones do not give out hints.
+    #
+    # Need Nothing - Gossip Stones give out hints and you don't need anything to read them.
+    #
+    # Need Truth - Gossip Stones give out hints but you need Mask of Truth to read them.
+    #
+    # Need Stone - Gossip Stones give out hints but you need Stone of Agony to read them.
+    none: 0
+    need_nothing: 50
+    need_truth: 0
+    need_stone: 0
+
+  tot_altar_hint:
+    # Reading the Temple of Time altar as child will tell you the locations of the Spiritual Stones.
+    # Reading the Temple of Time altar as adult will tell you the locations of the medallions,
+    # as well as the conditions for building the Rainbow Bridge and getting the Boss Key for Ganon's Castle.
+    'false': 0
+    'true': 50
+
+  ganondorf_hint:
+    # Talking to Ganondorf in his boss room will tell you the location of the Light Arrows and Master Sword.
+    # If this option is enabled and Ganondorf is reachable without these items,
+    # Gossip Stones will never hint them.
+    'false': 0
+    'true': 50
+
+  sheik_la_hint:
+    # Talking to Sheik inside Ganon's Castle will tell you the location of the Light Arrows.
+    # If this option is enabled and Sheik is reachable without Light Arrows,
+    # Gossip Stones will never hint the Light Arrows.
+    'false': 50
+    'true': 0
+
+  boss_key_hint:
+    # Navi will tell you where the boss key can be found when prompted at a dungeon's boss door.
+    'false': 50
+    'true': 0
+
+  dampe_diary_hint:
+    # Reading the diary of Dampé the Gravekeeper as adult will tell you the location of a Progressive Hookshot.
+    'false': 1
+    'true': 0
+
+  greg_hint:
+    # Talking to the chest game owner after buying a key will tell you the location of Greg the Green Rupee.
+    'false': 1
+    'true': 0
+
+  saria_hint:
+    # Talking to Saria either in person or by playing Saria's Song will tell you the location of a Progressive Magic Meter.
+    'false': 1
+    'true': 0
+
+  mido_hint:
+    # Talking to Mido as child will tell you the location of the Kokiri Sword.
+    'false': 50
+    'true': 0
+
+  frog_game_hint:
+    # Standing near the pedestal for the frogs in Zora's River will tell you the reward for the frogs' Ocarina game.
+    'false': 1
+    'true': 0
+
+  ocarina_of_time_hint:
+    # Sheik in the Temple of Time will tell you the item and song on the Ocarina of Time.
+    'false': 50
+    'true': 0
+
+  big_goron_hint:
+    # Talking to Biggoron will tell you the item he will give you in exchange for the Claim Check.
+    'false': 0
+    'true': 50
+
+  big_poe_hint:
+    # Talking to the Poe Collector in the Market Guardhouse while adult will tell you what you receive for handing in Big Poes.
+    'false': 50
+    'true': 0
+
+  chicken_hint:
+    # Talking to Anju as child will tell you the item she will give you for delivering her cuccos to the pen.
+    'false': 50
+    'true': 0
+
+  malon_hint:
+    # Talking to Malon as adult will tell you the item on "Link's Cow",
+    # the cow you win from beating her time on the Lon Lon Obstacle Course.
+    'false': 0
+    'true': 50
+
+  horseback_archery_hint:
+    # Talking to the Horseback Archery Gerudo in Gerudo Fortress, or the nearby sign,
+    # will tell you what you win for scoring 1000 and 1500 points on Horseback Archery.
+    'false': 0
+    'true': 50
+
+  fishing_pole_hint:
+    # Talking to the fishing pond owner without the fishing pole will tell you its location.
+    'false': 50
+    'true': 0
+
+  scrub_hints:
+    # Business scrubs will reveal the identity of what they're selling.
+    'false': 0
+    'true': 50
+
+  merchant_hints:
+    # Merchants will reveal the identity of what they're selling.
+    # (Shops are not affected by this setting)
+    'false': 0
+    'true': 50
+
+  gs_10_hint:
+    # Talking to the Cursed Resident in the Skulltula House who is saved after 10 tokens will tell you the reward.
+    'false': 0
+    'true': 50
+
+  gs_20_hint:
+    # Talking to the Cursed Resident in the Skulltula House who is saved after 20 tokens will tell you the reward.
+    'false': 0
+    'true': 50
+
+  gs_30_hint:
+    # Talking to the Cursed Resident in the Skulltula House who is saved after 30 tokens will tell you the reward.
+    'false': 0
+    'true': 50
+
+  gs_40_hint:
+    # Talking to the Cursed Resident in the Skulltula House who is saved after 40 tokens will tell you the reward.
+    'false': 0
+    'true': 50
+
+  gs_50_hint:
+    # Talking to the Cursed Resident in the Skulltula House who is saved after 50 tokens will tell you the reward.
+    'false': 0
+    'true': 50
+
+  gs_100_hint:
+    # Talking to the Cursed Resident in the Skulltula House who is saved after 100 tokens will tell you the reward.
+    'false': 50
+    'true': 0
+
+  mask_shop_hint:
+    # Reading the mask shop sign will tell you rewards from showing masks at the Deku Theatre.
+    'false': 50
+    'true': 0
+
+  ##################
+  # Starting Items #
+  ##################
+  start_with_links_pocket:
+    # Sets the starting item in Link's pocket.
+    # Dungeon Reward - Starts you with a random dungeon reward.
+    # Advancement - Starts you with a random major item.
+    # Anything - Starts you with a random item.
+    # Nothing - Starts you with nothing in Link's pocket.
+    # CAUTION: When "Shuffle Dungeon Rewards" is set to "Off" or "End of Dungeons," this option will be forced to "Dungeon Reward."
+    dungeon_reward: 0
+    advancement: 0
+    anything: 0
+    nothing: 1
+
+  start_with_kokiri_sword:
+    # Start with the Kokiri Sword in your inventory.
+    'false': 1
+    'true': 1
+
+  start_with_master_sword:
+    # Start with the Master Sword in your inventory.
+    'false': 0
+    'true': 1
+
+  start_with_deku_shield:
+    # Start with a Deku Shield in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_ocarina:
+    # Start with an Ocarina in your inventory.
+    'off': 50
+    fairy_ocarina: 0
+    ocarina_of_time: 0
+
+  start_with_stick_ammo:
+    # Start with some Deku Sticks in your inventory.
+    # This option does nothing when "Shuffle Deku Stick Bag" is enabled.
+    'false': 0
+    'true': 1
+
+  start_with_nut_ammo:
+    # Start with some Deku Nuts in your inventory.
+    # This option does nothing when "Shuffle Deku Nut Bag" is enabled.
+    'false': 0
+    'true': 1
+
+  start_with_magic_beans:
+    # Start with a pouch of Magic Beans in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_zeldas_lullaby:
+    # Start with Zelda's Lullaby in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_eponas_song:
+    # Start with Epona's Song in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_sarias_song:
+    # Start with Saria's Song in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_suns_song:
+    # Start with Sun's Song in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_song_of_time:
+    # Start with Song of Time in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_song_of_storms:
+    # Start with Song of Storms in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_minuet:
+    # Start with Minuet of Forest in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_bolero:
+    # Start with Bolero of Fire in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_serenade:
+    # Start with Serenade of Water in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_requiem:
+    # Start with Requiem of Spirit in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_nocturne:
+    # Start with Nocturne of Shadow in your inventory.
+    'false': 50
+    'true': 0
+
+  start_with_prelude:
+    # Start with Prelude of Light in your inventory.
+    'false': 50
+    'true': 0
+
+  #######################
+  # Additional Features #
+  #######################
+  full_wallets:
+    # Start with a full wallet. All wallet upgrades come filled with rupees.
+    'false': 0
+    'true': 50
+
+  bombchu_bag:
+    # None - Bombchus have vanilla behavior, and any Bombchu requirement is filled by Bomb Bag + a renewable source of Bombchus.
+    #
+    # Single Bag - Bombchus require their own bag to be found before use. 5 of them are added to the pool (6 if the Carpet Merchant is shuffled). The first Bombchu Bag you find will be a Bag containing 20 chus, and subsequent bags will be replaced with Bombchu Ammo refills. Once found, they can be replenished at shops selling refills, Bombchu Bowling and the carpet merchant. Bombchu Bowling is opened by obtaining the Bombchu Bag.
+    #
+    # Progressive Bags - 3 Bombchu Bags are added to the pool, and the first one will unlock Bombchus with a capacity of 20. The second one will upgrade this capacity to 30, and the final one will upgrade this capacity to the usual 50.
+    #
+    # Bombchu Bowling is opened by obtaining the first Bombchu bag.
+    none: 0
+    single_bag: 0
+    progressive_bags: 1
+
+  bombchu_drops:
+    # Once you obtain a Bombchu Bag, refills will sometimes replace Bomb drops that would spawn.
+    # If you have Bombchu Bag disabled, you will need a Bomb Bag and existing Bombchus for Bombchus to drop.
+    'false': 0
+    'true': 50
+
+  blue_fire_arrows:
+    # Ice Arrows act like Blue Fire, making them able to melt red ice.
+    'false': 0
+    'true': 50
+
+  sunlight_arrows:
+    # Light Arrows can be used to light up the sun switches instead of using the Mirror Shield.
+    'false': 0
+    'true': 50
+
+  infinite_upgrades:
+    # Adds upgrades that hold infinite quantities of items (bombs, arrows, etc.).
+    # Progressive - The infinite upgrades are obtained after getting the last normal capacity upgrade.
+    # Condensed Progressive - The infinite upgrades are obtained as the first capacity upgrade (doesn't apply to the infinite wallet or to infinite magic).
+    'off': 0
+    progressive: 0
+    condensed_progressive: 1
+
+  skeleton_key:
+    # Adds a new item called the Skeleton Key, it unlocks every door locked by a small key.
+    'false': 50
+    'true': 0
+
+  slingbow_break_beehives:
+    # Allows Slingshot and Bow to break beehives when Beehive Shuffle is turned on.
+    'false': 0
+    'true': 50
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_inventory_from_pool:
+    # Start with the specified amount of these items and don't place them in the world. Example: "Bomb: 1"
+    #
+    # The game decides what the replacement items will be.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []
 
 ---
 
