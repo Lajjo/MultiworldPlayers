@@ -394,13 +394,14 @@ Dark Souls III:
     #   random_enemy_preset:
     #     RemoveSource: Ancient Wyvern; Darkeater Midir
     #     DontRandomize: Iudex Gundyr
-	RemoveSource: Ancient Wyvern
-}
+    RemoveSource: Ancient Wyvern
+  }
 
   # Item & Location Options
   exclude_locations: [
     # Prevent these locations from having an important item.
     #'Small Crystal Lizards', 'Hidden', 'Small Souls', 'Upgrade', 'Miscellaneous']
+  ]
   excluded_location_behavior:
     # How to choose items for excluded locations in DS3.
     # 
@@ -439,7 +440,7 @@ Dark Souls III:
   # Forces these items to be outside their native world.
   start_inventory: {
     # Start with the specified amount of these items. Example: "Bomb: 1"
-}
+  }
   start_hints: []
   # Start with these item's locations prefilled into the ``!hint`` command.
   start_location_hints: []
