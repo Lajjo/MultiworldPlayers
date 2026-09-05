@@ -8,13 +8,14 @@ game:
   The Messenger: 0
   The Witness: 0
   Super Mario 64: 0
-  Ship of Harkinian: 1
+  Ship of Harkinian: 0
   Links Awakening DX: 0
   Paint: 0
+  Dark Souls III: 1
 
 requires:
   game:
-    Ship of Harkinian: 1.4.2 # Version of the world required for this yaml to work as expected.
+    Ship of Harkinian: 1.4.1 # Version of the world required for this yaml to work as expected.
 
 Super Metroid:
   progression_balancing: 50
@@ -1541,8 +1542,8 @@ Ship of Harkinian:
 
   shuffle_deku_nut_bag:
     # Shuffles the Deku Nut bag into the item pool. The Deku Nut bag is required to hold Deku Nuts.
-    'false': 50
-    'true': 0
+    'false': 1
+    'true': 1
 
   rocs_feather:
     # Adds Roc's Feather to the item pool. Roc's Feather is a custom item granting the player a jump on demand.
@@ -2494,6 +2495,384 @@ Ship of Harkinian:
   plando_items:
     # Generic items plando.
     []
+
+Dark Souls III:
+  ################
+  # Game Options #
+  ################
+  progression_balancing:
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+  accessibility:
+    full: 50
+    minimal: 0
+  goal: [
+    # Which bosses must be defeated in order to win the game, of the form "<Region> Boss".
+    # 
+    # A few regions have more than one boss:
+    # 
+    # - **Archdragon Peak:** "Archdragon Peak Fort" is Ancient Wyvern in vanilla,
+    #   "Archdragon Peak End" is Nameless King in vanilla.
+    # - **Lothric Castle:** "Lothric Castle Entrance" is Dancer of the Boreal
+    #   Valley in vanilla, "Lothric Castle End" is Dragonslayer Armor in vanilla.
+    # - **Painted World of Ariandel:** "Painted World of Ariendel Lower" is
+    #   Champion's Gravetender and Gravetender Greatwolf in vanilla, "Painted
+    #   World of Ariendel End" is Sister Friede in vanilla.
+    # - **Ringed City:** "Ringed City Midway" is Halflight, Spear of the Church in
+    #   vanilla, "Ringed City Hidden" is Darkeater Midir in vanilla, and "Ringed
+    #   City End" is Slave Knight Gael in vanilla.
+    # 
+    # There are also several group names that can be used:
+    # 
+    # - **All Bosses:** All bosses in the base game and DLC must be beaten to win
+    #     the game.
+    # - **Base Game Bosses:** All bosses in the base game must be beaten, but not
+    #     any of the DLC bosses.
+    # - **DLC Bosses:** All bosses in the DLC must be beaten, but not any of the
+    #     base game bosses.
+    # 
+    # If multiple goals are selected, all of them must be achieved in order to win
+    # your game. By default, only "Kiln of the First Flame Boss" is selected.
+    'Kiln of the First Flame Boss']
+  early_banner:
+    # Force Small Lothric Banner into an early sphere in your world or across all worlds.
+    'off': 0
+    early_global: 0
+    early_local: 1
+  late_basin_of_vows:
+    # Guarantee that you don't need to enter Lothric Castle until later in the run.
+    # 
+    # - **Off:** You may have to enter Lothric Castle and the areas beyond it immediately after High
+    #   Wall of Lothric.
+    # - **After Small Lothric Banner:** You may have to enter Lothric Castle after Catacombs of
+    #   Carthus.
+    # - **After Small Doll:** You won't have to enter Lothric Castle until after Irithyll of the
+    #   Boreal Valley.
+    'off': 0
+    after_small_lothric_banner: 1
+    after_small_doll: 0
+  late_dlc:
+    # Guarantee that you don't need to enter the DLC until later in the run.
+    # 
+    # - **Off:** You may have to enter the DLC after Catacombs of Carthus.
+    # - **After Small Doll:** You may have to enter the DLC after Irithyll of the Boreal Valley.
+    # - **After Basin:** You won't have to enter the DLC until after Lothric Castle.
+    'off': 0
+    after_small_doll: 1
+    after_basin: 0
+  death_link:
+    # When you die, everyone who enabled death link dies. Of course, the reverse is true too.
+    # 
+    # - **Off:** Death link is disabled. (The default.)
+    # - **Any Death:** Death link triggers for any death.
+    # - **Lost Souls:** Death link only triggers if you die without collecting
+    #   your last bloodstain.
+    'off': 50
+    any_death: 0
+    lost_souls: 0
+  death_link_amnesty:
+    # How many times you have to die before sending a death link.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 30
+    1: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-30: 0 # random value between 1 and 30
+  enable_dlc:
+    # Include DLC locations, items, and enemies in the randomized pools.
+    # 
+    # To use this option, you must own both the "Ashes of Ariandel" and the "Ringed City" DLCs.
+    'false': 1
+    'true': 0
+  enable_ngp:
+    # Include items and locations exclusive to NG+ cycles.
+    # 
+    # These locations appear in normal NG runs. You don't have to enter NG+ to reach them.
+    'false': 0
+    'true': 1
+  #############
+  # Equipment #
+  #############
+  random_starting_loadout:
+    # Randomizes the equipment characters begin with.
+    'false': 0
+    'true': 50
+  require_one_handed_starting_weapons:
+    # Require starting equipment to be usable one-handed.
+    'false': 1
+    'true': 0
+  no_equip_load:
+    # Disable the equip load constraint from the game.
+    'false': 1
+    'true': 0
+  no_weapon_requirements:
+    # Disable the weapon requirements by removing any movement or damage penalties, permitting you
+    # to use any weapon early.
+    'false': 0
+    'true': 1
+  no_spell_requirements:
+    # Disable the spell requirements permitting you to use any spell.
+    'false': 0
+    'true': 1
+  ###########
+  # Weapons #
+  ###########
+  randomize_infusion:
+    # Enable this option to infuse a percentage of the pool of weapons and shields.
+    'false': 0
+    'true': 1
+  randomize_infusion_percentage:
+    # The percentage of weapons/shields in the pool to be infused if Randomize Infusion is toggled.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    33: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-100: 0 # random value between 0 and 100
+    random-range-33-50: 1
+    similar to base game: 0 # equivalent to 2
+  randomize_weapon_level:
+    # Enable this option to upgrade a percentage of the pool of weapons to a random value between
+    # the minimum and maximum levels defined.
+    # 
+    # - **All:** All weapons are eligible, both basic and epic
+    # - **Basic:** Only weapons that can be upgraded to +10
+    # - **Epic:** Only weapons that can be upgraded to +5
+    none: 0
+    all: 1
+    basic: 0
+    epic: 0
+  randomize_weapon_level_percentage:
+    # The percentage of weapons in the pool to be upgraded if randomize weapons level is toggled.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    33: 0
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-100: 0 # random value between 0 and 100random-range-0-100: 0 # random value between 0 and 100
+    random-range-15-40: 1
+  min_levels_in_5:
+    # The minimum upgraded value of a weapon in the pool of weapons that can only reach +5.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    1: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-5: 0 # random value between 0 and 5
+  max_levels_in_5:
+    # The maximum upgraded value of a weapon in the pool of weapons that can only reach +5.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    5: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-5: 0 # random value between 0 and 5
+  min_levels_in_10:
+    # The minimum upgraded value of a weapon in the pool of weapons that can reach +10.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    1: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-10: 0 # random value between 0 and 10
+  max_levels_in_10:
+    # The maximum upgraded value of a weapon in the pool of weapons that can reach +10.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    10: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-10: 0 # random value between 0 and 10
+  ##################
+  # Item Smoothing #
+  ##################
+  smooth_soul_items:
+    # Distribute soul items in a similar order as the base game.
+    # 
+    # By default, soul items will be distributed totally randomly. If this is set, less valuable soul
+    # items will generally appear in earlier spheres and more valuable ones will generally appear
+    # later.
+    'false': 1
+    'true': 0
+  smooth_upgrade_items:
+    # Distribute upgrade items in a similar order as the base game.
+    # 
+    # By default, upgrade items will be distributed totally randomly. If this is set, lower-level
+    # upgrade items will generally appear in earlier spheres and higher-level ones will generally
+    # appear later.
+    'false': 0
+    'true': 50
+  smooth_upgraded_weapons:
+    # Distribute upgraded weapons in a similar order as the base game.
+    # 
+    # By default, upgraded weapons will be distributed totally randomly. If this is set, lower-level
+    # weapons will generally appear in earlier spheres and higher-level ones will generally appear
+    # later.
+    'false': 1
+    'true': 0
+  ###########
+  # Enemies #
+  ###########
+  randomize_enemies:
+    # Randomize enemy and boss placements.
+    'false': 0
+    'true': 50
+  simple_early_bosses:
+    # Avoid replacing Iudex Gundyr and Vordt with difficult bosses.
+    # 
+    # This limits these fights to bosses that are known to scale gracefully for low-level fights.
+    # This doesn't necessarily mean that those bosses will be from the early game, just that they're
+    # not too difficult when scaled down.
+    # 
+    # This is ignored unless enemies are randomized.
+    'false': 0
+    'true': 50
+  scale_enemies:
+    # Scale randomized enemy stats to match the areas in which they appear.
+    # 
+    # Disabling this will tend to make the early game much more difficult and the late game much
+    # easier.
+    # 
+    # This is ignored unless enemies are randomized.
+    'false': 0
+    'true': 50
+  randomize_mimics_with_enemies:
+    # Mix Mimics into the main enemy pool.
+    # 
+    # If this is enabled, Mimics will be replaced by normal enemies who drop the Mimic rewards on
+    # death, and Mimics will be placed randomly in place of normal enemies. It's recommended to enable
+    # Impatient Mimics as well if you enable this.
+    # 
+    # This is ignored unless enemies are randomized.
+    'false': 50
+    'true': 0
+  randomize_small_crystal_lizards_with_enemies:
+    # Mix small Crystal Lizards into the main enemy pool.
+    # 
+    # If this is enabled, Crystal Lizards will be replaced by normal enemies who drop the Crystal
+    # Lizard rewards on death, and Crystal Lizards will be placed randomly in place of normal enemies.
+    # 
+    # This is ignored unless enemies are randomized.
+    'false': 50
+    'true': 0
+  reduce_harmless_enemies:
+    # Reduce the frequency that "harmless" enemies appear.
+    # 
+    # Enable this to add a bit of extra challenge. This severely limits the number of enemies that are
+    # slow to aggro, slow to attack, and do very little damage that appear in the enemy pool.
+    # 
+    # This is ignored unless enemies are randomized.
+    'false': 50
+    'true': 0
+  all_chests_are_mimics:
+    # Replace all chests with mimics that drop the same items.
+    # 
+    # If "Randomize Mimics With Enemies" is set, these chests will instead be replaced with random
+    # enemies that drop the same items.
+    # 
+    # This is ignored unless enemies are randomized.
+    'false': 50
+    'true': 0
+  impatient_mimics:
+    # Mimics attack as soon as you get close instead of waiting for you to open them.
+    # 
+    # This is ignored unless enemies are randomized.
+    'false': 50
+    'true': 0
+  random_enemy_preset: {
+    # The YAML preset for the static enemy randomizer.
+    # 
+    # See the online enemy randomization documentation for all available options.
+    # Include this as nested YAML. For example:
+    # 
+    #   random_enemy_preset:
+    #     RemoveSource: Ancient Wyvern; Darkeater Midir
+    #     DontRandomize: Iudex Gundyr
+
+    RemoveSource: Ancient Wyvern; Darkeater Midir
+  }
+  ###########################
+  # Item & Location Options #
+  ###########################
+  exclude_locations: [
+    # Prevent these locations from having an important item.
+    #'Small Crystal Lizards', 'Hidden', 'Small Souls', 'Upgrade', 'Miscellaneous']
+  ]
+  excluded_location_behavior:
+    # How to choose items for excluded locations in DS3.
+    # 
+    # - **Allow Useful:** Excluded locations can't have progression items, but they can have useful
+    #   items.
+    # - **Forbid Useful:** Neither progression items nor useful items can be placed in excluded
+    #   locations.
+    # - **Do Not Randomize:** Excluded locations always contain the same item as in vanilla Dark Souls
+    #   III.
+    # 
+    # A "progression item" is anything that's required to unlock another location in some game. A
+    # "useful item" is something each game defines individually, usually items that are quite
+    # desirable but not strictly necessary.
+    allow_useful: 0
+    forbid_useful: 50
+    do_not_randomize: 0
+  missable_location_behavior:
+    # Which items can be placed in locations that can be permanently missed.
+    # 
+    # - **Allow Useful:** Missable locations can't have progression items, but they can have useful
+    #   items.
+    # - **Forbid Useful:** Neither progression items nor useful items can be placed in missable
+    #   locations.
+    # - **Do Not Randomize:** Missable locations always contain the same item as in vanilla Dark Souls
+    #   III.
+    # 
+    # A "progression item" is anything that's required to unlock another location in some game. A
+    # "useful item" is something each game defines individually, usually items that are quite
+    # desirable but not strictly necessary.
+    allow_useful: 0
+    forbid_useful: 50
+    do_not_randomize: 0
+  local_items: []
+  # Forces these items to be in their native world.
+  non_local_items: []
+  # Forces these items to be outside their native world.
+  start_inventory: {
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+  }
+  start_hints: []
+  # Start with these item's locations prefilled into the ``!hint`` command.
+  start_location_hints: []
+  # Start with these locations and their item prefilled into the ``!hint`` command.
+  priority_locations: []
+  # Prevent these locations from having an unimportant item.
+  item_links: []
+  # Share part of your item pool with other players.
+  plando_items: []
+  # Generic items plando.
 
 ---
 
