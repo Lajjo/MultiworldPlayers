@@ -5,7 +5,7 @@ requires:
 game:
   Slay the Spire: 0
   Dark Souls III: 0
-  Hollow Knight: 1
+  Hollow Knight: 0
   Risk of Rain 2: 0
   The Witness: 0
 
@@ -35,7 +35,7 @@ Slay the Spire:
   local_items: # Forces these items to be in their native world.
     []
 
-  non_local_items: # Forces these items to be outside their native world.
+  non_local_items: # Forces these items to be outside their native world..
     []
 
   start_inventory: # Start with these items.
@@ -82,6 +82,36 @@ Dark Souls III:
     full: 50
     minimal: 0
 
+  goal: [
+    # Which bosses must be defeated in order to win the game, of the form "<Region> Boss".
+    # 
+    # A few regions have more than one boss:
+    # 
+    # - **Archdragon Peak:** "Archdragon Peak Fort" is Ancient Wyvern in vanilla,
+    #   "Archdragon Peak End" is Nameless King in vanilla.
+    # - **Lothric Castle:** "Lothric Castle Entrance" is Dancer of the Boreal
+    #   Valley in vanilla, "Lothric Castle End" is Dragonslayer Armor in vanilla.
+    # - **Painted World of Ariandel:** "Painted World of Ariendel Lower" is
+    #   Champion's Gravetender and Gravetender Greatwolf in vanilla, "Painted
+    #   World of Ariendel End" is Sister Friede in vanilla.
+    # - **Ringed City:** "Ringed City Midway" is Halflight, Spear of the Church in
+    #   vanilla, "Ringed City Hidden" is Darkeater Midir in vanilla, and "Ringed
+    #   City End" is Slave Knight Gael in vanilla.
+    # 
+    # There are also several group names that can be used:
+    # 
+    # - **All Bosses:** All bosses in the base game and DLC must be beaten to win
+    #     the game.
+    # - **Base Game Bosses:** All bosses in the base game must be beaten, but not
+    #     any of the DLC bosses.
+    # - **DLC Bosses:** All bosses in the DLC must be beaten, but not any of the
+    #     base game bosses.
+    # 
+    # If multiple goals are selected, all of them must be achieved in order to win
+    # your game. By default, only "Kiln of the First Flame Boss" is selected.
+    'Kiln of the First Flame Boss']
+
+
   early_banner:
     # Force Small Lothric Banner into an early sphere in your world or across all worlds.
     'off': 50
@@ -97,8 +127,8 @@ Dark Souls III:
     #   Carthus.
     # - **After Small Doll:** You won't have to enter Lothric Castle until after Irithyll of the
     #   Boreal Valley.
-    'off': 50
-    after_small_lothric_banner: 0
+    'off': 0
+    after_small_lothric_banner: 1
     after_small_doll: 0
 
   late_dlc:
@@ -107,7 +137,7 @@ Dark Souls III:
     # - **Off:** You may have to enter the DLC after Catacombs of Carthus.
     # - **After Small Doll:** You may have to enter the DLC after Irithyll of the Boreal Valley.
     # - **After Basin:** You won't have to enter the DLC until after Lothric Castle.
-    'off': 50
+    'off': 500
     after_small_doll: 0
     after_basin: 0
 
@@ -115,6 +145,18 @@ Dark Souls III:
     # When you die, everyone who enabled death link dies. Of course, the reverse is true too.
     'false': 50
     'true': 0
+
+  death_link_amnesty:
+    # How many times you have to die before sending a death link.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 30
+    1: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-1-30: 0 # random value between 1 and 30
 
   enable_dlc:
     # Include DLC locations, items, and enemies in the randomized pools.
@@ -125,53 +167,41 @@ Dark Souls III:
 
   enable_ngp:
     # Include items and locations exclusive to NG+ cycles.
-    'false': 50
-    'true': 0
+    'false': 0
+    'true': 1
 
   # Equipment
   random_starting_loadout:
     # Randomizes the equipment characters begin with.
     'false': 0
-    'true': 50
+    'true': 1
 
   require_one_handed_starting_weapons:
     # Require starting equipment to be usable one-handed.
-    'false': 0
-    'true': 50
-
-  auto_equip:
-    # Automatically equips any received armor or left/right weapons.
-    'false': 0
-    'true': 50
-
-  lock_equip:
-    # Lock the equipment slots so you cannot change your armor or your left/right weapons.
-    # 
-    # Works great with the Auto-equip option.
-    'false': 0
-    'true': 50
+    'false': 1
+    'true': 0
 
   no_equip_load:
     # Disable the equip load constraint from the game.
-    'false': 0
-    'true': 50
+    'false': 1
+    'true': 0
 
   no_weapon_requirements:
     # Disable the weapon requirements by removing any movement or damage penalties, permitting you
     # to use any weapon early.
     'false': 0
-    'true': 50
+    'true': 1
 
   no_spell_requirements:
     # Disable the spell requirements permitting you to use any spell.
     'false': 0
-    'true': 50
+    'true': 1
 
   # Weapons
   randomize_infusion:
     # Enable this option to infuse a percentage of the pool of weapons and shields.
     'false': 0
-    'true': 50
+    'true': 1
 
   randomize_infusion_percentage:
     # The percentage of weapons/shields in the pool to be infused if Randomize Infusion is toggled.
@@ -179,7 +209,7 @@ Dark Souls III:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 100
-    33: 50
+    33: 1
     random: 0
     random-low: 0
     random-high: 0
@@ -204,9 +234,10 @@ Dark Souls III:
     # Minimum value is 0
     # Maximum value is 100
     33: 0
+    random-range-15-40: 1
     random: 0
     random-low: 0
-    random-high: 50
+    random-high: 0
 
   min_levels_in_5:
     # The minimum upgraded value of a weapon in the pool of weapons that can only reach +5.
@@ -214,7 +245,7 @@ Dark Souls III:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 5
-    1: 50
+    1: 1
     random: 0
     random-low: 0
     random-high: 0
@@ -225,7 +256,7 @@ Dark Souls III:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 5
-    5: 50
+    5: 1
     random: 0
     random-low: 0
     random-high: 0
@@ -236,7 +267,7 @@ Dark Souls III:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 10
-    1: 50
+    1: 1
     random: 0
     random-low: 0
     random-high: 0
@@ -247,7 +278,7 @@ Dark Souls III:
     # You can define additional values between the minimum and maximum values.
     # Minimum value is 0
     # Maximum value is 10
-    10: 50
+    10: 1
     random: 0
     random-low: 0
     random-high: 0
@@ -259,7 +290,7 @@ Dark Souls III:
     # By default, soul items will be distributed totally randomly. If this is set, less valuable soul
     # items will generally appear in earlier spheres and more valuable ones will generally appear
     # later.
-    'false': 50
+    'false': 1
     'true': 0
 
   smooth_upgrade_items:
@@ -269,7 +300,7 @@ Dark Souls III:
     # upgrade items will generally appear in earlier spheres and higher-level ones will generally
     # appear later.
     'false': 0
-    'true': 50
+    'true': 1
 
   smooth_upgraded_weapons:
     # Distribute upgraded weapons in a similar order as the base game.
@@ -277,14 +308,14 @@ Dark Souls III:
     # By default, upgraded weapons will be distributed totally randomly. If this is set, lower-level
     # weapons will generally appear in earlier spheres and higher-level ones will generally appear
     # later.
-    'false': 0
-    'true': 50
+    'false': 1
+    'true': 0
 
   # Enemies
   randomize_enemies:
     # Randomize enemy and boss placements.
     'false': 0
-    'true': 50
+    'true': 1
 
   simple_early_bosses:
     # Avoid replacing Iudex Gundyr and Vordt with late bosses.
@@ -294,7 +325,7 @@ Dark Souls III:
     # 
     # This is ignored unless enemies are randomized.
     'false': 0
-    'true': 50
+    'true': 1
 
   scale_enemies:
     # Scale randomized enemy stats to match the areas in which they appear.
@@ -304,7 +335,7 @@ Dark Souls III:
     # 
     # This is ignored unless enemies are randomized.
     'false': 0
-    'true': 50
+    'true': 1
 
   randomize_mimics_with_enemies:
     # Mix Mimics into the main enemy pool.
@@ -314,8 +345,8 @@ Dark Souls III:
     # Impatient Mimics as well if you enable this.
     # 
     # This is ignored unless enemies are randomized.
-    'false': 0
-    'true': 50
+    'false': 1
+    'true': 0
 
   randomize_small_crystal_lizards_with_enemies:
     # Mix small Crystal Lizards into the main enemy pool.
@@ -324,7 +355,7 @@ Dark Souls III:
     # Lizard rewards on death, and Crystal Lizards will be placed randomly in place of normal enemies.
     # 
     # This is ignored unless enemies are randomized.
-    'false': 50
+    'false': 1
     'true': 0
 
   reduce_harmless_enemies:
@@ -354,52 +385,22 @@ Dark Souls III:
     'false': 50
     'true': 0
 
-  random_enemy_preset:
+  random_enemy_preset: {
     # The YAML preset for the static enemy randomizer.
     # 
-    # See the static randomizer documentation in `randomizer\presets\README.txt` for details.
+    # See the online enemy randomization documentation for all available options.
     # Include this as nested YAML. For example:
-    # 
-    # .. code-block:: YAML
     # 
     #   random_enemy_preset:
     #     RemoveSource: Ancient Wyvern; Darkeater Midir
     #     DontRandomize: Iudex Gundyr
-    {}
+	RemoveSource: Ancient Wyvern
+}
 
   # Item & Location Options
-  local_items:
-    # Forces these items to be in their native world.
-    []
-
-  non_local_items:
-    # Forces these items to be outside their native world.
-    []
-
-  start_inventory:
-    # Start with these items.
-    {}
-
-  start_hints:
-    # Start with these item's locations prefilled into the ``!hint`` command.
-    []
-
-  start_location_hints:
-    # Start with these locations and their item prefilled into the ``!hint`` command.
-    []
-
-  exclude_locations:
+  exclude_locations: [
     # Prevent these locations from having an important item.
-    ['Miscellaneous', 'Small Souls', 'Upgrade', 'Hidden', 'Small Crystal Lizards']
-
-  priority_locations:
-    # Prevent these locations from having an unimportant item.
-    []
-
-  item_links:
-    # Share part of your item pool with other players.
-    []
-
+    #'Small Crystal Lizards', 'Hidden', 'Small Souls', 'Upgrade', 'Miscellaneous']
   excluded_location_behavior:
     # How to choose items for excluded locations in DS3.
     # 
@@ -416,7 +417,6 @@ Dark Souls III:
     allow_useful: 0
     forbid_useful: 50
     do_not_randomize: 0
-
   missable_location_behavior:
     # Which items can be placed in locations that can be permanently missed.
     # 
@@ -433,6 +433,24 @@ Dark Souls III:
     allow_useful: 0
     forbid_useful: 50
     do_not_randomize: 0
+  local_items: []
+  # Forces these items to be in their native world.
+  non_local_items: []
+  # Forces these items to be outside their native world.
+  start_inventory: {
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+}
+  start_hints: []
+  # Start with these item's locations prefilled into the ``!hint`` command.
+  start_location_hints: []
+  # Start with these locations and their item prefilled into the ``!hint`` command.
+  priority_locations: []
+  # Prevent these locations from having an unimportant item.
+  item_links: []
+  # Share part of your item pool with other players.
+  plando_items: []
+  # Generic items plando.
+
 
 
 Hollow Knight:
